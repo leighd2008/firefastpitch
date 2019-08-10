@@ -1,12 +1,15 @@
 body {
   font-family: 'Open Sans Condensed', sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  vertical-align: middle;
+  padding: 20px 60px;
 }
 
-.App {
-  text-align: center;
-  vertical-align: middle;
+a {
+  text-decoration: none;
+  color: black;
 }
+
+a:hover {
+  text-decoration-line: underline;
+  color: red;
+}
+
