@@ -1,6 +1,6 @@
 body {
-  font-family: 'Open Sans Condensed', sans-serif;
-  padding: 20px 60px;
+  font-family: "Open Sans Condensed", sans-serif;
+  padding: 20px 5px;
 }
 
 a {
@@ -13,3 +13,9 @@ a:hover {
   color: red;
 }
 
+@media screen and (min-width: 450px) {
+  body {
+    font-family: "Open Sans Condensed", sans-serif;
+    padding: 20px 60px;
+  }
+}
