@@ -8,6 +8,7 @@ import TeamPage from "./pages/teamPage/teamPage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Tryouts from "./components/tryouts/tryout";
+import Training from "./components/training/training";
 // import FanWear from './components/fan_wear/fan_wear';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/Teams" component={TeamPage} />
         <Route path="/Tryouts" component={Tryouts} />
+        <Route path="/Training" component={Training} />
       </Switch>
       <Footer />
     </div>
