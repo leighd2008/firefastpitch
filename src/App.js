@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <Header />
-      <div className="fanWearBanner" style={{ textAlign: "center" }}>
+      {/* <div className="fanWearBanner" style={{ textAlign: "center" }}>
         <a
           href="https://www.bsnteamsports.com/shop/FF2019?utm_source=school&utm_medium=banner&utm_campaign=store_shop&utm_content=products"
           target="_blank"
@@ -26,7 +26,7 @@ function App() {
           </h1>
         </a>
         <h2>Hurry, shops closes 08/28/2019.</h2>
-      </div>
+      </div> */}
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/Teams" component={TeamPage} />
