@@ -41,14 +41,6 @@ export default compose(
           {i < events.length - 1 && <hr />}
         </div>
       ))}
-      <a
-        className="primary-cta"
-        href="https://calendar.google.com/calendar?cid=dHVobzZrZG1lbWRqZHYwbjI0ZWcwOW10bmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <h1> Go to Calendar </h1>
-      </a>
     </Card>
   </div>
 ));

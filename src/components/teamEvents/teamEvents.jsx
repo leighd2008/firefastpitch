@@ -5,7 +5,7 @@ import Scroll from "../scroll/scroll";
 
 import Events from "./events";
 
-const TeamEvents = ({ eventUrls, teamname }) => {
+const TeamEvents = ({ eventUrls, teamname, calendarLink }) => {
   return (
     <div className="team-events">
       <Card className="ma3 events">
@@ -13,6 +13,14 @@ const TeamEvents = ({ eventUrls, teamname }) => {
         <Scroll>
           <Events eventUrls={eventUrls} />
         </Scroll>
+        <a
+          className="primary-cta"
+          href={calendarLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h1> Go to Calendar </h1>
+        </a>
       </Card>
     </div>
   );

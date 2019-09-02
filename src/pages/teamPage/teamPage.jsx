@@ -24,6 +24,7 @@ const TeamPage = ({ teamname, eventurls }) => {
   // const googleMapLink = "https://goo.gl/maps/TSZ2T6Ti4oo";
   const images = require.context("../../assets", true);
   let imgsrc = images(`./${teamData[index].teamPic}`);
+  const calendarLink = `${teamData[index].calendarLink}`;
 
   return (
     <div className="App">
@@ -59,7 +60,11 @@ const TeamPage = ({ teamname, eventurls }) => {
       } */}
       {eventboard === true ? (
         <div>
-          <TeamEvents eventUrls={eventurls} teamname={teamname} />
+          <TeamEvents
+            eventUrls={eventurls}
+            teamname={teamname}
+            calendarLink={calendarLink}
+          />
         </div>
       ) : null}
     </div>

@@ -151,7 +151,9 @@ export const teamData = [
     fieldImage: "../images/mark-duffel-352915-unsplash2.jpg",
     eventUrls: true,
     photoGallery: false,
-    scoreboard: false
+    scoreboard: false,
+    calendarLink:
+      "https://calendar.google.com/calendar?cid=Y2RyN28yZnFhMWhmZzV1aGxxNnJhYXNvMzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
   },
   {
     id: 2,
@@ -311,6 +313,8 @@ export const teamData = [
     eventUrls: true,
     photoGallery: true,
     scoreboard:
-      "//gc.com/team-5c85359b955e067a733c24e7/scoreboard?g=5&p=5bafd0a9b7ce48001b2f2705"
+      "//gc.com/team-5c85359b955e067a733c24e7/scoreboard?g=5&p=5bafd0a9b7ce48001b2f2705",
+    calendarLink:
+      "https://calendar.google.com/calendar?cid=dHVobzZrZG1lbWRqZHYwbjI0ZWcwOW10bmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
   }
 ];
