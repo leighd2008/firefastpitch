@@ -153,7 +153,7 @@ export const teamData = [
     photoGallery: false,
     scoreboard: false,
     calendarLink:
-      "https://calendar.google.com/calendar?cid=Y2RyN28yZnFhMWhmZzV1aGxxNnJhYXNvMzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
+      "https://calendar.google.com/calendar/embed?src=cdr7o2fqa1hfg5uhlq6raaso38%40group.calendar.google.com&ctz=America%2FNew_York"
   },
   {
     id: 2,
@@ -315,6 +315,6 @@ export const teamData = [
     scoreboard:
       "//gc.com/team-5c85359b955e067a733c24e7/scoreboard?g=5&p=5bafd0a9b7ce48001b2f2705",
     calendarLink:
-      "https://calendar.google.com/calendar?cid=dHVobzZrZG1lbWRqZHYwbjI0ZWcwOW10bmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
+      "https://calendar.google.com/calendar/embed?src=tuho6kdmemdjdv0n24eg09mtnc%40group.calendar.google.com&ctz=America%2FNew_York"
   }
 ];
