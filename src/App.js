@@ -9,33 +9,59 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Tryouts from "./components/tryouts/tryout";
 import Training from "./components/training/training";
-// import FanWear from './components/fan_wear/fan_wear';
+import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
 
-function App() {
-  return (
-    <div>
-      <Header />
-      {/* <div className="fanWearBanner" style={{ textAlign: "center" }}>
-        <a
-          href="https://www.bsnteamsports.com/shop/FF2019?utm_source=school&utm_medium=banner&utm_campaign=store_shop&utm_content=products"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h1 style={{ color: "red" }}>
-            Click to Shop the 2019 FIRE FASTPITCH GEAR Store!
-          </h1>
-        </a>
-        <h2>Hurry, shops closes 08/28/2019.</h2>
-      </div> */}
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/Teams" component={TeamPage} />
-        <Route path="/Tryouts" component={Tryouts} />
-        <Route path="/Training" component={Training} />
-      </Switch>
-      <Footer />
-    </div>
-  );
+const initialState = {
+  // homeImage: homeImage,
+  // backgroundImage: homeImage,
+  teamName: "",
+  route: "home",
+  index: 0
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+  }
+
+  onRouteChange = (route, team, eventUrls) => {
+    if (route === "home") {
+      this.setState(initialState);
+    }
+    this.setState({
+      route: route,
+      // homeImage: homeImage,
+      teamName: team,
+      eventUrls: eventUrls
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route
+            path="/Fire14U"
+            component={() => (
+              <TeamPage teamname="Fire 14U" eventurls={Fire14UURLS} />
+            )}
+          />
+          <Route
+            path="/Fire12U"
+            component={() => (
+              <TeamPage teamname="Fire 12U" eventurls={Fire12UURLS} />
+            )}
+          />
+          <Route path="/Tryouts" component={Tryouts} />
+          <Route path="/Training" component={Training} />
+        </Switch>
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
