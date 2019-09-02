@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  border: 2px;
 
   .logo-container {
     height: 75%;
@@ -30,12 +31,14 @@
 
 @media screen and (min-width: 450px) {
   .header {
-    height: 210px;
+    height: 163px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     margin-bottom: 25px;
+    border: 2px;
+    border-color: black;
 
     .logo-container {
       height: 78%;
