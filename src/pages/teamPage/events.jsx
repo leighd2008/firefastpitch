@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyCVGXz61Pq4SWONsjUtbErVVLmHp3Hcvmg";
+const API_KEY = `${process.env.API_KEY}`;
 
 let makeGoogleCalendarURL = calID =>
   `https://www.googleapis.com/calendar/v3/calendars/${calID}/events` +
