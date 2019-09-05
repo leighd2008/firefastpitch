@@ -315,6 +315,6 @@ export const teamData = [
     scoreboard:
       "//gc.com/team-5c85359b955e067a733c24e7/scoreboard?g=5&p=5bafd0a9b7ce48001b2f2705",
     calendarLink:
-      "https://calendar.google.com/calendar/embed?src=tuho6kdmemdjdv0n24eg09mtnc%40group.calendar.google.com&ctz=America%2FNew_York"
+      "https://calendar.google.com/calendar/embed?src=vj7ea4u5k9j1bujvl30cafmab0%40group.calendar.google.com&ctz=America%2FNew_York"
   }
 ];

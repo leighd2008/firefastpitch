@@ -12,7 +12,7 @@ const Fire14UURLS = {
 
 const Fire12UURLS = {
   Instateam: makeGoogleCalendarURL(
-    `tuho6kdmemdjdv0n24eg09mtnc@group.calendar.google.com`
+    `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
   )
 };
 
