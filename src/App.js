@@ -7,8 +7,8 @@ import HomePage from "./pages/homepage/homepage";
 import TeamPage from "./pages/teamPage/teamPage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import Tryouts from "./components/tryouts/tryout";
-import Training from "./components/training/training";
+import Tryouts from "./pages/tryoutspage/tryout";
+import Training from "./pages/trainingpage/training";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
 
 const initialState = {
