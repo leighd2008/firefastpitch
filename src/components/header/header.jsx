@@ -1,23 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import { auth } from "../../firebase/firebase.utils";
+
 import Teams from "../teams/teams";
 
 import { ReactComponent as Logo } from "../../assets/FireLogo.svg";
 
 import "./header.scss";
 
-const Header = () => (
+const Header = ({ currentUser }) => (
   <div className="header">
     <NavLink className="logo-container" to="/">
       <Logo className="logo" />
     </NavLink>
     <div className="options">
       <NavLink className="option" exact to="/" activeClassName="selected">
-        <h1>Home</h1>
+        <h2>Home</h2>
       </NavLink>
       <NavLink className="option" to="/Tryouts" activeClassName="selected">
-        <h1>Tryouts</h1>
+        <h2>Tryouts</h2>
       </NavLink>
       <NavLink
         className="option"
@@ -25,9 +27,18 @@ const Header = () => (
         to="/Training"
         activeClassName="selected"
       >
-        <h1>Training</h1>
+        <h2>Training</h2>
       </NavLink>
       <Teams />
+      {currentUser ? (
+        <div className="option" onClick={() => auth.signOut()}>
+          <h2>Sign out</h2>
+        </div>
+      ) : (
+        <NavLink className="option" to="/AdminSignIn">
+          <h2>Admin</h2>
+        </NavLink>
+      )}
     </div>
   </div>
 );

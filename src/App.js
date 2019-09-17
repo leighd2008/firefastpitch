@@ -5,24 +5,41 @@ import "./App.css";
 
 import HomePage from "./pages/homepage/homepage";
 import TeamPage from "./pages/teamPage/teamPage";
+import SignInPage from "./pages/sign-inpage/sign-inpage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import Tryouts from "./pages/tryoutspage/tryout";
-import Training from "./pages/trainingpage/training";
+import TryoutsPage from "./pages/tryoutspage/tryout";
+import TrainingPage from "./pages/trainingpage/training";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
+import { auth } from "./firebase/firebase.utils";
 
 const initialState = {
   // homeImage: homeImage,
   // backgroundImage: homeImage,
   teamName: "",
   route: "home",
-  index: 0
+  index: 0,
+  currentUser: null
 };
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+  }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user });
+
+      console.log(user);
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
   }
 
   onRouteChange = (route, team, eventUrls) => {
@@ -40,7 +57,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -55,8 +72,9 @@ class App extends React.Component {
               <TeamPage teamname="Fire 12U" eventurls={Fire12UURLS} />
             )}
           />
-          <Route path="/Tryouts" component={Tryouts} />
-          <Route path="/Training" component={Training} />
+          <Route path="/Tryouts" component={TryoutsPage} />
+          <Route path="/Training" component={TrainingPage} />
+          <Route path="/AdminSignIn" component={SignInPage} />
         </Switch>
         <Footer />
       </div>

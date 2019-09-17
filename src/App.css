@@ -13,6 +13,10 @@ a:hover {
   color: red;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 @media screen and (min-width: 450px) {
   body {
     font-family: "Open Sans Condensed", sans-serif;
