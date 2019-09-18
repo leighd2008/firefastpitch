@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./App.css";
@@ -7,6 +7,7 @@ import "./App.css";
 import HomePage from "./pages/homepage/homepage";
 import TeamPage from "./pages/teamPage/teamPage";
 import SignInPage from "./pages/sign-inpage/sign-inpage";
+import AdminPage from "./pages/adminpage/adminpage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
@@ -84,7 +85,18 @@ class App extends React.Component {
           />
           <Route path="/Tryouts" component={TryoutsPage} />
           <Route path="/Training" component={TrainingPage} />
-          <Route path="/AdminSignIn" component={SignInPage} />
+          <Route path="/Adminpage" component={AdminPage} />
+          <Route
+            exact
+            path="/AdminSignIn"
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to="/Adminpage" />
+              ) : (
+                <SignInPage />
+              )
+            }
+          />
         </Switch>
         <Footer />
       </div>
@@ -92,11 +104,15 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App);

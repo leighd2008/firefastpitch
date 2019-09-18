@@ -32,14 +32,19 @@ const Header = ({ currentUser }) => (
       </NavLink>
       <Teams />
       {currentUser ? (
-        <div className="option" onClick={() => auth.signOut()}>
-          <h2>Sign out</h2>
-        </div>
+        <NavLink className="option" to="/Adminpage">
+          <h2>Admin</h2>
+        </NavLink>
       ) : (
         <NavLink className="option" to="/AdminSignIn">
           <h2>Admin</h2>
         </NavLink>
       )}
+      {currentUser ? (
+        <NavLink className="option" to="/" onClick={() => auth.signOut()}>
+          <h2>Sign out</h2>
+        </NavLink>
+      ) : null}
     </div>
   </div>
 );
