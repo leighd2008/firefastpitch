@@ -1,33 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 
+import { toggleTeamsHidden } from "../../redux/team/team.actions";
 import TeamsDropdown from "../teamsDropdown/teamsDropdown";
 
 import "./teams.scss";
 
-class Teams extends React.Component {
-  constructor(props) {
-    super(props);
+const Teams = ({ toggleTeamsHidden, hidden }) => (
+  <div className="teams" onClick={toggleTeamsHidden}>
+    <h1>Teams</h1>
+    {hidden ? null : <TeamsDropdown />}
+  </div>
+);
 
-    this.toggleTeamsHidden = this.toggleTeamsHidden.bind(this);
-    this.state = {
-      teamsOpen: true
-    };
-  }
+const mapStateToProps = ({ team: { hidden } }) => ({
+  hidden
+});
 
-  toggleTeamsHidden() {
-    this.setState(prevState => ({
-      teamsOpen: !this.state.teamsOpen
-    }));
-  }
+const mapDispatchToProps = dispatch => ({
+  toggleTeamsHidden: () => dispatch(toggleTeamsHidden())
+});
 
-  render() {
-    return (
-      <div className="teams" onClick={this.toggleTeamsHidden}>
-        <h1>Teams</h1>
-        {this.state.teamsOpen ? null : <TeamsDropdown />}
-      </div>
-    );
-  }
-}
-
-export default Teams;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Teams);
