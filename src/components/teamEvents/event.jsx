@@ -34,7 +34,7 @@ const Event = ({ event }) => {
     let date = startDate.getDate();
     let hours = 1;
     if (startDate.getHours() === 12) {
-      hours = 1;
+      hours = 12;
     } else {
       hours = startDate.getHours() % 12;
     }
