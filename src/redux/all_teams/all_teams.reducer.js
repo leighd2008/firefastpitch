@@ -23,3 +23,5 @@ const all_teamsReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export default all_teamsReducer;

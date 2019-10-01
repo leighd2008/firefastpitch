@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { toggleTeamsHidden } from "../../redux/team/team.actions";
+import { toggleTeamsHidden } from "../../redux/teamMenu/teamMenu.actions";
 import TeamsDropdown from "../teamsDropdown/teamsDropdown";
 
 import "./teams.scss";
@@ -13,7 +13,7 @@ const Teams = ({ toggleTeamsHidden, hidden }) => (
   </div>
 );
 
-const mapStateToProps = ({ team: { hidden } }) => ({
+const mapStateToProps = ({ teamMenu: { hidden } }) => ({
   hidden
 });
 
