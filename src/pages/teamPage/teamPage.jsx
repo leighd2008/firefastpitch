@@ -1,15 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 // import Contact from "../Contact/Contact";
 // import HomeField from "../HomeField/HomeField";
 // import TeamRoster from "../TeamRoster/TeamRoster";
 // import TeamPhotos from '../TeamPhotos/TeamPhotos';
-import { teamData } from "./teamData";
 import TeamEvents from "../../components/teamEvents/teamEvents";
 // import ScoreBoard from '../ScoreBoard/ScoreBoard';
 // import fieldImage from "../../assets/mark-duffel-352915-unsplash2.jpg";
 import Banner from "../../components/banner/banner";
+import { selectTeamData } from "../../redux/team/team.selectors";
 
-const TeamPage = ({ teamname, eventurls }) => {
+const TeamPage = ({ teamname, eventurls, teamData }) => {
   const index = teamData.findIndex(teamData => teamData.teamName === teamname);
   // const contact1 = `${teamData[index].headCoach} (${teamData[index].teamEmail})`;
   // const contact2 = `Assistant Coaches: ${teamData[index].assistantCoaches}`;
@@ -71,4 +73,8 @@ const TeamPage = ({ teamname, eventurls }) => {
   );
 };
 
-export default TeamPage;
+const mapStateToProps = createStructuredSelector({
+  teamData: selectTeamData
+});
+
+export default connect(mapStateToProps)(TeamPage);

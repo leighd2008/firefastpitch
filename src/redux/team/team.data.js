@@ -1,4 +1,4 @@
-export const teamData = [
+const TEAM_DATA = [
   {
     id: 1,
     teamName: "Fire 14U",
@@ -318,3 +318,5 @@ export const teamData = [
       "https://calendar.google.com/calendar/embed?src=vj7ea4u5k9j1bujvl30cafmab0%40group.calendar.google.com&ctz=America%2FNew_York"
   }
 ];
+
+export default TEAM_DATA;
