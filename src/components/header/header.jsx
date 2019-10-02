@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 
 import { auth } from "../../firebase/firebase.utils";
 
-import Teams from "../teams/teams";
+import TeamMenu from "../teamMenu/teamMenu";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { ReactComponent as Logo } from "../../assets/FireLogo.svg";
@@ -32,7 +32,7 @@ const Header = ({ currentUser }) => (
       >
         <h2>Training</h2>
       </NavLink>
-      <Teams />
+      <TeamMenu />
       {currentUser ? (
         <NavLink className="option" to="/Adminpage">
           <h2>Admin</h2>

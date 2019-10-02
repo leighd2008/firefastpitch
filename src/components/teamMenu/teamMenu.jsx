@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { toggleTeamsHidden } from "../../redux/teamMenu/teamMenu.actions";
 import TeamsDropdown from "../teamsDropdown/teamsDropdown";
 
-import "./teams.scss";
+import "./teamMenu.scss";
 
-const Teams = ({ toggleTeamsHidden, hidden }) => (
+const TeamMenu = ({ toggleTeamsHidden, hidden }) => (
   <div className="teams" onClick={toggleTeamsHidden}>
     <h1>Teams</h1>
     {hidden ? null : <TeamsDropdown />}
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Teams);
+)(TeamMenu);
