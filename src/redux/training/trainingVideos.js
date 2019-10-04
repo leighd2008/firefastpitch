@@ -1,4 +1,4 @@
-export const trainingVideos = [
+const TRAINING_VIDEOS = [
   {
     service: "youtube",
     video:
@@ -49,3 +49,5 @@ export const trainingVideos = [
     video: "https://www.youtube.com/embed/oe1bG2gocgo"
   }
 ];
+
+export default TRAINING_VIDEOS;

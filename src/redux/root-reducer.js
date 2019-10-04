@@ -4,10 +4,12 @@ import userReducer from "./user/user.reducer";
 import teamMenuReducer from "./teamMenu/teamMenu.reducer";
 import all_teamsReducer from "./all_teams/all_teams.reducer";
 import teamReducer from "./team/team.reducer";
+import trainingReducer from "./training/training.reducer";
 
 export default combineReducers({
   user: userReducer,
   teamMenu: teamMenuReducer,
   all_teams: all_teamsReducer,
-  team: teamReducer
+  team: teamReducer,
+  training: trainingReducer
 });
