@@ -18,20 +18,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 
-const initialState = {
-  // homeImage: homeImage,
-  // backgroundImage: homeImage,
-  teamName: "",
-  route: "home",
-  index: 0
-};
-
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = initialState;
-  }
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
@@ -54,18 +41,6 @@ class App extends React.Component {
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
-
-  onRouteChange = (route, team, eventUrls) => {
-    if (route === "home") {
-      this.setState(initialState);
-    }
-    this.setState({
-      route: route,
-      // homeImage: homeImage,
-      teamName: team,
-      eventUrls: eventUrls
-    });
-  };
 
   render() {
     return (
