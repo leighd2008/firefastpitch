@@ -6,3 +6,8 @@ export const selectTeamData = createSelector(
   [selectTeam],
   team => team.teams
 );
+
+export const selectTeamsForDatabase = createSelector(
+  [selectTeam],
+  teams => Object.keys(teams).map(key => teams[key])
+);

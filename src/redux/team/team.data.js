@@ -1,6 +1,5 @@
-const TEAM_DATA = [
-  {
-    id: 1,
+const TEAM_DATA = {
+  fire14U: {
     teamName: "Fire 14U",
     headCoach: "Mike Moody",
     assistantCoaches: "Stan Butler",
@@ -155,8 +154,7 @@ const TEAM_DATA = [
     calendarLink:
       "https://calendar.google.com/calendar/embed?src=cdr7o2fqa1hfg5uhlq6raaso38%40group.calendar.google.com&ctz=America%2FNew_York"
   },
-  {
-    id: 2,
+  fire12U: {
     teamName: "Fire 12U",
     headCoach: "Rich Meikle",
     assistantCoaches: "Jim Householder, Kevin Weber",
@@ -317,6 +315,6 @@ const TEAM_DATA = [
     calendarLink:
       "https://calendar.google.com/calendar/embed?src=vj7ea4u5k9j1bujvl30cafmab0%40group.calendar.google.com&ctz=America%2FNew_York"
   }
-];
+};
 
 export default TEAM_DATA;
