@@ -14,12 +14,19 @@ import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
 import TrainingPage from "./pages/trainingpage/training";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+  firestore,
+  convertCollectionsSnapshotToMap
+} from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectTeamsForDatabase } from "./redux/team/team.selectors";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
+  unsubscribeFromSnapshot = null;
 
   componentDidMount() {
     const { setCurrentUser } = this.props;
@@ -35,6 +42,11 @@ class App extends React.Component {
         });
       }
       setCurrentUser(userAuth);
+    });
+    const collectionRef = firestore.collection("teams");
+
+    collectionRef.onSnapshot(async snapshot => {
+      convertCollectionsSnapshotToMap(snapshot);
     });
   }
 
@@ -82,7 +94,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  teamsArray: selectTeamsForDatabase
 });
 
 const mapDispatchToProps = dispatch => ({

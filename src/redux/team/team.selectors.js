@@ -8,6 +8,6 @@ export const selectTeamData = createSelector(
 );
 
 export const selectTeamsForDatabase = createSelector(
-  [selectTeam],
+  [selectTeamData],
   teams => Object.keys(teams).map(key => teams[key])
 );

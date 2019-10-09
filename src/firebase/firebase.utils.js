@@ -54,6 +54,23 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
+export const convertCollectionsSnapshotToMap = teams => {
+  const transformedCollection = teams.docs.map(doc => {
+    const { teamName, location, eventUrls, teamPic, calendarLink } = doc.data();
+
+    return {
+      id: doc.id,
+      teamName,
+      location,
+      eventUrls,
+      teamPic,
+      calendarLink
+    };
+  });
+
+  console.log(transformedCollection);
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
