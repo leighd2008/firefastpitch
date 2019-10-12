@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { updateTeams } from "./redux/team/team.actions";
 
 import "./App.css";
 
@@ -22,7 +23,6 @@ import {
 } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
-import { selectTeamsForDatabase } from "./redux/team/team.selectors";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -43,10 +43,12 @@ class App extends React.Component {
       }
       setCurrentUser(userAuth);
     });
+    const { updateTeams } = this.props;
     const collectionRef = firestore.collection("teams");
 
-    collectionRef.onSnapshot(async snapshot => {
-      convertCollectionsSnapshotToMap(snapshot);
+    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+      const teamsMap = convertCollectionsSnapshotToMap(snapshot);
+      updateTeams(teamsMap);
     });
   }
 
@@ -94,12 +96,12 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  teamsArray: selectTeamsForDatabase
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  updateTeams: teamsMap => dispatch(updateTeams(teamsMap))
 });
 
 export default connect(
