@@ -61,6 +61,7 @@ const TEAM_DATA = {
         positions: "2B, SS, OF"
       }
     ],
+    title: "fire14U",
     tournaments: [
       {
         date: "",
@@ -221,6 +222,7 @@ const TEAM_DATA = {
         positions: ""
       }
     ],
+    title: "fire12U",
     tournaments: [
       {
         date: "",

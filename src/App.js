@@ -65,13 +65,21 @@ class App extends React.Component {
           <Route
             path="/Fire14U"
             component={() => (
-              <TeamPage teamname="Fire 14U" eventurls={Fire14UURLS} />
+              <TeamPage
+                teamname="Fire 14U"
+                title="fire14U"
+                eventurls={Fire14UURLS}
+              />
             )}
           />
           <Route
             path="/Fire12U"
             component={() => (
-              <TeamPage teamname="Fire 12U" eventurls={Fire12UURLS} />
+              <TeamPage
+                teamname="Fire 12U"
+                title="fire12U"
+                eventurls={Fire12UURLS}
+              />
             )}
           />
           <Route path="/Tryouts" component={TryoutsPage} />

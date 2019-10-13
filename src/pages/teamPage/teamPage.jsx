@@ -5,19 +5,19 @@ import TeamEvents from "../../components/teamEvents/teamEvents";
 import Banner from "../../components/banner/banner";
 import { selectTeamData } from "../../redux/team/team.selectors";
 
-const TeamPage = ({ teamname, eventurls, teamData }) => {
-  const index = teamData.findIndex(teamData => teamData.teamName === teamname);
-  const location = `${teamData[index].location}`;
-  const eventboard = teamData[index].eventUrls;
+const TeamPage = ({ teamname, title, eventurls, teamData }) => {
+  const team = teamData[title];
+  const location = `${team.location}`;
+  const eventboard = team.eventUrls;
   const images = require.context("../../assets", true);
-  let imgsrc = images(`./${teamData[index].teamPic}`);
-  const calendarLink = `${teamData[index].calendarLink}`;
+  let imgsrc = images(`./${team.teamPic}`);
+  const calendarLink = `${team.calendarLink}`;
 
   return (
     <div className="App">
       <Banner
         backgroundImage={imgsrc}
-        teamName={teamname}
+        teamName={team.teamName}
         location={location}
       />
       {eventboard === true ? (
