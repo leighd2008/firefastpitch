@@ -56,10 +56,19 @@ export const addCollectionAndDocuments = async (
 
 export const convertCollectionsSnapshotToMap = teams => {
   const transformedCollection = teams.docs.map(doc => {
-    const { teamName, location, eventUrls, teamPic, calendarLink } = doc.data();
+    const {
+      title,
+      teamName,
+      location,
+      eventUrls,
+      teamPic,
+      calendarLink
+    } = doc.data();
 
     return {
+      routeName: encodeURI(title),
       id: doc.id,
+      title,
       teamName,
       location,
       eventUrls,
@@ -68,7 +77,10 @@ export const convertCollectionsSnapshotToMap = teams => {
     };
   });
 
-  console.log(transformedCollection);
+  return transformedCollection.reduce((accumulator, team) => {
+    accumulator[team.title] = team;
+    return accumulator;
+  }, {});
 };
 
 export const auth = firebase.auth();

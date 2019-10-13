@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { updateTeams } from "./redux/team/team.actions";
 
+import WithSpinner from "./components/with-spinner/with-spinner";
+
 import "./App.css";
 
 import HomePage from "./pages/homepage/homepage";
@@ -24,7 +26,13 @@ import {
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 
+const TeamPageWithSpinner = WithSpinner(TeamPage);
+
 class App extends React.Component {
+  state = {
+    loading: true
+  };
+
   unsubscribeFromAuth = null;
   unsubscribeFromSnapshot = null;
 
@@ -49,6 +57,7 @@ class App extends React.Component {
     this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
       const teamsMap = convertCollectionsSnapshotToMap(snapshot);
       updateTeams(teamsMap);
+      this.setState({ loading: false });
     });
   }
 
@@ -57,6 +66,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { loading } = this.state;
     return (
       <div>
         <Header />
@@ -64,8 +74,9 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route
             path="/Fire14U"
-            component={() => (
-              <TeamPage
+            render={() => (
+              <TeamPageWithSpinner
+                isLoading={loading}
                 teamname="Fire 14U"
                 title="fire14U"
                 eventurls={Fire14UURLS}
@@ -74,8 +85,9 @@ class App extends React.Component {
           />
           <Route
             path="/Fire12U"
-            component={() => (
-              <TeamPage
+            render={() => (
+              <TeamPageWithSpinner
+                isLoading={loading}
                 teamname="Fire 12U"
                 title="fire12U"
                 eventurls={Fire12UURLS}

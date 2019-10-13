@@ -9,5 +9,11 @@ export const selectTeamData = createSelector(
 
 export const selectTeamsForDatabase = createSelector(
   [selectTeamData],
-  teams => Object.keys(teams).map(key => teams[key])
+  teams => (teams ? Object.keys(teams).map(key => teams[key]) : [])
 );
+
+export const selectOneTeam = collectionUrlParam =>
+  createSelector(
+    [selectTeamData],
+    teams => (teams ? teams[collectionUrlParam] : null)
+  );
