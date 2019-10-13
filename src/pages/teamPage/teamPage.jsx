@@ -7,6 +7,7 @@ import { selectTeamData } from "../../redux/team/team.selectors";
 
 const TeamPage = ({ teamname, title, eventurls, teamData }) => {
   const team = teamData[title];
+  const teamName = `${team.teamName}`;
   const location = `${team.location}`;
   const eventboard = team.eventUrls;
   const images = require.context("../../assets", true);
@@ -17,7 +18,7 @@ const TeamPage = ({ teamname, title, eventurls, teamData }) => {
     <div className="App">
       <Banner
         backgroundImage={imgsrc}
-        teamName={team.teamName}
+        teamName={teamName}
         location={location}
       />
       {eventboard === true ? (
