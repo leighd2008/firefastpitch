@@ -16,21 +16,24 @@
   }
 
   .content {
-    height: 30px;
-    padding: 5px;
+    height: 80px;
+    width: auto;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    background-color: rgb(202, 14, 14);
+    background-color: red;
     opacity: 1;
     position: absolute;
+    text-align: center;
 
     .title {
       font-weight: bold;
       font-size: 22px;
       color: #f8f5f5;
+      padding: 5px;
     }
   }
 }
@@ -54,16 +57,18 @@
     }
 
     .content {
-      height: 30px;
-      padding: 15px 25px;
+      width: auto;
+      height: 40px;
+      padding: 5px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       border: 1px solid black;
-      background-color: rgb(202, 14, 14);
+      background-color: red;
       opacity: 1;
-      position: absolute;
+      // position: absolute;
+      margin: 0 7.5px 15px;
 
       .title {
         font-weight: bold;
