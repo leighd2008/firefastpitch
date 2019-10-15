@@ -15,4 +15,9 @@
     justify-content: space-between;
     padding-bottom: 30px;
   }
+  h1 {
+    color: red !important;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin: auto;
+  }
 }

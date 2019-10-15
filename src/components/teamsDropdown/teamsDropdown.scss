@@ -1,26 +1,23 @@
 .teams-dropdown {
   position: absolute;
-  width: 100px;
+  width: 105px;
   height: 70px;
   display: flex;
   flex-direction: column;
   padding: 5px;
   border: none;
   background-color: white;
-  top: 140px;
-  // right: 450px;
+  // top: 140px;
   z-index: 5;
 
   .teams {
     height: 25px;
     display: flex;
     flex-direction: column;
-    margin: -10px 0 0 0;
-    // overflow: scroll;
+    margin: 0px 0 0 0;
 
     h2 {
       height: 25px;
-      margin: 5px;
     }
   }
 }

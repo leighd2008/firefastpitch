@@ -8,7 +8,7 @@ import "./teamMenu.scss";
 
 const TeamMenu = ({ toggleTeamsHidden, hidden }) => (
   <div className="teams" onClick={toggleTeamsHidden}>
-    <h1>Teams</h1>
+    <h2>TEAMS</h2>
     {hidden ? null : <TeamsDropdown />}
   </div>
 );
