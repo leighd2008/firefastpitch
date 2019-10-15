@@ -21,6 +21,9 @@ const Header = ({ currentUser }) => (
       <NavLink className="option" exact to="/" activeClassName="selected">
         <h2>Home</h2>
       </NavLink>
+      <NavLink className="option" to="/FanGear" activeClassName="selected">
+        <h2>FanGear</h2>
+      </NavLink>
       <NavLink className="option" to="/Tryouts" activeClassName="selected">
         <h2>Tryouts</h2>
       </NavLink>
