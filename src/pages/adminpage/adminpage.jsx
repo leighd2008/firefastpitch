@@ -8,7 +8,9 @@ import "./adminpage.scss";
 const AdminPage = ({ currentUser }) =>
   currentUser ? (
     <div className="adminPage">
-      <h1>This is where administrative stuff will happen eventually!</h1>
+      <h1 className="admin-title">
+        This is where administrative stuff will happen eventually!
+      </h1>
     </div>
   ) : (
     <SignInPage />

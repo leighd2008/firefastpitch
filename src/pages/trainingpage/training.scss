@@ -34,6 +34,11 @@
     }
   }
 }
+.training-title {
+  color: red !important;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  margin: auto;
+}
 
 @media only screen and (min-width: 450px) {
   .videodisplay {

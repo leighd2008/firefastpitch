@@ -12,7 +12,7 @@ const Team = ({ title, imageUrl, history, linkUrl, match }) => (
       }}
     />
     <div className="content">
-      <h1 className="title">{title.toUpperCase()}</h1>
+      <h1 className="title-wht">{title.toUpperCase()}</h1>
     </div>
   </div>
 );

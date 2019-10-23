@@ -5,7 +5,7 @@ import "./banner.scss";
 const Banner = ({ teamName, backgroundImage, location }) => {
   return (
     <div className="banner">
-      <h1>
+      <h1 className="banner-title">
         {teamName} {location}
       </h1>
       <Jumbotron

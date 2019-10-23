@@ -19,7 +19,7 @@ class FanGearPage extends React.Component {
     console.log(fangear);
     return (
       <div className="fan-gear-page">
-        <h1 className="title">FanGear</h1>
+        <h1 className="fan-gear-title">FanGear</h1>
         <div className="fan-gear-items">
           {fangear.map(({ id, ...otherFangearProps }) => (
             <FanGearItem key={id} {...otherFangearProps} />

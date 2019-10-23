@@ -15,7 +15,7 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
 
   return (
     <div className="training">
-      <h1> Training Videos</h1>
+      <h1 className="training-title"> Training Videos</h1>
       <div className="videodisplay">
         <div className="videolist">
           <ul>
