@@ -5,7 +5,7 @@ const FANGEAR_DATA = [
     title: "Cotton T- Shirt",
     image: "black_T.jpg",
     id: 1,
-    price: "$20",
+    price: "20",
     linkUrl: ""
   },
   {
@@ -14,7 +14,7 @@ const FANGEAR_DATA = [
     title: "T-shirt",
     image: "red_T.jpg",
     id: 2,
-    price: "$20",
+    price: "20",
     linkUrl: ""
   },
   {
@@ -23,7 +23,7 @@ const FANGEAR_DATA = [
     title: "Long Sleeve T- Shirt",
     image: "black_lng_slv_T.jpg",
     id: 3,
-    price: "$25",
+    price: "25",
     linkUrl: ""
   },
   {
@@ -32,7 +32,7 @@ const FANGEAR_DATA = [
     title: "Crewneck Sweatshirt",
     image: "black_sweatshirt.jpg",
     id: 4,
-    price: "$30",
+    price: "30",
     linkUrl: ""
   },
   {
@@ -41,7 +41,7 @@ const FANGEAR_DATA = [
     title: "Crewneck Sweatshirt",
     image: "red_sweatshirt.jpg",
     id: 5,
-    price: "$30",
+    price: "30",
     linkUrl: ""
   },
   {
@@ -50,7 +50,7 @@ const FANGEAR_DATA = [
     title: "Hooded Sweatshirt",
     image: "black_hoodie.jpg",
     id: 6,
-    price: "$35",
+    price: "35",
     linkUrl: ""
   },
   {
@@ -59,7 +59,7 @@ const FANGEAR_DATA = [
     title: "Jersey",
     image: "black_Jersey.jpg",
     id: 7,
-    price: "$40",
+    price: "40",
     linkUrl: ""
   },
   {
@@ -68,7 +68,7 @@ const FANGEAR_DATA = [
     title: "Jersey",
     image: "red_jersey.jpg",
     id: 8,
-    price: "$40",
+    price: "40",
     linkUrl: ""
   },
   {
@@ -77,7 +77,7 @@ const FANGEAR_DATA = [
     title: "Jersey",
     image: "white_jersey.jpg",
     id: 9,
-    price: "$40",
+    price: "40",
     linkUrl: ""
   },
   {
@@ -86,7 +86,7 @@ const FANGEAR_DATA = [
     title: "Hats",
     image: "hats.jpg",
     id: 10,
-    price: "$25",
+    price: "25",
     linkUrl: "",
     size: "large"
   }
