@@ -9,13 +9,15 @@ import TeamMenu from "../teamMenu/teamMenu";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 
-import { selectTeamMenuHidden } from "../../redux/teamMenu/teamMenu.selectors";
+import CartIcon from "../cart-icon/cart-icon";
+import CartDropdown from "../cart-dropdown/cart-dropdown";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
 
 import { ReactComponent as Logo } from "../../assets/FireLogo.svg";
 
 import "./header.scss";
 
-const Header = ({ currentUser, closeTeamDropdown }) => (
+const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
   <div className="header">
     <NavLink className="logo-container" to="/">
       <Logo className="logo" />
@@ -81,13 +83,15 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
           <h2>Sign out</h2>
         </NavLink>
       ) : null}
+      <CartIcon />
     </div>
+    {hidden ? null : <CartDropdown />}
   </div>
 );
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  hidden: selectTeamMenuHidden
+  hidden: selectCartHidden
 });
 
 const mapDispatchToProps = dispatch => ({
