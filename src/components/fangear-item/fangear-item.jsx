@@ -25,14 +25,14 @@ class FanGearItem extends React.Component {
   handleSelectColor = selectedValue => {
     // this.setState({
     this.props.item.color = selectedValue;
-    console.log(this.props.item);
+    // console.log(this.props.item);
     // });
   };
 
   handleSelectSize = selectedValue => {
     // this.setState({
     this.props.item.size = selectedValue;
-    console.log(this.props.item);
+    // console.log(this.props.item);
     // });
   };
 
