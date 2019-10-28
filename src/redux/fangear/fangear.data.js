@@ -1,13 +1,25 @@
 const FANGEAR_DATA = [
   {
-    item_num: "5000",
-    color: "black",
-    title: "Cotton T- Shirt",
-    image: "black_T.jpg",
-    id: 1,
-    price: "20",
-    linkUrl: ""
+    item_num: "",
+    color: "",
+    title: "Hats",
+    image: "hats.jpg",
+    id: 10,
+    price: "25",
+    linkUrl: "",
+    imagesize: "large",
+    size: ""
   },
+  // {
+  //   item_num: "5000",
+  //   color: "black",
+  //   title: "Cotton T- Shirt",
+  //   image: "black_T.jpg",
+  //   id: 1,
+  //   price: "20",
+  //   linkUrl: "",
+  //   size: '',
+  // },
   {
     item_num: "",
     color: "red",
@@ -15,7 +27,8 @@ const FANGEAR_DATA = [
     image: "red_T.jpg",
     id: 2,
     price: "20",
-    linkUrl: ""
+    linkUrl: "",
+    size: ""
   },
   {
     item_num: 5400,
@@ -24,17 +37,19 @@ const FANGEAR_DATA = [
     image: "black_lng_slv_T.jpg",
     id: 3,
     price: "25",
-    linkUrl: ""
+    linkUrl: "",
+    size: ""
   },
-  {
-    item_num: "18000",
-    color: "black",
-    title: "Crewneck Sweatshirt",
-    image: "black_sweatshirt.jpg",
-    id: 4,
-    price: "30",
-    linkUrl: ""
-  },
+  // {
+  //   item_num: "18000",
+  //   color: "black",
+  //   title: "Crewneck Sweatshirt",
+  //   image: "black_sweatshirt.jpg",
+  //   id: 4,
+  //   price: "30",
+  //   linkUrl: "",
+  //   size: '',
+  // },
   {
     item_num: "",
     color: "red",
@@ -42,7 +57,8 @@ const FANGEAR_DATA = [
     image: "red_sweatshirt.jpg",
     id: 5,
     price: "30",
-    linkUrl: ""
+    linkUrl: "",
+    size: ""
   },
   {
     item_num: "18500",
@@ -51,26 +67,29 @@ const FANGEAR_DATA = [
     image: "black_hoodie.jpg",
     id: 6,
     price: "35",
-    linkUrl: ""
+    linkUrl: "",
+    size: ""
   },
-  {
-    item_num: "",
-    color: "black",
-    title: "Jersey",
-    image: "black_Jersey.jpg",
-    id: 7,
-    price: "40",
-    linkUrl: ""
-  },
-  {
-    item_num: "",
-    color: "red",
-    title: "Jersey",
-    image: "red_jersey.jpg",
-    id: 8,
-    price: "40",
-    linkUrl: ""
-  },
+  // {
+  //   item_num: "",
+  //   color: "black",
+  //   title: "Jersey",
+  //   image: "black_Jersey.jpg",
+  //   id: 7,
+  //   price: "40",
+  //   linkUrl: "",
+  //   size: '',
+  // },
+  // {
+  //   item_num: "",
+  //   color: "red",
+  //   title: "Jersey",
+  //   image: "red_jersey.jpg",
+  //   id: 8,
+  //   price: "40",
+  //   linkUrl: "",
+  //   size: '',
+  // },
   {
     item_num: "",
     color: "white",
@@ -78,17 +97,8 @@ const FANGEAR_DATA = [
     image: "white_jersey.jpg",
     id: 9,
     price: "40",
-    linkUrl: ""
-  },
-  {
-    item_num: "",
-    color: "",
-    title: "Hats",
-    image: "hats.jpg",
-    id: 10,
-    price: "25",
     linkUrl: "",
-    size: "large"
+    size: ""
   }
 ];
 
