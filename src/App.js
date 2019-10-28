@@ -17,6 +17,7 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
 import TrainingPage from "./pages/trainingpage/training";
+import CheckoutPage from "./pages/checkoutPage/checkoutPage";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
 import {
   auth,
@@ -73,6 +74,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             path="/Fire14U"
             render={() => (
