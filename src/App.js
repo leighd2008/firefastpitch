@@ -12,7 +12,7 @@ import HomePage from "./pages/homepage/homepage";
 import TeamPage from "./pages/teamPage/teamPage";
 import SignInPage from "./pages/sign-inpage/sign-inpage";
 import AdminPage from "./pages/adminpage/adminpage";
-import FanGearPage from "./pages/fangearpage/fangearpage";
+// import FanGearPage from "./pages/fangearpage/fangearpage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
@@ -100,7 +100,7 @@ class App extends React.Component {
           <Route path="/Tryouts" component={TryoutsPage} />
           <Route path="/Training" component={TrainingPage} />
           <Route path="/Adminpage" component={AdminPage} />
-          <Route path="/FanGear" component={FanGearPage} />
+          {/* <Route path="/FanGear" component={FanGearPage} /> */}
           <Route
             exact
             path="/AdminSignIn"
