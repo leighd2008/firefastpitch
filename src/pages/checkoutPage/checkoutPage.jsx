@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import CheckoutItem from "../../components/checkout-item/checkout-item";
+import CustomButton from "../../components/custom-button/custom-button";
 
 import {
   selectCartItems,
@@ -42,6 +43,14 @@ const CheckoutPage = ({ cartItems, total }) => (
     <div className="total">
       <span>TOTAL: ${total}</span>
     </div>
+    <CustomButton
+      onClick={() => {
+        // history.push("/checkout");
+        // dispatch(toggleCartHidden());
+      }}
+    >
+      Add to Team Order
+    </CustomButton>
   </div>
 );
 

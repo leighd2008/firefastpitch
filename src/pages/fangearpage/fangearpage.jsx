@@ -10,6 +10,7 @@ import FanGearItem from "../../components/fangear-item/fangear-item";
 import "./fangearpage.scss";
 
 const FanGearPage = ({ fangear }) => {
+  let number = 0;
   return (
     <div className="fan-gear-page">
       <h1 className="fan-gear-title">FanGear</h1>
@@ -19,12 +20,15 @@ const FanGearPage = ({ fangear }) => {
         >
           <CardBody>
             <CardTitle className="tc f1" tag="h1">
-              Orders will be placed once the total items requested reaches 12.
-              We are currently at 0. Upon checkout you have the choice of paying
-              online (a service fee will be added), alternatively, payments can
-              be made directly to Shelly Householder(12U team mom) with no
-              service fee.
+              A Team order will be placed once the total items of a given color
+              reaches 12. Hats can be ordered individually. We are planning on a
+              Christmas order. Please use this site to add items to the team
+              order. Money will need to be turned in prior to (order date goes
+              here).
             </CardTitle>
+            <h1>{`Total Black/White items ${number}`}</h1>
+            <h1>{`Total Red items ${number}`}</h1>
+            <h1>{`Total Hats ${number}`}</h1>
           </CardBody>
         </Card>
       </div>
