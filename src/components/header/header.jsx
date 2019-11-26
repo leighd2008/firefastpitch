@@ -13,7 +13,7 @@ import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 // import CartDropdown from "../cart-dropdown/cart-dropdown";
 // import { selectCartHidden } from "../../redux/cart/cart.selectors";
 
-import { ReactComponent as Logo } from "../../assets/FireLogo.svg";
+import { ReactComponent as Logo } from "../../assets/FireLogoRipIt.svg";
 
 import "./header.scss";
 
@@ -98,7 +98,4 @@ const mapDispatchToProps = dispatch => ({
   closeTeamDropdown: () => dispatch(closeTeamDropdown())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
