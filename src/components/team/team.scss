@@ -59,4 +59,10 @@
       color: #f8f5f5;
     }
   }
+  .background-image {
+    background: no-repeat;
+    background-size: contain !important;
+    background-color: hsla(0, 0%, 100%, 0) !important;
+    background-position: center;
+  }
 }

@@ -1,12 +1,13 @@
 .welcome {
   min-width: 100%;
-  height: 60vh;
+  height: 35vh;
   flex: 1 1 auto;
   display: block;
   justify-content: center;
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+  background-color: red;
 
   .background-image {
     width: 100%;
@@ -16,14 +17,13 @@
   }
 
   .content {
-    height: 80px;
-    width: auto;
+    height: 60px;
     padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    // border: 1px solid black;
     background-color: red;
     opacity: 1;
     position: absolute;
@@ -36,12 +36,19 @@
       padding: 5px;
     }
   }
+
+  .background-image {
+    background: no-repeat;
+    background-size: contain !important;
+    background-color: hsla(0, 0%, 100%, 0) !important;
+    background-position: center;
+  }
 }
 
 @media screen and (min-width: 450px) {
   .welcome {
     min-width: 100%;
-    height: 40vh;
+    height: 50vh;
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
@@ -64,7 +71,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 1px solid black;
+      // border: 1px solid black;
       background-color: red;
       opacity: 1;
       // position: absolute;

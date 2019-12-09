@@ -9,10 +9,6 @@ import TeamMenu from "../teamMenu/teamMenu";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 
-// import CartIcon from "../cart-icon/cart-icon";
-// import CartDropdown from "../cart-dropdown/cart-dropdown";
-// import { selectCartHidden } from "../../redux/cart/cart.selectors";
-
 import { ReactComponent as Logo } from "../../assets/FireLogoRipIt.svg";
 
 import "./header.scss";
@@ -32,14 +28,6 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
       >
         <h2>Home</h2>
       </NavLink>
-      {/* <NavLink
-        className="option"
-        to="/FanGear"
-        activeClassName="selected"
-        onClick={closeTeamDropdown}
-      > */}
-      {/* <h2>FanGear</h2>
-      </NavLink> */}
       <NavLink
         className="option"
         to="/Tryouts"
@@ -83,9 +71,7 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
           <h2>Sign out</h2>
         </NavLink>
       ) : null}
-      {/* <CartIcon /> */}
     </div>
-    {/* {hidden ? null : <CartDropdown />} */}
   </div>
 );
 

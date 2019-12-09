@@ -74,7 +74,6 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          {/* <Route exact path="/checkout" component={CheckoutPage} /> */}
           <Route
             path="/Fire14U"
             render={() => (
@@ -128,7 +127,4 @@ const mapDispatchToProps = dispatch => ({
   updateTeams: teamsMap => dispatch(updateTeams(teamsMap))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

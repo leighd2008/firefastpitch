@@ -3,18 +3,25 @@ import { withRouter } from "react-router-dom";
 
 import "./team.scss";
 
-const Team = ({ title, imageUrl, history, linkUrl, match }) => (
-  <div className="team" onClick={() => history.push(`${match.url}${linkUrl}`)}>
+const Team = ({ title, imageUrl, history, linkUrl, match }) => {
+  const images = require.context("../../assets", true);
+  let imgsrc = images(`./${imageUrl}`);
+  return (
     <div
-      className="background-image"
-      style={{
-        backgroundImage: `url(${imageUrl})`
-      }}
-    />
-    <div className="content">
-      <h1 className="title-wht">{title.toUpperCase()}</h1>
+      className="team"
+      onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
+      <div
+        className="background-image"
+        style={{
+          backgroundImage: `url(${imgsrc})`
+        }}
+      />
+      <div className="content">
+        <h1 className="title-wht">{title.toUpperCase()}</h1>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default withRouter(Team);
