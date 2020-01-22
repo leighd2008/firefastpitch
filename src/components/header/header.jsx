@@ -74,7 +74,7 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
     </div>
     <div>
       <h1 className="fangear">
-        Ladies get your
+        Get your
         <a
           href="https://firefastpitchsoftball.itemorder.com/sale"
           rel="noopener noreferrer"
