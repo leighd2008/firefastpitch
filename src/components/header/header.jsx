@@ -9,7 +9,7 @@ import TeamMenu from "../teamMenu/teamMenu";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 
-import { ReactComponent as Logo } from "../../assets/FireLogoRipIt.svg";
+import { ReactComponent as Logo } from "../../assets/Fire_CO-OP_banner.svg";
 
 import "./header.scss";
 
@@ -71,6 +71,19 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
           <h2>Sign out</h2>
         </NavLink>
       ) : null}
+    </div>
+    <div>
+      <h1 className="fangear">
+        Ladies get your
+        <a
+          href="https://firefastpitchsoftball.itemorder.com/sale"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          GLITTER FANGEAR
+        </a>
+        here!
+      </h1>
     </div>
   </div>
 );
