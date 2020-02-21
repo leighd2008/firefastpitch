@@ -26,7 +26,15 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
         activeClassName="selected"
         onClick={closeTeamDropdown}
       >
-        <h2>Home</h2>
+        <h3>Home</h3>
+      </NavLink>
+      <NavLink
+        className="option"
+        to="/Tournaments"
+        activeClassName="selected"
+        onClick={closeTeamDropdown}
+      >
+        <h3>Tournaments</h3>
       </NavLink>
       <NavLink
         className="option"
@@ -34,7 +42,7 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
         activeClassName="selected"
         onClick={closeTeamDropdown}
       >
-        <h2>Tryouts</h2>
+        <h3>Tryouts</h3>
       </NavLink>
       <NavLink
         className="option"
@@ -43,7 +51,7 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
         activeClassName="selected"
         onClick={closeTeamDropdown}
       >
-        <h2>Training</h2>
+        <h3>Training</h3>
       </NavLink>
       <TeamMenu />
       {currentUser ? (
@@ -56,7 +64,7 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
           to="/AdminSignIn"
           onClick={closeTeamDropdown}
         >
-          <h2>Admin</h2>
+          <h3>Admin</h3>
         </NavLink>
       )}
       {currentUser ? (
@@ -68,7 +76,7 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
             closeTeamDropdown();
           }}
         >
-          <h2>Sign out</h2>
+          <h3>Sign out</h3>
         </NavLink>
       ) : null}
     </div>

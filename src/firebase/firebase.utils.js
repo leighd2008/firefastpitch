@@ -62,7 +62,8 @@ export const convertCollectionsSnapshotToMap = teams => {
       location,
       eventUrls,
       teamPic,
-      calendarLink
+      calendarLink,
+      tournaments
     } = doc.data();
 
     return {
@@ -73,7 +74,8 @@ export const convertCollectionsSnapshotToMap = teams => {
       location,
       eventUrls,
       teamPic,
-      calendarLink
+      calendarLink,
+      tournaments
     };
   });
 

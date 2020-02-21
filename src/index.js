@@ -7,6 +7,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 import App from "./App";
 
+import "bootstrap/dist/css/bootstrap.css";
+import "tachyons";
+
 import { store, persistor } from "./redux/store";
 
 ReactDOM.render(

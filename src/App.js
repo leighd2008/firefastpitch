@@ -17,6 +17,7 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
 import TrainingPage from "./pages/trainingpage/training";
+import TournamentPage from "./pages/TournamentPage/TournamentPage";
 // import CheckoutPage from "./pages/checkoutPage/checkoutPage";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
 import {
@@ -98,6 +99,7 @@ class App extends React.Component {
           />
           <Route path="/Tryouts" component={TryoutsPage} />
           <Route path="/Training" component={TrainingPage} />
+          <Route path="/Tournaments" component={TournamentPage} />
           <Route path="/Adminpage" component={AdminPage} />
           {/* <Route path="/FanGear" component={FanGearPage} /> */}
           <Route
