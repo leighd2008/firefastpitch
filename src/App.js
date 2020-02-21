@@ -30,6 +30,7 @@ import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 
 const TeamPageWithSpinner = WithSpinner(TeamPage);
+const TournamentPageWithSpinner = WithSpinner(TournamentPage);
 
 class App extends React.Component {
   state = {
@@ -81,7 +82,7 @@ class App extends React.Component {
               <TeamPageWithSpinner
                 isLoading={loading}
                 teamname="Fire 14U"
-                title="fire14U"
+                title="Fire14U"
                 eventurls={Fire14UURLS}
               />
             )}
@@ -92,16 +93,18 @@ class App extends React.Component {
               <TeamPageWithSpinner
                 isLoading={loading}
                 teamname="Fire 12U"
-                title="fire12U"
+                title="Fire12U"
                 eventurls={Fire12UURLS}
               />
             )}
           />
           <Route path="/Tryouts" component={TryoutsPage} />
           <Route path="/Training" component={TrainingPage} />
-          <Route path="/Tournaments" component={TournamentPage} />
+          <Route
+            path="/Tournaments"
+            render={() => <TournamentPageWithSpinner isLoading={loading} />}
+          />
           <Route path="/Adminpage" component={AdminPage} />
-          {/* <Route path="/FanGear" component={FanGearPage} /> */}
           <Route
             exact
             path="/AdminSignIn"

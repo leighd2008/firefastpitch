@@ -28,13 +28,6 @@ const Tournaments = ({ index, teamData }) => {
             <th>Weekend</th>
             <th>Name</th>
             <th>Location</th>
-            {/* {teamDataArray.map((team, j) => {
-              console.log(teamDataArray);
-              if (j >= indexStart && j < indexEnd) {
-                return <th key={team[1].id}>{team[1].teamName}</th>;
-              }
-              return null;
-            })} */}
           </tr>
         </thead>
         <tbody>

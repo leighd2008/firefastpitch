@@ -32,16 +32,23 @@
     justify-content: center;
     margin: auto;
     cursor: pointer;
+
+    .option {
+      padding: 5px 10px;
+      color: black;
+    }
+    a:hover {
+      text-decoration-line: underline;
+      color: black;
+    }
+    .selected {
+      color: red;
+    }
   }
 
   h3 {
     margin: 0 !important;
-    color: black;
   }
-}
-
-.selected {
-  color: red;
 }
 
 @media screen and (min-width: 450px) {
@@ -70,10 +77,9 @@
       .option {
         padding: 10px 15px;
       }
-    }
-
-    .selected {
-      color: red;
+      .selected {
+        color: red;
+      }
     }
   }
 }

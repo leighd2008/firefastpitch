@@ -4,9 +4,11 @@
   margin-top: 50px;
   width: 100%;
   color: white;
-  // display: flex;
-  // justify-content: center;
   text-align: center;
+
+  a {
+    color: black;
+  }
 
   a:hover {
     text-decoration-line: underline;
@@ -15,5 +17,33 @@
 
   & h1 {
     color: white;
+  }
+
+  h2 {
+    font-size: large;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .footer {
+    background-color: red;
+    height: 250px;
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    text-align: center;
+
+    a:hover {
+      text-decoration-line: underline;
+      color: black;
+    }
+
+    & h1 {
+      color: white;
+    }
+
+    h2 {
+      font-size: xx-large;
+    }
   }
 }

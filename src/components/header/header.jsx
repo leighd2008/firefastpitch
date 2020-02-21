@@ -13,7 +13,7 @@ import { ReactComponent as Logo } from "../../assets/Fire_CO-OP_banner.svg";
 
 import "./header.scss";
 
-const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
+const Header = ({ currentUser, closeTeamDropdown }) => (
   <div className="header">
     <NavLink className="logo-container" to="/">
       <Logo className="logo" />
@@ -56,7 +56,7 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
       <TeamMenu />
       {currentUser ? (
         <NavLink className="option" to="/Adminpage" onClick={closeTeamDropdown}>
-          <h2>Admin</h2>
+          <h3>Admin</h3>
         </NavLink>
       ) : (
         <NavLink
@@ -98,7 +98,6 @@ const Header = ({ currentUser, closeTeamDropdown, hidden }) => (
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
-  // hidden: selectCartHidden
 });
 
 const mapDispatchToProps = dispatch => ({

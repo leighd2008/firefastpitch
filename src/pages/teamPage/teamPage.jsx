@@ -6,6 +6,9 @@ import Banner from "../../components/banner/banner";
 import { selectTeamData } from "../../redux/team/team.selectors";
 
 const TeamPage = ({ teamname, title, eventurls, teamData }) => {
+  console.log(teamData);
+  console.log(title);
+
   const team = teamData[title];
   const teamName = `${team.teamName}`;
   const location = `${team.location}`;

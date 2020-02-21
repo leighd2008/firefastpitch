@@ -7,10 +7,10 @@ const TeamsDropdown = () => (
   <div className="teams-dropdown">
     <div className="teams">
       <NavLink exact to="/Fire14U" activeClassName="selected">
-        <h2>Fire 14U</h2>
+        <h4>Fire 14U</h4>
       </NavLink>
       <NavLink exact to="/Fire12U" activeClassName="selected">
-        <h2>Fire 12U</h2>
+        <h4>Fire 12U</h4>
       </NavLink>
     </div>
   </div>

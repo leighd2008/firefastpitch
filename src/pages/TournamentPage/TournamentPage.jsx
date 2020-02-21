@@ -1,12 +1,9 @@
 import React from "react";
 import Tournaments from "./Tournaments";
 
-import { Card, CardTitle } from "reactstrap";
+import { Card } from "reactstrap";
 
 const TournamentPage = () => {
-  // let indexStart = 0;
-  // let indexEnd = 2;
-
   return (
     <Card
       className="ma3 roster"

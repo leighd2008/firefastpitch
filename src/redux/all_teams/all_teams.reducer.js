@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   teams: [
     {
       title: "Fire 14U",
-      imageUrl: "14U_team.jpg",
+      imageUrl: "14U_team2.jpg",
       id: 1,
       linkUrl: "Fire14U"
     },
