@@ -15,7 +15,7 @@ const TournamentPage = () => {
       }}
     >
       <Tournaments index={1} />
-      {/* <Tournaments index={0} /> */}
+      <Tournaments index={0} />
     </Card>
   );
 };
