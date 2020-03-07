@@ -60,6 +60,14 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
                 </li>
               </ul>
             </li>
+            <li>
+              Warm Up Drills
+              <ul>
+                <li className="videolinks" onClick={goToVideo.bind(this, 11)}>
+                  Warm Up Throwing
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
         <div className="youtube">
@@ -101,7 +109,4 @@ const mapDispatchFromProps = dispatch => ({
   goToVideo: videoIndex => dispatch(goToVideo(videoIndex))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchFromProps
-)(Training);
+export default connect(mapStateToProps, mapDispatchFromProps)(Training);

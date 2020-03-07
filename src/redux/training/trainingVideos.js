@@ -47,6 +47,10 @@ const TRAINING_VIDEOS = [
   {
     service: "youtube",
     video: "https://www.youtube.com/embed/oe1bG2gocgo"
+  },
+  {
+    service: "youtube",
+    video: "https://www.youtube.com/embed/BomXCfnLl7Q"
   }
 ];
 
