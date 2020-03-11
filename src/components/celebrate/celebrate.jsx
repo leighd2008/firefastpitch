@@ -10,18 +10,8 @@ const Celebrate = () => {
   return (
     <div className="celebrate">
       <div className="pics">
-        <div
-          className="background-image"
-          style={{
-            backgroundImage: `url(${imgsrc1})`
-          }}
-        />
-        <div
-          className="background-image"
-          style={{
-            backgroundImage: `url(${imgsrc2})`
-          }}
-        />
+        <img src={imgsrc1} alt="first" />
+        <img src={imgsrc2} alt="second" />
       </div>
       <div className="subtitle">
         <h1>

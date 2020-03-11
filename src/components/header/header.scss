@@ -1,5 +1,5 @@
 .header {
-  height: 400px;
+  height: 500px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -9,6 +9,7 @@
     display: flex;
     color: red !important;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     a {
       color: red !important;
@@ -18,19 +19,19 @@
   }
 
   .logo-container {
-    height: 75%;
+    height: 40%;
     margin: 0 auto;
-    width: 400px;
+    width: 100%;
   }
 
   .options {
-    width: 100%;
-    height: 20%;
+    width: 90%;
+    height: 30%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
     cursor: pointer;
 
     .option {
@@ -65,6 +66,11 @@
     .logo-container {
       height: 78%;
       width: 400px;
+    }
+
+    .fangear {
+      flex-direction: row;
+      margin: 35px auto;
     }
 
     .options {
