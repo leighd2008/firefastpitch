@@ -84,6 +84,15 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
       <h1 className="fangear">
         Get your
         <a
+          href="http://sideline.bsnsports.com/schools/ohio/leavittsburg/fire-fastpitch-softball
+"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          FANGEAR
+        </a>
+        or
+        <a
           href="https://firefastpitchsoftball.itemorder.com/sale"
           rel="noopener noreferrer"
           target="_blank"
