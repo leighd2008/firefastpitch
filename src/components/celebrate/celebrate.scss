@@ -1,8 +1,8 @@
 .celebrate {
   min-width: 70%;
   max-width: 700px;
-  max-height: 765px;
-  height: 90vw;
+  // max-height: 765px;
+  height: auto;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
   .pics {
     flex: 1 1 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     border: 1px solid black;
     overflow: hidden;
@@ -49,6 +49,27 @@
 
 @media screen and (min-width: 450px) {
   .celebrate {
+    max-height: 765px;
+    height: 90vw;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 0 7.5px 15px;
+    overflow: hidden;
+    text-align: center;
+
+    .pics {
+      // flex: 1 1 auto;
+      // display: flex;
+      flex-direction: row;
+      // justify-content: center;
+      // border: 1px solid black;
+      // overflow: hidden;
+      // text-align: center;
+    }
+
     .subtitle {
       width: 100%;
       margin: auto 0;
