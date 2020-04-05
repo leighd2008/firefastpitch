@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 import { auth } from "../../firebase/firebase.utils";
 
 import TeamMenu from "../teamMenu/teamMenu";
+// import Modal from "../Modal/Modal";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 
@@ -13,7 +14,13 @@ import { ReactComponent as Logo } from "../../assets/Fire_CO-OP_banner.svg";
 
 import "./header.scss";
 
-const Header = ({ currentUser, closeTeamDropdown }) => (
+const Header = ({
+  currentUser,
+  closeTeamDropdown,
+  // isShowing,
+  // openModalHandler,
+  // closeModalHandler,
+}) => (
   <div className="header">
     <NavLink className="logo-container" to="/">
       <Logo className="logo" />
@@ -71,7 +78,7 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
         <NavLink
           className="option"
           to="/"
-          onClick={event => {
+          onClick={(event) => {
             auth.signOut();
             closeTeamDropdown();
           }}
@@ -80,6 +87,18 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
         </NavLink>
       ) : null}
     </div>
+    {/* <div>
+      {isShowing ? (
+        <div onClick={closeModalHandler} className="back-drop"></div>
+      ) : null}
+      <button className="open-modal-btn" onClick={openModalHandler}>
+        Open Modal
+      </button>
+      <Modal className="modal" show={isShowing} close={closeModalHandler}>
+        Maybe aircrafts fly very high because they don't want to be seen in
+        plane sight?
+      </Modal>
+    </div> */}
     <div>
       <h1 className="fangear">
         Get your
@@ -106,11 +125,11 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  closeTeamDropdown: () => dispatch(closeTeamDropdown())
+const mapDispatchToProps = (dispatch) => ({
+  closeTeamDropdown: () => dispatch(closeTeamDropdown()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

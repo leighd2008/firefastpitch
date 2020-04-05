@@ -6,7 +6,7 @@ import { updateTeams } from "./redux/team/team.actions";
 
 import WithSpinner from "./components/with-spinner/with-spinner";
 
-import "./App.css";
+import "./App.scss";
 
 import HomePage from "./pages/homepage/homepage";
 import TeamPage from "./pages/teamPage/teamPage";
@@ -18,13 +18,16 @@ import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
 import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
+
+import Modal from "../src/components/Modal/Modal";
+
 // import CheckoutPage from "./pages/checkoutPage/checkoutPage";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
 import {
   auth,
   createUserProfileDocument,
   firestore,
-  convertCollectionsSnapshotToMap
+  convertCollectionsSnapshotToMap,
 } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
@@ -33,23 +36,28 @@ const TeamPageWithSpinner = WithSpinner(TeamPage);
 const TournamentPageWithSpinner = WithSpinner(TournamentPage);
 
 class App extends React.Component {
-  state = {
-    loading: true
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      loading: true,
+      isShowing: false,
+    };
+  }
 
   unsubscribeFromAuth = null;
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
     const { setCurrentUser } = this.props;
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
+        userRef.onSnapshot((snapShot) => {
           setCurrentUser({
             id: snapShot.id,
-            ...snapShot.data()
+            ...snapShot.data(),
           });
         });
       }
@@ -58,22 +66,62 @@ class App extends React.Component {
     const { updateTeams } = this.props;
     const collectionRef = firestore.collection("teams");
 
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-      const teamsMap = convertCollectionsSnapshotToMap(snapshot);
-      updateTeams(teamsMap);
-      this.setState({ loading: false });
-    });
+    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(
+      async (snapshot) => {
+        const teamsMap = convertCollectionsSnapshotToMap(snapshot);
+        updateTeams(teamsMap);
+        this.setState({ loading: false });
+      }
+    );
   }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
 
+  openModalHandler = () => {
+    this.setState({
+      isShowing: true,
+    });
+  };
+
+  closeModalHandler = () => {
+    this.setState({
+      isShowing: false,
+    });
+  };
+
   render() {
-    const { loading } = this.state;
+    const { loading, isShowing } = this.state;
     return (
       <div>
         <Header />
+        <div className="recruiting">
+          {isShowing ? (
+            <div onClick={this.closeModalHandler} className="back-drop"></div>
+          ) : null}
+          <div className="open-modal" onClick={this.openModalHandler}>
+            <h1 className="plain">Are you ready for the College Scouts?</h1>
+            <h1 className="fancy">Click here for Tips!</h1>
+          </div>
+          <Modal
+            className="modal"
+            show={this.state.isShowing}
+            close={this.closeModalHandler}
+          >
+            <div className="iframe-container">
+              <iframe
+                title="recruiting tips"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/7soS5kzJw64"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </Modal>
+        </div>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -124,12 +172,12 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
-  updateTeams: teamsMap => dispatch(updateTeams(teamsMap))
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  updateTeams: (teamsMap) => dispatch(updateTeams(teamsMap)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
