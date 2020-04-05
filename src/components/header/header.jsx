@@ -25,6 +25,7 @@ const Header = ({
     <NavLink className="logo-container" to="/">
       <Logo className="logo" />
     </NavLink>
+    <br />
     <div className="options">
       <NavLink
         className="option"
