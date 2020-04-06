@@ -6,7 +6,6 @@ import { createStructuredSelector } from "reselect";
 import { auth } from "../../firebase/firebase.utils";
 
 import TeamMenu from "../teamMenu/teamMenu";
-// import Modal from "../Modal/Modal";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 

@@ -19,7 +19,7 @@ import TryoutsPage from "./pages/tryoutspage/tryout";
 import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
 
-import Modal from "../src/components/Modal/Modal";
+// import Modal from "../src/components/Modal/Modal";
 
 // import CheckoutPage from "./pages/checkoutPage/checkoutPage";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
@@ -41,7 +41,7 @@ class App extends React.Component {
 
     this.state = {
       loading: true,
-      isShowing: false,
+      // isShowing: false,
     };
   }
 
@@ -79,24 +79,24 @@ class App extends React.Component {
     this.unsubscribeFromAuth();
   }
 
-  openModalHandler = () => {
-    this.setState({
-      isShowing: true,
-    });
-  };
+  // openModalHandler = () => {
+  //   this.setState({
+  //     isShowing: true,
+  //   });
+  // };
 
-  closeModalHandler = () => {
-    this.setState({
-      isShowing: false,
-    });
-  };
+  // closeModalHandler = () => {
+  //   this.setState({
+  //     isShowing: false,
+  //   });
+  // };
 
   render() {
-    const { loading, isShowing } = this.state;
+    const { loading /*, isShowing*/ } = this.state;
     return (
       <div>
         <Header />
-        <div className="recruiting">
+        {/* <div className="recruiting">
           {isShowing ? (
             <div onClick={this.closeModalHandler} className="back-drop"></div>
           ) : null}
@@ -122,7 +122,7 @@ class App extends React.Component {
               ></iframe>
             </div>
           </Modal>
-        </div>
+        </div> */}
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
