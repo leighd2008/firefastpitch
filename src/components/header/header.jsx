@@ -14,18 +14,11 @@ import { ReactComponent as Logo } from "../../assets/Fire_CO-OP_banner.svg";
 
 import "./header.scss";
 
-const Header = ({
-  currentUser,
-  closeTeamDropdown,
-  // isShowing,
-  // openModalHandler,
-  // closeModalHandler,
-}) => (
+const Header = ({ currentUser, closeTeamDropdown }) => (
   <div className="header">
     <NavLink className="logo-container" to="/">
       <Logo className="logo" />
     </NavLink>
-    <br />
     <div className="options">
       <NavLink
         className="option"
@@ -88,18 +81,6 @@ const Header = ({
         </NavLink>
       ) : null}
     </div>
-    {/* <div>
-      {isShowing ? (
-        <div onClick={closeModalHandler} className="back-drop"></div>
-      ) : null}
-      <button className="open-modal-btn" onClick={openModalHandler}>
-        Open Modal
-      </button>
-      <Modal className="modal" show={isShowing} close={closeModalHandler}>
-        Maybe aircrafts fly very high because they don't want to be seen in
-        plane sight?
-      </Modal>
-    </div> */}
     <div>
       <h1 className="fangear">
         Get your
