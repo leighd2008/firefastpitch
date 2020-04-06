@@ -4,11 +4,10 @@ import "./Modal.scss";
 
 const Modal = (props) => {
   return (
-    // <div>
     <div
       className="modal-wrapper"
       style={{
-        transform: props.show ? "translateY(-19vh)" : "translateY(-100vh)",
+        transform: props.show ? "translateY(-19vh)" : "translateY(-300vh)",
         opacity: props.show ? "1" : "0",
       }}
     >
@@ -21,7 +20,6 @@ const Modal = (props) => {
         </button>
       </div>
     </div>
-    // </div>
   );
 };
 

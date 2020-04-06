@@ -116,8 +116,9 @@ class App extends React.Component {
                 height="315"
                 src="https://www.youtube.com/embed/7soS5kzJw64"
                 frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allow="autoplay; encrypted-media"
+                frameBorder="0"
+                allowFullScreen
               ></iframe>
             </div>
           </Modal>
