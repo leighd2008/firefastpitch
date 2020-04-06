@@ -7,11 +7,12 @@ import teamMenuReducer from "./teamMenu/teamMenu.reducer";
 import all_teamsReducer from "./all_teams/all_teams.reducer";
 import teamReducer from "./team/team.reducer";
 import trainingReducer from "./training/training.reducer";
+import recruitingReducer from "./recruiting/recruiting.reducer";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"]
+  whitelist: ["cart"],
 };
 
 const rootReducer = combineReducers({
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   teamMenu: teamMenuReducer,
   all_teams: all_teamsReducer,
   team: teamReducer,
-  training: trainingReducer
+  training: trainingReducer,
+  recruiting: recruitingReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
