@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 import { auth } from "../../firebase/firebase.utils";
 
 import TeamMenu from "../teamMenu/teamMenu";
+import CoronaUpdate from "../../assets/Baseball-Softball.pdf"
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 
@@ -79,6 +80,11 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
           <h3>Sign out</h3>
         </NavLink>
       ) : null}
+    </div>
+    <div >
+      <h1 className="corona">
+        <a href={CoronaUpdate} target="_blank" rel="noopener noreferrer" >Corona Virus Guidelines for Softball</a>
+      </h1>
     </div>
     <div>
       <h1 className="fangear">

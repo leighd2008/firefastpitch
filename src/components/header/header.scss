@@ -1,5 +1,5 @@
 .header {
-  height: 570px;
+  height: 650px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,21 @@
       text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
       padding: 0 10px;
     }
+  }
+
+  .corona {
+    display: flex;
+    color: red !important;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    a {
+      color: red !important;
+      text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+      padding: 0 10px;
+    }
+    text-align: center;
+    font-size: 2rem;
   }
 
   .logo-container {
@@ -55,7 +70,7 @@
 
 @media screen and (min-width: 450px) {
   .header {
-    height: 375px;
+    height: 550px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -94,6 +109,6 @@
 
 @media screen and (min-width: 800px) {
   .header {
-    height: 350px;
+    height: 450px;
   }
 }
