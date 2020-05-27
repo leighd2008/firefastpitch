@@ -4,15 +4,22 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+
     a {
       color: #ed1e24 !important;
       text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
       padding: 0 10px;
+      font-size: 2rem;
+      font-weight: 600;
     }
+
   }
 @media screen and (min-width: 450px) {
   .fangear {
       flex-direction: row;
       margin: auto;
+
     }
   }
