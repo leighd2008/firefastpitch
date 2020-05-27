@@ -25,7 +25,6 @@ const Recruiting = ({ openModalHandler, closeModalHandler, isShowing }) => (
           width="560"
           height="315"
           src="https://www.youtube.com/embed/7soS5kzJw64"
-          frameborder="0"
           allow="autoplay; encrypted-media"
           frameBorder="0"
           allowFullScreen

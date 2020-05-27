@@ -6,18 +6,19 @@ import { createStructuredSelector } from "reselect";
 import { auth } from "../../firebase/firebase.utils";
 
 import TeamMenu from "../teamMenu/teamMenu";
-import CoronaUpdate from "../../assets/Baseball-Softball.pdf"
+import Corona from "../corona/corona";
+import Fangear from "../fangear/fangear";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 
-import { ReactComponent as Logo } from "../../assets/Fire_CO-OP_banner.svg";
+import logo from "../../assets/fireBanner.jpg";
 
 import "./header.scss";
 
 const Header = ({ currentUser, closeTeamDropdown }) => (
   <div className="header">
     <NavLink className="logo-container" to="/">
-      <Logo className="logo" />
+      <img src={logo} alt="logo" className="logo" />
     </NavLink>
     <div className="options">
       <NavLink
@@ -81,33 +82,8 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
         </NavLink>
       ) : null}
     </div>
-    <div >
-      <h1 className="corona">
-        <a href={CoronaUpdate} target="_blank" rel="noopener noreferrer" >Corona Virus Guidelines for Softball</a>
-      </h1>
-    </div>
-    <div>
-      <h1 className="fangear">
-        Get your
-        <a
-          href="http://sideline.bsnsports.com/schools/ohio/leavittsburg/fire-fastpitch-softball
-"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          FANGEAR
-        </a>
-        or
-        <a
-          href="https://firefastpitchsoftball.itemorder.com/sale"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          GLITTER FANGEAR
-        </a>
-        here!
-      </h1>
-    </div>
+    <Corona />
+    <Fangear />    
   </div>
 );
 

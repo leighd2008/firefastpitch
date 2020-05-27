@@ -1,0 +1,14 @@
+.corona {
+    display: flex;
+    color: #ed1e24 !important;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    a {
+      color: #ed1e24 !important;
+      text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+      padding: 0 10px;
+    }
+    text-align: center;
+    font-size: 2rem;
+  }
