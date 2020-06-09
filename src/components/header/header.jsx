@@ -83,7 +83,7 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
       ) : null}
     </div>
     <Corona />
-    <Fangear />    
+    <Fangear />
   </div>
 );
 

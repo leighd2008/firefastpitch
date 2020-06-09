@@ -4,6 +4,7 @@ import { createStructuredSelector } from "reselect";
 import TeamEvents from "../../components/teamEvents/teamEvents";
 import Banner from "../../components/banner/banner";
 import { selectTeamData } from "../../redux/team/team.selectors";
+import Recruiting from "../../components/recruiting/recruiting";
 
 import "./teamPage.scss";
 
@@ -22,6 +23,7 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
 
   return (
     <div className="App">
+      <Recruiting />
       <Banner
         backgroundImage={imgsrc}
         teamName={teamName}

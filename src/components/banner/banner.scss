@@ -2,6 +2,7 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
+  text-align: center;
 
   .jumbotron {
     padding: 0px !important;
@@ -23,7 +24,7 @@
     color: #ed1e24 !important;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     margin: auto;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 600;
   }
 }
