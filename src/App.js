@@ -18,6 +18,7 @@ import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
 import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
+import FieldSchedulerPage from "./pages/fieldSchedulerPage/fieldSchedulerPage"
 
 // import Modal from "../src/components/Modal/Modal";
 
@@ -34,6 +35,8 @@ import { selectCurrentUser } from "./redux/user/user.selectors";
 
 const TeamPageWithSpinner = WithSpinner(TeamPage);
 const TournamentPageWithSpinner = WithSpinner(TournamentPage);
+const FieldSchedulerPageWithSpinner = WithSpinner(FieldSchedulerPage);
+
 
 class App extends React.Component {
   constructor() {
@@ -164,6 +167,39 @@ class App extends React.Component {
                 <SignInPage />
               )
             }
+          />
+          <Route
+            path="/Field1"
+            render={() => (
+              <FieldSchedulerPageWithSpinner
+                isLoading={loading}
+                fieldname="Field 1"
+                // title="Fire14U"
+                // eventurls={Fire14UURLS}
+              />
+            )}
+          />
+          <Route
+            path="/Field2"
+            render={() => (
+              <FieldSchedulerPageWithSpinner
+                isLoading={loading}
+                fieldname="Field 2"
+              // title="Fire14U"
+              // eventurls={Fire14UURLS}
+              />
+            )}
+          />
+          <Route
+            path="/Field3"
+            render={() => (
+              <FieldSchedulerPageWithSpinner
+                isLoading={loading}
+                fieldname="Field 3"
+              // title="Fire14U"
+              // eventurls={Fire14UURLS}
+              />
+            )}
           />
         </Switch>
         <Footer />
