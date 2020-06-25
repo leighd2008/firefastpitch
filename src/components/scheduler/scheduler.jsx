@@ -6,6 +6,34 @@ import "./scheduler.scss";
 const scheduler = window.scheduler;
 
 export default class Scheduler extends Component {
+
+  initSchedulerEvents() {
+    if (scheduler._$initialized) {
+      return;
+    }
+
+    const onDataUpdated = this.props.onDataUpdated;
+
+    scheduler.attachEvent('onEventAdded', (id, ev) => {
+      if (onDataUpdated) {
+        onDataUpdated('create', ev, id);
+      }
+    });
+
+    scheduler.attachEvent('onEventChanged', (id, ev) => {
+      if (onDataUpdated) {
+        onDataUpdated('update', ev, id);
+      }
+    });
+
+    scheduler.attachEvent('onEventDeleted', (id, ev) => {
+      if (onDataUpdated) {
+        onDataUpdated('delete', ev, id);
+      }
+    });
+    scheduler._$initialized = true;
+  }
+
   componentDidMount() {
     scheduler.skin = 'material';
     scheduler.config.header = [
@@ -21,8 +49,10 @@ export default class Scheduler extends Component {
     scheduler.config.hour_date = '%g:%i %A';
     scheduler.xy.scale_width = 70;
 
+    this.initSchedulerEvents();
+
     const { events } = this.props;
-    scheduler.init(this.schedulerContainer, new Date(2020, 5, 10));
+    scheduler.init(this.schedulerContainer, new Date());
     scheduler.clearAll();
     scheduler.parse(events);
   }

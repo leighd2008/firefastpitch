@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 import Toolbar from '../../components/Toolbar/Toolbar';
 import Scheduler from '../../components/scheduler/scheduler';
+import MessageArea from '../../components/MessageArea/MessageArea';
 import './fieldSchedulerPage.scss';
 
 const data = [
@@ -13,9 +15,31 @@ class FieldScheduler extends Component {
     super(props);
 
     this.state = {
-      currentTimeFormatState: true
+      currentTimeFormatState: true,
+      messages: []
     };
   }
+
+    addMessage(message) {
+      const maxLogLength = 5;
+      const newMessage = { message };
+      const messages = [
+        newMessage,
+        ...this.state.messages
+      ];
+
+      if (messages.length > maxLogLength) {
+        messages.length = maxLogLength;
+      }
+      this.setState({ messages });
+    }
+
+    logDataUpdate = (action, ev, id) => {
+      const text = ev && ev.text ? `(${ev.text})` : '';
+      const message = `event ${action}: ${id} ${text}`;
+      this.addMessage(message);
+    }
+  
 
   handleTimeFormatStateChange = (state) => {
     this.setState({
@@ -24,11 +48,22 @@ class FieldScheduler extends Component {
   }
 
   render() {
-    const { currentTimeFormatState } = this.state;
+    const { currentTimeFormatState, messages } = this.state;
     const { fieldname } = this.props;
 
     return (
       <div>
+        <div className="fields">
+          <NavLink exact to="/Field1" activeClassName="selected" title="Field 1">
+            <h4>Field 1 Scheduling</h4>
+          </NavLink>
+          <NavLink exact to="/Field2" activeClassName="selected" title="Field 2">
+            <h4>Field 2 Scheduling</h4>
+          </NavLink>
+          <NavLink exact to="/Field3" activeClassName="selected" title="Field 3">
+            <h4>Field 3 Scheduling</h4>
+          </NavLink>
+        </div>
         <div className="tool-bar">
           <h1 className="title">
             Johnson Community Center {fieldname}
@@ -42,8 +77,10 @@ class FieldScheduler extends Component {
           <Scheduler
             events={data}
             timeFormatState={currentTimeFormatState}
+            onDataUpdated={this.logDataUpdate}
           />
         </div>
+        <MessageArea messages={messages} />
       </div>
     );
   }
