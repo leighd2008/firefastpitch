@@ -87,6 +87,29 @@ export const convertCollectionsSnapshotToMap = teams => {
   }, {});
 };
 
+export const convertCollectionsSnapshotToMap2 = fields => {
+  const transformedCollection = fields.docs.map(doc => {
+    const {
+      title,
+      fieldname,
+      schedule,
+    } = doc.data();
+
+    return {
+      routeName: encodeURI(title),
+      id: doc.id,
+      title,
+      fieldname,
+      schedule,
+    };
+  });
+  return transformedCollection.reduce((accumulator, field) => {
+    accumulator[field.title] = field;
+    return accumulator;
+  }, {});
+};
+
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

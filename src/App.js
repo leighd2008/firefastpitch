@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { updateTeams } from "./redux/team/team.actions";
+import { updateFields } from "./redux/field/field.actions";
 
 import WithSpinner from "./components/with-spinner/with-spinner";
 
@@ -12,7 +13,6 @@ import HomePage from "./pages/homepage/homepage";
 import TeamPage from "./pages/teamPage/teamPage";
 import SignInPage from "./pages/sign-inpage/sign-inpage";
 import AdminPage from "./pages/adminpage/adminpage";
-// import FanGearPage from "./pages/fangearpage/fangearpage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import TryoutsPage from "./pages/tryoutspage/tryout";
@@ -20,15 +20,13 @@ import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
 import FieldSchedulerPage from "./pages/fieldSchedulerPage/fieldSchedulerPage"
 
-// import Modal from "../src/components/Modal/Modal";
-
-// import CheckoutPage from "./pages/checkoutPage/checkoutPage";
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
 import {
   auth,
   createUserProfileDocument,
   firestore,
   convertCollectionsSnapshotToMap,
+  convertCollectionsSnapshotToMap2,
 } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
@@ -44,7 +42,6 @@ class App extends React.Component {
 
     this.state = {
       loading: true,
-      // isShowing: false,
     };
   }
 
@@ -67,12 +64,25 @@ class App extends React.Component {
       setCurrentUser(userAuth);
     });
     const { updateTeams } = this.props;
-    const collectionRef = firestore.collection("teams");
+    const collectionRef1 = firestore.collection("teams");
 
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(
+    
+    this.unsubscribeFromSnapshot = collectionRef1.onSnapshot(
       async (snapshot) => {
         const teamsMap = convertCollectionsSnapshotToMap(snapshot);
         updateTeams(teamsMap);
+        // this.setState({ loading: false });
+      }
+    );
+
+    const { updateFields } = this.props;
+    const collectionRef2 = firestore.collection("fields");
+
+
+    this.unsubscribeFromSnapshot = collectionRef2.onSnapshot(
+      async (snapshot) => {
+        const fieldsMap = convertCollectionsSnapshotToMap2(snapshot);
+        updateFields(fieldsMap)
         this.setState({ loading: false });
       }
     );
@@ -82,50 +92,11 @@ class App extends React.Component {
     this.unsubscribeFromAuth();
   }
 
-  // openModalHandler = () => {
-  //   this.setState({
-  //     isShowing: true,
-  //   });
-  // };
-
-  // closeModalHandler = () => {
-  //   this.setState({
-  //     isShowing: false,
-  //   });
-  // };
-
   render() {
-    const { loading /*, isShowing*/ } = this.state;
+    const { loading } = this.state;
     return (
       <div>
         <Header />
-        {/* <div className="recruiting">
-          {isShowing ? (
-            <div onClick={this.closeModalHandler} className="back-drop"></div>
-          ) : null}
-          <div className="open-modal" onClick={this.openModalHandler}>
-            <h1 className="plain">Are you ready for the College Scouts?</h1>
-            <h1 className="fancy">Click here for Tips!</h1>
-          </div>
-          <Modal
-            className="modal"
-            show={this.state.isShowing}
-            close={this.closeModalHandler}
-          >
-            <div className="iframe-container">
-              <iframe
-                title="recruiting tips"
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/7soS5kzJw64"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </Modal>
-        </div> */}
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -173,9 +144,8 @@ class App extends React.Component {
             render={() => (
               <FieldSchedulerPageWithSpinner
                 isLoading={loading}
+                title="Field1"
                 fieldname="Field 1"
-                // title="Fire14U"
-                // eventurls={Fire14UURLS}
               />
             )}
           />
@@ -184,9 +154,8 @@ class App extends React.Component {
             render={() => (
               <FieldSchedulerPageWithSpinner
                 isLoading={loading}
+                title="Field2"
                 fieldname="Field 2"
-              // title="Fire14U"
-              // eventurls={Fire14UURLS}
               />
             )}
           />
@@ -195,9 +164,8 @@ class App extends React.Component {
             render={() => (
               <FieldSchedulerPageWithSpinner
                 isLoading={loading}
+                title="Field3"
                 fieldname="Field 3"
-              // title="Fire14U"
-              // eventurls={Fire14UURLS}
               />
             )}
           />
@@ -215,6 +183,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   updateTeams: (teamsMap) => dispatch(updateTeams(teamsMap)),
+  updateFields: (fieldsMap) => dispatch(updateFields(fieldsMap)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

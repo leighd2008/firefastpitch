@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
+
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectFieldData } from "../../redux/field/field.selectors";
+
 import Toolbar from '../../components/Toolbar/Toolbar';
 import Scheduler from '../../components/scheduler/scheduler';
 import MessageArea from '../../components/MessageArea/MessageArea';
 import './fieldSchedulerPage.scss';
-
-const data = [
-  { start_date: '2020-06-25 6:00', end_date: '2020-06-25 8:00', text: 'Event 1', id: 1 },
-  { start_date: '2020-06-26 10:00', end_date: '2020-06-26 18:00', text: 'Event 2', id: 2 }
-];
 
 class FieldScheduler extends Component {
   constructor(props) {
@@ -49,20 +49,28 @@ class FieldScheduler extends Component {
 
   render() {
     const { currentTimeFormatState, messages } = this.state;
-    const { fieldname } = this.props;
+    const { fieldname, fieldData, title } = this.props;
+    const field = fieldData[title];
+    console.log(field)
 
     return (
       <div>
         <div className="fields">
-          <NavLink exact to="/Field1" activeClassName="selected" title="Field 1">
-            <h4>Field 1 Scheduling</h4>
-          </NavLink>
-          <NavLink exact to="/Field2" activeClassName="selected" title="Field 2">
-            <h4>Field 2 Scheduling</h4>
-          </NavLink>
-          <NavLink exact to="/Field3" activeClassName="selected" title="Field 3">
-            <h4>Field 3 Scheduling</h4>
-          </NavLink>
+          {title === "Field1" ?
+            null :
+            <NavLink exact to="/Field1" activeClassName="selected" title="Field 1">
+              <h4>Field 1 Scheduling</h4>
+            </NavLink>}
+          {title === "Field2" ?
+            null :
+            <NavLink exact to="/Field2" activeClassName="selected" title="Field 2">
+              <h4>Field 2 Scheduling</h4>
+            </NavLink>}
+          {title === "Field3" ?
+            null :
+            <NavLink exact to="/Field3" activeClassName="selected" title="Field 3">
+              <h4>Field 3 Scheduling</h4>
+            </NavLink>}
         </div>
         <div className="tool-bar">
           <h1 className="title">
@@ -75,7 +83,7 @@ class FieldScheduler extends Component {
         </div>
         <div className='scheduler-container'>
           <Scheduler
-            events={data}
+            events={fieldData[title].schedule}
             timeFormatState={currentTimeFormatState}
             onDataUpdated={this.logDataUpdate}
           />
@@ -86,4 +94,8 @@ class FieldScheduler extends Component {
   }
 }
 
-export default FieldScheduler;
+const mapStateToProps = createStructuredSelector({
+  fieldData: selectFieldData
+})
+
+export default connect(mapStateToProps)(FieldScheduler);

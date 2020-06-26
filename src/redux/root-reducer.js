@@ -8,6 +8,7 @@ import all_teamsReducer from "./all_teams/all_teams.reducer";
 import teamReducer from "./team/team.reducer";
 import trainingReducer from "./training/training.reducer";
 import recruitingReducer from "./recruiting/recruiting.reducer";
+import fieldReducer from "./field/field.reducer";
 
 const persistConfig = {
   key: "root",
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   team: teamReducer,
   training: trainingReducer,
   recruiting: recruitingReducer,
+  field: fieldReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
