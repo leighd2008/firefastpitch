@@ -1,0 +1,21 @@
+.tool-bar {
+  background: #ededed;
+  height: 80px;
+  line-height: 14px;
+  padding: 5px 10px;
+  text-align: center;
+  // padding-left: 60px;
+}
+
+.title {
+    color: #ed1e24 !important;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin: auto;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .refreshbutton {
+    margin: 10px;
+    background-color: #dcb7b8;
+  }

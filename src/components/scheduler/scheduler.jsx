@@ -47,6 +47,9 @@ export default class Scheduler extends Component {
     ];
 
     scheduler.config.hour_date = '%g:%i %A';
+    scheduler.config.time_step = 30;
+    scheduler.config.first_hour = 9;
+    scheduler.config.last_hour = 21;
     scheduler.xy.scale_width = 70;
 
     this.initSchedulerEvents();
