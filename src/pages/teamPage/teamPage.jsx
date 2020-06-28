@@ -29,13 +29,6 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
         teamName={teamName}
         location={location}
       />
-      <p className="refresh">
-        Please
-        <button type="button" onClick={refreshPage}>
-          <span>Refresh</span>
-        </button>
-        page if the events listed are for the wrong team.
-      </p>
       {eventboard === true ? (
         <div>
           <TeamEvents

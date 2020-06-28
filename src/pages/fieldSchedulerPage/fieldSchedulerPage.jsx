@@ -8,39 +8,11 @@ import { firestore } from "../../firebase/firebase.utils";
 import Scheduler from '../../components/scheduler/scheduler';
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
-// import MessageArea from '../../components/MessageArea/MessageArea';
 import './fieldSchedulerPage.scss';
 
 class FieldScheduler extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   // this.state = {
-  //   //   currentTimeFormatState: false,
-  //   //   messages: []
-  //   // };
-  // }
-
-    // addMessage(message) {
-    //   const maxLogLength = 5;
-    //   const newMessage = { message };
-    //   const messages = [
-    //     newMessage,
-    //     ...this.state.messages
-    //   ];
-
-    //   if (messages.length > maxLogLength) {
-    //     messages.length = maxLogLength;
-    //   }
-    //   this.setState({ messages });
-    // }
-  
   
   logDataUpdate = (action, ev, id) => {
-    
-    //   const text = ev && ev.text ? `(${ev.text})` : '';
-    //   const message = `event ${action}: ${id} ${text}`;
-    // this.addMessage(message);
     let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id }
     let events1 = [
       newEvent,
@@ -59,19 +31,16 @@ class FieldScheduler extends Component {
     firestore.collection("fields").doc(fieldId).update({
       schedule: events1
     });
-    
   }
 
-  refreshPage = () => {
-    window.location.reload();
-  };
+  // refreshPage = () => {
+  //   window.location.reload();
+  // };
   
   render() {
-    
-    // const { currentTimeFormatState /*, messages */} = this.state;
     const { fieldname, fieldData, title } = this.props;
-    const fieldId = fieldData[title].id;
-    console.log(fieldData[title].schedule, fieldId )
+    // const fieldSchedule = fieldData[title].schedule;
+    // console.log(fieldData[title].schedule, fieldId )
     return (
       <div>
         <div className="fields">
@@ -95,13 +64,13 @@ class FieldScheduler extends Component {
           <h1 className="title">
             {fieldname}
           </h1>
-          <p className="refresh">
+          {/* <p className="refresh">
             Please
         <button className='refreshbutton' type="button" onClick={this.refreshPage}>
               <span>Refresh</span>
             </button>
         page after adding an event.
-      </p>
+      </p> */}
         </div>
         <div className='scheduler-container'>
           <Scheduler
@@ -109,10 +78,9 @@ class FieldScheduler extends Component {
             timeFormatState={false}
             // eslint-disable-next-line no-sequences
             onDataUpdated={this.logDataUpdate}
-            currentUser={this.currentUser}
+            // currentUser={this.currentUser}
           />
         </div>
-        {/* <MessageArea messages={messages} /> */}
       </div>
     );
   }

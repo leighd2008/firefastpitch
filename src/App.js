@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter as Router, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { updateTeams } from "./redux/team/team.actions";
@@ -95,31 +95,33 @@ class App extends React.Component {
   render() {
     const { loading } = this.state;
     return (
+      <Router>
       <div>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
             path="/Fire14U"
-            render={() => (
+            component={withRouter(() => 
+              (
               <TeamPageWithSpinner
                 isLoading={loading}
                 teamname="Fire 14U"
                 title="Fire14U"
-                eventurls={Fire14UURLS}
-              />
-            )}
+                eventurls={Fire14UURLS} />
+              
+            ))}
           />
           <Route
             path="/Fire12U"
-            render={() => (
+            component={withRouter(() => 
+              (
               <TeamPageWithSpinner
                 isLoading={loading}
                 teamname="Fire 12U"
                 title="Fire12U"
-                eventurls={Fire12UURLS}
-              />
-            )}
+                eventurls={Fire12UURLS} />
+            ))}
           />
           <Route path="/Tryouts" component={TryoutsPage} />
           <Route path="/Training" component={TrainingPage} />
@@ -141,37 +143,41 @@ class App extends React.Component {
           />
           <Route
             path="/Field1"
-            render={() => (
+            component={withRouter(() =>
+                (
               <FieldSchedulerPageWithSpinner
                 isLoading={loading}
                 title="Field1"
                 fieldname="Field 1"
               />
-            )}
+            ))}
           />
           <Route
             path="/Field2"
-            render={() => (
+            component={withRouter(() =>
+                (
               <FieldSchedulerPageWithSpinner
                 isLoading={loading}
                 title="Field2"
                 fieldname="Field 2"
               />
-            )}
+            ))}
           />
           <Route
             path="/Field3"
-            render={() => (
+            component={withRouter(() =>
+                (
               <FieldSchedulerPageWithSpinner
                 isLoading={loading}
                 title="Field3"
                 fieldname="Field 3"
               />
-            )}
+            ))}
           />
         </Switch>
         <Footer />
-      </div>
+        </div>
+      </Router>
     );
   }
 }
