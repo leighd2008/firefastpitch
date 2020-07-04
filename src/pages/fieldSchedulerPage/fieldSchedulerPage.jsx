@@ -14,6 +14,8 @@ class FieldScheduler extends Component {
   
   logDataUpdate = (action, ev, id) => {
     let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id }
+    console.log(this.currentUser)
+    // let eventCreator = this.props.currentUser.email;
     let events1 = [
       newEvent,
       ...this.props.fieldData[this.props.title].schedule
@@ -29,7 +31,8 @@ class FieldScheduler extends Component {
 
     const fieldId = this.props.fieldData[this.props.title].id;
     firestore.collection("fields").doc(fieldId).update({
-      schedule: events1
+      schedule: events1,
+      // eventCreator: eventCreator
     });
   }
 
@@ -39,7 +42,7 @@ class FieldScheduler extends Component {
   
   render() {
     const { fieldname, fieldData, title } = this.props;
-    // const fieldSchedule = fieldData[title].schedule;
+    // const evCreator = fieldData[title].eventCreator;
     // console.log(fieldData[title].schedule, fieldId )
     return (
       <div>
@@ -78,7 +81,7 @@ class FieldScheduler extends Component {
             timeFormatState={false}
             // eslint-disable-next-line no-sequences
             onDataUpdated={this.logDataUpdate}
-            // currentUser={this.currentUser}
+            // fieldData={evCreator}
           />
         </div>
       </div>

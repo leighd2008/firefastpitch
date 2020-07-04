@@ -11,6 +11,10 @@ const TryOuts = () => {
             Are you ready to play with FIRE?
           </CardTitle>
           <h3>FIRE FASTPITCH will have open tryouts for the teams in age 10U, 12U, 14U and 16U divisions on </h3> <br/> <h1>Saturday August 1st</h1> 
+          <h2>REGISTRATION:</h2> 
+          <a href="Preregistration" rel="noopener noreferrer">
+            <h3>Pre-registration form can be filled out here!</h3>
+          </a> <h3> or at Field #1 on the day of tryouts. </h3>
           <br />
           <h3>10U — 10:00 AM - 12:00 PM* ARIVE @ 9:30 AM</h3>
           <h3>12U — 12:00 PM - 2:00 PM* ARIVE @ 11:30 AM</h3>
@@ -27,7 +31,6 @@ const TryOuts = () => {
           >
             <h3>800 Gillmer Rd <br /> Leavittsbug Ohio 44430</h3>
           </a>
-          <h2>REGISTRATION:</h2> <h3>Will be at Field #1. Info sheet and questionaire will need filled out before evaluations.</h3>
           <br />
           <h1>Wednesday Aug. 5th from 6-8 PM</h1>
           <h3>We will follow that up with an all age group make up or call back on Wednesday Aug. 5th from 6-8 PM on all three fields simultaneously.</h3>

@@ -19,6 +19,8 @@ import TryoutsPage from "./pages/tryoutspage/tryout";
 import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
 import FieldSchedulerPage from "./pages/fieldSchedulerPage/fieldSchedulerPage"
+import PreregistrationPage from "./pages/preregistrationpage/preregistrationpage.jsx";
+
 
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
 import {
@@ -71,7 +73,7 @@ class App extends React.Component {
       async (snapshot) => {
         const teamsMap = convertCollectionsSnapshotToMap(snapshot);
         updateTeams(teamsMap);
-        // this.setState({ loading: false });
+        this.setState({ loading: false });
       }
     );
 
@@ -125,6 +127,7 @@ class App extends React.Component {
           />
           <Route path="/Tryouts" component={TryoutsPage} />
           <Route path="/Training" component={TrainingPage} />
+          <Route path="/Preregistration" component={PreregistrationPage} />
           <Route
             path="/Tournaments"
             render={() => <TournamentPageWithSpinner isLoading={loading} />}

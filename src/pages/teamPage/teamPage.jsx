@@ -17,10 +17,6 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
   let imgsrc = images(`./${team.teamPic}`);
   const calendarLink = `${team.calendarLink}`;
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
   return (
     <div className="App">
       <Recruiting />
