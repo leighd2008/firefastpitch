@@ -18,7 +18,7 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
   const calendarLink = `${team.calendarLink}`;
 
   return (
-    <div className="App">
+    <div className="teampage">
       <Recruiting />
       <Banner
         backgroundImage={imgsrc}
