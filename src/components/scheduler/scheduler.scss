@@ -3,7 +3,42 @@
   width: 90vw;
 }
 
+// .dhx_body, .dhx_event_move, .dhx_header {
+//   background-color: #ed1e24 !important;
+// }
+    /*event in day or week view*/
+    .dhx_cal_event.Diane_event div{
+        background-color: #ed1e24 !important;
+        // color: black !important;
+    }
+    .dhx_cal_event.Rich_event div{
+        background-color: #6b6866 !important;
+        // color: black !important;
+    }
+    .dhx_cal_event.Mike_event div{
+        background-color: #e96107 !important;
+        // color: black !important;
+    }
+ 
+    /*multi-day event in month view*/
+    .dhx_cal_event_line.Diane_event{
+        background-color: #ed1e24 !important;
+        // color: black !important;
+    }
+    .dhx_cal_event_line.Rich_event{
+        background-color: #6b6866 !important;
+        // color: black !important;
+    }
 
-.dhx_body, .dhx_event_move, .dhx_header {
-  background-color: #ed1e24 !important;
-}
+    .dhx_cal_event_line.Mike_event{
+      background-color: #e96107 !important;
+        // color: black !important;
+    }
+ 
+    /*event with fixed time, in month view*/
+    .dhx_cal_event_clear.manager_event{
+        color: black !important;
+    }
+    .dhx_cal_event_clear.employee_event{
+        color: black !important;
+    }

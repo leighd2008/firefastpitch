@@ -132,7 +132,12 @@ class App extends React.Component {
             path="/Tournaments"
             render={() => <TournamentPageWithSpinner isLoading={loading} />}
           />
-          <Route path="/Adminpage" component={AdminPage} />
+          <Route path="/Adminpage"
+            component={withRouter(() =>
+              (
+                <AdminPage />
+              ))} 
+          />
           <Route
             exact
             path="/AdminSignIn"

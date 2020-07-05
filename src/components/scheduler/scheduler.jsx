@@ -51,8 +51,19 @@ export default class Scheduler extends Component {
     scheduler.config.first_hour = 9;
     scheduler.config.last_hour = 21;
     scheduler.xy.scale_width = 70;
+    scheduler.templates.event_class = function (start, end, event) {
+      if (event.type === 'Diane') return 'Diane_event';
+      else if (event.type === 'Rich') return 'Rich_event';
+      else if (event.type === 'Mike') return 'Mike_event'
+    }
 
     this.initSchedulerEvents();
+
+    scheduler.attachEvent("onTemplatesReady", function () {
+      scheduler.templates.event_text = function (start, end, event) {
+        return "<b>" + event.text + "</b><br><i>" + event.type + "</i>";
+      }
+    }); 
 
     const { events } = this.props;
     scheduler.init(this.schedulerContainer, new Date());

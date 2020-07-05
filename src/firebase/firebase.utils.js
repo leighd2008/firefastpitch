@@ -93,6 +93,8 @@ export const convertCollectionsSnapshotToMap2 = fields => {
       title,
       fieldname,
       schedule,
+      eventCreator,
+      type,
     } = doc.data();
 
     return {
@@ -101,6 +103,8 @@ export const convertCollectionsSnapshotToMap2 = fields => {
       title,
       fieldname,
       schedule,
+      eventCreator,
+      type,
     };
   });
   return transformedCollection.reduce((accumulator, field) => {

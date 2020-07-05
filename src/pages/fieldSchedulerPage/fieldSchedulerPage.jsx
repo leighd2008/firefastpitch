@@ -13,9 +13,10 @@ import './fieldSchedulerPage.scss';
 class FieldScheduler extends Component {
   
   logDataUpdate = (action, ev, id) => {
-    let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id }
+    let eventCreator = this.props.currentUser.email;
+    let type = this.props.currentUser.displayName;
+    let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
     console.log(this.currentUser)
-    // let eventCreator = this.props.currentUser.email;
     let events1 = [
       newEvent,
       ...this.props.fieldData[this.props.title].schedule
@@ -32,18 +33,13 @@ class FieldScheduler extends Component {
     const fieldId = this.props.fieldData[this.props.title].id;
     firestore.collection("fields").doc(fieldId).update({
       schedule: events1,
-      // eventCreator: eventCreator
     });
   }
-
-  // refreshPage = () => {
-  //   window.location.reload();
-  // };
   
   render() {
     const { fieldname, fieldData, title } = this.props;
-    // const evCreator = fieldData[title].eventCreator;
-    // console.log(fieldData[title].schedule, fieldId )
+    // const evCreator = fieldData[title].schedule.eventCreator;
+    // console.log(evCreator)
     return (
       <div>
         <div className="fields">
@@ -67,13 +63,6 @@ class FieldScheduler extends Component {
           <h1 className="title">
             {fieldname}
           </h1>
-          {/* <p className="refresh">
-            Please
-        <button className='refreshbutton' type="button" onClick={this.refreshPage}>
-              <span>Refresh</span>
-            </button>
-        page after adding an event.
-      </p> */}
         </div>
         <div className='scheduler-container'>
           <Scheduler
