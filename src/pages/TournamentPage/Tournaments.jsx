@@ -7,6 +7,7 @@ import { selectAll_TeamsTeams } from "../../redux/all_teams/all_teams.selectors"
 import { Card, CardTitle } from "reactstrap";
 
 const Tournaments = ({ index, teamData }) => {
+  console.log(teamData);
   const teamDataArray = Object.entries(teamData);
   console.log(teamDataArray);
   return (

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import SignInPage from "../sign-inpage/sign-inpage";
 
+
 import "./adminpage.scss";
 
 const AdminPage = ({ currentUser }) =>
@@ -18,6 +19,9 @@ const AdminPage = ({ currentUser }) =>
         </NavLink>
         <NavLink exact to="/Field3" activeClassName="selected" title="Field 3">
           <h4>Field 3 Scheduling</h4>
+        </NavLink>
+        <NavLink exact to="/Registered" activeClassName="selected" title="Registered">
+          <h4>Preregistered Players</h4>
         </NavLink>
       </div>
     </div>

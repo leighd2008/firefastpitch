@@ -7,12 +7,12 @@ export const selectFieldData = createSelector(
   field => field.fields
 );
 
-export const selectFieldForDatabase = createSelector(
-  [selectFieldData],
-  fields => (fields ? Object.keys(fields).map(key => fields[key]) : [])
-);
+// export const selectFieldForDatabase = createSelector(
+//   [selectFieldData],
+//   fields => (fields ? Object.keys(fields).map(key => fields[key]) : [])
+// );
 
-export const selectOneField = collectionUrlParam => createSelector(
-  [selectFieldData],
-  fields => (fields ? fields[collectionUrlParam] : null)
-);
+// export const selectOneField = collectionUrlParam => createSelector(
+//   [selectFieldData],
+//   fields => (fields ? fields[collectionUrlParam] : null)
+// );

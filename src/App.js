@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { updateTeams } from "./redux/team/team.actions";
 import { updateFields } from "./redux/field/field.actions";
+import { updatePreregistration } from "./redux/registration/registration.actions";
+
 
 import WithSpinner from "./components/with-spinner/with-spinner";
 
@@ -20,6 +22,8 @@ import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
 import FieldSchedulerPage from "./pages/fieldSchedulerPage/fieldSchedulerPage"
 import PreregistrationPage from "./pages/preregistrationpage/preregistrationpage.jsx";
+import RegisteredPage from "./pages/registeredpage/registeredpage.jsx";
+
 
 
 import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
@@ -29,6 +33,7 @@ import {
   firestore,
   convertCollectionsSnapshotToMap,
   convertCollectionsSnapshotToMap2,
+  convertCollectionsSnapshotToMap3,
 } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
@@ -36,6 +41,10 @@ import { selectCurrentUser } from "./redux/user/user.selectors";
 const TeamPageWithSpinner = WithSpinner(TeamPage);
 const TournamentPageWithSpinner = WithSpinner(TournamentPage);
 const FieldSchedulerPageWithSpinner = WithSpinner(FieldSchedulerPage);
+const PreregistrationPageWithSpinner = WithSpinner(PreregistrationPage);
+const RegisteredPageWithSpinner = WithSpinner(RegisteredPage);
+
+
 
 
 class App extends React.Component {
@@ -88,6 +97,18 @@ class App extends React.Component {
         this.setState({ loading: false });
       }
     );
+
+    const { updatePreregistration } = this.props;
+    const collectionRef3 = firestore.collection("preregistration");
+
+
+    this.unsubscribeFromSnapshot = collectionRef3.onSnapshot(
+      async (snapshot) => {
+        const preregistrationMap = convertCollectionsSnapshotToMap3(snapshot);
+        updatePreregistration(preregistrationMap)
+        this.setState({ loading: false });
+      }
+    );
   }
 
   componentWillUnmount() {
@@ -127,7 +148,8 @@ class App extends React.Component {
           />
           <Route path="/Tryouts" component={TryoutsPage} />
           <Route path="/Training" component={TrainingPage} />
-          <Route path="/Preregistration" component={PreregistrationPage} />
+          <Route path="/Preregistration" render={() => <PreregistrationPageWithSpinner isLoading={loading} />}
+          />
           <Route
             path="/Tournaments"
             render={() => <TournamentPageWithSpinner isLoading={loading} />}
@@ -182,6 +204,17 @@ class App extends React.Component {
               />
             ))}
           />
+          <Route
+            path="/Registered"
+            component={withRouter(() =>
+              (
+                <RegisteredPageWithSpinner
+                  isLoading={loading}
+                  // title="Field1"
+                  // fieldname="Field 1"
+                />
+              ))}
+          />
         </Switch>
         <Footer />
         </div>
@@ -198,6 +231,7 @@ const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   updateTeams: (teamsMap) => dispatch(updateTeams(teamsMap)),
   updateFields: (fieldsMap) => dispatch(updateFields(fieldsMap)),
+  updatePreregistration: (preregistrationMap) => dispatch(updatePreregistration(preregistrationMap)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
