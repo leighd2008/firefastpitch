@@ -214,16 +214,11 @@ class PreregistrationPage extends React.Component {
     const divisionId = this.props.registrationData[division].id;
     firestore.collection("preregistration").doc(divisionId).update({
       players: newplayers,
-    });
-    
-    // console.log("Survey results: " + JSON.stringify(survey.data));
+    })
+    alert("Your registration has been submitted");
+    window.location = '/Tryouts'
   }
   render() {
-    // const { registrationData } = this.props;
-    // console.log(this.props.registrationData)
-    //Create the model and pass it into react Survey component
-    //You may create survey model outside the render function and use it in your App or component
-    //The most model properties are reactive, on their change the component will change UI when needed.
     var model = new Survey.Model(this.json);
     return (
       <div className='survey'>
@@ -231,17 +226,6 @@ class PreregistrationPage extends React.Component {
         <span> * idicates required field</span>
       </div>
     )
-    /*
-    //The alternative way. react Survey component will create survey model internally
-    return (<Survey.Survey json={this.json} onComplete={this.onComplete}/>);
-    */
-    //You may pass model properties directly into component or set it into model
-    // <Survey.Survey model={model} mode="display"/>
-    //or 
-    // model.mode="display"
-    // <Survey.Survey model={model}/>
-    // You may change model properties outside render function. 
-    //If needed react Survey Component will change its behavior and change UI.
   }
 };
 
