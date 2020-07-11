@@ -5,14 +5,19 @@
   vertical-align: middle;
   background-image: url("../../assets/ash-background-beautiful-216640.png");
   background-attachment: fixed !important;
+  background-size: cover;
   position: relative;
   display: table;
-  width: 100vw;
+  width: 86vw;
   height: 40vh;
   background-repeat: no-repeat !important;
   background-position: center top !important;
-  background-size: auto;
+  // background-size: auto;
   background-color: transparent !important;
+
+  .card, .card-body {
+    width: 80vw !important;
+  }
 
   h3 {
     color: white;
@@ -24,6 +29,8 @@
 
   h2 {
     color: #ed1e24 !important;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
 
@@ -32,6 +39,7 @@
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     font-size: 4rem;
     font-weight: 600;
+    max-width: 700px;
   }
   
  

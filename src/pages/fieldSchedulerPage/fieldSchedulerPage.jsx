@@ -16,9 +16,6 @@ class FieldScheduler extends Component {
     let eventCreator = this.props.currentUser.email;
     let type = this.props.currentUser.displayName;
     let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
-    // console.log(this.props.currentUser)
-    // console.log(this.props.fieldData)
-    // console.log(ev)
     let events1 = [
       newEvent,
       ...this.props.fieldData[this.props.title].schedule
@@ -41,8 +38,6 @@ class FieldScheduler extends Component {
   
   render() {
     const { fieldname, fieldData, title } = this.props;
-    console.log(title)
-    console.log(fieldData[title])
     return (
       <div>
         <div className="fields">
@@ -73,7 +68,6 @@ class FieldScheduler extends Component {
             timeFormatState={false}
             // eslint-disable-next-line no-sequences
             onDataUpdated={this.logDataUpdate}
-            // fieldData={evCreator}
           />
         </div>
       </div>

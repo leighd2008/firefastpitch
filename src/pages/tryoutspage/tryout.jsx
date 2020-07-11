@@ -6,6 +6,7 @@ const TryOuts = () => {
   return (
     <div className="tryouts">
       <Card style={{ backgroundColor: "#6c757d00", borderColor: "#6c757d00", width: '100vw' }}>
+      <h2>Due to technical difficulties, preregistration forms filled out before July 11th were not saved. If you filled out a form prior to Jully 11th please fill out the form again.</h2>
         <CardBody>
           <CardTitle className="tc f1" tag="h1">
             Are you ready to play with FIRE?

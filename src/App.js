@@ -210,8 +210,6 @@ class App extends React.Component {
               (
                 <RegisteredPageWithSpinner
                   isLoading={loading}
-                  // title="Field1"
-                  // fieldname="Field 1"
                 />
               ))}
           />
