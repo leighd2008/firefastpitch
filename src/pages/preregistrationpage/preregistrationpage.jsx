@@ -155,7 +155,7 @@ class PreregistrationPage extends React.Component {
             "requiredErrorText": "Please enter a valid Date of Birth.",
             "inputType": "date",
             "min": "2004-01-01",
-            "max": "2010-01-01",
+            "max": "2012-01-01",
             "placeHolder": "mm/dd/yyyy"
           },
           // {
@@ -204,7 +204,7 @@ class PreregistrationPage extends React.Component {
     //Write survey results into database
     let player = survey.data;
     let division = player.division;
-    
+
     let newplayers = [
       player,
       ...this.props.registrationData[division].players
