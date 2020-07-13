@@ -203,7 +203,9 @@ class PreregistrationPage extends React.Component {
   onComplete = (survey, options) => {
     //Write survey results into database
     let player = survey.data;
+    console.log(player);
     let division = player.division;
+    console.log(division)
 
     let newplayers = [
       player,
@@ -215,11 +217,15 @@ class PreregistrationPage extends React.Component {
     firestore.collection("preregistration").doc(divisionId).update({
       players: newplayers,
     })
-    alert("Your registration has been submitted");
-    window.location = '/Tryouts'
+      .then(response => {
+        alert("Your registration has been submitted");
+        window.location = '/Tryouts'
+    })
+    
   }
   render() {
     var model = new Survey.Model(this.json);
+    console.log(model)
     return (
       <div className='survey'>
         <Survey.Survey model={model} onComplete={this.onComplete} />
