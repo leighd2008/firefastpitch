@@ -32,7 +32,11 @@ class PreregistrationPage extends React.Component {
           {
             "type": "comment",
             "name": "previous",
+            // "visible": false,
+            // "visibleIf": "{Years of Travel Softball Experience:} >= 1",
             "title": "Previous Travel Teams:",
+            // "enableIf": "{Years of Travel Softball Experience:} >= 1",
+            "defaultValue": "  ",
             "cols": 50
           },
           {
@@ -149,12 +153,12 @@ class PreregistrationPage extends React.Component {
           },
           {
             "type": "text",
-            "name": "DOB:",
+            "name": "DOB",
             "title": "Date of Birth:",
             "isRequired": true,
             "requiredErrorText": "Please enter a valid Date of Birth.",
             "inputType": "date",
-            "min": "2004-01-01",
+            "min": "2003-01-01",
             "max": "2013-01-01",
             "placeHolder": "mm/dd/yyyy"
           },
@@ -179,7 +183,7 @@ class PreregistrationPage extends React.Component {
           },
           {
             "type": "text",
-            "name": "phone:",
+            "name": "phone",
             "title": "Phone number:",
             "isRequired": true,
             "requiredErrorText": "Please enter a valid phone number.",
@@ -203,24 +207,44 @@ class PreregistrationPage extends React.Component {
   onComplete = (survey, options) => {
     //Write survey results into database
     let player = survey.data;
-    console.log(player);
     let division = player.division;
-    console.log(division)
+    console.log(player)
 
-    let newplayers = [
-      player,
-      ...this.props.registrationData[division].players
-    ];
-    console.log(this.props.registrationData[division].players)
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} \n travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n email: ${player.email} \n phone: ${player.phone}`)) {
+      let newplayers = [
+        player,
+        ...this.props.registrationData[division].players
+      ];
+      console.log(this.props.registrationData[division].players)
 
-    const divisionId = this.props.registrationData[division].id;
-    firestore.collection("preregistration").doc(divisionId).update({
-      players: newplayers,
-    })
-      .then(response => {
-        alert("Your registration has been submitted");
-        window.location = '/Tryouts'
-    })
+      const divisionId = this.props.registrationData[division].id;
+      firestore.collection("preregistration").doc(divisionId).update({
+        players: newplayers,
+      })
+        .then(response => {
+          alert(`Your registration has been submitted `)
+          window.location = '/Tryouts'
+        })
+
+    } else {
+      window.location = '/Preregistration'
+    }
+
+    // let newplayers = [
+    //   player,
+    //   ...this.props.registrationData[division].players
+    // ];
+    // console.log(this.props.registrationData[division].players)
+
+    // const divisionId = this.props.registrationData[division].id;
+    // firestore.collection("preregistration").doc(divisionId).update({
+    //   players: newplayers,
+    // })
+    //   .then(response => {
+    //     alert(`Your registration has been submitted `)
+    //     window.location = '/Tryouts'
+    // })
     
   }
   render() {
