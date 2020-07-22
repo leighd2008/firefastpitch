@@ -154,7 +154,7 @@ class PreregistrationPage extends React.Component {
           {
             "type": "text",
             "name": "DOB",
-            "title": "Date of Birth:",
+            "title": "Date of Birth",
             "isRequired": true,
             "requiredErrorText": "Please enter a valid Date of Birth.",
             "inputType": "date",
