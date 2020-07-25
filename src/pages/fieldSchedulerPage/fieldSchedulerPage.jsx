@@ -13,9 +13,17 @@ import './fieldSchedulerPage.scss';
 class FieldScheduler extends Component {
   
   logDataUpdate = (action, ev, id) => {
+    console.log('events', this.events)
     let eventCreator = this.props.currentUser.email;
     let type = this.props.currentUser.displayName;
     let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
+    console.log('fieldData', this.props.fieldData);
+    console.log('props', this.props);
+    console.log('sched', this.events);
+    console.log('ev', ev);
+    console.log('state', this.state);
+
+
     let events1 = [
       newEvent,
       ...this.props.fieldData[this.props.title].schedule
@@ -38,22 +46,23 @@ class FieldScheduler extends Component {
   
   render() {
     const { fieldname, fieldData, title } = this.props;
+    console.log(title);
     return (
       <div>
         <div className="fields">
           {title === "Field1" ?
             null :
-            <NavLink exact to="/Field1" activeClassName="selected" title="Field 1">
+            <NavLink exact to="/Field1" activeClassName="selected" >
               <h4>Field 1 Scheduling</h4>
             </NavLink>}
           {title === "Field2" ?
             null :
-            <NavLink exact to="/Field2" activeClassName="selected" title="Field 2">
+            <NavLink exact to="/Field2" activeClassName="selected" >
               <h4>Field 2 Scheduling</h4>
             </NavLink>}
           {title === "Field3" ?
             null :
-            <NavLink exact to="/Field3" activeClassName="selected" title="Field 3">
+            <NavLink exact to="/Field3" activeClassName="selected" >
               <h4>Field 3 Scheduling</h4>
             </NavLink>}
         </div>
