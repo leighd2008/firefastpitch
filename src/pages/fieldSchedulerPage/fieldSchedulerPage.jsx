@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectFieldData } from "../../redux/field/field.selectors";
-import { firestore } from "../../firebase/firebase.utils";
+// import { firestore } from "../../firebase/firebase.utils";
 import Scheduler from '../../components/scheduler/scheduler';
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
@@ -12,37 +12,37 @@ import './fieldSchedulerPage.scss';
 
 class FieldScheduler extends Component {
   
-  logDataUpdate = (action, ev, id) => {
-    console.log('events', this.events)
-    let eventCreator = this.props.currentUser.email;
-    let type = this.props.currentUser.displayName;
-    let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
-    console.log('fieldData', this.props.fieldData);
-    console.log('props', this.props);
-    console.log('sched', this.events);
-    console.log('ev', ev);
-    console.log('state', this.state);
+  // logDataUpdate = (action, ev, id) => {
+  //   console.log('events', this.events)
+  //   let eventCreator = this.props.currentUser.email;
+  //   let type = this.props.currentUser.displayName;
+  //   let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
+  //   console.log('fieldData', this.props.fieldData);
+  //   console.log('props', this.props);
+  //   console.log('sched', this.events);
+  //   console.log('ev', ev);
+  //   console.log('state', this.state);
 
 
-    let events1 = [
-      newEvent,
-      ...this.props.fieldData[this.props.title].schedule
-    ];
-    console.log('events', events1)
+    // let events1 = [
+    //   newEvent,
+    //   ...this.props.fieldData[this.props.title].schedule
+    // ];
+  //   console.log('events', events1)
 
-    events1.forEach((item) => (
-      // eslint-disable-next-line no-sequences
-      console.log('item', item),
-      item.end_date = item.end_date.toJSON(),
-      item.start_date = item.start_date.toJSON()
-    ))
-    console.log(this.props.title)
+    // events1.forEach((item) => (
+    //   // eslint-disable-next-line no-sequences
+    //   console.log('item', item),
+    //   item.end_date = item.end_date.toJSON(),
+    //   item.start_date = item.start_date.toJSON()
+    // ))
+  //   console.log(this.props.title)
 
-    const fieldId = this.props.fieldData[this.props.title].id;
-    firestore.collection("fields").doc(fieldId).update({
-      schedule: events1,
-    });
-  }
+    // const fieldId = this.props.fieldData[this.props.title].id;
+    // firestore.collection("fields").doc(fieldId).update({
+    //   schedule: events1,
+    // });
+  // }
   
   render() {
     const { fieldname, fieldData, title } = this.props;
@@ -74,9 +74,11 @@ class FieldScheduler extends Component {
         <div className='scheduler-container'>
           <Scheduler
             events={fieldData[title].schedule}
+            title={title}
+            fieldId={fieldData[title].id}
             timeFormatState={false}
             // eslint-disable-next-line no-sequences
-            onDataUpdated={this.logDataUpdate}
+            // onDataUpdated={this.logDataUpdate}
           />
         </div>
       </div>

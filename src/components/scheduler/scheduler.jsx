@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import 'dhtmlx-scheduler';
 import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
 import "./scheduler.scss";
+import { firestore } from "../../firebase/firebase.utils";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 const scheduler = window.scheduler;
 
-export default class Scheduler extends Component {
+class Scheduler extends Component {
 
   initSchedulerEvents() {
     if (scheduler._$initialized) {
@@ -15,9 +19,36 @@ export default class Scheduler extends Component {
     const onDataUpdated = this.props.onDataUpdated;
 
     scheduler.attachEvent('onEventAdded', (id, ev) => {
-      if (onDataUpdated) {
-        onDataUpdated('create', ev, id);
-      }
+      // if (onDataUpdated) {
+      //   onDataUpdated('create', ev, id);
+      // }
+      let eventCreator = this.props.currentUser.email;
+      let type = this.props.currentUser.displayName;
+      let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
+      let events1 = [
+        newEvent,
+        ...this.props.events
+      ];
+
+      events1.forEach((item) => (
+        // eslint-disable-next-line no-sequences
+        console.log('item', item),
+        item.end_date = item.end_date.toJSON(),
+        item.start_date = item.start_date.toJSON()
+      ))
+
+      const fieldId = this.props.fieldId;
+      firestore.collection("fields").doc(fieldId).update({
+        schedule: events1,
+      })
+        .then(response => {
+          // alert(`Your registration has been submitted `)
+          // window.location.reload(false)
+          window.location = 'Adminpage'
+          // window.location = `${this.props.title}?events=this.props.events`
+
+          // scheduler.render();
+        })
     });
 
     scheduler.attachEvent('onEventChanged', (id, ev) => {
@@ -83,7 +114,7 @@ export default class Scheduler extends Component {
     scheduler.templates.hour_scale = scheduler.date.date_to_str(scheduler.config.hour_date);
   }
 
-  render() {
+render() {
     const { timeFormatState } = this.props;
     this.setTimeFormat(timeFormatState);
     return (
@@ -94,3 +125,9 @@ export default class Scheduler extends Component {
     );
   }
 }
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+})
+
+export default connect(mapStateToProps)(Scheduler);
