@@ -24,6 +24,22 @@ class Carousel extends Component {
 
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
+    this.setNextImage = this.setNextImage.bind(this);
+  }
+
+  componentDidUpdate() {
+    setTimeout(this.setNextImage, 2000);
+  }
+
+  setNextImage() {
+    const lastIndex = imgUrls.length - 1;
+    const { currentImageIndex } = this.state;
+    const shouldResetIndex = currentImageIndex === lastIndex;
+    const index = shouldResetIndex ? 0 : currentImageIndex + 1;
+
+    this.setState({
+      currentImageIndex: index
+    });
   }
 
   previousSlide() {
