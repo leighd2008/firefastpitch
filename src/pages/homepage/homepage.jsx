@@ -12,6 +12,7 @@ const HomePage = () => (
     <h2>Due to technical difficulties, Tryout preregistration forms filled out before July 11th were not saved. If you filled out a form prior to Jully 11th please fill out the form again.</h2>
     <Recruiting />
     <Welcome />
+    
     <Celebrate />
     <Teams />
   </div>
