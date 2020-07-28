@@ -28,7 +28,7 @@ class Carousel extends Component {
   }
 
   componentDidUpdate() {
-    setTimeout(this.setNextImage, 2000);
+    setTimeout(this.setNextImage, 3000);
   }
 
   setNextImage() {
