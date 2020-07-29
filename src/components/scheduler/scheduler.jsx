@@ -8,20 +8,13 @@ import { firestore } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 const scheduler = window.scheduler;
-
 class Scheduler extends Component {
 
   initSchedulerEvents() {
     if (scheduler._$initialized) {
       return;
     }
-
-    const onDataUpdated = this.props.onDataUpdated;
-
     scheduler.attachEvent('onEventAdded', (id, ev) => {
-      // if (onDataUpdated) {
-      //   onDataUpdated('create', ev, id);
-      // }
       let eventCreator = this.props.currentUser.email;
       let type = this.props.currentUser.displayName;
       let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
@@ -42,25 +35,16 @@ class Scheduler extends Component {
         schedule: events1,
       })
         .then(response => {
-          // alert(`Your registration has been submitted `)
-          // window.location.reload(false)
           window.location = 'Adminpage'
-          // window.location = `${this.props.title}?events=this.props.events`
-
-          // scheduler.render();
         })
     });
 
     scheduler.attachEvent('onEventChanged', (id, ev) => {
-      if (onDataUpdated) {
-        onDataUpdated('update', ev, id);
-      }
+      
     });
 
     scheduler.attachEvent('onEventDeleted', (id, ev) => {
-      if (onDataUpdated) {
-        onDataUpdated('delete', ev, id);
-      }
+      
     });
     scheduler._$initialized = true;
   }
@@ -90,33 +74,14 @@ class Scheduler extends Component {
 
     this.initSchedulerEvents();
 
-    scheduler.attachEvent("onTemplatesReady", function () {
-      scheduler.templates.event_text = function (start, end, event) {
-        return "<b>" + event.text + "</b><br><i>" + event.type + "</i>";
-      }
-    }); 
-
     const { events } = this.props;
     scheduler.init(this.schedulerContainer, new Date());
     scheduler.clearAll();
     scheduler.parse(events);
   }
-  shouldComponentUpdate(nextProps) {
-    return this.props.timeFormatState !== nextProps.timeFormatState;
-  }
-
-  componentDidUpdate() {
-    scheduler.render();
-  }
-
-  setTimeFormat(state) {
-    scheduler.config.hour_date = state ? '%H:%i' : '%g:%i %A';
-    scheduler.templates.hour_scale = scheduler.date.date_to_str(scheduler.config.hour_date);
-  }
-
+  
 render() {
-    const { timeFormatState } = this.props;
-    this.setTimeFormat(timeFormatState);
+    
     return (
       <div
         ref={(input) => { this.schedulerContainer = input }}
