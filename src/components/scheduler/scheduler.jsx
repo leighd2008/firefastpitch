@@ -22,10 +22,10 @@ class Scheduler extends Component {
         newEvent,
         ...this.props.events
       ];
+      console.log(events1)
 
       events1.forEach((item) => (
         // eslint-disable-next-line no-sequences
-        console.log('item', item),
         item.end_date = item.end_date.toJSON(),
         item.start_date = item.start_date.toJSON()
       ))
@@ -40,12 +40,77 @@ class Scheduler extends Component {
     });
 
     scheduler.attachEvent('onEventChanged', (id, ev) => {
+      let evChanger = this.props.currentUser.email;
+      console.log(evChanger)
+      console.log(ev)
       
+      // let type = this.props.currentUser.displayName;
+      let changedEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator: ev.eventCreator, type:ev.type }
+      let changeEventId = ev.id;
+      let evCreator = ev.eventCreator;
+      let { events } = this.props;
+      console.log(events)
+      let events1 = [];
+      let events2 = [];
+
+
+      if (evChanger === evCreator | evChanger === 'fire.fastpitch.softball@gmail.com' ) {
+        events.filter(event => event.id !== changeEventId).map(filteredEvent => (events1.push(filteredEvent)))
+        events2 = [
+          changedEvent,
+          ...events1
+        ];
+        
+        events2.forEach((item) => (
+          // eslint-disable-next-line no-sequences
+          item.end_date = item.end_date.toJSON(),
+          item.start_date = item.start_date.toJSON()
+          ))
+          console.log(events2)
+          console.log(events)
+          const fieldId = this.props.fieldId;
+          firestore.collection("fields").doc(fieldId).update({
+            schedule: events2,
+          })
+            .then(response => {
+              window.location = 'Adminpage'
+            })
+        } else {
+          alert(`You do not have permission to change this event. Please contact Rich Miekle to have the event deleted`)
+          window.location = 'Adminpage'
+        }
     });
 
     scheduler.attachEvent('onEventDeleted', (id, ev) => {
-      
+      let evDeleter = this.props.currentUser.email;
+      // let type = this.props.currentUser.displayName;
+      let delEventId = ev.id;
+      let evCreator = ev.eventCreator;
+      let { events } = this.props;
+      let events1 = [];
+
+      if (evDeleter === evCreator | evDeleter === 'fire.fastpitch.softball@gmail.com' ) {
+        events.filter(event => event.id !== delEventId).map(filteredEvent => (events1.push(filteredEvent)))
+      } else {
+        events1 = events;
+        alert(`You do not have permission to delete this event. Please contact Rich Miekle to have the event deleted`)
+      };
+
+      events1.forEach((item) => (
+        // eslint-disable-next-line no-sequences
+        item.end_date = item.end_date.toJSON(),
+        item.start_date = item.start_date.toJSON()
+      ))
+
+      const fieldId = this.props.fieldId;
+      firestore.collection("fields").doc(fieldId).update({
+        schedule: events1,
+      })
+        .then(response => {
+          window.location = 'Adminpage'
+        })
     });
+
     scheduler._$initialized = true;
   }
 
