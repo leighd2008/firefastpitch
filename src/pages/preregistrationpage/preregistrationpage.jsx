@@ -176,8 +176,7 @@ class PreregistrationPage extends React.Component {
           {
             "type": "text",
             "name": "email",
-            "title": "Email Address:",
-            "isRequired": true,
+            "title": "Player Email Address:",
             "requiredErrorText": "Please enter a valid email address.",
             "validators": [
               {
@@ -186,13 +185,12 @@ class PreregistrationPage extends React.Component {
             ],
             "inputType": "email",
             "size": 50,
-            "placeHolder": "player or parent/guardian email is acceptable"
+            "placeHolder": "player email is optional"
           },
           {
             "type": "text",
             "name": "phone",
             "title": "Phone number:",
-            "isRequired": true,
             "requiredErrorText": "Please enter a valid phone number.",
             "validators": [
               {
@@ -202,7 +200,7 @@ class PreregistrationPage extends React.Component {
             "inputType": "tel",
             "maxLength": 10,
             "size": 50,
-            "placeHolder": "player or parent/guardian email is acceptable"
+            "placeHolder": "player phone number is optional"
 
           },
           {
@@ -213,10 +211,69 @@ class PreregistrationPage extends React.Component {
           },
           {
             "type": "text",
+            "name": "parent1phone",
+            "title": "Parent/Guardian Phone number:",
+            "isRequired": true,
+            "requiredErrorText": "Please enter a valid phone number.",
+            "validators": [
+              {
+                "type": "numeric"
+              }
+            ],
+            "inputType": "tel",
+            "maxLength": 10,
+            "size": 50,
+          },
+          {
+            "type": "text",
+            "name": "parent1email",
+            "title": "Parent/Guardian Email Address:",
+            "isRequired": true,
+            "requiredErrorText": "Please enter a valid email address.",
+            "validators": [
+              {
+                "type": "email"
+              }
+            ],
+            "inputType": "email",
+            "size": 50,
+          },
+          {
+            "type": "text",
             "name": "parent2",
             "title": "Parent/Guardian name -2",
             "size": 50,
-          }
+          },
+          {
+            "type": "text",
+            "name": "parent2phone",
+            "title": "Parent/Guardian Phone number:",
+            "requiredErrorText": "Please enter a valid phone number.",
+            "validators": [
+              {
+                "type": "numeric"
+              }
+            ],
+            "inputType": "tel",
+            "maxLength": 10,
+            "size": 50,
+            "placeHolder": "second phone number is optional"
+
+          },
+          {
+            "type": "text",
+            "name": "parent2email",
+            "title": "Parent/Guardian Email Address:",
+            "requiredErrorText": "Please enter a valid email address.",
+            "validators": [
+              {
+                "type": "email"
+              }
+            ],
+            "inputType": "email",
+            "size": 50,
+            "placeHolder": "second email is optional"
+          },
         ],
         "title": "Fire Fastpitch Tryout Preregistration Form"
       }
