@@ -19,7 +19,14 @@ class PreregistrationPage extends React.Component {
           {
             "type": "text",
             "name": "name",
-            "title": "Player's Name:",
+            "title": "Player's First Name:",
+            "isRequired": true,
+            "size": 50
+          },
+          {
+            "type": "text",
+            "name": "last",
+            "title": "Player's Last Name:",
             "isRequired": true,
             "size": 50
           },
@@ -197,6 +204,18 @@ class PreregistrationPage extends React.Component {
             "size": 50,
             "placeHolder": "player or parent/guardian email is acceptable"
 
+          },
+          {
+            "type": "text",
+            "name": "parent1",
+            "title": "Parent/Guardian name -1",
+            "size": 50,
+          },
+          {
+            "type": "text",
+            "name": "parent2",
+            "title": "Parent/Guardian name -2",
+            "size": 50,
           }
         ],
         "title": "Fire Fastpitch Tryout Preregistration Form"
@@ -211,7 +230,7 @@ class PreregistrationPage extends React.Component {
     console.log(player)
 
     // eslint-disable-next-line no-restricted-globals
-    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} \n travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n email: ${player.email} \n phone: ${player.phone}`)) {
+    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} ${player.last} \n travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n email: ${player.email} \n phone: ${player.phone} /n parent/guardians: ${player.parent1} ${player.parent2}`)) {
       let newplayers = [
         player,
         ...this.props.registrationData[division].players

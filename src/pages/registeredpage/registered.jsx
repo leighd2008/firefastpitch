@@ -5,8 +5,12 @@ import { selectRegistrationData } from "../../redux/registration/registration.se
 
 import { Card, CardTitle } from "reactstrap";
 
+// spreadsheetid = 1HyH4DmYh1uSQWixRn - iS458ydhLrsBMOmnwh23Z2pHA
+// sheetid = 0
+
 const Registered = ({ index, registrationData }) => {
   const registrationDataArray = Object.entries(registrationData);
+  console.log(registrationDataArray);
 
   return (
     <Card
@@ -39,7 +43,7 @@ const Registered = ({ index, registrationData }) => {
           {registrationDataArray[index][1].players.map((player, i) => {
             return (
               <tr className="stripe-dark" key={i}>
-                <td>{player.name}</td>
+                <td>{`${player.name} ${player.last}`}</td>
                 <td>{player.DOB}</td>
                 <td>{player.experience}</td>
                 <td>{player.previous}</td>
