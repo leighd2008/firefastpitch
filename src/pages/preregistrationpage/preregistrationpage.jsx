@@ -190,7 +190,7 @@ class PreregistrationPage extends React.Component {
           {
             "type": "text",
             "name": "phone",
-            "title": "Phone number:",
+            "title": "Player Phone number:",
             "requiredErrorText": "Please enter a valid phone number.",
             "validators": [
               {
@@ -242,6 +242,7 @@ class PreregistrationPage extends React.Component {
             "type": "text",
             "name": "parent2",
             "title": "Parent/Guardian name -2",
+            "placeHolder": "optional",
             "size": 50,
           },
           {
@@ -257,7 +258,7 @@ class PreregistrationPage extends React.Component {
             "inputType": "tel",
             "maxLength": 10,
             "size": 50,
-            "placeHolder": "second phone number is optional"
+            "placeHolder": "optional"
 
           },
           {
@@ -272,8 +273,27 @@ class PreregistrationPage extends React.Component {
             ],
             "inputType": "email",
             "size": 50,
-            "placeHolder": "second email is optional"
+            "placeHolder": "optional"
           },
+          {
+            "type": "radiogroup",
+            "name": "session",
+            "title": "Which tryout session will you be attending",
+            "choices": [
+              {
+                "value": "item1",
+                "text": "August 5th  6-8 PM"
+              },
+              {
+                "value": "item2",
+                "text": "August 15th  10-12 AM"
+              },
+              {
+                "value": "item3",
+                "text": "Private, you will be contacted to schedule"
+              }
+            ]
+          }
         ],
         "title": "Fire Fastpitch Tryout Preregistration Form"
       }
@@ -287,7 +307,7 @@ class PreregistrationPage extends React.Component {
     console.log(player)
 
     // eslint-disable-next-line no-restricted-globals
-    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} ${player.last} \n travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n email: ${player.email} \n phone: ${player.phone} /n parent/guardians: ${player.parent1} ${player.parent2}`)) {
+    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} ${player.last} \n travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n email: ${player.email} \n phone: ${player.phone} /n parent/guardians: ${player.parent1} ${player.parent2} /n tryout session: ${player.session}`)) {
       let newplayers = [
         player,
         ...this.props.registrationData[division].players
@@ -306,22 +326,6 @@ class PreregistrationPage extends React.Component {
     } else {
       window.location = '/Preregistration'
     }
-
-    // let newplayers = [
-    //   player,
-    //   ...this.props.registrationData[division].players
-    // ];
-    // console.log(this.props.registrationData[division].players)
-
-    // const divisionId = this.props.registrationData[division].id;
-    // firestore.collection("preregistration").doc(divisionId).update({
-    //   players: newplayers,
-    // })
-    //   .then(response => {
-    //     alert(`Your registration has been submitted `)
-    //     window.location = '/Tryouts'
-    // })
-    
   }
   render() {
     var model = new Survey.Model(this.json);
