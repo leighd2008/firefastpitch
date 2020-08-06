@@ -68,6 +68,7 @@ class Registered extends React.Component {
         <table className="f6 w-100 mw8 center pa4 ma2">
           <thead>
             <tr>
+              <th>Attended</th>
               <th>Name</th>
               <th>DOB</th>
               <th>Experience</th>
@@ -83,6 +84,7 @@ class Registered extends React.Component {
             {registrationDataArray[index][1].players.map((player, i) => {
               return (
                 <tr className="stripe-dark" key={i}>
+                  <td>{`${player.attended}`}</td>
                   <td>{`${player.name} ${player.last}`}</td>
                   <td>{player.DOB}</td>
                   <td>{player.experience}</td>

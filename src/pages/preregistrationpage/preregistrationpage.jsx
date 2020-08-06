@@ -281,15 +281,16 @@ class PreregistrationPage extends React.Component {
             "title": "Which tryout session will you be attending",
             "choices": [
               {
-                "value": "item1",
+                "value": "August 5th",
                 "text": "August 5th  6-8 PM"
               },
               {
-                "value": "item2",
+                "value": "August 15th",
                 "text": "August 15th  10-12 AM"
               },
               {
-                "value": "item3",
+                "value": "TBD",
+                
                 "text": "Private, you will be contacted to schedule"
               }
             ]
