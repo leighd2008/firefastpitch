@@ -134,7 +134,10 @@ class Scheduler extends Component {
     scheduler.templates.event_class = function (start, end, event) {
       if (event.type === 'Diane') return 'Diane_event';
       else if (event.type === 'Rich') return 'Rich_event';
-      else if (event.type === 'Mike') return 'Mike_event'
+      else if (event.type === 'Mike') return 'Mike_event';
+      else if (event.type === 'Jeremy') return 'Jeremy_event';
+      else if (event.type === 'Stan') return 'Stan_event';
+      else if (event.type === 'Jim') return 'Jim_event'
     }
 
     this.initSchedulerEvents();

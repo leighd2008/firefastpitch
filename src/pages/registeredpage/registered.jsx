@@ -68,32 +68,30 @@ class Registered extends React.Component {
         <table className="f6 w-100 mw8 center pa4 ma2">
           <thead>
             <tr>
+              <th>Tryout Number</th>
               <th>Attended</th>
               <th>Name</th>
               <th>DOB</th>
-              <th>Experience</th>
-              <th>Previous Teams</th>
+              {/* <th>Experience</th>
+              <th>Previous Teams</th> */}
               <th>Positions</th>
               <th>Bats</th>
               <th>Throws</th>
-              {/* <th>Email</th>
-            <th>Phone</th> */}
             </tr>
           </thead>
           <tbody>
             {registrationDataArray[index][1].players.map((player, i) => {
               return (
                 <tr className="stripe-dark" key={i}>
+                  <td>{`${player.tryout}`}</td>
                   <td>{`${player.attended}`}</td>
                   <td>{`${player.name} ${player.last}`}</td>
                   <td>{player.DOB}</td>
-                  <td>{player.experience}</td>
-                  <td>{player.previous}</td>
+                  {/* <td>{player.experience}</td>
+                  <td>{player.previous}</td> */}
                   <td>{player.positions}</td>
                   <td>{player.bats}</td>
                   <td>{player.throws}</td>
-                  {/* <td>{player.email}</td>
-                <td>{player.phone}</td> */}
                 </tr>
               );
             })}

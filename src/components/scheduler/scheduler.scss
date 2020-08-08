@@ -7,31 +7,54 @@
 //   background-color: #ed1e24 !important;
 // }
     /*event in day or week view*/
-    .dhx_cal_event.Diane_event div{
+    .dhx_cal_event.Rich_event div{
         background-color: #ed1e24 !important;
         // color: black !important;
     }
-    .dhx_cal_event.Rich_event div{
+    .dhx_cal_event.Jim_event div{
         background-color: #6b6866 !important;
         // color: black !important;
     }
     .dhx_cal_event.Mike_event div{
+        background-color: black !important;
+        // color: black !important;
+    }
+     .dhx_cal_event.Stan_event div{
         background-color: #e96107 !important;
+        // color: black !important;
+    }
+     .dhx_cal_event.Jeremy_event div{
+        background-color: rgb(161, 7, 7) !important;
+        // color: black !important;
+    }
+     .dhx_cal_event.Diane_event div{
+        background-color: blue !important;
         // color: black !important;
     }
  
     /*multi-day event in month view*/
     .dhx_cal_event_line.Diane_event{
-        background-color: #ed1e24 !important;
+        background-color: blue
+         !important;
         // color: black !important;
     }
     .dhx_cal_event_line.Rich_event{
-        background-color: #6b6866 !important;
+        background-color: #ed1e24 !important;
+        // color: black !important;
+    }
+
+    .dhx_cal_event_line.Stan_event{
+      background-color: #e96107 !important;
         // color: black !important;
     }
 
     .dhx_cal_event_line.Mike_event{
-      background-color: #e96107 !important;
+      background-color: black !important;
+        // color: black !important;
+    }
+
+    .dhx_cal_event_line.Jeremy_event{
+      background-color: rgb(161, 7, 7) !important;
         // color: black !important;
     }
  
