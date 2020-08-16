@@ -3,6 +3,8 @@ import Registered from "./registered";
 
 import { Card } from "reactstrap";
 
+import './registeredPage.scss'
+
 const RegisteredPage = () => {
   return (
     <Card
