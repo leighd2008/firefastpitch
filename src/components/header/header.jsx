@@ -7,6 +7,7 @@ import { auth } from "../../firebase/firebase.utils";
 
 import TeamMenu from "../teamMenu/teamMenu";
 import Corona from "../corona/corona";
+import OHSAArules from "../OHSAArules/OHSAArules";
 import Fangear from "../fangear/fangear";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
@@ -84,6 +85,7 @@ const Header = ({ currentUser, closeTeamDropdown }) => (
     </div>
     <Corona />
     <Fangear />
+    <OHSAArules/>
   </div>
 );
 

@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const config = {
-  apiKey: "AIzaSyAN1e4qCSYJr7KVO2kieJy5mkrf7GHEJWU",
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
   authDomain: "fire-fastpitch.firebaseapp.com",
   databaseURL: "https://fire-fastpitch.firebaseio.com",
   projectId: "fire-fastpitch",
