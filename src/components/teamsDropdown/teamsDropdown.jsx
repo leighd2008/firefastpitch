@@ -6,7 +6,9 @@ import "./teamsDropdown.scss";
 const TeamsDropdown = () => (
   <div className="teams-dropdown">
     <div className="teams">
-      <NavLink exact to="/Fire14U" activeClassName="selected">
+      <NavLink exact to="/Fire16U" activeClassName="selected">
+        <h4>Fire 16U</h4>
+      </NavLink><NavLink exact to="/Fire14U" activeClassName="selected">
         <h4>Fire 14U</h4>
       </NavLink>
       <NavLink exact to="/Fire12U" activeClassName="selected">

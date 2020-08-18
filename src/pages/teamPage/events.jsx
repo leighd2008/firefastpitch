@@ -10,10 +10,16 @@ const Fire14UURLS = {
   )
 };
 
+const Fire16UURLS = {
+  Instateam: makeGoogleCalendarURL(
+    `cdr7o2fqa1hfg5uhlq6raaso38@group.calendar.google.com`
+  )
+};
+
 const Fire12UURLS = {
   Instateam: makeGoogleCalendarURL(
     `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
   )
 };
 
-export { Fire14UURLS, Fire12UURLS };
+export { Fire14UURLS, Fire12UURLS, Fire16UURLS };

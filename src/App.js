@@ -28,7 +28,7 @@ import RegisteredPage from "./pages/registeredpage/registeredpage.jsx";
 
 
 
-import { Fire14UURLS, Fire12UURLS } from "../src/pages/teamPage/events";
+import { Fire14UURLS, Fire12UURLS, Fire16UURLS } from "../src/pages/teamPage/events";
 import {
   auth,
   createUserProfileDocument,
@@ -136,7 +136,18 @@ class App extends React.Component {
                 eventurls={Fire14UURLS} />
               
             ))}
-          />
+            />
+            <Route
+              path="/Fire16U"
+              component={withRouter(() =>
+                (
+                  <TeamPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 16U"
+                    title="Fire16U"
+                    eventurls={Fire16UURLS} />
+                ))}
+            />
           <Route
             path="/Fire12U"
             component={withRouter(() => 
