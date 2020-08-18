@@ -17,7 +17,9 @@ import SignInPage from "./pages/sign-inpage/sign-inpage";
 import AdminPage from "./pages/adminpage/adminpage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import TryoutsPage from "./pages/tryoutspage/tryout";
+// import TryoutsPage from "./pages/tryoutspage/tryout";
+import TryoutsPageStillNeed from "./pages/tryoutspageStillNeed/tryoutStillNeed";
+
 import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
 import FieldSchedulerPage from "./pages/fieldSchedulerPage/fieldSchedulerPage"
@@ -146,7 +148,8 @@ class App extends React.Component {
                 eventurls={Fire12UURLS} />
             ))}
           />
-          <Route path="/Tryouts" component={TryoutsPage} />
+          {/* <Route path="/Tryouts" component={TryoutsPage} /> */}
+          <Route path="/Tryouts" component={TryoutsPageStillNeed} />
           <Route path="/Training" component={TrainingPage} />
           <Route path="/Preregistration" render={() => <PreregistrationPageWithSpinner isLoading={loading} />}
           />
