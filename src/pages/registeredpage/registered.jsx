@@ -7,7 +7,7 @@ import { Card, CardTitle } from "reactstrap";
 
 class Registered extends React.Component {
 
-  
+
   render() {
     const { registrationData, index } = this.props;
     const registrationDataArray = Object.entries(registrationData);
@@ -41,17 +41,17 @@ class Registered extends React.Component {
           <tbody>
             {registrationDataArray[index][1].players.map((player, i) => {
               return (
-                <tr className="stripe-dark" onClick={(e) => alert(`${player.name} ${player.last} \n ${player.parent1} \n       phone: ${player.parent1phone} \n       email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n        phone: ${player.parent2phone || ""} \n       email: ${player.parent2email || ""} ` )} key={i}>
-                  <td>{`${player.tryout ||''}`}</td>
+                <tr className="stripe-dark" onClick={(e) => alert(`${player.name} ${player.last} email: ${player.email} \n ${player.parent1} \n       phone: ${player.parent1phone} \n       email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n        phone: ${player.parent2phone || ""} \n       email: ${player.parent2email || ""} `)} key={i}>
+                  <td>{`${player.tryout || ''}`}</td>
                   <td>{`${player.attended || ''}`}</td>
                   <td >{`${player.name} ${player.last}`}</td>
-                  
+
                   <td>{player.DOB}</td>
                   <td>{player.positions}</td>
                   <td>{player.bats}</td>
                   <td>{player.throws}</td>
                 </tr>
-                
+
               );
             })}
           </tbody>
