@@ -242,7 +242,43 @@ class App extends React.Component {
                   index={0} />
 
               ))}
-          />
+            />
+            <Route
+              path="/10URoster"
+              component={withRouter(() =>
+                (
+                  <TeamRosterPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 10U"
+                    title="Fire10U"
+                    index={3} />
+
+                ))}
+            />
+            <Route
+              path="/14URoster"
+              component={withRouter(() =>
+                (
+                  <TeamRosterPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 14U"
+                    title="Fire14U"
+                    index={1} />
+
+                ))}
+            />
+            <Route
+              path="/16URoster"
+              component={withRouter(() =>
+                (
+                  <TeamRosterPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 16U"
+                    title="Fire16U"
+                    index={2} />
+
+                ))}
+            />
         </Switch>
         <Footer />
         </div>

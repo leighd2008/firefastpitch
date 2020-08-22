@@ -304,6 +304,8 @@ class PreregistrationPage extends React.Component {
   onComplete = (survey, options) => {
     //Write survey results into database
     let player = survey.data;
+    player.onTeam = '';
+    player.tryout = '';
     let division = player.division;
     console.log(player)
 
