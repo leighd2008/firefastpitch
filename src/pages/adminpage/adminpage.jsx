@@ -23,6 +23,9 @@ const AdminPage = ({ currentUser }) =>
         <NavLink exact to="/Registered" activeClassName="selected" title="Registered">
           <h4>Preregistered Players</h4>
         </NavLink>
+        <NavLink exact to="/12URoster" activeClassName="selected" title="12URoster">
+          <h4>12U Team Roster</h4>
+        </NavLink>
       </div>
     </div>
   ) : (

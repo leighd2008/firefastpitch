@@ -8,7 +8,7 @@ import './registeredPage.scss'
 const RegisteredPage = () => {
   return (
     <Card
-      className="ma3 roster"
+      className="ma3 registered"
       style={{
         backgroundColor: "#rgb(194, 198, 202)",
         borderColor: "red",

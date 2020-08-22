@@ -25,6 +25,8 @@ import TournamentPage from "./pages/TournamentPage/TournamentPage";
 import FieldSchedulerPage from "./pages/fieldSchedulerPage/fieldSchedulerPage"
 import PreregistrationPage from "./pages/preregistrationpage/preregistrationpage.jsx";
 import RegisteredPage from "./pages/registeredpage/registeredpage.jsx";
+import TeamRosterPage from "./pages/TeamRosterPage/TeamRosterPage.jsx";
+
 
 
 
@@ -45,6 +47,8 @@ const TournamentPageWithSpinner = WithSpinner(TournamentPage);
 const FieldSchedulerPageWithSpinner = WithSpinner(FieldSchedulerPage);
 const PreregistrationPageWithSpinner = WithSpinner(PreregistrationPage);
 const RegisteredPageWithSpinner = WithSpinner(RegisteredPage);
+const TeamRosterPageWithSpinner = WithSpinner(TeamRosterPage);
+
 
 
 
@@ -225,6 +229,18 @@ class App extends React.Component {
                 <RegisteredPageWithSpinner
                   isLoading={loading}
                 />
+              ))}
+          />
+          <Route
+            path="/12URoster"
+            component={withRouter(() =>
+              (
+                <TeamRosterPageWithSpinner
+                  isLoading={loading}
+                  teamname="Fire 12U"
+                  title="Fire12U"
+                  index={0} />
+
               ))}
           />
         </Switch>
