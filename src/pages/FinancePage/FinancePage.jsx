@@ -17,30 +17,30 @@ class TeamRoster extends Component {
     };
   }
 
-  // componentWillMount = () => {
-  //   console.log('TeamRoster will mount');
-  // }
+  componentWillMount = () => {
+    console.log('TeamRoster will mount');
+  }
 
-  // componentDidMount = () => {
-  //   console.log('TeamRoster mounted');
-  // }
+  componentDidMount = () => {
+    console.log('TeamRoster mounted');
+  }
 
-  // componentWillReceiveProps = (nextProps) => {
-  //   console.log('TeamRoster will receive props', nextProps);
-  // }
+  componentWillReceiveProps = (nextProps) => {
+    console.log('TeamRoster will receive props', nextProps);
+  }
 
-  // componentWillUpdate = (nextProps, nextState) => {
-  //   console.log('TeamRoster will update', nextProps, nextState);
-  // }
+  componentWillUpdate = (nextProps, nextState) => {
+    console.log('TeamRoster will update', nextProps, nextState);
+  }
 
 
-  // componentDidUpdate = () => {
-  //   console.log('TeamRoster did update');
-  // }
+  componentDidUpdate = () => {
+    console.log('TeamRoster did update');
+  }
 
-  // componentWillUnmount = () => {
-  //   console.log('TeamRoster will unmount');
-  // }
+  componentWillUnmount = () => {
+    console.log('TeamRoster will unmount');
+  }
 
   render() {
     const { registrationData, index } = this.props;
