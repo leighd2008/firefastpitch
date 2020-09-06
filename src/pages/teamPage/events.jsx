@@ -6,7 +6,7 @@ let makeGoogleCalendarURL = calID =>
 
 const Fire14UURLS = {
   Instateam: makeGoogleCalendarURL(
-    `cdr7o2fqa1hfg5uhlq6raaso38@group.calendar.google.com`
+    `hbkkr7qgher0ovkhav6kbqkrk0@group.calendar.google.com`
   )
 };
 
