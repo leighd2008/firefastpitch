@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
-import { selectRegistrationData } from "../../redux/registration/registration.selectors";
+import { selectTeamData } from "../../redux/team/team.selectors";
 
 import { Card, CardTitle } from "reactstrap";
-
-// import PropTypes from 'prop-types';
-// import { Test } from './TeamRoster.styles';
 
 class TeamRoster extends Component { 
   constructor(props) {
@@ -17,34 +14,10 @@ class TeamRoster extends Component {
     };
   }
 
-  // componentWillMount = () => {
-  //   console.log('TeamRoster will mount');
-  // }
-
-  // componentDidMount = () => {
-  //   console.log('TeamRoster mounted');
-  // }
-
-  // componentWillReceiveProps = (nextProps) => {
-  //   console.log('TeamRoster will receive props', nextProps);
-  // }
-
-  // componentWillUpdate = (nextProps, nextState) => {
-  //   console.log('TeamRoster will update', nextProps, nextState);
-  // }
-
-
-  // componentDidUpdate = () => {
-  //   console.log('TeamRoster did update');
-  // }
-
-  // componentWillUnmount = () => {
-  //   console.log('TeamRoster will unmount');
-  // }
-
   render() {
-    const { registrationData, index } = this.props;
-    const registrationDataArray = Object.entries(registrationData);
+    const { index, teamData } = this.props;
+    const teamDataArray = Object.entries(teamData);
+    
     
     return (
       <Card
@@ -57,7 +30,7 @@ class TeamRoster extends Component {
         }}
       >
         <CardTitle tag="h1">
-          {`Registered Players: ${registrationDataArray[index][1].title} Division`}
+          {`Team Roster: ${teamDataArray[index][1].title} Division`}
         </CardTitle>
         <table className="f6 w-100 mw8 center pa4 ma2">
           <thead>
@@ -75,8 +48,7 @@ class TeamRoster extends Component {
             </tr>
           </thead>
           <tbody>
-            {registrationDataArray[index][1].players.map((player, i) => {
-              if (player.onTeam) {
+            {teamDataArray[index][1].roster.map((player, i) => {
                 return (
                   <tr className="stripe-dark" key={i}>
                     <td>{`${player.jersey_number || ''}`}</td>
@@ -91,7 +63,6 @@ class TeamRoster extends Component {
                     <td>{player.parent2phone || ''}</td>
                   </tr>
                 )
-              }
             }
             )}
           </tbody>
@@ -101,24 +72,8 @@ class TeamRoster extends Component {
   }
 }
 
-// TeamRoster.propTypes = {
-//   // bla: PropTypes.string,
-// };
-
-// TeamRoster.defaultProps = {
-//   // bla: 'test',
-// };
-
 const mapStateToProps = createStructuredSelector({
-  registrationData: selectRegistrationData,
+  teamData: selectTeamData 
 })
 
-
-// const mapDispatchToProps = dispatch => ({
-//   // fnBlaBla: () => dispatch(action.name()),
-// });
-
-export default connect(
-  mapStateToProps,
-  // mapDispatchToProps,
-)(TeamRoster);
+export default connect(mapStateToProps)(TeamRoster);

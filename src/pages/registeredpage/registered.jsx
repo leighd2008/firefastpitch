@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { firestore } from "../../firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
 import { selectRegistrationData } from "../../redux/registration/registration.selectors";
+import { selectTeamData } from "../../redux/team/team.selectors";
 
 import { Card, CardTitle } from "reactstrap";
 
@@ -15,34 +16,48 @@ class Registered extends React.Component {
     };
 
     this.checkboxHandler = this.checkboxHandler.bind(this);
+    this.updateRoster = this.updateRoster.bind(this);
+
+  }
+
+  updateRoster = (players, teamId) => {
+    let teamMembers = []
+
+    players.map((player, i) => {
+        if (player.onTeam) {
+          teamMembers.push(player)
+        }
+      return teamMembers;
+      }
+    )
+    firestore.collection("teams").doc(teamId).update({
+      roster: teamMembers,
+    })
   }
 
   checkboxHandler = (player, id) => (e) => {
     let division = player.division
     let players = this.props.registrationData[division]['players']
+    
     if (e.target.checked) {
       players[id].onTeam = "yes";
     } else {
       players[id].onTeam = "";
     }
-      // console.log("check box is checked", this.props.registrationData[division]['players'][id]);
-    // let newplayers = [
-    //   player,
-    //   ...this.props.registrationData[division].players
-    // ];
-    // console.log(this.props.registrationData[division].players)
-
+    
     const divisionId = this.props.registrationData[division].id;
+    const teamId = this.props.teamData[`Fire${division}`].id
     firestore.collection("preregistration").doc(divisionId).update({
       players: players,
     })
     
+    this.updateRoster(players, teamId);
   }
 
   render() {
     const { registrationData, index } = this.props;
     const registrationDataArray = Object.entries(registrationData);
-    console.log(registrationDataArray);
+
 
     return (
       <Card
@@ -96,6 +111,7 @@ class Registered extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   registrationData: selectRegistrationData,
+  teamData: selectTeamData
 })
 
 export default connect(mapStateToProps)(Registered);
