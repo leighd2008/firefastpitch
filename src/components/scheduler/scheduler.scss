@@ -1,16 +1,20 @@
 .scheduler-container {
-  height: calc(100vh - 50px - 190px);
-  width: 90vw;
+  height: calc(90vh);
+  width: 100vw;
+  box-sizing: content-box;
 }
 
-// .dhx_body, .dhx_event_move, .dhx_header {
-//   background-color: #ed1e24 !important;
-// }
+.dhx_cal_data table {
+  table-layout: fixed;
+  width: 100%;
+}
+
     /*event in day or week view*/
     .dhx_cal_event.Rich_event div{
         background-color: #ed1e24 !important;
         // color: black !important;
     }
+    
     .dhx_cal_event.Jim_event div{
         background-color: #6b6866 !important;
         // color: black !important;
@@ -19,32 +23,24 @@
         background-color: black !important;
         // color: black !important;
     }
-     .dhx_cal_event.Stan_event div{
-        background-color: #e96107 !important;
-        // color: black !important;
-    }
+     
      .dhx_cal_event.Jeremy_event div{
         background-color: rgb(161, 7, 7) !important;
         // color: black !important;
     }
      .dhx_cal_event.Diane_event div{
-        background-color: blue !important;
+        background-color: #ed1e24 !important;
         // color: black !important;
     }
  
     /*multi-day event in month view*/
     .dhx_cal_event_line.Diane_event{
-        background-color: blue
+        background-color: #ed1e24
          !important;
         // color: black !important;
     }
     .dhx_cal_event_line.Rich_event{
         background-color: #ed1e24 !important;
-        // color: black !important;
-    }
-
-    .dhx_cal_event_line.Stan_event{
-      background-color: #e96107 !important;
         // color: black !important;
     }
 
@@ -57,6 +53,25 @@
       background-color: rgb(161, 7, 7) !important;
         // color: black !important;
     }
+
+    /*event in month view*/
+    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Rich_event {
+        color: #ed1e24 !important;
+    }
+    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Jim_event {
+        color: #6b6866 !important;
+    }
+    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Mike_event {
+        color: black !important;
+    }
+     
+     .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Jeremy_event {
+        color: rgb(161, 7, 7) !important;
+    }
+     .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Diane_event {
+        color: #ed1e24 !important;
+    }
+ 
  
     /*event with fixed time, in month view*/
     .dhx_cal_event_clear.manager_event{
@@ -65,3 +80,4 @@
     .dhx_cal_event_clear.employee_event{
         color: black !important;
     }
+

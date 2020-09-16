@@ -6,6 +6,8 @@ import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
 import "./scheduler.scss";
 import { firestore } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { selectFieldData } from "../../redux/field/field.selectors";
+
 
 const scheduler = window.scheduler;
 class Scheduler extends Component {
@@ -41,15 +43,11 @@ class Scheduler extends Component {
 
     scheduler.attachEvent('onEventChanged', (id, ev) => {
       let evChanger = this.props.currentUser.email;
-      console.log(evChanger)
-      console.log(ev)
       
-      // let type = this.props.currentUser.displayName;
       let changedEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator: ev.eventCreator, type:ev.type }
       let changeEventId = ev.id;
       let evCreator = ev.eventCreator;
       let { events } = this.props;
-      console.log(events)
       let events1 = [];
       let events2 = [];
 
@@ -83,7 +81,6 @@ class Scheduler extends Component {
 
     scheduler.attachEvent('onEventDeleted', (id, ev) => {
       let evDeleter = this.props.currentUser.email;
-      // let type = this.props.currentUser.displayName;
       let delEventId = ev.id;
       let evCreator = ev.eventCreator;
       let { events } = this.props;
@@ -131,6 +128,9 @@ class Scheduler extends Component {
     scheduler.config.first_hour = 9;
     scheduler.config.last_hour = 21;
     scheduler.xy.scale_width = 70;
+    scheduler.config.day_date = "%m/%d";
+    scheduler.config.default_date = "%m/%d/%y";
+
     scheduler.templates.event_class = function (start, end, event) {
       if (event.type === 'Diane') return 'Diane_event';
       else if (event.type === 'Rich') return 'Rich_event';
@@ -149,7 +149,6 @@ class Scheduler extends Component {
   }
   
 render() {
-    
     return (
       <div
         ref={(input) => { this.schedulerContainer = input }}
@@ -161,6 +160,7 @@ render() {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  fieldData: selectFieldData
 })
 
 export default connect(mapStateToProps)(Scheduler);
