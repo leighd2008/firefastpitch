@@ -1,7 +1,7 @@
-.teams-dropdown {
+.guidelines-dropdown {
   position: absolute;
   width: 105px;
-  height: 100px;
+  height: 70px;
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -9,15 +9,16 @@
   background-color: white;
   z-index: 5;
 
-  .teams {
+  .guidelines {
     height: 25px;
     display: flex;
     flex-direction: column;
     margin: 0px 0 0 0;
 
-    h4 {
+    a {
       margin: 0 !important;
-      color: black;
+      color: black !important;
+      text-decoration: none;
     }
   }
 }

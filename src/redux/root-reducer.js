@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./user/user.reducer";
 import teamMenuReducer from "./teamMenu/teamMenu.reducer";
 import fangearMenuReducer from "./fangearMenu/fangearMenu.reducer";
+import guidelinesMenuReducer from "./guidelinesMenu/guidelinesMenu.reducer";
 import all_teamsReducer from "./all_teams/all_teams.reducer";
 import teamReducer from "./team/team.reducer";
 import trainingReducer from "./training/training.reducer";
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   teamMenu: teamMenuReducer,
   fangearMenu: fangearMenuReducer,
+  guidelinesMenu: guidelinesMenuReducer,
   all_teams: all_teamsReducer,
   team: teamReducer,
   training: trainingReducer,

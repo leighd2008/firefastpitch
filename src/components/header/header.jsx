@@ -7,17 +7,18 @@ import { auth } from "../../firebase/firebase.utils";
 
 import TeamMenu from "../teamMenu/teamMenu";
 import FangearMenu from '../fangearMenu/fangearMenu';
-import Corona from "../corona/corona";
-import OHSAArules from "../OHSAArules/OHSAArules";
+import GuidelinesMenu from '../guidelinesMenu/guidelinesMenu';
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { closeTeamDropdown } from "../../redux/teamMenu/teamMenu.actions";
 import { closeFangearDropdown } from "../../redux/fangearMenu/fangearMenu.actions";
+import { closeGuidelinesDropdown } from "../../redux/guidelinesMenu/guidelinesMenu.actions";
+
 
 import logo from "../../assets/fireBanner.jpg";
 
 import "./header.scss";
 
-const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown }) => (
+const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown, closeGuidelinesDropdown }) => (
   <div className="header">
     <NavLink className="logo-container" to="/">
       <img src={logo} alt="logo" className="logo" />
@@ -31,6 +32,7 @@ const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown }) => (
         onClick={() => {
           closeTeamDropdown();
           closeFangearDropdown();
+          closeGuidelinesDropdown();
         }}
       >
         <h3>Home</h3>
@@ -42,6 +44,7 @@ const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown }) => (
         onClick={() => {
           closeTeamDropdown();
           closeFangearDropdown();
+          closeGuidelinesDropdown();
         }}
       >
         <h3>Tournaments</h3>
@@ -53,6 +56,7 @@ const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown }) => (
         onClick={() => {
           closeTeamDropdown();
           closeFangearDropdown();
+          closeGuidelinesDropdown();
         }}
       >
         <h3>Tryouts</h3>
@@ -65,17 +69,20 @@ const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown }) => (
         onClick={() => {
           closeTeamDropdown();
           closeFangearDropdown();
+          closeGuidelinesDropdown();
         }}
       >
         <h3>Training</h3>
       </NavLink>
       <FangearMenu />
       <TeamMenu />
+      <GuidelinesMenu />
       {currentUser ? (
         <NavLink className="option" to="/Adminpage"
         onClick={() => {
           closeTeamDropdown();
           closeFangearDropdown();
+          closeGuidelinesDropdown();
         }}>
           <h3>Admin</h3>
         </NavLink>
@@ -86,6 +93,7 @@ const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown }) => (
             onClick={() => {
               closeTeamDropdown();
               closeFangearDropdown();
+              closeGuidelinesDropdown();
             }}
         >
           <h3>Admin</h3>
@@ -99,14 +107,13 @@ const Header = ({ currentUser, closeTeamDropdown, closeFangearDropdown }) => (
             auth.signOut();
             closeTeamDropdown();
             closeFangearDropdown();
+            closeGuidelinesDropdown();
           }}
         >
           <h3>Sign out</h3>
         </NavLink>
       ) : null}
     </div>
-    <Corona />
-    <OHSAArules/>
   </div>
 );
 
@@ -117,6 +124,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   closeTeamDropdown: () => dispatch(closeTeamDropdown()),
   closeFangearDropdown: () => dispatch(closeFangearDropdown()),
+  closeGuidelinesDropdown: () => dispatch(closeGuidelinesDropdown())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
