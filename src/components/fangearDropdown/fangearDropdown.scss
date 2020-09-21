@@ -1,0 +1,24 @@
+.fangear-dropdown {
+  position: absolute;
+  width: 105px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: none;
+  background-color: white;
+  z-index: 5;
+
+  .stores {
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0 0 0;
+
+    a {
+      margin: 0 !important;
+      color: black !important;
+      text-decoration: none;
+    }
+  }
+}
