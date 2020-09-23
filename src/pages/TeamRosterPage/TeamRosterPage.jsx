@@ -52,7 +52,7 @@ class TeamRoster extends Component {
                 return (
                   <tr className="stripe-dark" key={i}>
                     <td>{`${player.jersey_number || ''}`}</td>
-                    <td >{`${player.name} ${player.last}`}</td>
+                    <td >{`${player.name || ''} ${player.last || ''}`}</td>
                     <td>{player.DOB}</td>
                     <td>{`${player.email || ''}`}</td>
                     <td>{player.parent1}</td>

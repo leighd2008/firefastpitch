@@ -8,10 +8,17 @@ import Team from "../team/team";
 import "./all_teams.scss";
 
 const Teams = ({ teams }) => (
-  <div className="team-menu">
-    {teams.map(({ id, ...otherTeamProps }) => (
-      <Team key={id} {...otherTeamProps} />
-    ))}
+  <div className="all-teams">
+    <div className="team-menu">
+      {teams.map(({ id, ...otherTeamProps }) => (
+        <Team key={id} {...otherTeamProps} />
+      ))}
+    </div>
+    <div className="content">
+        <h1 className="title">
+      These TEAMS are on FIRE! Can you handle the heat?
+        </h1>
+    </div>
   </div>
 );
 

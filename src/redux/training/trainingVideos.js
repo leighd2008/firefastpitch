@@ -51,6 +51,11 @@ const TRAINING_VIDEOS = [
   {
     service: "youtube",
     video: "https://www.youtube.com/embed/BomXCfnLl7Q"
+  },
+  {
+    service: "youtube",
+    video: "https://www.youtube.com/embed/zA-OYuH5t0o",
+    instructions: `5 different swings for DAILY tee work:\n- Backhand swings starting from normal two- handed grip and stance\n- Forehand swings starting from normal two - handed grip and stance\n- Pre - Hit swing prior to contact activating hip transfer and then swing with both hands in normal grip\n- Swing from normal stance and two - handed grip and swing to contact only, no follow through\n- Swing from normal stance and two - handed grip and swing full contact with follow through`
   }
 ];
 

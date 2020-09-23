@@ -12,13 +12,24 @@ import {
 
 const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
   const { video } = trainingVideos[videoIndex];
+  const { instructions } = trainingVideos[videoIndex];
 
+  console.log(instructions);
+  
   return (
     <div className="training">
       <h1 className="training-title"> Training Videos</h1>
       <div className="videodisplay">
         <div className="videolist">
           <ul>
+            <li>Daily Workouts</li>
+            <ul>
+              <li className="videolinks" onClick={goToVideo.bind(this, 12)}>Tee Work
+                <span className="instructions">
+
+                </span>
+              </li>
+            </ul>
             <li>Training with Mike Candrea</li>
             <ul>
               <li className="videolinks" onClick={goToVideo.bind(this, 0)}>
@@ -94,6 +105,7 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
               Next
             </button>
           </div>
+            <div className="instructions">{instructions}</div>
         </div>
       </div>
     </div>

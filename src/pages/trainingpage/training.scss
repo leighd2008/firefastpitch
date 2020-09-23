@@ -40,6 +40,15 @@
   margin: auto;
 }
 
+.instructions {
+  white-space: pre-wrap;
+}
+
+.instructions::first-line {
+  color: #ed1e24 !important;
+  font-weight: bold;
+}
+
 @media only screen and (min-width: 450px) {
   .videodisplay {
     display: flex;

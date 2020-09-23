@@ -9,7 +9,8 @@ const imgUrls = [
   images(`./Chloe_1st_dinger.jpg`),
   images(`./Chloe_2cnd_dinger.jpg`),
   images(`./JenniferGriffin.jpg`),
-  images(`./MadisonZiegler.jpg`)
+  images(`./MadisonZiegler.jpg`),
+  images(`./Chloe_3rd_dinger.jpg`)
 ];
 
 class Carousel extends Component {

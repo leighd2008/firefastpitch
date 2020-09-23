@@ -17,7 +17,7 @@ const Team = ({ title, imageUrl, history, linkUrl, match }) => {
           backgroundImage: `url(${imgsrc})`
         }}
       />
-      <div className="content">
+      <div className="team-name">
         <h1 className="title-wht">{title.toUpperCase()}</h1>
       </div>
     </div>
