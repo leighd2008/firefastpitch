@@ -10,7 +10,8 @@ const imgUrls = [
   images(`./Chloe_2cnd_dinger.jpg`),
   images(`./JenniferGriffin.jpg`),
   images(`./MadisonZiegler.jpg`),
-  images(`./Chloe_3rd_dinger.jpg`)
+  images(`./Chloe_3rd_dinger.jpg`),
+
 ];
 
 class Carousel extends Component {
@@ -24,7 +25,7 @@ class Carousel extends Component {
   }
 
   componentDidUpdate() {
-    setTimeout(this.setNextImage, 3000);
+    setInterval(() => { this.setNextImage(); }, 3000);
   }
 
   setNextImage() {
