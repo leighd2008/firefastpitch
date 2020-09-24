@@ -6,11 +6,11 @@ import './carousel.scss'
 const images = require.context("../../assets", true);
 
 const imgUrls = [
-  images(`./Chloe_1st_dinger.jpg`),
-  images(`./Chloe_2cnd_dinger.jpg`),
+  images(`./Cloe_1st_dinger.jpg`),
+  images(`./Cloe_2cnd_dinger.jpg`),
   images(`./JenniferGriffin.jpg`),
   images(`./MadisonZiegler.jpg`),
-  images(`./Chloe_3rd_dinger.jpg`),
+  images(`./Cloe_3rd_dinger.jpg`),
 
 ];
 
@@ -19,13 +19,23 @@ class Carousel extends Component {
     super(props);
 
     this.state = {
-      currentImageIndex: 0
+      currentImageIndex: 0,
+      intervalId: ''
     };
     this.setNextImage = this.setNextImage.bind(this);
   }
 
-  componentDidUpdate() {
-    setInterval(() => { this.setNextImage(); }, 3000);
+  // componentDidUpdate() {
+  //   setInterval(() => { this.setNextImage(); }, 3000);
+  // }
+
+  componentDidMount() {
+    var intervalId = setInterval(this.setNextImage, 3000);
+    this.setState({ intervalId: intervalId });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
   }
 
   setNextImage() {
