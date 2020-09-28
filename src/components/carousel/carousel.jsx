@@ -6,6 +6,7 @@ import './carousel.scss'
 const images = require.context("../../assets", true);
 
 const imgUrls = [
+  images(`./Avery.jpg`),
   images(`./Cloe_1st_dinger.jpg`),
   images(`./Cloe_2cnd_dinger.jpg`),
   images(`./JenniferGriffin.jpg`),
