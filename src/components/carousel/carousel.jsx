@@ -3,16 +3,19 @@ import ImageSlide from '../imageSlide/imageSlide';
 
 import './carousel.scss'
 
-const images = require.context("../../assets", true);
+const images = require.context("../../assets/Homeruns", true);
 
 const imgUrls = [
-  images(`./Hailie_1st_dinger.jpg`),
-  images(`./Avery.jpg`),
-  images(`./Cloe_1st_dinger.jpg`),
-  images(`./Cloe_2cnd_dinger.jpg`),
-  images(`./JenniferGriffin.jpg`),
-  images(`./MadisonZiegler.jpg`),
-  images(`./Cloe_3rd_dinger.jpg`),
+  images(`./Cloe_4th_dinger_16U_Fall_2020.jpg`),
+  images(`./Cloe_2cnd&3rd_dingers_16U_Fall_2020.jpg`),
+  images(`./Avery_2cnd&Hailey_1st_dinger_14U_Fall_2020.jpg`),
+  images(`./Hailie_1st_dinger_14U_Fall_2020.jpg`),
+  images(`./Avery_1st_dinger_14U_Fall_2020.jpg`),
+  images(`./Cloe_1st_dinger_16U_Fall_2020.jpg`),
+  images(`./MadisonZiegler_1st_dinger_14U_Spring_2020.jpg`),
+  images(`./JenniferGriffin_1st_dinger_14U_Spring_2020.jpg`),
+  images(`./Cloe_2cnd_dinger_14U_Spring_2020.jpg`),
+  images(`./Cloe_1st_dinger_14U_Spring_2020.jpg`),
 
 ];
 
