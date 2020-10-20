@@ -22,7 +22,7 @@
   text-align: center;
   cursor: pointer;
   border: 5px solid #f54013;
-  margin: 20px 0;
+  margin-bottom: 20px;
 
   // .iframe-container {
   //   position: relative;
@@ -42,7 +42,7 @@
 
 @media screen and (min-width: 450px) {
   .pumpkinSmash {
-    height: 250px;
+    height: 300px;
     width: 100% !important;
     max-width: 1026px;
     margin-bottom: 20px;
