@@ -19,7 +19,7 @@ const TeamEvents = ({ eventUrls, teamname, calendarLink }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h1> Go to Calendar </h1>
+          <h2> Go to Calendar </h2>
         </a>
       </Card>
     </div>

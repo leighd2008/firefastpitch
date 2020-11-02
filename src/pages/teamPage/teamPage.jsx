@@ -26,13 +26,11 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
         location={location}
       />
       {eventboard === true ? (
-        <div>
           <TeamEvents
             eventUrls={eventurls}
             teamname={teamname}
             calendarLink={calendarLink}
           />
-        </div>
       ) : null}
     </div>
   );

@@ -1,5 +1,7 @@
 .team-events {
   margin: 20px;
+  width: 100%;
+
 
   .events {
     th {
@@ -18,7 +20,7 @@
     background-color: #6c757db0 !important;
     border: 5px solid #6c757d !important;
     // border: none !important;
-    max-width: 80%;
+    width: 100%;
     margin: auto !important;
   }
 }
