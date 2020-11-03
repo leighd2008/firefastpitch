@@ -25,6 +25,17 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
         teamName={teamName}
         location={location}
       />
+      <div className="membersOnly">
+        <form>
+        <h1>Fire Fastpitch Family Members Log In here!</h1>
+          <input
+            type="text"
+            name="FFFPassword"
+            placeholder='password'
+            value={}
+          />
+        </form>
+      </div>
       {eventboard === true ? (
           <TeamEvents
             eventUrls={eventurls}
