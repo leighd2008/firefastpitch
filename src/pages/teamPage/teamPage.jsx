@@ -32,7 +32,7 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
             type="text"
             name="FFFPassword"
             placeholder='password'
-            value={}
+            // value={}
           />
         </form>
       </div>
