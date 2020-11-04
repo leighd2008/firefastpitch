@@ -1,22 +1,28 @@
 .login {
   width: 80vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  border: 5px solid #ed1e24;
+  padding: 20px;
+  margin: auto;
 
   .members-only {
     color: #ed1e24 !important;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    margin: auto;
+    margin: 0;
+    padding: 20px;
+    width: 60%;
   }
 
-  .form {
-    margin: auto;
-    
+  .group {
+    margin: 0 auto;
+    display: flex !important;
+    flex-direction: row;
   }
 
   .input {
-    width: 200px;
+    width: 50%;
     display: flex !important;
     flex-direction: row;
   }
