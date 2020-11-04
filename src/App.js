@@ -18,7 +18,8 @@ import AdminPage from "./pages/adminpage/adminpage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 // import TryoutsPage from "./pages/tryoutspage/tryout";
-import TryoutsPageStillNeed from "./pages/tryoutspageStillNeed/tryoutStillNeed";
+// import TryoutsPageStillNeed from "./pages/tryoutspageStillNeed/tryoutStillNeed";
+import TryoutsOver from "./pages/tryoutsOverPage/tryoutsOverPage";
 
 import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
@@ -26,6 +27,7 @@ import FieldSchedulerPage from "./pages/fieldSchedulerPage/fieldSchedulerPage"
 import PreregistrationPage from "./pages/preregistrationpage/preregistrationpage.jsx";
 import RegisteredPage from "./pages/registeredpage/registeredpage.jsx";
 import TeamRosterPage from "./pages/TeamRosterPage/TeamRosterPage.jsx";
+import MembersOnlyPage from "./pages/membersOnlyPage/membersOnlyPage.jsx";
 
 
 
@@ -135,7 +137,7 @@ class App extends React.Component {
               (
               <TeamPageWithSpinner
                 isLoading={loading}
-                teamname="Fire '07"
+                teamname="Fire 07"
                 title="Fire14U"
                 eventurls={Fire14UURLS} />
               
@@ -164,8 +166,9 @@ class App extends React.Component {
             ))}
           />
           {/* <Route path="/Tryouts" component={TryoutsPage} /> */}
-          <Route path="/Tryouts" component={TryoutsPageStillNeed} />
+            <Route path="/Tryouts" component={TryoutsOver} />
           <Route path="/Training" component={TrainingPage} />
+          <Route path="/MembersOnly" component={MembersOnlyPage} />
           <Route path="/Preregistration" render={() => <PreregistrationPageWithSpinner isLoading={loading} />}
           />
           <Route

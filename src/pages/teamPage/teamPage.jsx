@@ -5,6 +5,8 @@ import TeamEvents from "../../components/teamEvents/teamEvents";
 import Banner from "../../components/banner/banner";
 import { selectTeamData } from "../../redux/team/team.selectors";
 import Recruiting from "../../components/recruiting/recruiting";
+import MembersOnlyLogin from "../../components/membersOnlyLogin/membersOnlyLogin";
+
 
 import "./teamPage.scss";
 
@@ -25,17 +27,7 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
         teamName={teamName}
         location={location}
       />
-      <div className="membersOnly">
-        <form>
-        <h1>Fire Fastpitch Family Members Log In here!</h1>
-          <input
-            type="text"
-            name="FFFPassword"
-            placeholder='password'
-            // value={}
-          />
-        </form>
-      </div>
+      <MembersOnlyLogin />
       {eventboard === true ? (
           <TeamEvents
             eventUrls={eventurls}
