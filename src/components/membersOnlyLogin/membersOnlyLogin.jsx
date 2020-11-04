@@ -1,8 +1,5 @@
 import React from "react";
 import FormInput from "../form-input/form-input";
-import CustomButton from "../custom-button/custom-button";
-
-// import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./membersOnlyLogin.scss";
 
@@ -11,7 +8,6 @@ class MembersOnlyLogin extends React.Component {
     super(props);
 
     this.state = {
-      // email: "",
       fffpassword: ""
     };
   }
@@ -19,7 +15,7 @@ class MembersOnlyLogin extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const { /*email,*/ fffpassword } = this.state;
+    const { fffpassword } = this.state;
     
     // eslint-disable-next-line no-unused-expressions
     fffpassword === 'fffpassword' ? window.location = 'MembersOnly' :
@@ -36,7 +32,7 @@ class MembersOnlyLogin extends React.Component {
 
   render() {
     const { handleChange, handleSubmit } = this;
-    const { /*email,*/ fffpassword } = this.state;
+    const { fffpassword } = this.state;
 
     return (
       <div className="login">
