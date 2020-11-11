@@ -50,7 +50,7 @@ const FieldSchedulerPageWithSpinner = WithSpinner(FieldSchedulerPage);
 const PreregistrationPageWithSpinner = WithSpinner(PreregistrationPage);
 const RegisteredPageWithSpinner = WithSpinner(RegisteredPage);
 const TeamRosterPageWithSpinner = WithSpinner(TeamRosterPage);
-
+const MembersOnlyPageWithSpinner = WithSpinner(MembersOnlyPage);
 
 
 
@@ -167,8 +167,39 @@ class App extends React.Component {
           />
           {/* <Route path="/Tryouts" component={TryoutsPage} /> */}
             <Route path="/Tryouts" component={TryoutsOver} />
-          <Route path="/Training" component={TrainingPage} />
-          <Route path="/MembersOnly" component={MembersOnlyPage} />
+            <Route path="/Training" component={TrainingPage} />
+            <Route
+              path="/Fire12UFamily"
+              component={withRouter(() =>
+                (
+                  <MembersOnlyPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 12U"
+                    title="Fire12U" />
+
+                ))}
+            />
+            <Route
+              path="/Fire07Family"
+              component={withRouter(() =>
+                (
+                  <MembersOnlyPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 07"
+                    title="Fire07" />
+
+                ))}
+            /><Route
+              path="/Fire16UFamily"
+              component={withRouter(() =>
+                (
+                  <MembersOnlyPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 16U"
+                    title="Fire16U" />
+
+                ))}
+            />
           <Route path="/Preregistration" render={() => <PreregistrationPageWithSpinner isLoading={loading} />}
           />
           <Route

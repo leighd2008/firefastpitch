@@ -33,11 +33,11 @@ class MembersOnlyLogin extends React.Component {
       await auth.signInWithEmailAndPassword(email, fffpassword);
       this.setState({ email: "", password: "" });
       if (fffpassword === 'Fire12UFamily') {
-        window.location = /* 'Fire12UFamily' */ 'MembersOnly'
+        window.location = 'Fire12UFamily' /* 'MembersOnly' */
       } else if (fffpassword === 'Fire07Family') {
-        window.location = /* 'Fire07Family' */ 'MembersOnly'
+        window.location = 'Fire07Family' /* 'MembersOnly' */
       } else if (fffpassword === 'Fire16UFamily') {
-        window.location = /* 'Fire16UFamily' */ 'MembersOnly'
+        window.location = 'Fire16UFamily' /* 'MembersOnly' */
       }
     } catch (error) {
       alert('The password you entered does not match our records, please try again.');
