@@ -51,7 +51,7 @@ class TeamRoster extends Component {
             {teamDataArray[index][1].roster.map((player, i) => {
                 return (
                   <tr className="stripe-dark" key={i}>
-                    <td>{`${player.jersey_number || ''}`}</td>
+                    <td>{`${player.jersey || ''}`}</td>
                     <td >{`${player.name || ''} ${player.last || ''}`}</td>
                     <td>{player.DOB}</td>
                     <td>{`${player.email || ''}`}</td>
