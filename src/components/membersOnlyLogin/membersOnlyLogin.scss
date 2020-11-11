@@ -26,5 +26,21 @@
     display: flex !important;
     flex-direction: row;
   }
+  .password-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 14px;
+
+  }
+  i {
+    position: absolute;
+    top: 35%;
+    left: 95%;
+  }
+  i:hover {
+    color: #ed1e24;
+    cursor: pointer;
+  }
 }
 

@@ -2,9 +2,13 @@ import React from "react";
 import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./sign-in.scss";
+const eye = <FontAwesomeIcon icon={faEye} />;
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -12,7 +16,8 @@ class SignIn extends React.Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      passwordShown: false,
     };
   }
 
@@ -25,7 +30,7 @@ class SignIn extends React.Component {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: "", password: "" });
     } catch (error) {
-      console.log(error);
+      alert('The email / password combination you entered does not match our records, please try again.');
     }
   };
 
@@ -35,9 +40,14 @@ class SignIn extends React.Component {
     this.setState({ [name]: value });
   };
 
+  togglePasswordShown = () => {
+    const { passwordShown } = this.state;
+    this.setState({ passwordShown: !passwordShown } );
+  }
+
   render() {
-    const { handleChange, handleSubmit } = this;
-    const { email, password } = this.state;
+    const { handleChange, handleSubmit, togglePasswordShown } = this;
+    const { email, password, passwordShown } = this.state;
 
     return (
       <div className="sign-in">
@@ -53,14 +63,17 @@ class SignIn extends React.Component {
             label="email"
             required
           />
-          <FormInput
-            name="password"
-            type="password"
-            value={password}
-            handleChange={handleChange}
-            label="password"
-            required
-          />
+          <div className="password-wrapper">
+            <FormInput
+              name="password"
+              type={passwordShown ? "text" : "password"}
+              value={password}
+              handleChange={handleChange}
+              label="password"
+              required
+            />
+            <i onClick={togglePasswordShown}>{eye}</i>
+          </div>
           <div className="buttons">
             <CustomButton type="submit"> Sign in </CustomButton>
             <CustomButton

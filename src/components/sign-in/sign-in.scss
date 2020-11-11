@@ -6,6 +6,24 @@
   .title {
     margin: 10px, 0;
   }
+
+  .password-wrapper {
+    position: relative;
+    // display: flex;
+    // flex-direction: row;
+    margin-bottom: 14px;
+
+  }
+  i {
+    position: absolute;
+    top: 25%;
+    left: 95%;
+  }
+  i:hover {
+    color: #ed1e24;
+    cursor: pointer;
+  }
+
 }
 
 .buttons {
