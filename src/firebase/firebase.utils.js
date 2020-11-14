@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import 'firebase/storage'
 
 const config = {
   apiKey: `${process.env.REACT_APP_API_KEY}`,
@@ -143,6 +144,7 @@ export const convertCollectionsSnapshotToMap3 = preregistration => {
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const storage = firebase.storage();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });

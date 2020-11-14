@@ -6,9 +6,12 @@ import { selectTeamData } from "../../redux/team/team.selectors";
 import { Card, CardTitle } from "reactstrap";
 
 import "./membersOnlyPage.scss";
+import UploadFiles from "../../components/uploadFiles/uploadFiles";
 
 const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
   const teamDataArray = Object.entries(teamData);
+  console.log('teamData', teamData);
+  console.log('teamDataArray', teamDataArray);
   return(
     <div className="members-only">
       <h1>{`${teamname} Family Secret Stuff`}</h1>
@@ -29,6 +32,7 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
             <tr >
               <th>Jersey Number</th>
               <th>Name</th>
+              <th>Birth Certificate</th>
             </tr>
           </thead>
           <tbody>
@@ -37,6 +41,7 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
                 <tr className="stripe-dark" key={i}>
                   <td>{`${player.jersey || ''}`}</td>
                   <td >{`${player.name || ''} ${player.last || ''}`}</td>
+                  <td><UploadFiles /></td>
                 </tr>
               )
             }
