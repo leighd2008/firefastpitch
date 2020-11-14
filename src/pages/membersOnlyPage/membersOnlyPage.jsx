@@ -10,8 +10,6 @@ import UploadFiles from "../../components/uploadFiles/uploadFiles";
 
 const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
   const teamDataArray = Object.entries(teamData);
-  console.log('teamData', teamData);
-  console.log('teamDataArray', teamDataArray);
   return(
     <div className="members-only">
       <h1>{`${teamname} Family Secret Stuff`}</h1>
@@ -33,15 +31,21 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
               <th>Jersey Number</th>
               <th>Name</th>
               <th>Birth Certificate</th>
+              {/* <th>Report Card</th> */}
             </tr>
           </thead>
           <tbody>
             {teamDataArray[index][1].roster.map((player, i) => {
+              let index = i
               return (
                 <tr className="stripe-dark" key={i}>
                   <td>{`${player.jersey || ''}`}</td>
                   <td >{`${player.name || ''} ${player.last || ''}`}</td>
-                  <td><UploadFiles /></td>
+                  {player.birthCert ? 
+                    <img className='fileImage' src={player.birthCert} alt="birth certificate" /> :
+                    <td><UploadFiles title={title} index={index} /></td> 
+                  }
+                  {/* <td><UploadFiles  /></td> */}
                 </tr>
               )
             }

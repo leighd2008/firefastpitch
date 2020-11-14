@@ -1,0 +1,14 @@
+.upload {
+  display: flex;
+  flex-direction: column;
+
+  .uploadFirebase {
+    width: 150px;
+  }
+
+}
+
+.fileImage {
+  max-width: 300px !important;
+  // height: 50px;
+}

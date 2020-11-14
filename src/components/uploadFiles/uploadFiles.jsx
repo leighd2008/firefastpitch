@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
-import { storage } from "../../firebase/firebase.utils"
+import { storage } from "../../firebase/firebase.utils";
+import { firestore } from "../../firebase/firebase.utils";
+import { connect } from 'react-redux';
+import { createStructuredSelector } from "reselect";
+import { selectTeamData } from "../../redux/team/team.selectors";
 
-const UploadFiles = () => {
+
+import "./uploadFiles.scss";
+
+const UploadFiles = ({ teamData, title, index }) => {
   const [imageAsFile, setImageAsFile] = useState(null)
   const [imageAsUrl, setImageAsUrl] = useState("")
 
   const handleImageAsFile = (e) => {
-    setImageAsFile( e.target.files[0]);
+    setImageAsFile(e.target.files[0]);
   }
 
-  // updateTeamData = (teamData) => {
-
-  // }
+  const updateTeamData = (imageAsUrl) => {
+    const roster = teamData[title].roster;
+    const teamId = teamData[title].id
+    console.log(imageAsUrl);
+    roster[index].birthCert = imageAsUrl;
+    firestore.collection('teams').doc(teamId).update({
+      roster: roster,
+    })
+    console.log(teamData[title]['roster'][index]);
+  }
 
   const handleFireBaseUpload = (e) => {
     e.preventDefault()
@@ -24,22 +38,29 @@ const UploadFiles = () => {
         .then((imageAsUrl) => {
           setImageAsFile(null);
           setImageAsUrl(imageAsUrl);
-        });
+          updateTeamData(imageAsUrl);
+        })
+        // console.log(imageAsUrl)
     });
+
     }
 
   return (
     <div className="uploadFiles">
-      <form onSubmit={handleFireBaseUpload}>
+      <form className='upload' onSubmit={handleFireBaseUpload}>
         <input
           type="file" 
           onChange={handleImageAsFile}
         />
-        <button disabled={!imageAsFile}>upload to firebase</button>
+        <button className='uploadFirebase' disabled={!imageAsFile}>upload to firebase</button>
       </form>
-      <img src={imageAsUrl} alt="birth certificate"/>
+      <img className='fileImage' src={imageAsUrl} alt="birth certificate"/>
     </div>
   );
 } 
 
-export default UploadFiles
+const mapStateToProps = createStructuredSelector({
+  teamData: selectTeamData
+})
+
+export default connect(mapStateToProps)(UploadFiles);

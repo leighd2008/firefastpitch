@@ -187,7 +187,7 @@ class App extends React.Component {
                   <MembersOnlyPageWithSpinner
                     isLoading={loading}
                     teamname="Fire 07"
-                    title="Fire07"
+                    title="Fire14U"
                     index={2}/>
 
                 ))}
