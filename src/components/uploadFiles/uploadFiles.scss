@@ -3,7 +3,11 @@
   flex-direction: column;
 
   .uploadFirebase {
-    width: 150px;
+    width: 89px;
+  }
+
+  .uploadFirebase:enabled {
+    background-color: #ed1e24
   }
 
 }

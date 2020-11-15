@@ -8,7 +8,7 @@ import { selectTeamData } from "../../redux/team/team.selectors";
 
 import "./uploadFiles.scss";
 
-const UploadFiles = ({ teamData, title, index }) => {
+const UploadFiles = ({ teamData, title, playerIndex, category }) => {
   const [imageAsFile, setImageAsFile] = useState(null)
   const [imageAsUrl, setImageAsUrl] = useState("")
 
@@ -19,20 +19,18 @@ const UploadFiles = ({ teamData, title, index }) => {
   const updateTeamData = (imageAsUrl) => {
     const roster = teamData[title].roster;
     const teamId = teamData[title].id
-    console.log(imageAsUrl);
-    roster[index].birthCert = imageAsUrl;
+    roster[playerIndex][category] = imageAsUrl;
     firestore.collection('teams').doc(teamId).update({
       roster: roster,
     })
-    console.log(teamData[title]['roster'][index]);
   }
 
   const handleFireBaseUpload = (e) => {
     e.preventDefault()
-    const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile);
+    const uploadTask = storage.ref(`/${category}/${imageAsFile.name}`).put(imageAsFile);
     uploadTask.on('state_changed', console.log, console.error, () => {
       storage
-        .ref('images')
+        .ref(`${category}`)
         .child(imageAsFile.name)
         .getDownloadURL()
         .then((imageAsUrl) => {
@@ -40,7 +38,6 @@ const UploadFiles = ({ teamData, title, index }) => {
           setImageAsUrl(imageAsUrl);
           updateTeamData(imageAsUrl);
         })
-        // console.log(imageAsUrl)
     });
 
     }
@@ -52,9 +49,8 @@ const UploadFiles = ({ teamData, title, index }) => {
           type="file" 
           onChange={handleImageAsFile}
         />
-        <button className='uploadFirebase' disabled={!imageAsFile}>upload to firebase</button>
+        <button className='uploadFirebase' disabled={!imageAsFile}>Upload </button>
       </form>
-      <img className='fileImage' src={imageAsUrl} alt="birth certificate"/>
     </div>
   );
 } 
