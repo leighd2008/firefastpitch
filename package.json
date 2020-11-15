@@ -9,6 +9,7 @@
     "bootstrap": "^4.5.2",
     "dhtmlx-scheduler": "^5.3.9",
     "firebase": "^6.6.2",
+    "font-awesome": "^4.7.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
