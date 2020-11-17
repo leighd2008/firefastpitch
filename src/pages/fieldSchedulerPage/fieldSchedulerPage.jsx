@@ -12,7 +12,6 @@ class FieldScheduler extends Component {
   
   render() {
     const { fieldname, fieldData, title } = this.props;
-    console.log(title);
     return (
       <div>
         <button onClick={(event) => { window.location = 'Adminpage' }} >

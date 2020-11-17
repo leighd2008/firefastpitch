@@ -14,8 +14,6 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
   const { video } = trainingVideos[videoIndex];
   const { instructions } = trainingVideos[videoIndex];
 
-  console.log(instructions);
-  
   return (
     <div className="training">
       <h1 className="training-title"> Training Videos</h1>

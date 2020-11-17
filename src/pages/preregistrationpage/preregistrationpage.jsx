@@ -307,7 +307,6 @@ class PreregistrationPage extends React.Component {
     player.onTeam = '';
     player.tryout = '';
     let division = player.division;
-    console.log(player)
 
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} ${player.last} \n travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n email: ${player.email} \n phone: ${player.phone} /n parent/guardians: ${player.parent1} ${player.parent2} /n tryout session: ${player.session}`)) {
@@ -315,7 +314,6 @@ class PreregistrationPage extends React.Component {
         player,
         ...this.props.registrationData[division].players
       ];
-      console.log(this.props.registrationData[division].players)
 
       const divisionId = this.props.registrationData[division].id;
       firestore.collection("preregistration").doc(divisionId).update({
@@ -332,7 +330,6 @@ class PreregistrationPage extends React.Component {
   }
   render() {
     var model = new Survey.Model(this.json);
-    console.log(model)
     return (
       <div className='survey'>
         <Survey.Survey model={model} onComplete={this.onComplete} />

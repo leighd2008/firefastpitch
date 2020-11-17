@@ -10,7 +10,7 @@ import "./uploadFiles.scss";
 
 const UploadFiles = ({ teamData, title, playerIndex, category }) => {
   const [imageAsFile, setImageAsFile] = useState(null)
-  const [imageAsUrl, setImageAsUrl] = useState("")
+  const [/* imageAsUrl, */ setImageAsUrl] = useState("")
 
   const handleImageAsFile = (e) => {
     setImageAsFile(e.target.files[0]);
@@ -28,7 +28,7 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
   const handleFireBaseUpload = (e) => {
     e.preventDefault()
     const uploadTask = storage.ref(`/${category}/${imageAsFile.name}`).put(imageAsFile);
-    uploadTask.on('state_changed', console.log, console.error, () => {
+    uploadTask.on('state_changed', () => {
       storage
         .ref(`${category}`)
         .child(imageAsFile.name)
@@ -40,7 +40,7 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
         })
     });
 
-    }
+  }
 
   return (
     <div className="uploadFiles">

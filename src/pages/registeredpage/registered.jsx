@@ -20,13 +20,25 @@ class Registered extends React.Component {
 
   }
 
-  updateRoster = (players, teamId) => {
-    let teamMembers = []
+  updateRoster = (players, teamdiv, teamId) => {
+    let teamMembers = this.props.teamData[teamdiv].roster;
+    let currentRoster = []
+
+    this.props.teamData[teamdiv].roster.map((member, i) => {
+      return currentRoster.push(`${member.name} ${member.last}`)
+    })
 
     players.map((player, i) => {
-        if (player.onTeam) {
+      if (player.onTeam) {
+        if (!currentRoster.includes(`${player.name} ${player.last}`)) {
+          player.jersey = '';
           teamMembers.push(player)
         }
+      } else {
+        if (currentRoster.includes(`${player.name} ${player.last}`)) {
+          teamMembers = teamMembers.filter(teamMembers => teamMembers.name!==player.name && teamMembers.last!==player.last)
+        }
+      }
       return teamMembers;
       }
     )
@@ -46,12 +58,12 @@ class Registered extends React.Component {
     }
     
     const divisionId = this.props.registrationData[division].id;
-    const teamId = this.props.teamData[`Fire${division}`].id
+    const teamdiv = `Fire${division}`
+    const teamId = this.props.teamData[teamdiv].id
     firestore.collection("preregistration").doc(divisionId).update({
       players: players,
     })
-    
-    this.updateRoster(players, teamId);
+    this.updateRoster(players, teamdiv, teamId);
   }
 
   render() {

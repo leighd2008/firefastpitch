@@ -24,7 +24,6 @@ class Scheduler extends Component {
         newEvent,
         ...this.props.events
       ];
-      console.log(events1)
 
       events1.forEach((item) => (
         // eslint-disable-next-line no-sequences
@@ -64,8 +63,6 @@ class Scheduler extends Component {
           item.end_date = item.end_date.toJSON(),
           item.start_date = item.start_date.toJSON()
           ))
-          console.log(events2)
-          console.log(events)
           const fieldId = this.props.fieldId;
           firestore.collection("fields").doc(fieldId).update({
             schedule: events2,

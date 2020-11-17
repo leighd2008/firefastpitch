@@ -20,7 +20,6 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
     const teamId = teamData[title].id;
     const fileUrl = roster[playerIndex].birthCert
     roster[playerIndex].birthCert = '';
-    console.log(fileUrl);
     const deleteRef = storage.refFromURL(fileUrl);
     deleteRef.delete().then(() => {
       console.log("deleted")
