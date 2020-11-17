@@ -26,6 +26,7 @@ const MONTHS = [
 ];
 
 const Event = ({ event }) => {
+  
   let displayStartDate = "";
   if (event.start.dateTime) {
     let startDate = new Date(event.start.dateTime);
@@ -57,7 +58,9 @@ const Event = ({ event }) => {
   }
   return (
     <div>
-      <h3>{event.summary}</h3>
+      {event.summary.includes('Birthday') ?
+        <h1>{event.summary}</h1> :
+        <h3>{event.summary}</h3>}
       <h3>{displayStartDate}</h3>
       <h3>
         <a
