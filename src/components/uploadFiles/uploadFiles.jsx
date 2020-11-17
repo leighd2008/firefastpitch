@@ -10,7 +10,7 @@ import "./uploadFiles.scss";
 
 const UploadFiles = ({ teamData, title, playerIndex, category }) => {
   const [imageAsFile, setImageAsFile] = useState(null)
-  const [/* imageAsUrl, */ setImageAsUrl] = useState("")
+  const [imageAsUrl, setImageAsUrl] = useState("")
 
   const handleImageAsFile = (e) => {
     setImageAsFile(e.target.files[0]);
