@@ -11,8 +11,13 @@
     margin: auto;
   }
 
-  .fa-trash-alt {
+  .fa-check-circle {
     font-size: 24px;
-    color: #ed1e24
+    color: #1cc705
+  }
+
+  img {
+    max-width: 60px !important;
+    // height: 50px;
   }
 }

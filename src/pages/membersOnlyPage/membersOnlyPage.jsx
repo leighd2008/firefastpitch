@@ -1,11 +1,9 @@
 import React from "react";
-import { firestore } from "../../firebase/firebase.utils";
-import { storage } from "../../firebase/firebase.utils";
 import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
 import { selectTeamData } from "../../redux/team/team.selectors";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { Card, CardTitle } from "reactstrap";
 
@@ -14,21 +12,6 @@ import UploadFiles from "../../components/uploadFiles/uploadFiles";
 
 const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
   const teamDataArray = Object.entries(teamData);
-
-  const deleteFile = (playerIndex) => {
-    const roster = teamData[title].roster;
-    const teamId = teamData[title].id;
-    const fileUrl = roster[playerIndex].birthCert
-    roster[playerIndex].birthCert = '';
-    const deleteRef = storage.refFromURL(fileUrl);
-    deleteRef.delete().then(() => {
-      console.log("deleted")
-    }).catch(err => console.log(err))
-    .then(firestore.collection('teams').doc(teamId).update({
-      roster: roster,
-    }));
-
-  }
 
   return(
     <div className="members-only">
@@ -62,16 +45,16 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
                   <td>{`${player.jersey || ''}`}</td>
                   <td >{`${player.name || ''} ${player.last || ''}`}</td>
                   {player.birthCert ? 
-                    (<td>
-                      <img className='fileImage' src={player.birthCert} alt="birth certificate" />
-                      <FontAwesomeIcon icon={faTrashAlt} onClick={() => deleteFile(playerIndex)} />
+                    (<td>{player.birthCert.match(/\.(jpeg|jpg|png)$/) ?
+                      <img className='fileImage' src={player.birthCert} alt="birth certificate" /> :
+                      <FontAwesomeIcon icon={faCheckCircle} />}
                     </td>) :
                     <td><UploadFiles title={title} playerIndex={playerIndex} category='birthCert'/></td> 
                   }
                   {player.reportCard ?
-                    (<td>
-                      <img className='fileImage' src={player.reportCard} alt="Report Card" />
-                      <FontAwesomeIcon icon={faTrashAlt} onClick={() => deleteFile(playerIndex)} />
+                    (<td>{player.reportCard.match(/\.(jpeg|jpg|png)$/) ?
+                      <img className='fileImage' src={player.reportCard} alt="Report Card" /> :
+                      <FontAwesomeIcon icon={faCheckCircle} />}
                     </td>) :
                     <td><UploadFiles title={title} playerIndex={playerIndex} category='reportCard' /></td>
                   }

@@ -11,6 +11,8 @@ import teamReducer from "./team/team.reducer";
 import trainingReducer from "./training/training.reducer";
 import recruitingReducer from "./recruiting/recruiting.reducer";
 import eventReducer from "./event/event.reducer";
+import adminReducer from "./admin/admin.reducer";
+
 
 import fieldReducer from "./field/field.reducer";
 import registrationReducer from "./registration/registration.reducer";
@@ -34,6 +36,7 @@ const rootReducer = combineReducers({
   field: fieldReducer,
   registration: registrationReducer,
   event: eventReducer,
+  admin: adminReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

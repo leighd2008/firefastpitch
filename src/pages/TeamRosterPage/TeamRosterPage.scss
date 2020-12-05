@@ -1,1 +1,8 @@
-/* your css code */
+.roster {
+  width: 90%;
+  height: 400px;
+  img {
+      max-width: 60px !important;
+      // max-height: 50px;
+    }
+}
