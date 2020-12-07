@@ -12,25 +12,10 @@ const adminReducer = (state = INITIAL_STATE, action) => {
         ...state,
         bcShowing: !state.bcShowing,
       };
-    case AdminActionTypes.OPEN_BC_MODAL_HANDLER:
+    case AdminActionTypes.TOGGLE_RC_MODAL:
       return {
         ...state,
-        bcShowing: true,
-      };
-    case AdminActionTypes.CLOSE_BC_MODAL_HANDLER:
-      return {
-        ...state,
-        bcShowing: false,
-      };
-    case AdminActionTypes.OPEN_RC_MODAL_HANDLER:
-      return {
-        ...state,
-        rcShowing: true,
-      };
-    case AdminActionTypes.CLOSE_RC_MODAL_HANDLER:
-      return {
-        ...state,
-        rcShowing: false,
+        rcShowing: !state.rcShowing,
       };
     default:
       return state;

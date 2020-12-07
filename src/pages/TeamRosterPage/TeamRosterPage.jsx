@@ -1,41 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from "reselect";
 import { selectTeamData } from "../../redux/team/team.selectors";
-import BirthCertificate from '../../components/birthCertificate/birthCertificate';
 import {
   toggleBCModal,
-  openBCModalHandler,
-  closeBCModalHandler,
-  openRCModalHandler,
-  closeRCModalHandler,
+  toggleRCModal,
 } from "../../redux/admin/admin.actions";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Modal from "../../components/Modal/Modal";
 
 import { Card, CardTitle } from "reactstrap";
 import './TeamRosterPage.scss';
 
-// class TeamRoster extends Component { 
-//   constructor(props) {
-//     super(props);
+const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, rcShowing }) => {
 
-//     this.state = {
-//       hasError: false,
-//       isOpen: false
-//     };
-//   }
+  const [playerIndex, setplayerIndex] = useState("");
 
-//   viewFile = (playerIndex, index, teamDataArray) => {
-//     alert(teamDataArray[index][1].roster[playerIndex].birthCert)
-//   }
+  const handleBCClick = (e, playerIndex) => {
+    setplayerIndex(playerIndex)
+    toggleBCModal()
+  }
 
-//   render() {
-
-const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing }) => {
+  const handleRCClick = (e, playerIndex) => {
+    setplayerIndex(playerIndex)
+    toggleRCModal()
+  }
 
     const teamDataArray = Object.entries(teamData);
-    
     
   return (
       <div>
@@ -74,18 +63,17 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing }) => {
                 return (
                   <tr className="stripe-dark" key={i}>
                     {player.birthCert ?
-                      (
-                          <td onClick={toggleBCModal}>
-                            <img className='fileImage'
-                              src={player.birthCert}
-                              alt="birth certificate"
-                              />
-                          </td>
-                        ) :
+                        <td onClick={e => handleBCClick(e, playerIndex)}>
+                        <img className='fileImage'
+                          src={player.birthCert}
+                          alt="birth certificate"
+                          />
+                        </td>
+                       :
                       <td>Not On File</td>
                     }
                     {player.reportCard ?
-                      (<td>
+                      (<td onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard} alt="Report Card" />
                       </td>) :
                       <td>Not on File</td>
@@ -105,9 +93,21 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing }) => {
             )}
           </tbody>
         </table>
-        
       </Card>
-      <BirthCertificate />
+        <Modal className="bc modal" show={bcShowing} close={toggleBCModal}>
+        {playerIndex ?
+          <img className='fileImage'
+          src={teamDataArray[index][1].roster[playerIndex].birthCert}
+          alt="birth certificate"
+          /> : null}
+      </Modal>
+      <Modal className="bc modal" show={rcShowing} close={toggleRCModal}>
+        {playerIndex ?
+          <img className='fileImage'
+            src={teamDataArray[index][1].roster[playerIndex].reportCard}
+            alt="report card"
+          /> : null}
+      </Modal>
     </div>
     );
   }
@@ -115,19 +115,12 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing }) => {
 const mapStateToProps = state => ({
   teamData: selectTeamData(state),
   bcShowing: state.admin.bcShowing,
+  rcShowing: state.admin.rcShowing,
 });
-
-
-// const mapStateToProps = createStructuredSelector({
-//   teamData: selectTeamData,
-// })
 
 const mapDispatchToProps = (dispatch) => ({
   toggleBCModal: () => dispatch(toggleBCModal()),
-  openBCModalHandler: () => dispatch(openBCModalHandler()),
-  closeBCModalHandler: () => dispatch(closeBCModalHandler()),
-  openRCModalHandler: () => dispatch(openRCModalHandler()),
-  closeRCModalHandler: () => dispatch(closeRCModalHandler()),
+  toggleRCModal: () => dispatch(toggleRCModal()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamRoster);

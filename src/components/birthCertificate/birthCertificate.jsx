@@ -1,28 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
 
-// import Modal from "../Modal/Modal";
+import Modal from "../Modal/Modal";
 import {
-  openBCModalHandler,
-  closeBCModalHandler,
+  toggleBCModal,
 } from "../../redux/admin/admin.actions";
 // import "./birthCertificate.scss";
 
-const BirthCertificate = ({ openBCModalHandler, closeBCModalHandler, bcShowing, playerIndex }) => {
+const BirthCertificate = ({ toggleBCModal, bcShowing, playerIndex, teamDataArray, index }) => {
+  console.log(toggleBCModal, bcShowing, playerIndex, teamDataArray, index)
   
   return (
     <div className="birthcertificate">
-      {/* {bcShowing ? (
-        <div onClick={closeBCModalHandler} className="back-drop"></div>
-      ) : null}
-      <div className="open-pumpkin" onClick={openBCModalHandler}>
-        <h1 className="fancy">First Annual Fire Fastpitch Pumpkin Smash Information</h1>
-      </div>
-      <Modal className="modal" show={bcShowing} close={closeBCModalHandler}>
-        <div className="pumpkin-smash">
-          Birth Certificate goes here!
-        </div>
-      </Modal> */}
+      <Modal className="bc modal" show={bcShowing} close={toggleBCModal}>
+        {playerIndex ?
+          <img className='fileImage'
+            src={teamDataArray[index][1].roster[playerIndex].birthCert}
+            alt="birth certificate"
+          /> : null}
+      </Modal>
     </div>
   )
 };
@@ -32,8 +28,7 @@ const mapStateToProps = ({ event: { bcShowing } }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  openBCModalHandler: () => dispatch(openBCModalHandler()),
-  closeBCModalHandler: () => dispatch(closeBCModalHandler()),
+  toggleBCModal: () => dispatch(toggleBCModal()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BirthCertificate);

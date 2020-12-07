@@ -17,12 +17,13 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
   }
 
   const updateTeamData = (imageAsUrl) => {
+    console.log(teamData)
     const roster = teamData[title].roster;
     const teamId = teamData[title].id
     roster[playerIndex][category] = imageAsUrl;
-    firestore.collection('teams').doc(teamId).update({
-      roster: roster,
-    })
+    // firestore.collection('teams').doc(teamId).update({
+    //   roster: roster,
+    // })
   }
 
   const handleFireBaseUpload = (e) => {
