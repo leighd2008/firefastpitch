@@ -21,9 +21,9 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
     const roster = teamData[title].roster;
     const teamId = teamData[title].id
     roster[playerIndex][category] = imageAsUrl;
-    // firestore.collection('teams').doc(teamId).update({
-    //   roster: roster,
-    // })
+    firestore.collection('teams').doc(teamId).update({
+      roster: roster,
+    })
   }
 
   const handleFireBaseUpload = (e) => {
@@ -47,14 +47,14 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
     <div className="uploadFiles">
       <form className='upload' onSubmit={handleFireBaseUpload}>
         <input
-          type="file" 
+          type="file"
           onChange={handleImageAsFile}
         />
         <button className='uploadFirebase' disabled={!imageAsFile}>Upload </button>
       </form>
     </div>
   );
-} 
+}
 
 const mapStateToProps = createStructuredSelector({
   teamData: selectTeamData
