@@ -81,3 +81,70 @@
         color: black !important;
     }
 
+    .dhx_cal_light.dhx_cal_light_responsive {
+        width: 70vw!important;
+        height: auto!important;
+        left: 5%!important;
+        top: 75vw!important;
+        font-size: 2rem!important;
+        line-height: 2vw!important;
+        padding-bottom: 2vw;
+    }
+
+    @media only screen and (min-width: 450px) {
+
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat {
+          margin: 4rem 0 0 1.5rem!important;
+      }
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_cal_lsection {
+          font-size: 2rem!important;
+      }
+      .dhx_cal_light.dhx_cal_light_responsive textarea, .dhx_cal_light.dhx_cal_light_responsive .dhx_cal_lsection div.dhx_custom_button, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat label, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_text, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_days label, .dhx_cal_light.dhx_cal_light_responsive .dhx_wrap_section .dhx_section_time select {
+        font-size: 1rem!important;
+        line-height: 1.5rem!important;
+      }
+  
+      .dhx_cal_light.dhx_cal_light_responsive input, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat form .dhx_repeat_text,   .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_days label, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_date {
+        width: 1.5rem!important;
+        height: 1.5rem!important;
+      }
+
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_checkbox {
+        width: 1rem!important;
+        height: 1rem!important;
+      }
+  
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_left {
+        height: 4rem!important;
+      }
+  
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat input {
+        top: 0.25rem!important;
+      }
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat form select {
+        width: 9rem!important;
+        height: 1.5rem!important;
+      }
+
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat div {
+        width: 60vw!important;
+      }
+      
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_wrap_section .dhx_section_time {
+        padding-left: 1.5rem!important;
+        width: 70vw!important;
+        min-height: 19.531vw!important;
+        margin-top: 55px;
+      }
+
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_btn_set {
+        margin-bottom: 10px!important;
+        font-size: 1.5rem;
+        height: auto!important;
+        padding: 10px;
+      }
+
+      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat {
+        height: 370px!important;
+      }
+    }      

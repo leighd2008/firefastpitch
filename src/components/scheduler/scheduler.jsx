@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import 'dhtmlx-scheduler';
 import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
+import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_recurring.js';
+import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_minical.js';
 import "./scheduler.scss";
 import { firestore } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
@@ -16,6 +18,14 @@ class Scheduler extends Component {
     if (scheduler._$initialized) {
       return;
     }
+
+    const onDataUpdated = this.props.onDataUpdated;
+
+    scheduler.attachEvent("onClick", function (id, e){
+		scheduler.showLightbox(id);
+		return true;
+    });
+    
     scheduler.attachEvent('onEventAdded', (id, ev) => {
       let eventCreator = this.props.currentUser.email;
       let type = this.props.currentUser.displayName;
@@ -35,9 +45,13 @@ class Scheduler extends Component {
       firestore.collection("fields").doc(fieldId).update({
         schedule: events1,
       })
+      
         .then(response => {
           window.location = 'Adminpage'
         })
+      if (onDataUpdated) {
+        onDataUpdated('create', ev, id);
+      }
     });
 
     scheduler.attachEvent('onEventChanged', (id, ev) => {
@@ -70,6 +84,9 @@ class Scheduler extends Component {
             .then(response => {
               window.location = 'Adminpage'
             })
+        if (onDataUpdated) {
+            onDataUpdated('update', ev, id);
+        }
         } else {
           alert(`You do not have permission to change this event. Please contact Rich Miekle to have the event deleted`)
           window.location = 'Adminpage'
@@ -103,6 +120,9 @@ class Scheduler extends Component {
         .then(response => {
           window.location = 'Adminpage'
         })
+      if (onDataUpdated) {
+            onDataUpdated('delete', ev, id);
+        }
     });
 
     scheduler._$initialized = true;
@@ -127,6 +147,17 @@ class Scheduler extends Component {
     scheduler.xy.scale_width = 70;
     scheduler.config.day_date = "%m/%d";
     scheduler.config.default_date = "%m/%d/%y";
+
+    // scheduler.config.lightbox_recurring = 'series';
+    scheduler.config.responsive_lightbox = true;
+    scheduler.config.details_on_dblclick = true;
+    scheduler.config.details_on_create = true;
+
+    scheduler.config.lightbox.sections=[
+      { name: "description", height: 50, type: "textarea", map_to: "text", focus: true },
+      {name:"recurring", height:50, type:"recurring", map_to:"rec_type", button:"recurring"},
+      {name:"time", height:50, type:"time", map_to:"auto"}
+    ];
 
     scheduler.templates.event_class = function (start, end, event) {
       if (event.type === 'Diane') return 'Diane_event';
