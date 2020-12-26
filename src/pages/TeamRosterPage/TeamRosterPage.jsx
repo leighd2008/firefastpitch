@@ -24,7 +24,8 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
     toggleRCModal()
   }
 
-    const teamDataArray = Object.entries(teamData);
+  const teamDataArray = Object.entries(teamData);
+  console.log(playerIndex)
     
   return (
       <div>
@@ -94,15 +95,15 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
           </tbody>
         </table>
       </Card>
-        <Modal className="bc modal" show={bcShowing} close={toggleBCModal}>
-        {playerIndex ?
+      <Modal className="bc modal" show={bcShowing} close={toggleBCModal}>
+        {playerIndex || playerIndex === 0 ?
           <img className='fileImage'
           src={teamDataArray[index][1].roster[playerIndex].birthCert}
           alt="birth certificate"
-          /> : null}
+          />  : null}
       </Modal>
       <Modal className="bc modal" show={rcShowing} close={toggleRCModal}>
-        {playerIndex ?
+        {playerIndex || playerIndex === 0 ?
           <img className='fileImage'
             src={teamDataArray[index][1].roster[playerIndex].reportCard}
             alt="report card"
