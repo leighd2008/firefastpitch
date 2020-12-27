@@ -28,43 +28,58 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
         <CardTitle tag="h1">
           {`Team Roster: ${teamDataArray[index][1].title} Division`}
         </CardTitle>
-        <table className="f6 w-100 mw8 center pa4 ma2">
-          <thead>
-            <tr >
-              <th>Jersey Number</th>
-              <th>Name</th>
-              <th>Birth Certificate</th>
-              <th>Report Card</th>
-            </tr>
-          </thead>
-          <tbody>
-            {teamDataArray[index][1].roster.map((player, i) => {
-              let playerIndex = i
-              return (
-                <tr className="stripe-dark" key={i}>
-                  <td>{`${player.jersey || ''}`}</td>
-                  <td >{`${player.name || ''} ${player.last || ''}`}</td>
-                  {player.birthCert ? 
-                    (<td>{player.birthCert.match(/\.(jpeg|jpg|png)$/) ?
-                      <img className='fileImage' src={player.birthCert} alt="birth certificate" /> :
-                      <FontAwesomeIcon icon={faCheckCircle} />}
-                    </td>) :
-                    <td><UploadFiles title={title} playerIndex={playerIndex} category='birthCert'/></td> 
-                  }
-                  {player.reportCard ?
-                    (<td>{player.reportCard.match(/\.(jpeg|jpg|png)$/) ?
-                      <img className='fileImage' src={player.reportCard} alt="Report Card" /> :
-                      <FontAwesomeIcon icon={faCheckCircle} />}
-                    </td>) :
-                    <td><UploadFiles title={title} playerIndex={playerIndex} category='reportCard' /></td>
-                  }
+        <div className="outer">
+          <div className="inner">
+
+            <table className="f6 w-100 mw8 center pa4 ma2 roster">
+              <thead>
+                <tr >
+                  <th className="fix">Name</th>
+                  <th>Jersey Number</th>
+                  <th>Birth Certificate</th>
+                  <th>1st Qtr Report Card</th>
+                  {/* <th>2cnd Qtr Report Card</th>
+                  <th>3rd Qtr Report Card</th>
+                  <th>4th Qtr Report Card</th> */}
                 </tr>
-              )
-            }
-            )}
-          </tbody>
-        </table>
+              </thead>
+              <tbody>
+                {teamDataArray[index][1].roster.map((player, i) => {
+                  let playerIndex = i
+                  return (
+                    <tr className="stripe-dark" key={i}>
+                      <th className="fix">{`${player.name || ''} ${player.last || ''}`}</th>
+                      <th>{`${player.jersey || ''}`}</th>
+                      {player.birthCert ? 
+                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> </td> :
+                        <td><UploadFiles title={title} playerIndex={playerIndex} category='birthCert'/></td> 
+                      }
+                      {player.reportCard1 ?
+                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
+                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard1' /></td>
+                      }
+                      {/* {player.reportCard2 ?
+                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
+                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard2' /></td>
+                      }
+                      {player.reportCard3 ?
+                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
+                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard3' /></td>
+                      }
+                      {player.reportCard4 ?
+                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
+                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard4' /></td>
+                      } */}
+                    </tr>
+                  )
+                }
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </Card>
+      <span>Swipe/Scroll to the side to upload report cards</span>
     </div>
   );
 }

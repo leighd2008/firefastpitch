@@ -46,7 +46,10 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
           <thead>
             <tr >
               <th>Birth Certificate</th>
-              <th>Report Card</th>
+              <th>1st Qtr Report Card</th>
+              <th>2cnd Qtr Report Card</th>
+              <th>3rd Qtr Report Card</th>
+              <th>4th Qtr Report Card</th>
               <th>Name</th>
               <th>Jersey Number</th>
               <th>DOB</th>
@@ -73,9 +76,27 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
                        :
                       <td>Not On File</td>
                     }
-                    {player.reportCard ?
+                    {player.reportCard1 ?
                       (<td onClick={e => handleRCClick(e, playerIndex)}>
-                        <img className='fileImage' src={player.reportCard} alt="Report Card" />
+                        <img className='fileImage' src={player.reportCard1} alt="Report Card" />
+                      </td>) :
+                      <td>Not on File</td>
+                    }
+                    {player.reportCard2 ?
+                      (<td onClick={e => handleRCClick(e, playerIndex)}>
+                        <img className='fileImage' src={player.reportCard2} alt="Report Card" />
+                      </td>) :
+                      <td>Not on File</td>
+                    }
+                    {player.reportCard3 ?
+                      (<td onClick={e => handleRCClick(e, playerIndex)}>
+                        <img className='fileImage' src={player.reportCard3} alt="Report Card" />
+                      </td>) :
+                      <td>Not on File</td>
+                    }
+                    {player.reportCard4 ?
+                      (<td onClick={e => handleRCClick(e, playerIndex)}>
+                        <img className='fileImage' src={player.reportCard4} alt="Report Card" />
                       </td>) :
                       <td>Not on File</td>
                     }
@@ -105,7 +126,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
       <Modal className="bc modal" show={rcShowing} close={toggleRCModal}>
         {playerIndex || playerIndex === 0 ?
           <img className='fileImage'
-            src={teamDataArray[index][1].roster[playerIndex].reportCard}
+            src={teamDataArray[index][1].roster[playerIndex].reportCard1}
             alt="report card"
           /> : null}
       </Modal>

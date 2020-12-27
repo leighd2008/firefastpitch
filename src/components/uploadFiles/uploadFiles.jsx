@@ -18,6 +18,8 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
 
   const updateTeamData = (imageAsUrl) => {
     console.log(teamData)
+    console.log(category)
+    console.log(imageAsUrl)
     const roster = teamData[title].roster;
     const teamId = teamData[title].id
     roster[playerIndex][category] = imageAsUrl;
@@ -28,10 +30,10 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
 
   const handleFireBaseUpload = (e) => {
     e.preventDefault()
-    const uploadTask = storage.ref(`/${category}/${imageAsFile.name}`).put(imageAsFile);
+    const uploadTask = storage.ref(`/${category}/${title}/${imageAsFile.name}`).put(imageAsFile);
     uploadTask.on('state_changed', () => {
       storage
-        .ref(`${category}`)
+        .ref(`${category}/${title}`)
         .child(imageAsFile.name)
         .getDownloadURL()
         .then((imageAsUrl) => {
@@ -46,10 +48,15 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
   return (
     <div className="uploadFiles">
       <form className='upload' onSubmit={handleFireBaseUpload}>
-        <input
+        <input className='file'
           type="file"
           onChange={handleImageAsFile}
+          style={{ backgroundColor: "#ed1e24", color: "white"}}
         />
+        <div className="preview">
+          {!imageAsFile ? <p>No file selected</p> : <p>{`${imageAsFile.name}`}</p>
+          }
+        </div>
         <button className='uploadFirebase' disabled={!imageAsFile}>Upload </button>
       </form>
     </div>
