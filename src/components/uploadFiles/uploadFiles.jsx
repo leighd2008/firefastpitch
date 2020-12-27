@@ -51,7 +51,7 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
         <input className='file'
           type="file"
           onChange={handleImageAsFile}
-          style={{ backgroundColor: "#ed1e24", color: "white"}}
+          style={{ backgroundColor: "white", color: "white"}}
         />
         <div className="preview">
           {!imageAsFile ? <p>No file selected</p> : <p>{`${imageAsFile.name}`}</p>
