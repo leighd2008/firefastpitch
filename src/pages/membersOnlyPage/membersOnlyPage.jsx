@@ -4,6 +4,7 @@ import { createStructuredSelector } from "reselect";
 import { selectTeamData } from "../../redux/team/team.selectors";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import {StickyTable, Row, Cell} from 'react-sticky-table';
 
 import { Card, CardTitle } from "reactstrap";
 
@@ -28,55 +29,52 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
         <CardTitle tag="h1">
           {`Team Roster: ${teamDataArray[index][1].title} Division`}
         </CardTitle>
-        <div className="outer">
-          <div className="inner">
-
-            <table className="f6 w-100 mw8 center pa4 ma2 roster">
-              <thead>
-                <tr >
-                  <th className="fix">Name</th>
-                  <th>Jersey Number</th>
-                  <th>Birth Certificate</th>
-                  <th>1st Qtr Report Card</th>
-                  {/* <th>2cnd Qtr Report Card</th>
-                  <th>3rd Qtr Report Card</th>
-                  <th>4th Qtr Report Card</th> */}
-                </tr>
-              </thead>
-              <tbody>
-                {teamDataArray[index][1].roster.map((player, i) => {
-                  let playerIndex = i
-                  return (
-                    <tr className="stripe-dark" key={i}>
-                      <th className="fix">{`${player.name || ''} ${player.last || ''}`}</th>
-                      <th>{`${player.jersey || ''}`}</th>
-                      {player.birthCert ? 
-                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> </td> :
-                        <td><UploadFiles title={title} playerIndex={playerIndex} category='birthCert'/></td> 
-                      }
-                      {player.reportCard1 ?
-                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
-                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard1' /></td>
-                      }
-                      {/* {player.reportCard2 ?
-                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
-                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard2' /></td>
-                      }
-                      {player.reportCard3 ?
-                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
-                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard3' /></td>
-                      }
-                      {player.reportCard4 ?
-                        <td><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></td> :
-                        <td ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard4' /></td>
-                      } */}
-                    </tr>
-                  )
-                }
-                )}
-              </tbody>
-            </table>
-          </div>
+        <div className="table-container">
+          <StickyTable >
+            {/* <thead> */}
+              <Row >
+                <Cell>Name</Cell>
+                <Cell>Jersey Number</Cell>
+                <Cell>Birth Certificate</Cell>
+                <Cell>1st Qtr Report Card</Cell>
+                <Cell>2cnd Qtr Report Card</Cell>
+                <Cell>3rd Qtr Report Card</Cell>
+                <Cell>4th Qtr Report Card</Cell>
+              </Row>
+            {/* </thead>
+            <tbody> */}
+              {teamDataArray[index][1].roster.map((player, i) => {
+                let playerIndex = i
+                return (
+                  <Row className="stripe-dark" key={i}>
+                    <Cell className="fix">{`${player.name || ''} ${player.last || ''}`}</Cell>
+                    <Cell>{`${player.jersey || ''}`}</Cell>
+                    {player.birthCert ? 
+                      <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> </Cell> :
+                      <Cell><UploadFiles title={title} playerIndex={playerIndex} category='birthCert'/></Cell> 
+                    }
+                    {player.reportCard1 ?
+                      <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
+                      <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard1' /></Cell>
+                    }
+                    {/* {player.reportCard2 ?
+                      <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
+                      <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard2' /></Cell>
+                    }
+                    {player.reportCard3 ?
+                      <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
+                      <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard3' /></Cell>
+                    }
+                    {player.reportCard4 ?
+                      <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
+                      <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard4' /></Cell>
+                    } */}
+                  </Row>
+                )
+              }
+              )}
+            {/* </tbody> */}
+          </StickyTable>
         </div>
       </Card>
       <span>Swipe/Scroll to the side to upload report cards</span>

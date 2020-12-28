@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
 
+  .file {
+    width: 50px;
+  }
+
   .uploadFirebase {
     width: 89px;
   }
