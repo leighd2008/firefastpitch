@@ -12,6 +12,12 @@ class FieldScheduler extends Component {
   
   render() {
     const { fieldname, fieldData, title } = this.props;
+    let today = new Date();
+    let events2 = fieldData[title].schedule.filter(item => {
+      return new Date(item.end_date) >= today
+    });
+    console.log(events2);
+
     return (
       <div>
         <button onClick={(event) => { window.location = 'Adminpage' }} >

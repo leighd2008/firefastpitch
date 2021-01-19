@@ -82,13 +82,30 @@
     }
 
     .dhx_cal_light.dhx_cal_light_responsive {
-        width: 70vw!important;
+        width: 90vw!important;
         height: auto!important;
         left: 5%!important;
         top: 75vw!important;
-        font-size: 2rem!important;
+        font-size: 1.5rem!important;
         line-height: 2vw!important;
         padding-bottom: 2vw;
+    }
+
+    .dhx_section_time select {
+      font-size: 2.5vw!important;
+    }
+
+    .dhx_cal_tab {
+      width: 60px!important;
+    }
+
+    .dhx_cal_navline.dhx_cal_navline_flex .dhx_cal_tab, .dhx_cal_navline.dhx_cal_navline_flex .dhx_cal_tab.active {
+      font-size: 0.6rem!important;
+      padding: 0 2px!important;
+      color: white;
+    }
+    .dhx_cal_navline.dhx_cal_navline_flex .dhx_cal_today_button {
+      width: 80px;
     }
 
     @media only screen and (min-width: 450px) {
@@ -97,7 +114,7 @@
           margin: 4rem 0 0 1.5rem!important;
       }
       .dhx_cal_light.dhx_cal_light_responsive .dhx_cal_lsection {
-          font-size: 2rem!important;
+          font-size: 1.5rem!important;
       }
       .dhx_cal_light.dhx_cal_light_responsive textarea, .dhx_cal_light.dhx_cal_light_responsive .dhx_cal_lsection div.dhx_custom_button, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat label, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_text, .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat .dhx_repeat_days label, .dhx_cal_light.dhx_cal_light_responsive .dhx_wrap_section .dhx_section_time select {
         font-size: 1rem!important;
@@ -144,7 +161,7 @@
         padding: 10px;
       }
 
-      .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat {
-        height: 370px!important;
+      .dhx_cal_light.dhx_cal_light_responsive {
+        height: auto!important;
       }
     }      

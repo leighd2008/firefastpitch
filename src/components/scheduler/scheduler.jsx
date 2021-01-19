@@ -29,7 +29,8 @@ class Scheduler extends Component {
     scheduler.attachEvent('onEventAdded', (id, ev) => {
       let eventCreator = this.props.currentUser.email;
       let type = this.props.currentUser.displayName;
-      let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
+      
+      let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type, rec_type: ev.rec_type, event_length: ev.event_length, event_pid: ev.event_pid }
       let events1 = [
         newEvent,
         ...this.props.events
@@ -52,12 +53,13 @@ class Scheduler extends Component {
       if (onDataUpdated) {
         onDataUpdated('create', ev, id);
       }
+
     });
 
     scheduler.attachEvent('onEventChanged', (id, ev) => {
       let evChanger = this.props.currentUser.email;
       
-      let changedEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator: ev.eventCreator, type:ev.type }
+      let changedEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator: ev.eventCreator, type: ev.type, rec_type: ev.rec_type, event_length: ev.event_length, event_pid: ev.event_pid }
       let changeEventId = ev.id;
       let evCreator = ev.eventCreator;
       let { events } = this.props;
@@ -65,7 +67,7 @@ class Scheduler extends Component {
       let events2 = [];
 
 
-      if (evChanger === evCreator | evChanger === 'fire.fastpitch.softball@gmail.com' ) {
+      if (evChanger === evCreator | evChanger === 'fire.fastpitch.softball@gmail.com') {
         events.filter(event => event.id !== changeEventId).map(filteredEvent => (events1.push(filteredEvent)))
         events2 = [
           changedEvent,
@@ -100,7 +102,7 @@ class Scheduler extends Component {
       let { events } = this.props;
       let events1 = [];
 
-      if (evDeleter === evCreator | evDeleter === 'fire.fastpitch.softball@gmail.com' ) {
+      if (evDeleter === evCreator | evDeleter === 'fire.fastpitch.softball@gmail.com' | !evCreator) {
         events.filter(event => event.id !== delEventId).map(filteredEvent => (events1.push(filteredEvent)))
       } else {
         events1 = events;
@@ -148,7 +150,7 @@ class Scheduler extends Component {
     scheduler.config.day_date = "%m/%d";
     scheduler.config.default_date = "%m/%d/%y";
 
-    // scheduler.config.lightbox_recurring = 'series';
+    scheduler.config.lightbox_recurring = 'series';
     scheduler.config.responsive_lightbox = true;
     scheduler.config.details_on_dblclick = true;
     scheduler.config.details_on_create = true;
