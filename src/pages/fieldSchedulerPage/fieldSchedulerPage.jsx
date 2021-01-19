@@ -12,6 +12,11 @@ class FieldScheduler extends Component {
   
   render() {
     const { fieldname, fieldData, title } = this.props;
+    let today = new Date();
+    let events = fieldData[title].schedule.filter(item => {
+      return new Date(item.end_date) >= today
+    });
+
     return (
       <div>
         <button onClick={(event) => { window.location = 'Adminpage' }} >
@@ -24,7 +29,7 @@ class FieldScheduler extends Component {
         </div>
         <div className='scheduler-container'>
           <Scheduler
-            events={fieldData[title].schedule}
+            events={events}
             title={title}
             fieldId={fieldData[title].id}
           />

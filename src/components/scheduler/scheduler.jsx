@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import 'dhtmlx-scheduler';
 import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
+import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_recurring.js';
+import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_minical.js';
 import "./scheduler.scss";
 import { firestore } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
@@ -16,10 +18,19 @@ class Scheduler extends Component {
     if (scheduler._$initialized) {
       return;
     }
+
+    const onDataUpdated = this.props.onDataUpdated;
+
+    scheduler.attachEvent("onClick", function (id, e){
+		scheduler.showLightbox(id);
+		return true;
+    });
+    
     scheduler.attachEvent('onEventAdded', (id, ev) => {
       let eventCreator = this.props.currentUser.email;
       let type = this.props.currentUser.displayName;
-      let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type }
+      
+      let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type, rec_type: ev.rec_type, event_length: ev.event_length, event_pid: ev.event_pid }
       let events1 = [
         newEvent,
         ...this.props.events
@@ -35,15 +46,20 @@ class Scheduler extends Component {
       firestore.collection("fields").doc(fieldId).update({
         schedule: events1,
       })
+      
         .then(response => {
           window.location = 'Adminpage'
         })
+      if (onDataUpdated) {
+        onDataUpdated('create', ev, id);
+      }
+
     });
 
     scheduler.attachEvent('onEventChanged', (id, ev) => {
       let evChanger = this.props.currentUser.email;
       
-      let changedEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator: ev.eventCreator, type:ev.type }
+      let changedEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator: ev.eventCreator, type: ev.type, rec_type: ev.rec_type, event_length: ev.event_length, event_pid: ev.event_pid }
       let changeEventId = ev.id;
       let evCreator = ev.eventCreator;
       let { events } = this.props;
@@ -51,7 +67,7 @@ class Scheduler extends Component {
       let events2 = [];
 
 
-      if (evChanger === evCreator | evChanger === 'fire.fastpitch.softball@gmail.com' ) {
+      if (evChanger === evCreator | evChanger === 'fire.fastpitch.softball@gmail.com') {
         events.filter(event => event.id !== changeEventId).map(filteredEvent => (events1.push(filteredEvent)))
         events2 = [
           changedEvent,
@@ -70,6 +86,9 @@ class Scheduler extends Component {
             .then(response => {
               window.location = 'Adminpage'
             })
+        if (onDataUpdated) {
+            onDataUpdated('update', ev, id);
+        }
         } else {
           alert(`You do not have permission to change this event. Please contact Rich Miekle to have the event deleted`)
           window.location = 'Adminpage'
@@ -83,7 +102,7 @@ class Scheduler extends Component {
       let { events } = this.props;
       let events1 = [];
 
-      if (evDeleter === evCreator | evDeleter === 'fire.fastpitch.softball@gmail.com' ) {
+      if (evDeleter === evCreator | evDeleter === 'fire.fastpitch.softball@gmail.com' | !evCreator) {
         events.filter(event => event.id !== delEventId).map(filteredEvent => (events1.push(filteredEvent)))
       } else {
         events1 = events;
@@ -103,6 +122,9 @@ class Scheduler extends Component {
         .then(response => {
           window.location = 'Adminpage'
         })
+      if (onDataUpdated) {
+            onDataUpdated('delete', ev, id);
+        }
     });
 
     scheduler._$initialized = true;
@@ -128,6 +150,17 @@ class Scheduler extends Component {
     scheduler.config.day_date = "%m/%d";
     scheduler.config.default_date = "%m/%d/%y";
 
+    scheduler.config.lightbox_recurring = 'series';
+    scheduler.config.responsive_lightbox = true;
+    scheduler.config.details_on_dblclick = true;
+    scheduler.config.details_on_create = true;
+
+    scheduler.config.lightbox.sections=[
+      { name: "description", height: 50, type: "textarea", map_to: "text", focus: true },
+      {name:"recurring", height:50, type:"recurring", map_to:"rec_type", button:"recurring"},
+      {name:"time", height:50, type:"time", map_to:"auto"}
+    ];
+
     scheduler.templates.event_class = function (start, end, event) {
       if (event.type === 'Diane') return 'Diane_event';
       else if (event.type === 'Rich') return 'Rich_event';
@@ -140,6 +173,7 @@ class Scheduler extends Component {
     this.initSchedulerEvents();
 
     const { events } = this.props;
+    console.log(events)
     scheduler.init(this.schedulerContainer, new Date());
     scheduler.clearAll();
     scheduler.parse(events);
