@@ -15,7 +15,7 @@ const Tournaments = ({ index, teamData }) => {
         backgroundColor: "#rgb(194, 198, 202)",
         borderColor: "red",
         borderWidth: "4px",
-        minWidth: "60vw"
+        minWidth: "100%"
       }}
     >
       <CardTitle tag="h1">
