@@ -36,6 +36,9 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
             </ul>
             <li>Training with Mike Candrea</li>
             <ul>
+              <li className="videolinks" onClick={goToVideo.bind(this, 0)}>
+                Pitching
+              </li>
               <li className="videolinks" onClick={goToVideo.bind(this, 1)}>
                 Throwing
               </li>
@@ -47,9 +50,6 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
               </li>
               <li className="videolinks" onClick={goToVideo.bind(this, 4)}>
                 Improving as a Catcher
-              </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 0)}>
-                Pitching
               </li>
             </ul>
             <li>
@@ -83,14 +83,6 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
                 </li>
               </ul>
             </li>
-            {/* <li>
-              Conditioning and Strength Training
-              <ul>
-                <li className="videolinks" onClick={goToVideo.bind(this, 13)}>
-                  7 Shoulder Exercises  for Fastpitch Softball Players
-                </li>
-              </ul>
-            </li> */}
           </ul>
         </div>
         <div className="youtube">
