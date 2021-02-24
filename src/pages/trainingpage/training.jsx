@@ -27,22 +27,28 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
 
                 </span>
               </li>
+              <li className="videolinks" onClick={goToVideo.bind(this, 13)}>
+                Shoulder Exercises for Fastpitch Softball Players
+                </li>
+              <li className="videolinks" onClick={goToVideo.bind(this, 14)}>
+                  Foundation exercises for Fastpitch softball pitchers
+                </li>
             </ul>
             <li>Training with Mike Candrea</li>
             <ul>
-              <li className="videolinks" onClick={goToVideo.bind(this, 0)}>
+              <li className="videolinks" onClick={goToVideo.bind(this, 1)}>
                 Throwing
               </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 1)}>
+              <li className="videolinks" onClick={goToVideo.bind(this, 2)}>
                 Fielding Fly Balls
               </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 2)}>
+              <li className="videolinks" onClick={goToVideo.bind(this, 3)}>
                 Fielding Groundballs
               </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 3)}>
+              <li className="videolinks" onClick={goToVideo.bind(this, 4)}>
                 Improving as a Catcher
               </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 4)}>
+              <li className="videolinks" onClick={goToVideo.bind(this, 0)}>
                 Pitching
               </li>
             </ul>
@@ -77,6 +83,14 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
                 </li>
               </ul>
             </li>
+            {/* <li>
+              Conditioning and Strength Training
+              <ul>
+                <li className="videolinks" onClick={goToVideo.bind(this, 13)}>
+                  7 Shoulder Exercises  for Fastpitch Softball Players
+                </li>
+              </ul>
+            </li> */}
           </ul>
         </div>
         <div className="youtube">
