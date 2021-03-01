@@ -18,75 +18,6 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
     <div className="training">
       <h1 className="training-title"> Training Videos</h1>
       <div className="videodisplay">
-        <div className="videolist">
-          <ul>
-            <li className="videolinks" onClick={goToVideo.bind(this, 0)}><h4>HOW TO THROW A SOFTBALL</h4>
-            </li>
-            <li>Daily Workouts</li>
-            <ul>
-              <li className="videolinks" onClick={goToVideo.bind(this, 13)}>Tee Work
-                <span className="instructions">
-
-                </span>
-              </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 14)}>
-                Shoulder Exercises for Fastpitch Softball Players
-                </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 15)}>
-                  Foundation exercises for Fastpitch softball pitchers
-                </li>
-            </ul>
-            <li>Training with Mike Candrea</li>
-            <ul>
-              <li className="videolinks" onClick={goToVideo.bind(this, 1)}>
-                Pitching
-              </li>
-              {/* <li className="videolinks" onClick={goToVideo.bind(this, 2)}>
-                Throwing
-              </li> */}
-              <li className="videolinks" onClick={goToVideo.bind(this, 3)}>
-                Fielding Fly Balls
-              </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 4)}>
-                Fielding Groundballs
-              </li>
-              <li className="videolinks" onClick={goToVideo.bind(this, 5)}>
-                Improving as a Catcher
-              </li>
-            </ul>
-            <li>
-              USA SOFTBALL Infield Position Play
-              <ul>
-                <li className="videolinks" onClick={goToVideo.bind(this, 6)}>
-                  Introduction
-                </li>
-                <li className="videolinks" onClick={goToVideo.bind(this, 7)}>
-                  ShortStop
-                </li>
-                <li className="videolinks" onClick={goToVideo.bind(this, 8)}>
-                  Second Base
-                </li>
-                <li className="videolinks" onClick={goToVideo.bind(this, 9)}>
-                  Receiving throws
-                </li>
-                <li className="videolinks" onClick={goToVideo.bind(this, 10)}>
-                  Third Base
-                </li>
-                <li className="videolinks" onClick={goToVideo.bind(this, 11)}>
-                  First Base
-                </li>
-              </ul>
-            </li>
-            <li>
-              Warm Up Drills
-              <ul>
-                <li className="videolinks" onClick={goToVideo.bind(this, 12)}>
-                  Warm Up Throwing
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
         <div className="youtube">
           <div className="iframe-container">
             <iframe
@@ -112,6 +43,75 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
             </button>
           </div>
             <div className="instructions">{instructions}</div>
+        </div>
+        <div className="videolist">
+          <ul>
+            <li className="videolinks" onClick={goToVideo.bind(this, 0)}><h4>HOW TO THROW A SOFTBALL</h4>
+            </li>
+            <li>Daily Workouts</li>
+            <ul>
+              <li className="videolinks" onClick={goToVideo.bind(this, 1)}>Tee Work
+                <span className="instructions">
+
+                </span>
+              </li>
+              <li className="videolinks" onClick={goToVideo.bind(this, 2)}>
+                Shoulder Exercises for Fastpitch Softball Players
+                </li>
+              <li className="videolinks" onClick={goToVideo.bind(this, 3)}>
+                  Foundation exercises for Fastpitch softball pitchers
+                </li>
+            </ul>
+            <li>Training with Mike Candrea</li>
+            <ul>
+              <li className="videolinks" onClick={goToVideo.bind(this, 4)}>
+                Pitching
+              </li>
+              {/* <li className="videolinks" onClick={goToVideo.bind(this, 2)}>
+                Throwing
+              </li> */}
+              <li className="videolinks" onClick={goToVideo.bind(this, 5)}>
+                Fielding Fly Balls
+              </li>
+              <li className="videolinks" onClick={goToVideo.bind(this, 6)}>
+                Fielding Groundballs
+              </li>
+              <li className="videolinks" onClick={goToVideo.bind(this, 7)}>
+                Improving as a Catcher
+              </li>
+            </ul>
+            <li>
+              USA SOFTBALL Infield Position Play
+              <ul>
+                <li className="videolinks" onClick={goToVideo.bind(this, 8)}>
+                  Introduction
+                </li>
+                <li className="videolinks" onClick={goToVideo.bind(this, 9)}>
+                  ShortStop
+                </li>
+                <li className="videolinks" onClick={goToVideo.bind(this, 10)}>
+                  Second Base
+                </li>
+                <li className="videolinks" onClick={goToVideo.bind(this, 11)}>
+                  Receiving throws
+                </li>
+                <li className="videolinks" onClick={goToVideo.bind(this, 12)}>
+                  Third Base
+                </li>
+                <li className="videolinks" onClick={goToVideo.bind(this, 13)}>
+                  First Base
+                </li>
+              </ul>
+            </li>
+            <li>
+              Warm Up Drills
+              <ul>
+                <li className="videolinks" onClick={goToVideo.bind(this, 14)}>
+                  Warm Up Throwing
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
