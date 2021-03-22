@@ -8,6 +8,12 @@ import { Card, CardTitle } from "reactstrap";
 
 const Tournaments = ({ index, teamData }) => {
   const teamDataArray = Object.entries(teamData);
+  teamDataArray[index][1].tournaments.sort((a, b) => {
+    let aa = new Date(a.date);
+    let bb = new Date(b.date);
+    return aa - bb;
+  });
+  
   return (
     <Card
       className="ma0 roster"
