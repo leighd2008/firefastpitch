@@ -50,6 +50,7 @@ const Event = ({ event }) => {
     displayStartDate = `${day}, ${month} ${date} at ${hours}:${minutes}${AMPM}`;
   } else {
     let startDate = new Date(event.start.date);
+    startDate.setDate(startDate.getDate() + 1)
     let day = DAYS_OF_WEEK[startDate.getDay()];
     let month = MONTHS[startDate.getMonth()];
     let date = startDate.getDate();
