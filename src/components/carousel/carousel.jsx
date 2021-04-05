@@ -6,6 +6,7 @@ import './carousel.scss'
 const images = require.context("../../assets/Homeruns", true);
 
 const imgUrls = [
+  images('./Brena_1st_04_04_21_12U_Spring_2021.jpeg'),
   images(`./Cloe_4th_dinger_16U_Fall_2020.jpg`),
   images(`./Cloe_2cnd&3rd_dingers_16U_Fall_2020.jpg`),
   images(`./Avery_2cnd&Hailey_1st_dinger_14U_Fall_2020.jpg`),
@@ -35,7 +36,7 @@ class Carousel extends Component {
   // }
 
   componentDidMount() {
-    var intervalId = setInterval(this.setNextImage, 3000);
+    var intervalId = setInterval(this.setNextImage, 3500);
     this.setState({ intervalId: intervalId });
   }
 
