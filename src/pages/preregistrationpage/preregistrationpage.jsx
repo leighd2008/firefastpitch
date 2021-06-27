@@ -39,10 +39,7 @@ class PreregistrationPage extends React.Component {
           {
             "type": "comment",
             "name": "previous",
-            // "visible": false,
-            // "visibleIf": "{Years of Travel Softball Experience:} >= 1",
             "title": "Previous Travel Teams:",
-            // "enableIf": "{Years of Travel Softball Experience:} >= 1",
             "defaultValue": "  ",
             "cols": 50
           },
@@ -140,6 +137,10 @@ class PreregistrationPage extends React.Component {
             "isRequired": true,
             "choices": [
               {
+                "value": "8U",
+                "text": "8U"
+              },
+              {
                 "value": "10U",
                 "text": "10U"
               },
@@ -154,6 +155,10 @@ class PreregistrationPage extends React.Component {
               {
                 "value": "16U",
                 "text": "16U"
+              },
+              {
+                "value": "18U",
+                "text": "18U"
               }
             ],
             "colCount": 4
@@ -166,7 +171,7 @@ class PreregistrationPage extends React.Component {
             "requiredErrorText": "Please enter a valid Date of Birth.",
             "inputType": "date",
             "min": "2003-01-01",
-            "max": "2013-01-01",
+            "max": "2015-01-01",
             "placeHolder": "mm/dd/yyyy"
           },
           // {
@@ -277,16 +282,45 @@ class PreregistrationPage extends React.Component {
           },
           {
             "type": "radiogroup",
+            "name": "coaching",
+            "title": "Are you interested in coaching?",
+            "isRequired": true,
+            "choices": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              },
+              {
+                "value": "maybe",
+                "text": "Maybe"
+              }
+            ],
+            "colCount": 3
+          },
+          {
+            "type": "radiogroup",
             "name": "session",
             "title": "Which tryout session will you be attending",
             "choices": [
               {
-                "value": "August 5th",
-                "text": "August 5th  6-8 PM"
+                "value": "July 31",
+                "text": "July 31"
               },
               {
-                "value": "August 15th",
-                "text": "August 15th  10-12 AM"
+                "value": "August 1st",
+                "text": "August 1st"
+              },
+              {
+                "value": "August 7th",
+                "text": "August 7th"
+              },
+              {
+                "value": "August 8th",
+                "text": "August 8th"
               },
               {
                 "value": "TBD",
@@ -309,7 +343,19 @@ class PreregistrationPage extends React.Component {
     let division = player.division;
 
     // eslint-disable-next-line no-restricted-globals
-    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} ${player.last} \n travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n email: ${player.email} \n phone: ${player.phone} /n parent/guardians: ${player.parent1} ${player.parent2} /n tryout session: ${player.session}`)) {
+    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n 
+    name: ${player.name} ${player.last} \n 
+    travel experience: ${player.experience} years \n
+    ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n 
+    throws: ${player.throws} handed \n 
+    bats: ${player.bats} handed \n
+    division: ${player.division} \n 
+    DOB: ${player.DOB} \n 
+    ${player.email ? `email: ${player.email} \n` : ""} 
+    ${player.phone ? `phone: ${player.phone} \n` : ""} 
+    parent/guardians: ${player.parent1} phone: ${player.parent1phone} email: ${player.parent1email} \n
+     ${player.parent2 ? `${player.parent2} phone: ${player.parent2phone} email: ${player.parent2email} \n` : ""}
+    tryout session: ${player.session}`)) {
       let newplayers = [
         player,
         ...this.props.registrationData[division].players
