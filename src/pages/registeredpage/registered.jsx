@@ -60,7 +60,7 @@ class Registered extends React.Component {
     const divisionId = this.props.registrationData[division].id;
     const teamdiv = `Fire${division}`
     const teamId = this.props.teamData[teamdiv].id
-    firestore.collection("preregistration").doc(divisionId).update({
+    firestore.collection("preregistration2021").doc(divisionId).update({
       players: players,
     })
     this.updateRoster(players, teamdiv, teamId);
@@ -94,6 +94,7 @@ class Registered extends React.Component {
               <th>Positions</th>
               <th>Bats</th>
               <th>Throws</th>
+              <th>Coaching Interest</th>
               <th>On Team</th>
             </tr>
           </thead>
@@ -103,12 +104,13 @@ class Registered extends React.Component {
                 <tr className="stripe-dark"  key={i}>
                   <td>{`${player.tryout || ''}`}</td>
                   <td>{`${player.attended || ''}`}</td>
-                  <td onClick={(e) => alert(`${player.name} ${player.last} email: ${player.email} \n ${player.parent1} \n       phone: ${player.parent1phone} \n       email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n        phone: ${player.parent2phone || ""} \n       email: ${player.parent2email || ""} `)}>{`${player.name} ${player.last}`}</td>
+                  <td onClick={(e) => alert(`${player.name} ${player.last} email: ${player.email} \n ${player.parent1} \n phone: ${player.parent1phone} \n email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n phone: ${player.parent2phone || ""} \n email: ${player.parent2email || ""} `)}>{`${player.name || ''} ${player.last || ''}`}</td>
 
                   <td>{player.DOB}</td>
                   <td>{player.positions}</td>
                   <td>{player.bats}</td>
                   <td>{player.throws}</td>
+                  <td>{player.coaching}</td>
                   <td><input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange= {this.checkboxHandler(player, i)}/></td>
                 </tr>
 

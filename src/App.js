@@ -110,7 +110,7 @@ class App extends React.Component {
     );
 
     const { updatePreregistration } = this.props;
-    const collectionRef3 = firestore.collection("preregistration");
+    const collectionRef3 = firestore.collection("preregistration2021");
 
 
     this.unsubscribeFromSnapshot = collectionRef3.onSnapshot(

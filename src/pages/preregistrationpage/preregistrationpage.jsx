@@ -343,26 +343,14 @@ class PreregistrationPage extends React.Component {
     let division = player.division;
 
     // eslint-disable-next-line no-restricted-globals
-    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n 
-    name: ${player.name} ${player.last} \n 
-    travel experience: ${player.experience} years \n
-    ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n 
-    throws: ${player.throws} handed \n 
-    bats: ${player.bats} handed \n
-    division: ${player.division} \n 
-    DOB: ${player.DOB} \n 
-    ${player.email ? `email: ${player.email} \n` : ""} 
-    ${player.phone ? `phone: ${player.phone} \n` : ""} 
-    parent/guardians: ${player.parent1} phone: ${player.parent1phone} email: ${player.parent1email} \n
-     ${player.parent2 ? `${player.parent2} phone: ${player.parent2phone} email: ${player.parent2email} \n` : ""}
-    tryout session: ${player.session}`)) {
+    if (confirm(`Please check your answers and click OK to proceed or Cancel to start over! \n name: ${player.name} ${player.last} \n    travel experience: ${player.experience} years \n ${player.previous ? `previous teams: ${player.previous} \n` : ""} positions: ${player.positions} \n throws: ${player.throws} handed \n bats: ${player.bats} handed \n division: ${player.division} \n DOB: ${player.DOB} \n ${player.email ? `email: ${player.email} \n` : ""} ${player.phone ? `phone: ${player.phone} \n` : ""} parent/guardians: ${player.parent1} phone: ${player.parent1phone} email: ${player.parent1email} \n ${player.parent2 ? `${player.parent2} phone: ${player.parent2phone} email: ${player.parent2email} \n` : ""} tryout session: ${player.session}`)) {
       let newplayers = [
         player,
         ...this.props.registrationData[division].players
       ];
 
       const divisionId = this.props.registrationData[division].id;
-      firestore.collection("preregistration").doc(divisionId).update({
+      firestore.collection("preregistration2021").doc(divisionId).update({
         players: newplayers,
       })
         .then(response => {

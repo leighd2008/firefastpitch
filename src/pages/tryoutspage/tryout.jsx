@@ -32,7 +32,7 @@ const TryOuts = () => {
           <br />
           <h2>*PITCHERS & CATCHERS</h2> <h3> will need to stay an additional 30 min to be evaluated separately</h3>
           <br />
-          <h2>Please be sure that the girls are dressed & equipped at they would for a game. Arrive hydrated and bring water.</h2>
+          <h2>Please be sure that the girls are dressed & equipped as they would for a game. Arrive hydrated and bring water.</h2>
           <br />
           <h3>There is nothing to be nervous about, we look for much more than home runs & 70 MPH fastballs. We look for character, confidence and hustle!!!</h3>
           <br />
