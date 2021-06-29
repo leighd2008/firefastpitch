@@ -90,6 +90,7 @@ class Registered extends React.Component {
               <th>Tryout Number</th>
               <th>Attended</th>
               <th>Name</th>
+              <th>Previous Experience</th>
               <th>DOB</th>
               <th>Positions</th>
               <th>Bats</th>
@@ -106,6 +107,7 @@ class Registered extends React.Component {
                   <td>{`${player.attended || ''}`}</td>
                   <td onClick={(e) => alert(`${player.name} ${player.last} email: ${player.email} \n ${player.parent1} \n phone: ${player.parent1phone} \n email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n phone: ${player.parent2phone || ""} \n email: ${player.parent2email || ""} `)}>{`${player.name || ''} ${player.last || ''}`}</td>
 
+                  <td>{player.previous}</td>
                   <td>{player.DOB}</td>
                   <td>{player.positions}</td>
                   <td>{player.bats}</td>
