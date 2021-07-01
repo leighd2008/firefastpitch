@@ -14,6 +14,12 @@
     font-size: 2rem;
     font-weight: 600;
   }
+
+  .plain:hover, .fancy:hover {
+    text-decoration-line: underline;
+    color: red;
+  }
+
   padding: 0;
   height: 150px;
   text-align: center;

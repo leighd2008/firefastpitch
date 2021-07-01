@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
+// import { imgUrls } from '../celebrate/images';
 import ImageSlide from '../imageSlide/imageSlide';
 
 import './carousel.scss'
 
-const images = require.context("../../assets/Homeruns", true);
+// const images = require.context("../../assets/Homeruns", true);
 
-const imgUrls = [
-  images('./Brena_1st_04_04_21_12U_Spring_2021.jpeg'),
-  images(`./Cloe_4th_dinger_16U_Fall_2020.jpg`),
-  images(`./Cloe_2cnd&3rd_dingers_16U_Fall_2020.jpg`),
-  images(`./Avery_2cnd&Hailey_1st_dinger_14U_Fall_2020.jpg`),
-  images(`./Hailie_1st_dinger_14U_Fall_2020.jpg`),
-  images(`./Avery_1st_dinger_14U_Fall_2020.jpg`),
-  images(`./Cloe_1st_dinger_16U_Fall_2020.jpg`),
-  // images(`./MadisonZiegler_1st_dinger_14U_Spring_2020.jpg`),
-  // images(`./JenniferGriffin_1st_dinger_14U_Spring_2020.jpg`),
-  images(`./Cloe_2cnd_dinger_14U_Spring_2020.jpg`),
-  images(`./Cloe_1st_dinger_14U_Spring_2020.jpg`),
+// const imgUrls = [
+//   images('./Brena_1st_04_04_21_12U_Spring_2021.jpeg'),
+//   images(`./Cloe_4th_dinger_16U_Fall_2020.jpg`),
+//   images(`./Cloe_2cnd&3rd_dingers_16U_Fall_2020.jpg`),
+//   images(`./Avery_2cnd&Hailey_1st_dinger_14U_Fall_2020.jpg`),
+//   images(`./Hailie_1st_dinger_14U_Fall_2020.jpg`),
+//   images(`./Avery_1st_dinger_14U_Fall_2020.jpg`),
+//   images(`./Cloe_1st_dinger_16U_Fall_2020.jpg`),
+//   // images(`./MadisonZiegler_1st_dinger_14U_Spring_2020.jpg`),
+//   // images(`./JenniferGriffin_1st_dinger_14U_Spring_2020.jpg`),
+//   images(`./Cloe_2cnd_dinger_14U_Spring_2020.jpg`),
+//   images(`./Cloe_1st_dinger_14U_Spring_2020.jpg`),
 
-];
+// ];
 
 class Carousel extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class Carousel extends Component {
   }
 
   setNextImage() {
-    const lastIndex = imgUrls.length - 1;
+    const lastIndex = this.props.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
     const index = shouldResetIndex ? 0 : currentImageIndex + 1;
@@ -56,6 +57,8 @@ class Carousel extends Component {
   }
 
   render() {
+    const { imgUrls } = this.props;
+    console.log(this.props.imgUrls)
 
     return (
       <div className="carousel">

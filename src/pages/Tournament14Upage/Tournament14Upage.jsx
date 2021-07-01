@@ -15,13 +15,13 @@ const Tournament14Upage = () => (
         <h2>Game balls provided</h2>
         <h2>Concessions on site</h2>
       </div>
-      <div className="info-box red">
+      <div className="info-box grey">
         <h2>TROPHIES FOR </h2>
         <h2>1ST & 2ND PLACE</h2>
         <h2>4 Game Guarantee</h2>
         <h2>2 Umpires on Sunday</h2>
       </div>
-      <div className="info-box grey">
+      <div className="info-box red">
         <h2>Johnson Community Cntr</h2>
         <h2>800 Gilmer Rd</h2>
         <h2>Leavittsburg OH 44430</h2>
