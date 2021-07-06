@@ -14,7 +14,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          Copyright 2019, Diane Leigh{" "}
+          <h2>Copyright 2021, Diane Leigh{" "}</h2>
         </a>{" "}
       </p>
     </div>

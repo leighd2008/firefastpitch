@@ -11,7 +11,7 @@ const RegisteredPage = () => {
       className="ma3 registered"
       style={{
         backgroundColor: "#rgb(194, 198, 202)",
-        borderColor: "red",
+        borderColor: "#ed1e24",
         borderWidth: "4px",
         minWidth: "48vw"
       }}

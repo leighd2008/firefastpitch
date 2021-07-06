@@ -8,7 +8,6 @@ import {
 // import "./birthCertificate.scss";
 
 const BirthCertificate = ({ toggleBCModal, bcShowing, playerIndex, teamDataArray, index }) => {
-  console.log(toggleBCModal, bcShowing, playerIndex, teamDataArray, index)
   
   return (
     <div className="birthcertificate">

@@ -17,9 +17,6 @@ const UploadFiles = ({ teamData, title, playerIndex, category }) => {
   }
 
   const updateTeamData = (imageAsUrl) => {
-    console.log(teamData)
-    console.log(category)
-    console.log(imageAsUrl)
     const roster = teamData[title].roster;
     const teamId = teamData[title].id
     roster[playerIndex][category] = imageAsUrl;

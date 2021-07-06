@@ -25,7 +25,6 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
   }
 
   const teamDataArray = Object.entries(teamData);
-  console.log(playerIndex)
     
   return (
       <div>
