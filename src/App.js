@@ -179,7 +179,7 @@ class App extends React.Component {
                     isLoading={loading}
                     teamname="Fire 12U"
                     title="Fire12U"
-                    index={1}/>
+                    index={2}/>
 
                 ))}
             />
@@ -191,7 +191,7 @@ class App extends React.Component {
                     isLoading={loading}
                     teamname="Fire 07"
                     title="Fire07"
-                    index={2}/>
+                    index={7}/>
 
                 ))}
             /><Route
@@ -295,7 +295,7 @@ class App extends React.Component {
                     isLoading={loading}
                     teamname="Fire '07"
                     title="Fire14U"
-                    index={2} />
+                    index={6} />
 
                 ))}
             />
