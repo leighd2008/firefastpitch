@@ -1,21 +1,11 @@
 import React from 'react';
 import Registered from "./registered";
 
-import { Card } from "reactstrap";
-
 import './registeredPage.scss'
 
 const RegisteredPage = () => {
   return (
-    <Card
-      className="ma3 registered"
-      style={{
-        backgroundColor: "#rgb(194, 198, 202)",
-        borderColor: "#ed1e24",
-        borderWidth: "4px",
-        minWidth: "48vw"
-      }}
-    >
+    <div>
       <Registered index={0} />
       <br />
       <Registered index={4} />
@@ -27,7 +17,7 @@ const RegisteredPage = () => {
       <Registered index={5} />
       <br />
       <Registered index={2} />
-    </Card>
+    </div>
   );
 }
 
