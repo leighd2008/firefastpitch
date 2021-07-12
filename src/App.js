@@ -141,7 +141,7 @@ class App extends React.Component {
               <TeamPageWithSpinner
                 isLoading={loading}
                 teamname="Fire 07"
-                title="Fire14U"
+                title="Fire07"
                 eventurls={Fire14UURLS} />
               
             ))}
@@ -190,7 +190,7 @@ class App extends React.Component {
                   <MembersOnlyPageWithSpinner
                     isLoading={loading}
                     teamname="Fire 07"
-                    title="Fire14U"
+                    title="Fire07"
                     index={2}/>
 
                 ))}

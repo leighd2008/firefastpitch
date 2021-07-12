@@ -14,7 +14,7 @@ const INITIAL_STATE = {
     },
     {
       title: "Fire 12U",
-      imageUrl: "12U_Team.jpg",
+      imageUrl: "08_Team.jpg",
       id: 2,
       linkUrl: "Fire12U"
     }
