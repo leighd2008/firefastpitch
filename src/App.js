@@ -283,7 +283,7 @@ class App extends React.Component {
                   isLoading={loading}
                   teamname="Fire 12U"
                   title="Fire12U"
-                  index={1} />
+                  index={2} />
 
               ))}
             />
