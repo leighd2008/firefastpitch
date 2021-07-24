@@ -1,4 +1,4 @@
-.recruiting {
+.newdoc {
   color: red;
   position: relative;
 
@@ -15,13 +15,13 @@
     font-weight: 600;
   }
 
-  .plain:hover, .fancy:hover {
-    text-decoration-line: underline;
-    color: red;
-  }
+  // .plain:hover, .fancy:hover {
+  //   text-decoration-line: underline;
+  //   color: red;
+  // }
 
   padding: 0;
-  height: 150px;
+  height: 350px;
   text-align: center;
   cursor: pointer;
   border: 5px solid #ed1e24;
@@ -45,7 +45,7 @@
 
 @media screen and (min-width: 450px) {
   .recruiting {
-    height: 150px;
+    height: 200px;
     width: 100% !important;
     max-width: 1026px;
     margin-bottom: 20px;
