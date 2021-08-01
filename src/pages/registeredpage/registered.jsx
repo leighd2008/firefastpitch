@@ -69,6 +69,8 @@ class Registered extends React.Component {
   render() {
     const { registrationData, index } = this.props;
     const registrationDataArray = Object.entries(registrationData);
+    registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
+    console.log(registrationDataArray[index][1].players)
 
 
     return (
