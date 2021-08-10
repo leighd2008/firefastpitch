@@ -323,6 +323,10 @@ class PreregistrationPage extends React.Component {
                 "text": "August 8th"
               },
               {
+                "value": "August 15th",
+                "text": "August 15th (12U only)"
+              },
+              {
                 "value": "TBD",
                 
                 "text": "Private, you will be contacted to schedule"

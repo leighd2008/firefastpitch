@@ -28,7 +28,7 @@ import PreregistrationPage from "./pages/preregistrationpage/preregistrationpage
 import RegisteredPage from "./pages/registeredpage/registeredpage.jsx";
 import TeamRosterPage from "./pages/TeamRosterPage/TeamRosterPage.jsx";
 import MembersOnlyPage from "./pages/membersOnlyPage/membersOnlyPage.jsx";
-import Tournament14Upage from "./pages/Tournament14Upage/Tournament14Upage.jsx"
+import DemetraBiopage from "./pages/demetraBiopage/DemetraBiopage.jsx"
 
 
 
@@ -52,7 +52,7 @@ const PreregistrationPageWithSpinner = WithSpinner(PreregistrationPage);
 const RegisteredPageWithSpinner = WithSpinner(RegisteredPage);
 const TeamRosterPageWithSpinner = WithSpinner(TeamRosterPage);
 const MembersOnlyPageWithSpinner = WithSpinner(MembersOnlyPage);
-const Tournament14UpageWithSpinner = WithSpinner(Tournament14Upage);
+const DemetraBiopageWithSpinner = WithSpinner(DemetraBiopage);
 
 
 
@@ -213,8 +213,8 @@ class App extends React.Component {
             render={() => <TournamentPageWithSpinner isLoading={loading} />}
           />
           <Route
-            path="/Tournament14U"
-              render={() => <Tournament14UpageWithSpinner isLoading={loading} />}
+            path="/DOC"
+              render={() => <DemetraBiopageWithSpinner isLoading={loading} />}
           />
           <Route path="/Adminpage"
             component={withRouter(() =>
