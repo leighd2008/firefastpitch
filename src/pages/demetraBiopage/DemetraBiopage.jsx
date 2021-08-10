@@ -11,7 +11,6 @@ const DemetraBioPage = () => {
   return (
 
     <div className="demetraBio">
-      <h1 className="fancy">Director of Coaching (DOC): Demetra Noble</h1>
       <Banner
         backgroundImage={imgsrc}
         teamName="Director of Coaching (DOC): Demetra Noble"
