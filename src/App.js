@@ -28,12 +28,12 @@ import PreregistrationPage from "./pages/preregistrationpage/preregistrationpage
 import RegisteredPage from "./pages/registeredpage/registeredpage.jsx";
 import TeamRosterPage from "./pages/TeamRosterPage/TeamRosterPage.jsx";
 import MembersOnlyPage from "./pages/membersOnlyPage/membersOnlyPage.jsx";
-import Tournament14Upage from "./pages/Tournament14Upage/Tournament14Upage.jsx"
+import DemetraBiopage from "./pages/demetraBiopage/DemetraBiopage.jsx"
 
 
 
 
-import { Fire8UURLS, Fire10UURLS, Fire12UURLS, Fire08URLS, Fire07URLS, Fire16UURLS, Fire18UURLS} from "../src/pages/teamPage/events";
+import { Fire8UURLS, Fire10UURLS, Fire12UURLS, Fire08URLS, Fire07URLS, Fire16UURLS, Fire14UURLS} from "../src/pages/teamPage/events";
 import {
   auth,
   createUserProfileDocument,
@@ -52,7 +52,7 @@ const PreregistrationPageWithSpinner = WithSpinner(PreregistrationPage);
 const RegisteredPageWithSpinner = WithSpinner(RegisteredPage);
 const TeamRosterPageWithSpinner = WithSpinner(TeamRosterPage);
 const MembersOnlyPageWithSpinner = WithSpinner(MembersOnlyPage);
-const Tournament14UpageWithSpinner = WithSpinner(Tournament14Upage);
+const DemetraBiopageWithSpinner = WithSpinner(DemetraBiopage);
 
 
 
@@ -140,9 +140,9 @@ class App extends React.Component {
               (
               <TeamPageWithSpinner
                 isLoading={loading}
-                teamname="Fire 18U"
-                title="Fire18U"
-                eventurls={Fire18UURLS} />
+                teamname="Fire 07"
+                title="Fire07"
+                eventurls={Fire14UURLS} />
               
             ))}
             />
@@ -221,9 +221,9 @@ class App extends React.Component {
                 (
                   <MembersOnlyPageWithSpinner
                     isLoading={loading}
-                    teamname="Fire 18U"
-                    title="Fire18U"
-                    index={1}/>
+                    teamname="Fire 12U"
+                    title="Fire12U"
+                    index={2}/>
 
                 ))}
             />
@@ -233,9 +233,9 @@ class App extends React.Component {
                 (
                   <MembersOnlyPageWithSpinner
                     isLoading={loading}
-                    teamname="Fire 16U"
-                    title="Fire16U"
-                    index={2}/>
+                    teamname="Fire 07"
+                    title="Fire07"
+                    index={7}/>
 
                 ))}
             />
@@ -305,10 +305,10 @@ class App extends React.Component {
             path="/Tournaments"
             render={() => <TournamentPageWithSpinner isLoading={loading} />}
           />
-          {/* <Route
-            path="/Tournament14U"
-              render={() => <Tournament14UpageWithSpinner isLoading={loading} />}
-          /> */}
+          <Route
+            path="/DOC"
+              render={() => <DemetraBiopageWithSpinner isLoading={loading} />}
+          />
           <Route path="/Adminpage"
             component={withRouter(() =>
               (
@@ -374,9 +374,9 @@ class App extends React.Component {
               (
                 <TeamRosterPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 18U"
-                  title="Fire18U"
-                  index={1} />
+                  teamname="Fire 12U"
+                  title="Fire12U"
+                  index={2} />
 
               ))}
             />
@@ -386,9 +386,9 @@ class App extends React.Component {
                 (
                   <TeamRosterPageWithSpinner
                     isLoading={loading}
-                    teamname="Fire 16U"
-                    title="Fire16U"
-                    index={2} />
+                    teamname="Fire '07"
+                    title="Fire14U"
+                    index={6} />
 
                 ))}
             />

@@ -69,6 +69,8 @@ class Registered extends React.Component {
   render() {
     const { registrationData, index } = this.props;
     const registrationDataArray = Object.entries(registrationData);
+    registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
+    console.log(registrationDataArray[index][1].players)
 
 
     return (
@@ -89,6 +91,7 @@ class Registered extends React.Component {
             <tr >
               <th>Tryout Number</th>
               <th>Attended</th>
+              <th>Session</th>
               <th>Name</th>
               <th>Previous Experience</th>
               <th>DOB</th>
@@ -105,6 +108,7 @@ class Registered extends React.Component {
                 <tr className="stripe-dark"  key={i}>
                   <td>{`${player.tryout || ''}`}</td>
                   <td>{`${player.attended || ''}`}</td>
+                  <td>{`${player.session || ''}`}</td>
                   <td onClick={(e) => alert(`${player.name} ${player.last} email: ${player.email} \n ${player.parent1} \n phone: ${player.parent1phone} \n email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n phone: ${player.parent2phone || ""} \n email: ${player.parent2email || ""} `)}>{`${player.name || ''} ${player.last || ''}`}</td>
 
                   <td>{player.previous}</td>

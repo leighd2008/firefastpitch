@@ -47,22 +47,22 @@
 @media screen and (min-width: 450px) {
   .all-teams {
     max-width: 1020px;
-    // height: 80vh;
-    height: 830px;
-    display: flex;
-    flex-direction: column;
+    height: auto;
+
+    .content {
+      margin: 0 auto;
+    }
+
+    .team-menu {
+      min-width: 50%;
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 
-  .content {
-    margin: 0 auto;
-
-  }
-
-  .team-menu {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
+  
 }
 
