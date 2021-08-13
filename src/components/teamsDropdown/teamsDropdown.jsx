@@ -8,12 +8,14 @@ const TeamsDropdown = () => (
     <div className="teams">
       <NavLink exact to="/Fire18U" activeClassName="selected">
         <h4>Fire 18U</h4>
+      </NavLink>
       <NavLink exact to="/Fire16U" activeClassName="selected">
         <h4>Fire 16U</h4>
-      </NavLink><NavLink exact to="/Fire2007" activeClassName="selected">
+      </NavLink>
+      <NavLink exact to="/Fire2007" activeClassName="selected">
         <h4>Fire 2007</h4>
-        </NavLink>
-      </NavLink><NavLink exact to="/Fire2008" activeClassName="selected">
+      </NavLink>
+      <NavLink exact to="/Fire2008" activeClassName="selected">
         <h4>Fire 2008</h4>
       </NavLink>
       <NavLink exact to="/Fire2009" activeClassName="selected">

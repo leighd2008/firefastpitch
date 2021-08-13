@@ -15,9 +15,16 @@
     flex-direction: column;
     margin: 0px 0 0 0;
 
-    h4 {
-      margin: 0 !important;
-      color: black;
-    }
   }
+  
+  h4 {
+    margin: 0 !important;
+    color: black;
+  }
+
+  h4:hover {
+    text-decoration-line: underline;
+    color: red;
+  }
+
 }
