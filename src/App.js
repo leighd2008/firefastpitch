@@ -234,8 +234,7 @@ class App extends React.Component {
                     isLoading={loading}
                     teamname="Fire 18U"
                     title="Fire18U"
-                    index={2}/>
-
+                    index={1}/>
                 ))}
             />
             <Route
@@ -244,10 +243,9 @@ class App extends React.Component {
                 (
                   <MembersOnlyPageWithSpinner
                     isLoading={loading}
-                    teamname="Fire 07"
-                    title="Fire07"
-                    index={7}/>
-
+                    teamname="Fire 16U"
+                    title="Fire16U"
+                    index={2}/>
                 ))}
             />
             <Route
@@ -400,7 +398,6 @@ class App extends React.Component {
                   teamname="Fire 18U"
                   title="Fire18U"
                   index={1} />
-
               ))}
             />
             <Route
