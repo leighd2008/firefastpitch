@@ -49,6 +49,7 @@ class Registered extends React.Component {
 
   checkboxHandler = (player, id) => (e) => {
     let division = player.division
+    let year = player.year
     let players = this.props.registrationData[division]['players']
     
     if (e.target.checked) {
@@ -58,7 +59,7 @@ class Registered extends React.Component {
     }
     
     const divisionId = this.props.registrationData[division].id;
-    const teamdiv = `Fire${division}`
+    const teamdiv = `Fire${division}${year || ""}`
     const teamId = this.props.teamData[teamdiv].id
     firestore.collection("preregistration2021").doc(divisionId).update({
       players: players,
@@ -71,6 +72,7 @@ class Registered extends React.Component {
     const registrationDataArray = Object.entries(registrationData);
     registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
     console.log(registrationDataArray[index][1].players)
+    console.log(this.props.teamData)
 
 
     return (

@@ -10,7 +10,7 @@ import Modal from "../../components/Modal/Modal";
 import { Card, CardTitle } from "reactstrap";
 import './TeamRosterPage.scss';
 
-const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, rcShowing }) => {
+const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal, rcShowing*/ }) => {
 
   const [playerIndex, setplayerIndex] = useState("");
 
@@ -19,12 +19,13 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
     toggleBCModal()
   }
 
-  const handleRCClick = (e, playerIndex) => {
-    setplayerIndex(playerIndex)
-    toggleRCModal()
-  }
+  // const handleRCClick = (e, playerIndex) => {
+  //   setplayerIndex(playerIndex)
+  //   toggleRCModal()
+  // }
 
   const teamDataArray = Object.entries(teamData);
+  console.log(teamDataArray)
   return (
       <div>
       <Card
@@ -44,10 +45,10 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
           <thead>
             <tr >
               <th>Birth Certificate</th>
-              <th>1st Qtr Report Card</th>
+              {/* <th>1st Qtr Report Card</th>
               <th>2cnd Qtr Report Card</th>
               <th>3rd Qtr Report Card</th>
-              <th>4th Qtr Report Card</th>
+              <th>4th Qtr Report Card</th> */}
               <th>Name</th>
               <th>Jersey Number</th>
               <th>DOB</th>
@@ -74,7 +75,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
                        :
                       <td>Not On File</td>
                     }
-                    {player.reportCard1 ?
+                    {/* {player.reportCard1 ?
                       (<td onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard1} alt="Report Card" />
                       </td>) :
@@ -97,7 +98,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
                         <img className='fileImage' src={player.reportCard4} alt="Report Card" />
                       </td>) :
                       <td>Not on File</td>
-                    }
+                    } */}
                     <td >{`${player.name || ''} ${player.last || ''}`}</td>
                     <td>{`${player.jersey || ''}`}</td>
                     <td>{player.DOB}</td>
@@ -121,13 +122,13 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
           alt="birth certificate"
           />  : null}
       </Modal>
-      <Modal className="bc modal" show={rcShowing} close={toggleRCModal}>
+      {/* <Modal className="bc modal" show={rcShowing} close={toggleRCModal}>
         {playerIndex || playerIndex === 0 ?
           <img className='fileImage'
             src={teamDataArray[index][1].roster[playerIndex].reportCard1}
             alt="report card"
           /> : null}
-      </Modal>
+      </Modal> */}
     </div>
     );
   }

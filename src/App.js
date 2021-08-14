@@ -33,7 +33,7 @@ import DemetraBiopage from "./pages/demetraBiopage/DemetraBiopage.jsx"
 
 
 
-import { Fire8UURLS, Fire10UURLS, Fire12UURLS, Fire08URLS, Fire07URLS, Fire16UURLS, Fire18UURLS} from "../src/pages/teamPage/events";
+import { Fire12URLS, Fire11URLS, Fire10URLS, Fire09URLS, Fire08URLS, Fire07URLS, Fire16UURLS, Fire18UURLS} from "../src/pages/teamPage/events";
 import {
   auth,
   createUserProfileDocument,
@@ -143,6 +143,7 @@ class App extends React.Component {
                 teamname="Fire 18U"
                 title="Fire18U"
                 eventurls={Fire18UURLS} />
+              
             ))}
             />
             <Route
@@ -157,58 +158,69 @@ class App extends React.Component {
                 ))}
             />
             <Route
-              path="/Fire07"
+              path="/Fire2007"
               component={withRouter(() =>
               (
                 <TeamPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 07"
-                  title="Fire07"
+                  teamname="Fire 2007"
+                  title="Fire2007"
                   eventurls={Fire07URLS} />
               ))}
             />
             <Route
-              path="/Fire08"
+              path="/Fire2008"
               component={withRouter(() =>
               (
                 <TeamPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 08"
-                  title="Fire08"
+                  teamname="Fire 2008"
+                  title="Fire2008"
                   eventurls={Fire08URLS} />
               ))}
             />
           <Route
-            path="/Fire12U"
+            path="/Fire2009"
             component={withRouter(() => 
               (
               <TeamPageWithSpinner
                 isLoading={loading}
-                teamname="Fire 12U"
-                title="Fire12U"
-                eventurls={Fire12UURLS} />
+                teamname="Fire 2009"
+                title="Fire2009"
+                eventurls={Fire09URLS} />
             ))}
             />
             <Route
-              path="/Fire10U"
+              path="/Fire2010"
               component={withRouter(() =>
               (
                 <TeamPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 10U"
-                  title="Fire10U"
-                  eventurls={Fire10UURLS} />
+                  teamname="Fire 2010"
+                  title="Fire2010"
+                  eventurls={Fire10URLS} />
               ))}
             />
             <Route
-              path="/Fire8U"
+              path="/Fire2011"
               component={withRouter(() =>
               (
                 <TeamPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 8U"
-                  title="Fire8U"
-                  eventurls={Fire8UURLS} />
+                  teamname="Fire 2011"
+                  title="Fire2011"
+                  eventurls={Fire11URLS} />
+              ))}
+            />
+            <Route
+              path="/Fire2012"
+              component={withRouter(() =>
+              (
+                <TeamPageWithSpinner
+                  isLoading={loading}
+                  teamname="Fire 2012"
+                  title="Fire2012"
+                  eventurls={Fire12URLS} />
               ))}
             />
           <Route path="/Tryouts" component={TryoutsPage} />
@@ -237,61 +249,73 @@ class App extends React.Component {
                 ))}
             />
             <Route
-              path="/Fire07Family"
+              path="/Fire2007Family"
               component={withRouter(() =>
                 (
                   <MembersOnlyPageWithSpinner
                     isLoading={loading}
-                    teamname="Fire 07"
-                    title="Fire07"
+                    teamname="Fire 2007"
+                    title="Fire2007"
                     index={0}/>
 
                 ))}
             />
             <Route
-              path="/Fire08Family"
+              path="/Fire2008Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 08"
-                  title="Fire08"
+                  teamname="Fire 2008"
+                  title="Fire2008"
                   index={0} />
 
               ))}
             />
             <Route
-              path="/Fire12UFamily"
+              path="/Fire09Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 12U"
-                  title="Fire12U"
+                  teamname="Fire 2009"
+                  title="Fire2009"
                   index={0} />
 
               ))}
             />
             <Route
-              path="/Fire10UFamily"
+              path="/Fire10Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 10U"
-                  title="Fire10U"
+                  teamname="Fire 2010"
+                  title="Fire2010"
                   index={0} />
 
               ))}
             />
             <Route
-              path="/Fire8UFamily"
+              path="/Fire11Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 8U"
-                  title="Fire8U"
+                  teamname="Fire 2011"
+                  title="Fire2011"
+                  index={0} />
+
+              ))}
+            />
+            <Route
+              path="/Fire12Family"
+              component={withRouter(() =>
+              (
+                <MembersOnlyPageWithSpinner
+                  isLoading={loading}
+                  teamname="Fire 2012"
+                  title="Fire2012"
                   index={0} />
 
               ))}
@@ -384,66 +408,79 @@ class App extends React.Component {
                     isLoading={loading}
                     teamname="Fire 16U"
                     title="Fire16U"
-                    index={2} />
-                ))}
-            />
-            <Route
-              path="/07Roster"
-              component={withRouter(() =>
-                (
-                  <TeamRosterPageWithSpinner
-                    isLoading={loading}
-                    teamname="Fire 07"
-                    title="Fire07"
                     index={0} />
 
                 ))}
             />
             <Route
-              path="/08Roster"
+              path="/2007Roster"
               component={withRouter(() =>
-              (
-                <TeamRosterPageWithSpinner
-                  isLoading={loading}
-                  teamname="Fire 08"
-                  title="Fire08"
-                  index={0} />
+                (
+                  <TeamRosterPageWithSpinner
+                    isLoading={loading}
+                    teamname="Fire 2007"
+                    title="Fire2007"
+                    index={7} />
 
-              ))}
+                ))}
             />
             <Route
-              path="/12URoster"
+              path="/2008Roster"
               component={withRouter(() =>
               (
                 <TeamRosterPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 12U"
-                  title="Fire12U"
+                  teamname="Fire 2008"
+                  title="Fire2008"
                   index={2} />
 
               ))}
             />
             <Route
-              path="/10URoster"
+              path="/2010Roster"
               component={withRouter(() =>
               (
                 <TeamRosterPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 10U"
-                  title="Fire10U"
-                  index={2} />
+                  teamname="Fire 2010"
+                  title="Fire2010"
+                  index={4} />
 
               ))}
             />
             <Route
-              path="/8URoster"
+              path="/2009Roster"
               component={withRouter(() =>
               (
                 <TeamRosterPageWithSpinner
                   isLoading={loading}
-                  teamname="Fire 8U"
-                  title="Fire8U"
-                  index={2} />
+                  teamname="Fire 2009"
+                  title="Fire2009"
+                  index={6} />
+
+              ))}
+            />
+            <Route
+              path="/2011Roster"
+              component={withRouter(() =>
+              (
+                <TeamRosterPageWithSpinner
+                  isLoading={loading}
+                  teamname="Fire 2011"
+                  title="Fire2011"
+                  index={3} />
+
+              ))}
+            />
+            <Route
+              path="/2012Roster"
+              component={withRouter(() =>
+              (
+                <TeamRosterPageWithSpinner
+                  isLoading={loading}
+                  teamname="Fire 2012"
+                  title="Fire2012"
+                  index={5} />
 
               ))}
             />

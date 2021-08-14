@@ -18,32 +18,38 @@ const Fire16UURLS = {
 
 const Fire07URLS = {
   Instateam: makeGoogleCalendarURL(
-    `cdr7o2fqa1hfg5uhlq6raaso38@group.calendar.google.com`
+    `hbkkr7qgher0ovkhav6kbqkrk0@group.calendar.google.com`
   )
 };
 
 const Fire08URLS = {
   Instateam: makeGoogleCalendarURL(
-    `cdr7o2fqa1hfg5uhlq6raaso38@group.calendar.google.com`
+    `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
   )
 };
 
-const Fire12UURLS = {
+const Fire09URLS = {
   Instateam: makeGoogleCalendarURL(
     `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
   )
 };
 
-const Fire10UURLS = {
+const Fire10URLS = {
   Instateam: makeGoogleCalendarURL(
     `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
   )
 };
 
-const Fire8UURLS = {
+const Fire11URLS = {
+  Instateam: makeGoogleCalendarURL(
+    `ugdek62tseb858f2r5eefp73bc@group.calendar.google.com`
+  )
+};
+
+const Fire12URLS = {
   Instateam: makeGoogleCalendarURL(
     `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
   )
 };
 
-export { Fire8UURLS, Fire10UURLS, Fire12UURLS, Fire08URLS, Fire07URLS, Fire16UURLS, Fire18UURLS };
+export { Fire12URLS, Fire11URLS, Fire10URLS, Fire09URLS, Fire08URLS, Fire07URLS, Fire16UURLS, Fire18UURLS };

@@ -4,6 +4,12 @@ h2 {
   margin: 0;
 }
 
+h2:hover {
+    text-decoration-line: underline;
+    color: black;
+  }
+
+
 .stores {
   padding: 0px;
 }
