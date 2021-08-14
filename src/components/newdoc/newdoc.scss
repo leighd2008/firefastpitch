@@ -8,6 +8,10 @@
     font-weight: 600;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   .fancy {
     color: #ed1e24 !important;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
@@ -15,7 +19,7 @@
     font-weight: 600;
   }
 
-  .plain:hover, .fancy:hover {
+  a:hover {
     text-decoration-line: underline;
     color: red;
   }
