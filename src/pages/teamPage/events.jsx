@@ -36,7 +36,7 @@ const Fire09URLS = {
 
 const Fire10URLS = {
   Instateam: makeGoogleCalendarURL(
-    `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
+    `6ms68degiksrr01q07ln7uphbg@group.calendar.google.com`
   )
 };
 

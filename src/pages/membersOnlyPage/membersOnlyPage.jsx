@@ -13,10 +13,12 @@ import UploadFiles from "../../components/uploadFiles/uploadFiles";
 
 const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
   const teamDataArray = Object.entries(teamData);
+  console.log(teamDataArray);
 
   return (
     <div className="members-only">
       <h1>{`${teamname} Family Secret Stuff`}</h1>
+      <h2>{`Coach: ${teamDataArray[index][1].headCoach}`}</h2>
       <Card
         className="ma0 roster"
         style={{

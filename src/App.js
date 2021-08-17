@@ -238,14 +238,14 @@ class App extends React.Component {
                 ))}
             />
             <Route
-              path="/Fire16Family"
+              path="/Fire16UFamily"
               component={withRouter(() =>
                 (
                   <MembersOnlyPageWithSpinner
                     isLoading={loading}
                     teamname="Fire 16U"
                     title="Fire16U"
-                    index={2}/>
+                    index={0}/>
                 ))}
             />
             <Route
@@ -256,7 +256,7 @@ class App extends React.Component {
                     isLoading={loading}
                     teamname="Fire 2007"
                     title="Fire2007"
-                    index={0}/>
+                    index={7}/>
 
                 ))}
             />
@@ -268,55 +268,55 @@ class App extends React.Component {
                   isLoading={loading}
                   teamname="Fire 2008"
                   title="Fire2008"
-                  index={0} />
+                  index={2} />
 
               ))}
             />
             <Route
-              path="/Fire09Family"
+              path="/Fire2009Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
                   teamname="Fire 2009"
                   title="Fire2009"
-                  index={0} />
+                  index={6} />
 
               ))}
             />
             <Route
-              path="/Fire10Family"
+              path="/Fire2010Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
                   teamname="Fire 2010"
                   title="Fire2010"
-                  index={0} />
+                  index={4} />
 
               ))}
             />
             <Route
-              path="/Fire11Family"
+              path="/Fire2011Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
                   teamname="Fire 2011"
                   title="Fire2011"
-                  index={0} />
+                  index={3} />
 
               ))}
             />
             <Route
-              path="/Fire12Family"
+              path="/Fire2012Family"
               component={withRouter(() =>
               (
                 <MembersOnlyPageWithSpinner
                   isLoading={loading}
                   teamname="Fire 2012"
                   title="Fire2012"
-                  index={0} />
+                  index={5} />
 
               ))}
             />
