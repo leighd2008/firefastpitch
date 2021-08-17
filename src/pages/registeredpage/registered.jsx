@@ -29,7 +29,8 @@ class Registered extends React.Component {
     })
 
     players.map((player, i) => {
-      if (player.onTeam) {
+      
+      if (player.onTeam && teamdiv === `Fire${player.year || player.division}`) {
         if (!currentRoster.includes(`${player.name} ${player.last}`)) {
           player.jersey = '';
           teamMembers.push(player)
@@ -57,9 +58,12 @@ class Registered extends React.Component {
     } else {
       players[id].onTeam = "";
     }
+
+    console.log(this.props.teamData[`Fire${year || division}`]);
+    console.log(`Fire${year || division}`);
     
     const divisionId = this.props.registrationData[division].id;
-    const teamdiv = `Fire${division}${year || ""}`
+    const teamdiv = `Fire${year || division}`
     const teamId = this.props.teamData[teamdiv].id
     firestore.collection("preregistration2021").doc(divisionId).update({
       players: players,
@@ -71,8 +75,8 @@ class Registered extends React.Component {
     const { registrationData, index } = this.props;
     const registrationDataArray = Object.entries(registrationData);
     registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
-    console.log(registrationDataArray[index][1].players)
-    console.log(this.props.teamData)
+    // console.log(registrationDataArray[index][1].players)
+    // console.log(this.props.teamData)
 
 
     return (

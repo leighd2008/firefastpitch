@@ -32,12 +32,22 @@ class MembersOnlyLogin extends React.Component {
     try {
       await auth.signInWithEmailAndPassword(email, fffpassword);
       this.setState({ email: "", password: "" });
-      if (fffpassword === 'Fire12UFamily') {
-        window.location = 'Fire12UFamily' /* 'MembersOnly' */
+      if (fffpassword === 'Fire12Family') {
+        window.location = 'Fire2012Family' /* 'MembersOnly' */
+      } else if (fffpassword === 'Fire11Family') {
+        window.location = 'Fire2011Family' /* 'MembersOnly' */
+      } else if (fffpassword === 'Fire10Family') {
+        window.location = 'Fire2010Family' /* 'MembersOnly' */
+      } else if (fffpassword === 'Fire09Family') {
+        window.location = 'Fire2009Family' /* 'MembersOnly' */
+      } else if (fffpassword === 'Fire08Family') {
+        window.location = 'Fire2008Family' /* 'MembersOnly' */
       } else if (fffpassword === 'Fire07Family') {
-        window.location = 'Fire07Family' /* 'MembersOnly' */
+        window.location = 'Fire2007Family' /* 'MembersOnly' */
       } else if (fffpassword === 'Fire16UFamily') {
         window.location = 'Fire16UFamily' /* 'MembersOnly' */
+      } else if (fffpassword === 'Fire18UFamily') {
+        window.location = 'Fire18UFamily' /* 'MembersOnly' */
       }
     } catch (error) {
       alert('The password you entered does not match our records, please try again.');
@@ -52,12 +62,22 @@ class MembersOnlyLogin extends React.Component {
     this.setState({ [name]: value });
     this.setState({ email: 'a@a.com'})
 
-    if (fffpassword === 'Fire12UFamil') {
-    this.setState({ email: '12u@fire.com' })
+    if (fffpassword === 'Fire12Famil') {
+    this.setState({ email: '12@fire.com' })
+    } else if (fffpassword === 'Fire11Famil') {
+      this.setState({ email: '11@fire.com' })
+    } else if (fffpassword === 'Fire10Famil') {
+      this.setState({ email: '10@fire.com' })
+    } else if (fffpassword === 'Fire09Famil') {
+      this.setState({ email: '09@fire.com' })
+    } else if (fffpassword === 'Fire08Famil') {
+      this.setState({ email: '08@fire.com' })
     } else if (fffpassword === 'Fire07Famil') {
       this.setState({ email: '07@fire.com' })
     } else if (fffpassword === 'Fire16UFamil') {
       this.setState({ email: '16u@fire.com' })
+    } else if (fffpassword === 'Fire18UFamil') {
+      this.setState({ email: '18u@fire.com' })
     }
 
   };
