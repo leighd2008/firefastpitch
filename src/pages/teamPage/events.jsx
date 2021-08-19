@@ -6,13 +6,13 @@ let makeGoogleCalendarURL = calID =>
 
 const Fire18UURLS = {
   Instateam: makeGoogleCalendarURL(
-    `hbkkr7qgher0ovkhav6kbqkrk0@group.calendar.google.com`
+    `qve97fujscj93ckec7m0dpuf3c@group.calendar.google.com`
   )
 };
 
 const Fire16UURLS = {
   Instateam: makeGoogleCalendarURL(
-    `cdr7o2fqa1hfg5uhlq6raaso38@group.calendar.google.com`
+    `frnfcc1cs26eorspcn5quctb7c@group.calendar.google.com`
   )
 };
 
@@ -30,7 +30,7 @@ const Fire08URLS = {
 
 const Fire09URLS = {
   Instateam: makeGoogleCalendarURL(
-    `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
+    `kup2ll448vgltnf3kd2mqotk78@group.calendar.google.com`
   )
 };
 
@@ -48,7 +48,7 @@ const Fire11URLS = {
 
 const Fire12URLS = {
   Instateam: makeGoogleCalendarURL(
-    `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
+    `r2b5av7o7ctbtoc7nt0pu1sjp8@group.calendar.google.com`
   )
 };
 

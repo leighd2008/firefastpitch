@@ -67,7 +67,7 @@ class Scheduler extends Component {
       let events2 = [];
 
 
-      if (evChanger === evCreator | evChanger === 'fire.fastpitch.softball@gmail.com') {
+      if (evChanger === evCreator | evChanger === 'fire.fastpitch.softball@gmail.com' | evChanger === 'leighd2008@gmail.com') {
         events.filter(event => event.id !== changeEventId).map(filteredEvent => (events1.push(filteredEvent)))
         events2 = [
           changedEvent,
@@ -90,7 +90,7 @@ class Scheduler extends Component {
             onDataUpdated('update', ev, id);
         }
         } else {
-          alert(`You do not have permission to change this event. Please contact Rich Miekle to have the event deleted`)
+          alert(`You do not have permission to change this event. Please contact Diane Leigh to have the event deleted`)
           window.location = 'Adminpage'
         }
     });
@@ -102,11 +102,11 @@ class Scheduler extends Component {
       let { events } = this.props;
       let events1 = [];
 
-      if (evDeleter === evCreator | evDeleter === 'fire.fastpitch.softball@gmail.com' | !evCreator) {
+      if (evDeleter === evCreator | evDeleter === 'fire.fastpitch.softball@gmail.com' | evDeleter === 'leighd2008@gmail.com') {
         events.filter(event => event.id !== delEventId).map(filteredEvent => (events1.push(filteredEvent)))
       } else {
         events1 = events;
-        alert(`You do not have permission to delete this event. Please contact Rich Miekle to have the event deleted`)
+        alert(`You do not have permission to delete this event. Please contact Diane Leigh to have the event deleted`)
       };
 
       events1.forEach((item) => (
@@ -164,10 +164,14 @@ class Scheduler extends Component {
     scheduler.templates.event_class = function (start, end, event) {
       if (event.type === 'Diane') return 'Diane_event';
       else if (event.type === 'Rich') return 'Rich_event';
-      else if (event.type === 'Mike') return 'Mike_event';
-      else if (event.type === 'Jeremy') return 'Jeremy_event';
+      else if (event.type === 'Nikki') return 'Nikki_event';
+      else if (event.type === 'Lisa') return 'Lisa_event';
       else if (event.type === 'Stan') return 'Stan_event';
-      else if (event.type === 'Jim') return 'Jim_event'
+      else if (event.type === 'Jim') return 'Jim_event';
+      else if (event.type === 'Shane') return 'Shane_event';
+      else if (event.type === 'Andy') return 'Andy_event';
+      else if (event.type === 'Lance') return 'Lance_event';
+
     }
 
     this.initSchedulerEvents();
