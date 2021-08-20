@@ -63,14 +63,14 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
                     <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                     <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard2' /></Cell>
                   }
-                  {/* {player.reportCard3 ?
+                  {player.reportCard3 ?
                       <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                       <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard3' /></Cell>
-                    } */}
-                  {/* {player.reportCard4 ?
+                    }
+                  {player.reportCard4 ?
                       <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                       <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard4' /></Cell>
-                    } */}
+                    }
                 </Row>
               )
             }
