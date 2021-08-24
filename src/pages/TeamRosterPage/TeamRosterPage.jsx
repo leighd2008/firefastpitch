@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import CsvDownload from 'react-json-to-csv'
+
 import { selectTeamData } from "../../redux/team/team.selectors";
 import {
   toggleBCModal,
@@ -19,12 +21,15 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
     toggleBCModal()
   }
 
-  // const handleRCClick = (e, playerIndex) => {
-  //   setplayerIndex(playerIndex)
-  //   toggleRCModal()
-  // }
-
+  
   const teamDataArray = Object.entries(teamData);
+
+  //copy team roster
+  const team_roster = teamDataArray[index][1].roster.map(e => Object.assign({}, e))
+  team_roster.forEach(elm => delete elm.positions)
+  team_roster.forEach(elm => delete elm.birthCert)
+
+  
   console.log(teamDataArray)
   return (
       <div>
@@ -115,6 +120,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
           </tbody>
         </table>
       </Card>
+      <CsvDownload data={team_roster} />
       <Modal className="bc modal" show={bcShowing} close={toggleBCModal}>
         {playerIndex || playerIndex === 0 ?
           <img className='fileImage'
