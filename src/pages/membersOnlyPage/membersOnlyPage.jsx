@@ -10,38 +10,43 @@ import { Card, CardTitle } from "reactstrap";
 
 import "./membersOnlyPage.scss";
 import UploadFiles from "../../components/uploadFiles/uploadFiles";
+import EnterAddress from "../../components/enterAddress/enterAddress"
 
 const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
+
+
   const teamDataArray = Object.entries(teamData);
   console.log(teamDataArray);
 
   return (
     <div className="members-only">
-      <h1>{`${teamname} Family Secret Stuff`}</h1>
-      <h2>{`Coach: ${teamDataArray[index][1].headCoach}`}</h2>
+      <h1>{`${teamname} Family`}</h1>
+      <h1>{`Coach: ${teamDataArray[index][1].headCoach}`}</h1>
       <Card
         className="ma0 roster"
         style={{
           backgroundColor: "#rgb(194, 198, 202)",
           borderColor: "red",
           borderWidth: "4px",
-          minWidth: "60vw"
+          minWidth: "90vw",
+          minHeight: "700px"
         }}
       >
         <CardTitle tag="h1">
-          {`Team Roster: ${teamDataArray[index][1].title} Division`}
+          {`Team Roster: ${teamDataArray[index][1].title}`}
         </CardTitle>
         <div className="table-container">
-          <StickyTable >
+          <StickyTable className='stickytable' >
             {/* <thead> */}
             <Row >
               <Cell>Name</Cell>
               <Cell>Jersey Number</Cell>
               <Cell>Birth Certificate</Cell>
-              <Cell>1st Qtr Report Card</Cell>
+              <Cell>Address</Cell>
+              {/* <Cell>1st Qtr Report Card</Cell>
               <Cell>2cnd Qtr Report Card</Cell>
               <Cell>3rd Qtr Report Card</Cell>
-              <Cell>4th Qtr Report Card</Cell>
+              <Cell>4th Qtr Report Card</Cell> */}
             </Row>
             {/* </thead>
             <tbody> */}
@@ -55,22 +60,25 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
                     <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> </Cell> :
                     <Cell><UploadFiles title={title} playerIndex={playerIndex} category='birthCert' /></Cell>
                   }
-                  {player.reportCard1 ?
+                  {player.address ?
+                    <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> </Cell> :
+                    <Cell><EnterAddress title={title} playerIndex={playerIndex} /></Cell>}
+                  {/* {player.reportCard1 ?
                     <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                     <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard1' /></Cell>
-                  }
-                  {player.reportCard2 ?
+                  } */}
+                  {/* {player.reportCard2 ?
                     <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                     <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard2' /></Cell>
-                  }
-                  {player.reportCard3 ?
+                  } */}
+                  {/* {player.reportCard3 ?
                       <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                       <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard3' /></Cell>
-                    }
-                  {player.reportCard4 ?
+                    } */}
+                  {/* {player.reportCard4 ?
                       <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                       <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard4' /></Cell>
-                    }
+                    } */}
                 </Row>
               )
             }
@@ -79,7 +87,7 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
           </StickyTable>
         </div>
       </Card>
-      <span>Swipe/Scroll to the side to upload report cards</span>
+      <span>Swipe/Scroll to the side to input address or upload report cards</span>
     </div>
   );
 }
