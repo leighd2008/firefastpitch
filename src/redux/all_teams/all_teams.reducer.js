@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   teams: [
     {
       title: "Fire 18U",
-      imageUrl: "Fire_mascot.jpg",
+      imageUrl: "18U_team.jpg",
       id: 4,
       linkUrl: "Fire16U"
     },
@@ -26,25 +26,25 @@ const INITIAL_STATE = {
     },
     {
       title: "Fire 2009",
-      imageUrl: "Fire_mascot.jpg",
+      imageUrl: "09_team.jpg",
       id: 2,
       linkUrl: "Fire2009"
     },
     {
       title: "Fire 2010",
-      imageUrl: "Fire_mascot.jpg",
+      imageUrl: "10_team.jpg",
       id: 6,
       linkUrl: "Fire2010"
     },
     {
       title: "Fire 2011",
-      imageUrl: "Fire_mascot.jpg",
+      imageUrl: "11_team.jpg",
       id: 7,
       linkUrl: "Fire2011"
     },
     {
       title: "Fire 2012",
-      imageUrl: "Fire_mascot.jpg",
+      imageUrl: "12_team.jpg",
       id: 8,
       linkUrl: "Fire2012"
     }

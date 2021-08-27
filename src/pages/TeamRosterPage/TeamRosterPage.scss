@@ -1,8 +1,21 @@
 .roster {
-  width: 90%;
+  width: 100%;
   height: 500px;
   img {
       max-width: 60px !important;
       // max-height: 50px;
     }
+}
+
+.address {
+  white-space: nowrap;
+  padding: 0 70px;
+}
+
+.street {
+  white-space: pre-line;
+}
+
+.phone {
+  white-space: nowrap;
 }

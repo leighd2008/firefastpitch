@@ -16,7 +16,7 @@ const FangearDropdown = () => (
         href="https://firefastpitchsoftball.itemorder.com/sale"
         rel="noopener noreferrer"
         target="_blank"
-      ><h4>GLITTER FANGEAR</h4>
+      ><h4>MORE FANGEAR</h4>
       </a>
     </div>
   </div>

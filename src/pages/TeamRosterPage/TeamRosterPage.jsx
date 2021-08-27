@@ -60,6 +60,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
               <th>Parent 1</th>
               <th>Parent 1 Email</th>
               <th>Parent 1 Phone</th>
+              <th className='address'>Address</th>
               <th>Parent 2</th>
               <th>Parent 2 Email</th>
               <th>Parent 2 Phone</th>
@@ -109,7 +110,13 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
                     <td>{player.DOB}</td>
                     <td>{player.parent1}</td>
                     <td>{player.parent1email}</td>
-                    <td>{player.parent1phone}</td>
+                    <td className='phone'>{player.parent1phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}</td>
+                    {player.address ?
+                      <td className='street'>{`${player.address}
+                      ${player.city}, ${player.state}
+                      ${player.zipcode} `}</td> :
+                      <td>Not on File</td>
+                    }
                     <td>{player.parent2 || ''}</td>
                     <td>{player.parent2email || ''}</td>
                     <td>{player.parent2phone || ''}</td>

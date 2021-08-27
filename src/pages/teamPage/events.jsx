@@ -24,7 +24,9 @@ const Fire07URLS = {
 
 const Fire08URLS = {
   Instateam: makeGoogleCalendarURL(
-    `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
+    // `hkkh6nj9bigo64atqmf63qka9k@group.calendar.google.com`
+    `h0di64pai973iqc4mo5e5kl344@group.calendar.google.com`
+    // `vj7ea4u5k9j1bujvl30cafmab0@group.calendar.google.com`
   )
 };
 
