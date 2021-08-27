@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 import { firestore } from "../../firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
+import CsvDownload from 'react-json-to-csv'
+
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { selectRegistrationData } from "../../redux/registration/registration.selectors";
 import { selectTeamData } from "../../redux/team/team.selectors";
@@ -105,6 +107,7 @@ class Registered extends React.Component {
           </thead>
           <tbody>
             {registrationDataArray[index][1].players.map((player, i) => {
+              player.positions ? player.positions = player.positions.toString() : player.positions = ''
               return (
                 <tr className="stripe-dark"  key={i}>
                   <td>{`${player.tryout || ''}`}</td>
@@ -129,6 +132,7 @@ class Registered extends React.Component {
             })}
           </tbody>
         </table>
+        <CsvDownload data={registrationDataArray[index][1].players} />
       </Card>
     );
   }
