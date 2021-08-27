@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { firestore } from "../../firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { selectRegistrationData } from "../../redux/registration/registration.selectors";
 import { selectTeamData } from "../../redux/team/team.selectors";
 
@@ -69,7 +70,7 @@ class Registered extends React.Component {
   }
 
   render() {
-    const { registrationData, index } = this.props;
+    const { registrationData, index, currentUser } = this.props;
     const registrationDataArray = Object.entries(registrationData);
     registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
 
@@ -109,7 +110,9 @@ class Registered extends React.Component {
                   <td>{`${player.tryout || ''}`}</td>
                   <td>{`${player.attended || ''}`}</td>
                   <td>{`${player.session || ''}`}</td>
-                  <td onClick={(e) => alert(`${player.name} ${player.last} email: ${player.email} \n ${player.parent1} \n phone: ${player.parent1phone} \n email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n phone: ${player.parent2phone || ""} \n email: ${player.parent2email || ""} `)}>{`${player.name || ''} ${player.last || ''}`}</td>
+                  <td onClick={(e) => {
+                    alert(`${player.name} ${player.last} email: ${player.email || ''} \n ${player.parent1} \n phone: ${player.parent1phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")} \n email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n phone: ${player.parent2phone ? player.parent2phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3") : ""} \n email: ${player.parent2email || ""} `)
+                  }}>{`${player.name || ''} ${player.last || ''}`}</td>
 
                   <td>{player.previous}</td>
                   <td>{player.DOB}</td>
@@ -117,10 +120,11 @@ class Registered extends React.Component {
                   <td>{player.bats}</td>
                   <td>{player.throws}</td>
                   <td>{player.coaching}</td>
-                  <td><input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange= {this.checkboxHandler(player, i)}/></td>
-                  {/* <td>{player.onTeam}</td> */}
+                 {currentUser.role === "admin" ?
+                  <td>
+                      <input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange={this.checkboxHandler(player, i)} /></td>
+                    : <td>{player.onTeam}</td> }
                 </tr>
-
               );
             })}
           </tbody>
@@ -132,7 +136,8 @@ class Registered extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   registrationData: selectRegistrationData,
-  teamData: selectTeamData
+  teamData: selectTeamData,
+  currentUser: selectCurrentUser
 })
 
 export default connect(mapStateToProps)(Registered);
