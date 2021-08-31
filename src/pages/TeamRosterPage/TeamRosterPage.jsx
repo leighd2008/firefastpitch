@@ -64,7 +64,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
               <Cell>Parent_1</Cell>
               <Cell>Parent 1 Email</Cell>
               <Cell>Parent 1 Phone</Cell>
-              <Cell className='address'>Address</Cell>
+              <Cell>Complete_Street_Address</Cell>
               <Cell>Parent_2</Cell>
               <Cell>Parent 2 Email</Cell>
               <Cell>Parent 2 Phone</Cell>
