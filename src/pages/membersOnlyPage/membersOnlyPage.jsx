@@ -11,6 +11,10 @@ import { Card, CardTitle } from "reactstrap";
 import "./membersOnlyPage.scss";
 import UploadFiles from "../../components/uploadFiles/uploadFiles";
 import EnterAddress from "../../components/enterAddress/enterAddress"
+import TShirt from "../../components/tshirt/tshirt"
+import Helmet from "../../components/helmet/helmet"
+import Pant from "../../components/pant/pant"
+
 
 const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
 
@@ -37,19 +41,19 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
         </CardTitle>
         <div className="table-container">
           <StickyTable className='stickytable' >
-            {/* <thead> */}
             <Row >
               <Cell>Name</Cell>
               <Cell>Jersey Number</Cell>
               <Cell>Birth Certificate</Cell>
               <Cell>Address</Cell>
+              <Cell>Sizes</Cell>
+              {/* <Cell>Helmet size</Cell>
+              <Cell>Pant size</Cell> */}
               {/* <Cell>1st Qtr Report Card</Cell>
               <Cell>2cnd Qtr Report Card</Cell>
               <Cell>3rd Qtr Report Card</Cell>
               <Cell>4th Qtr Report Card</Cell> */}
             </Row>
-            {/* </thead>
-            <tbody> */}
             {teamDataArray[index][1].roster.map((player, i) => {
               let playerIndex = i
               return (
@@ -63,6 +67,16 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
                   {player.address ?
                     <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> </Cell> :
                     <Cell><EnterAddress title={title} playerIndex={playerIndex} /></Cell>}
+                  <Cell>{player.tshirt_size ?
+                    <FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> :
+                    <TShirt title={title} playerIndex={playerIndex} />}
+                  {player.helmet_size ?
+                    <FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> :
+                    <Helmet title={title} playerIndex={playerIndex} />}
+                  {player.pant_size ?
+                    <FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon> :
+                    <Pant title={title} playerIndex={playerIndex} />}
+                  </Cell>
                   {/* {player.reportCard1 ?
                     <Cell><FontAwesomeIcon icon={faCheckCircle} ></FontAwesomeIcon></Cell> :
                     <Cell ><UploadFiles title={title} playerIndex={playerIndex} category='reportCard1' /></Cell>

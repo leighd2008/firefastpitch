@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import CsvDownload from 'react-json-to-csv'
+import { StickyTable, Row, Cell } from 'react-sticky-table';
 
 import { selectTeamData } from "../../redux/team/team.selectors";
 import {
@@ -46,86 +47,90 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
         <CardTitle tag="h1">
           {`Team Roster: ${teamDataArray[index][1].title} Division`}
         </CardTitle>
-        <table className="f6 w-100 mw8 center pa4 ma2">
-          <thead>
-            <tr >
-              <th>Birth Certificate</th>
-              {/* <th>1st Qtr Report Card</th>
-              <th>2cnd Qtr Report Card</th>
-              <th>3rd Qtr Report Card</th>
-              <th>4th Qtr Report Card</th> */}
-              <th>Name</th>
-              <th>Jersey Number</th>
-              <th>DOB</th>
-              <th>Parent 1</th>
-              <th>Parent 1 Email</th>
-              <th>Parent 1 Phone</th>
-              <th className='address'>Address</th>
-              <th>Parent 2</th>
-              <th>Parent 2 Email</th>
-              <th>Parent 2 Phone</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div className="table-container">
+          <StickyTable className='stickytable' >
+            <Row >
+              <Cell>Name</Cell>
+              <Cell>Jersey Number</Cell>
+              <Cell>Birth Certificate</Cell>
+              <Cell>T_Shirt Size</Cell>
+              <Cell>Helmet Size</Cell>
+              <Cell>Pant Size</Cell>
+              {/* <Cell>1st Qtr Report Card</Cell>
+              <Cell>2cnd Qtr Report Card</Cell>
+              <Cell>3rd Qtr Report Card</Cell>
+              <Cell>4th Qtr Report Card</Cell> */}
+              <Cell>DOB</Cell>
+              <Cell>Parent_1</Cell>
+              <Cell>Parent 1 Email</Cell>
+              <Cell>Parent 1 Phone</Cell>
+              <Cell className='address'>Address</Cell>
+              <Cell>Parent_2</Cell>
+              <Cell>Parent 2 Email</Cell>
+              <Cell>Parent 2 Phone</Cell>
+            </Row>
             {teamDataArray[index][1].roster.map((player, i) => {
               let playerIndex = i
                 return (
-                  <tr className="stripe-dark" key={i}>
+                  <Row className="stripe-dark" key={i}>
+                    <Cell >{`${player.name || ''} ${player.last || ''}`}</Cell>
+                    <Cell>{`${player.jersey || ''}`}</Cell>
                     {player.birthCert ?
-                        <td onClick={e => handleBCClick(e, playerIndex)}>
+                        <Cell onClick={e => handleBCClick(e, playerIndex)}>
                         <img className='fileImage'
                           src={player.birthCert}
                           alt="birth certificate"
                           />
-                        </td>
+                        </Cell>
                        :
-                      <td>Not On File</td>
+                      <Cell>Not On File</Cell>
                     }
+                    <Cell className='size'>{player.tshirt_size || ''}</Cell>
+                    <Cell className='size'>{player.helmet_size || ''}</Cell>
+                    <Cell className='size'>{player.pant_size || ''}</Cell>
                     {/* {player.reportCard1 ?
-                      (<td onClick={e => handleRCClick(e, playerIndex)}>
+                      (<Cell onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard1} alt="Report Card" />
-                      </td>) :
-                      <td>Not on File</td>
+                      </Cell>) :
+                      <Cell>Not on File</Cell>
                     }
                     {player.reportCard2 ?
-                      (<td onClick={e => handleRCClick(e, playerIndex)}>
+                      (<Cell onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard2} alt="Report Card" />
-                      </td>) :
-                      <td>Not on File</td>
+                      </Cell>) :
+                      <Cell>Not on File</Cell>
                     }
                     {player.reportCard3 ?
-                      (<td onClick={e => handleRCClick(e, playerIndex)}>
+                      (<Cell onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard3} alt="Report Card" />
-                      </td>) :
-                      <td>Not on File</td>
+                      </Cell>) :
+                      <Cell>Not on File</Cell>
                     }
                     {player.reportCard4 ?
-                      (<td onClick={e => handleRCClick(e, playerIndex)}>
+                      (<Cell onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard4} alt="Report Card" />
-                      </td>) :
-                      <td>Not on File</td>
+                      </Cell>) :
+                      <Cell>Not on File</Cell>
                     } */}
-                    <td >{`${player.name || ''} ${player.last || ''}`}</td>
-                    <td>{`${player.jersey || ''}`}</td>
-                    <td>{player.DOB}</td>
-                    <td>{player.parent1}</td>
-                    <td>{player.parent1email}</td>
-                    <td className='phone'>{player.parent1phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}</td>
+                    <Cell>{player.DOB}</Cell>
+                    <Cell>{player.parent1}</Cell>
+                    <Cell>{player.parent1email}</Cell>
+                    <Cell className='phone'>{player.parent1phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}</Cell>
                     {player.address ?
-                      <td className='street'>{`${player.address}
+                      <Cell className='street'>{`${player.address}
                       ${player.city}, ${player.state}
-                      ${player.zipcode} `}</td> :
-                      <td>Not on File</td>
+                      ${player.zipcode} `}</Cell> :
+                      <Cell>Not on File</Cell>
                     }
-                    <td>{player.parent2 || ''}</td>
-                    <td>{player.parent2email || ''}</td>
-                    <td>{player.parent2phone || ''}</td>
-                  </tr>
+                    <Cell>{player.parent2 || ''}</Cell>
+                    <Cell>{player.parent2email || ''}</Cell>
+                    <Cell className='phone'>{player.parent2phone ? player.parent2phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3") : ""}</Cell>
+                  </Row>
                 )
             }
             )}
-          </tbody>
-        </table>
+          </StickyTable>
+        </div>
       </Card>
       <CsvDownload data={team_roster} />
       <Modal className="bc modal" show={bcShowing} close={toggleBCModal}>

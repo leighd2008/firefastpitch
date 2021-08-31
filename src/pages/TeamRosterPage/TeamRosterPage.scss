@@ -7,6 +7,20 @@
     }
 }
 
+.sticky-table-table {
+    white-space: pre-wrap !important;
+    width: 100%;
+  }
+
+  .table-container {
+    height: 200%;
+    border-top: 5px solid #ed1e24;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+    width: 100%; 
+  }
+
 .address {
   white-space: nowrap;
   padding: 0 70px;
@@ -18,4 +32,8 @@
 
 .phone {
   white-space: nowrap;
+}
+
+.size {
+  padding: 0 15px
 }
