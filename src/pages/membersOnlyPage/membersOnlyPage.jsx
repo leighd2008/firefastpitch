@@ -101,7 +101,7 @@ const MembersOnlyPage = ({ title, teamname, index, teamData }) => {
           </StickyTable>
         </div>
       </Card>
-      <span>Swipe/Scroll to the side to input address or upload report cards</span>
+      <span>Swipe/Scroll to the side for more columns</span>
     </div>
   );
 }

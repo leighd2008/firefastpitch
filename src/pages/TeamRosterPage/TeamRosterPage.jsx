@@ -132,6 +132,8 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
           </StickyTable>
         </div>
       </Card>
+      <span>Swipe/Scroll to the side for more columns</span>
+      <br />
       <CsvDownload data={team_roster} />
       <Modal className="bc modal" show={bcShowing} close={toggleBCModal}>
         {playerIndex || playerIndex === 0 ?
