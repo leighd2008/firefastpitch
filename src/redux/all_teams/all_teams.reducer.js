@@ -32,7 +32,7 @@ const INITIAL_STATE = {
     },
     {
       title: "Fire 2010",
-      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F10_team.jpg?alt=media&token=e7347a8a-6209-410d-bba9-344182c04211",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F10_team.jpeg?alt=media&token=c96275aa-4245-44c3-a0d8-53928066b7f2",
       id: 6,
       linkUrl: "Fire2010"
     },
