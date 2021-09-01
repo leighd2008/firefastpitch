@@ -1,21 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { selectTeamData } from "../../redux/team/team.selectors";
-
 import { connect } from "react-redux";
 import SignInPage from "../sign-inpage/sign-inpage";
 import HomePage from "../homepage/homepage";
+import CoachesContact from "../../components/coachesContact/coachesContact";
 
 import "./adminpage.scss";
 
-const AdminPage = ({ currentUser, teamData }) => {
-  let teamDataArray = Object.entries(teamData);
-  teamDataArray.sort((a, b) => {
-    let aa = a[1].teamNum;
-    let bb = b[1].teamNum;
-    return aa - bb;
-  });
-  
+const AdminPage = ({ currentUser }) => {
   
   return (
   currentUser ?
@@ -62,37 +54,7 @@ const AdminPage = ({ currentUser, teamData }) => {
               </NavLink>
             </div>
           </div>
-          <div className='coachesContact'>
-              <h1 className='admin-title'>Coach Contact Information</h1>
-              <table className="f6 w-100 mw8 center pa4 ma2">
-                <thead>
-                  <tr >
-                    <th>Team</th>
-                    <th>Coach</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {teamDataArray.map((team, i) => {
-                    return (
-                      <tr key={i}>
-                        <td>{`${team[1].division}`}</td>
-                        <td>{`${team[1].headCoach}`}</td>
-                        <td>{`${team[1].coachPhone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}`}</td>
-                        <td>{`${team[1].teamEmail}`}</td>
-                      </tr>
-                    )
-                  })}
-                  <tr>
-                    <td>DOC</td>
-                    <td>Demetra "Petey" Noble</td>
-                    <td>(330) 646-2493</td>
-                    <td>demi711petey@aol.com</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
+          <CoachesContact/>
         </div>
       ) : (
           // alert('The account you entered is not an Admin Account')
@@ -106,7 +68,6 @@ const AdminPage = ({ currentUser, teamData }) => {
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser,
-  teamData: selectTeamData(state),
 });
 
 export default connect(mapStateToProps)(AdminPage);
