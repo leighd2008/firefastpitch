@@ -28,7 +28,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, /*toggleRCModal
   //copy team roster
   const team_roster = teamDataArray[index][1].roster.map(e => Object.assign({}, e))
   team_roster.forEach(elm => elm.positions ? elm.positions  = elm.positions.toString() : "")
-  team_roster.forEach(elm => delete elm.birthCert)
+  // team_roster.forEach(elm => delete elm.birthCert)
 
   
   console.log(teamDataArray)

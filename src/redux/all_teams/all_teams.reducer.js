@@ -32,7 +32,7 @@ const INITIAL_STATE = {
     },
     {
       title: "Fire 2010",
-      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F10_team.jpeg?alt=media&token=c96275aa-4245-44c3-a0d8-53928066b7f2",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F10_team.jpg?alt=media&token=4cd42aa8-72a3-4d44-ac9c-52b8be68fd1f",
       id: 6,
       linkUrl: "Fire2010"
     },
@@ -44,7 +44,7 @@ const INITIAL_STATE = {
     },
     {
       title: "Fire 2012",
-      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F12_team.jpg?alt=media&token=b3f3bab3-7f6c-47f7-9d61-917a60a87d16",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F12_team.jpg?alt=media&token=baa7d286-6aa8-4b70-b0e2-a64cf76d899f",
       id: 8,
       linkUrl: "Fire2012"
     }
