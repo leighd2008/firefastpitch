@@ -30,17 +30,17 @@ const CoachesContact = ({ teamData }) => {
             return (
               <tr key={i}>
                 <td>{`${team[1].division}`}</td>
-                <td>{`${team[1].headCoach}`}</td>
+                <td className="coach">{`${team[1].headCoach}`}</td>
                 <td>{`${team[1].coachPhone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}`}</td>
-                <td>{`${team[1].teamEmail}`}</td>
+                <td className="email">{`${team[1].teamEmail}`}</td>
               </tr>
             )
           })}
           <tr>
             <td>DOC</td>
-            <td>Demetra "Petey" Noble</td>
+            <td className="coach">Demetra "Petey" Noble</td>
             <td>(330) 646-2493</td>
-            <td>demi711petey@aol.com</td>
+            <td className="email">demi711petey@aol.com</td>
           </tr>
         </tbody>
       </table>

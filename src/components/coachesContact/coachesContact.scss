@@ -1,14 +1,18 @@
 .coachesContact {
     text-align: left;
     margin: 0 !important;
-    padding: 0px 0px 0px 20px;
-    width: 105vw;
+    padding: 0px 0px 0px 0px;
+    width: 98vw;
     border: 2px solid #ed1e24;
 
     .admin-title {
       color: #ed1e24 !important;
       text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
       margin: auto;
+    }
+
+    .coach {
+      font-size: smaller;
     }
   }
 

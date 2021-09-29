@@ -12,10 +12,10 @@ const TryoutsOver = () => {
           </CardTitle>
           <h3>FIRE FASTPITCH Try-outs are over, check back for details on next year's tryouts. </h3> <br />
 
-          <h3>If you or anyone you know is interested in discussing a coaching opportunity please contact us here by PM or email at: </h3>
-          <h2>Fire.Fastpitch.Softball@gmail.com</h2>
+          <h2>If you or anyone you know is interested in discussing a coaching opportunity or would like to get a private tryout for your daughter please contact us: </h2>
+          <h3>Fire.Fastpitch.Softball@gmail.com</h3>
           <br />
-          <h2>or call 330-980-1366</h2>
+          <h3>or call 330-980-1366</h3>
           <br />
         </CardBody>
       </Card>
