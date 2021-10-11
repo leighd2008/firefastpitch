@@ -152,6 +152,14 @@
       width: 80px;
     }
 
+    .dhx_cal_scale_placeholder {
+      height: 42px !important;
+    }
+
+    .dhx_cal_header {
+      height: 40px !important;
+    }
+
     @media only screen and (min-width: 450px) {
 
       .dhx_cal_light.dhx_cal_light_responsive .dhx_form_repeat {
@@ -208,4 +216,13 @@
       .dhx_cal_light.dhx_cal_light_responsive {
         height: auto!important;
       }
+
+      .dhx_cal_scale_placeholder {
+        height: 21px !important;
+      }
+
+      .dhx_cal_header {
+        height: 20px !important;
+      }
+
     }      

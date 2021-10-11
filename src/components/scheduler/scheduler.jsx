@@ -159,11 +159,11 @@ class Scheduler extends Component {
     ];
 
     scheduler.config.hour_date = '%g:%i %A';
-    scheduler.config.time_step = 30;
+    scheduler.config.time_step = 15;
     scheduler.config.first_hour = 9;
     scheduler.config.last_hour = 21;
     scheduler.xy.scale_width = 70;
-    scheduler.config.day_date = "%m/%d";
+    scheduler.config.day_date = "%D %m/%d";
     scheduler.config.default_date = "%m/%d/%y";
 
     scheduler.config.lightbox_recurring = 'series';
