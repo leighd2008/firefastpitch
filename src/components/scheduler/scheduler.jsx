@@ -5,6 +5,7 @@ import 'dhtmlx-scheduler';
 import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
 import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_recurring.js';
 import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_minical.js';
+import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_collision.js';
 import "./scheduler.scss";
 import { firestore } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
@@ -25,12 +26,27 @@ class Scheduler extends Component {
 		scheduler.showLightbox(id);
 		return true;
     });
+
+    let a=1
+    scheduler.attachEvent('onEventCollision', (ev, evs) => {
+      if (a){
+        alert("Sorry, only 1 event per time slot is allowed. Please choose a different Date/Time")
+        window.location = 'Adminpage'
+      }
+    })
+
+    // scheduler.attachEvent("onBeforeEventChanged", function (ev, e, is_new, original) {
+    //   a = 1;
+    //   return true;
+    // });
     
     scheduler.attachEvent('onEventAdded', (id, ev) => {
+      a=0
       let eventCreator = this.props.currentUser.email;
       let type = this.props.currentUser.displayName;
       
       let newEvent = { end_date: ev.end_date, start_date: ev.start_date, text: ev.text, id: ev.id, eventCreator, type, rec_type: ev.rec_type, event_length: ev.event_length, event_pid: ev.event_pid }
+
       let events1 = [
         newEvent,
         ...this.props.events
