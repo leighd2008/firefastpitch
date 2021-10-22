@@ -185,6 +185,7 @@ class Scheduler extends Component {
       else if (event.type === 'Stan') return 'Stan_event';
       else if (event.type === 'Jim') return 'Jim_event';
       else if (event.type === 'Shane') return 'Shane_event';
+      else if (event.type === 'Mike') return 'Mike_event';
       else if (event.type === 'Andy') return 'Andy_event';
       else if (event.type === 'Lance') return 'Lance_event';
 
