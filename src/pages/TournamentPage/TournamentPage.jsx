@@ -17,12 +17,23 @@ const TournamentPage = () => {
         minWidth: "48vw"
       }}
     >
+      <Tournaments index={1} />
+      <br />
+      <Tournaments index={0} />
+      <br />
+      <Tournaments index={7} />
+      <br />
       <Tournaments index={2} />
       <br />
       <Tournaments index={6} />
       <br />
-      <Tournaments index={0} />
+      <Tournaments index={4} />
       <br />
+      <Tournaments index={3} />
+      <br />
+      <Tournaments index={5} />
+      <br />
+      
     </Card>
   );
 };
