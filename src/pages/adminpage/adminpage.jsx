@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import SignInPage from "../sign-inpage/sign-inpage";
 import HomePage from "../homepage/homepage";
 import CoachesContact from "../../components/coachesContact/coachesContact";
+import ResetTournaments from "../../components/resetTournaments/resetTournaments";
+
 
 import "./adminpage.scss";
 
@@ -53,6 +55,8 @@ const AdminPage = ({ currentUser }) => {
                 <h4>2012 Team Roster</h4>
               </NavLink>
             </div>
+              {currentUser.role === "admin" ?
+                <ResetTournaments/> : null }
           </div>
           <CoachesContact/>
         </div>

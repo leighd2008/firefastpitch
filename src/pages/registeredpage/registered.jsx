@@ -88,6 +88,7 @@ class Registered extends React.Component {
       >
         <CardTitle tag="h1">
           {`Registered Players: ${registrationDataArray[index][1].title} Division`}
+          <h3>Click on player's name to view parent contact information</h3>
         </CardTitle>
         <table className="f6 w-100 mw8 center pa4 ma2">
           <thead>
