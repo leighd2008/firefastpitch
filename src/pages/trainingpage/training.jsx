@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { goToVideo } from "../../redux/training/training.actions";
 
+import NewDOC from "../../components/newdoc/newdoc";
+
 import "./training.scss";
 
 import {
@@ -16,6 +18,7 @@ const Training = ({ trainingVideos, goToVideo, videoIndex }) => {
 
   return (
     <div className="training">
+      <NewDOC />
       <h1 className="training-title"> Training Videos</h1>
       <div className="videodisplay">
         <div className="youtube">

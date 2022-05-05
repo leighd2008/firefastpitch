@@ -36,12 +36,12 @@ const CoachesContact = ({ teamData }) => {
               </tr>
             )
           })}
-          <tr>
+          {/* <tr>
             <td>DOC</td>
             <td className="coach">Demetra "Petey" Noble</td>
             <td>(330) 646-2493</td>
             <td className="email">demi711petey@aol.com</td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>
