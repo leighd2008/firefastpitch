@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     },
     {
       title: "Fire 16U",
-      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F16U_Team.jpg?alt=media&token=d7c5e9d5-93b0-4528-b133-8ef991aee0e5",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F16_Team.jpeg?alt=media&token=b853b5a4-cdb5-49b4-a187-b64109e62653",
       id: 3,
       linkUrl: "Fire16U"
     },
