@@ -38,6 +38,7 @@ export default compose(
       {events.map((e, i) => (
         <div key={e.id}>
           <Event event={e} />
+          console.log(e)
           {i < events.length - 1 && <hr />}
         </div>
       ))}
