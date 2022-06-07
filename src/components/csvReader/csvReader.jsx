@@ -1,12 +1,14 @@
 import React from "react";
 
 import { useState } from 'react'
+import UploadTournaments from "../uploadTournaments/uploadTournaments"
+import "./cvsReader.scss";
 
 export default function CsvReader() {
   const [csvFile, setCsvFile] = useState();
   const [csvArray, setCsvArray] = useState([]);
 
-  const processCSV = (str, delim = ',') => {
+  const processCSV = (str, delim = '\t') => {
     const headers = str.slice(0, str.indexOf('\n')).split(delim);
     const rows = str.slice(str.indexOf('\n') + 1).split('\n');
 
@@ -20,11 +22,11 @@ export default function CsvReader() {
     })
     setCsvArray(newArray)
   }
-
+  
   const submit = () => {
     const file = csvFile;
     const reader = new FileReader();
-
+    
     reader.onload = function (e) {
       const text = e.target.result;
       processCSV(text)
@@ -32,11 +34,11 @@ export default function CsvReader() {
     }
     reader.readAsText(file);
   }
-
   
-
+  
+  
   return (
-    <form id='csv-form'>
+    <form id='csv-form' className="cvsReader">
       <input
         type='file'
         accept='.csv'
@@ -56,28 +58,7 @@ export default function CsvReader() {
       </button>
       <br />
       <br />
-      {csvArray.length > 0 ?
-        <>
-          {/* <table>
-            <thead>
-              <th>Team</th>
-              <th>Day</th>
-              <th>Date</th>
-            </thead>
-            <tbody>
-              {
-                csvArray.map((item, i) => (
-                  <tr key={i}>
-                    <td>{item.Team}</td>
-                    <td>{item.Day}</td>
-                    <td>{item.Date}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table> */}
-          {console.log(csvArray)}
-      </> : null}
+      <UploadTournaments csvArray={csvArray} />
     </form>
   );
 }
