@@ -1,9 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { createStructuredSelector } from "reselect";
+
+import { selectTeamData } from "../../redux/team/team.selectors";
+import { selectAll_TeamsTeams } from "../../redux/all_teams/all_teams.selectors";
 
 import "./uploadTournaments.scss";
 
-const UploadTournaments = ({ csvArray }) => {
-  
+const UploadTournaments = ({ csvArray, teamData }) => {
+
+  const teamDataArray = Object.entries(teamData);
+  // let currentTourns = []
+
+  teamDataArray.map((team, i) => {
+    console.log(team)
+  })
+    //  map csvArray
+    //    if tournament.team = team.title
+    //        currentTourns.push? tournamnet
+
+    
   return (
       csvArray.length > 0 ?
         <>
@@ -33,4 +50,9 @@ const UploadTournaments = ({ csvArray }) => {
   )
 }
 
-export default UploadTournaments
+const mapStateToProps = createStructuredSelector({
+  teams: selectAll_TeamsTeams,
+  teamData: selectTeamData
+})
+
+export default connect(mapStateToProps)(UploadTournaments)
