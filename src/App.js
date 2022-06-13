@@ -17,9 +17,9 @@ import SignInPage from "./pages/sign-inpage/sign-inpage";
 import AdminPage from "./pages/adminpage/adminpage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-// import TryoutsPage from "./pages/tryoutspage/tryout";
+import TryoutsPage from "./pages/tryoutspage/tryout";
 // import TryoutsPageStillNeed from "./pages/tryoutspageStillNeed/tryoutStillNeed";
-import TryoutsOver from "./pages/tryoutsOverPage/tryoutsOverPage";
+// import TryoutsOver from "./pages/tryoutsOverPage/tryoutsOverPage";
 
 import TrainingPage from "./pages/trainingpage/training";
 import TournamentPage from "./pages/TournamentPage/TournamentPage";
@@ -110,7 +110,7 @@ class App extends React.Component {
     );
 
     const { updatePreregistration } = this.props;
-    const collectionRef3 = firestore.collection("preregistration2021");
+    const collectionRef3 = firestore.collection("preregistration2022");
 
 
     this.unsubscribeFromSnapshot = collectionRef3.onSnapshot(
@@ -223,8 +223,8 @@ class App extends React.Component {
                   eventurls={Fire12URLS} />
               ))}
             />
-          {/* <Route path="/Tryouts" component={TryoutsPage} /> */}
-            <Route path="/Tryouts" component={TryoutsOver} />
+          <Route path="/Tryouts" component={TryoutsPage} />
+            {/* <Route path="/Tryouts" component={TryoutsOver} /> */}
             <Route path="/Training" component={TrainingPage} />
             <Route
               path="/Fire18UFamily"

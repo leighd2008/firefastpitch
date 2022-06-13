@@ -137,10 +137,6 @@ class PreregistrationPage extends React.Component {
             "isRequired": true,
             "choices": [
               {
-                "value": "8U",
-                "text": "8U"
-              },
-              {
                 "value": "10U",
                 "text": "10U"
               },
@@ -170,7 +166,7 @@ class PreregistrationPage extends React.Component {
             "isRequired": true,
             "requiredErrorText": "Please enter a valid Date of Birth.",
             "inputType": "date",
-            "min": "2003-01-01",
+            "min": "2004-01-01",
             "max": "2015-01-01",
             "placeHolder": "mm/dd/yyyy"
           },
@@ -178,39 +174,40 @@ class PreregistrationPage extends React.Component {
           //   "type": "html",
           //   "name": "question10"
           // },
-          {
-            "type": "text",
-            "name": "email",
-            "title": "Player Email Address:",
-            "requiredErrorText": "Please enter a valid email address.",
-            "validators": [
-              {
-                "type": "email"
-              }
-            ],
-            "inputType": "email",
-            "size": 50,
-            "placeHolder": "player email is optional"
-          },
-          {
-            "type": "text",
-            "name": "phone",
-            "title": "Player Phone number:",
-            "requiredErrorText": "Please enter a valid phone number.",
-            "validators": [
-              {
-                "type": "numeric"
-              }
-            ],
-            "inputType": "tel",
-            "maxLength": 10,
-            "size": 50,
-            "placeHolder": "player phone number is optional"
+          // {
+          //   "type": "text",
+          //   "name": "email",
+          //   "title": "Player Email Address:",
+          //   "requiredErrorText": "Please enter a valid email address.",
+          //   "validators": [
+          //     {
+          //       "type": "email"
+          //     }
+          //   ],
+          //   "inputType": "email",
+          //   "size": 50,
+          //   "placeHolder": "player email is optional"
+          // },
+          // {
+          //   "type": "text",
+          //   "name": "phone",
+          //   "title": "Player Phone number:",
+          //   "requiredErrorText": "Please enter a valid phone number.",
+          //   "validators": [
+          //     {
+          //       "type": "numeric"
+          //     }
+          //   ],
+          //   "inputType": "tel",
+          //   "maxLength": 10,
+          //   "size": 50,
+          //   "placeHolder": "player phone number is optional"
 
-          },
+          // },
           {
             "type": "text",
             "name": "parent1",
+            "isRequired": true,
             "title": "Parent/Guardian name -1",
             "size": 50,
           },
@@ -248,12 +245,14 @@ class PreregistrationPage extends React.Component {
             "name": "parent2",
             "title": "Parent/Guardian name -2",
             "placeHolder": "optional",
+            "defaultValue": "  ",
             "size": 50,
           },
           {
             "type": "text",
             "name": "parent2phone",
             "title": "Parent/Guardian Phone number:",
+            "defaultValue": "  ",
             "requiredErrorText": "Please enter a valid phone number.",
             "validators": [
               {
@@ -270,6 +269,7 @@ class PreregistrationPage extends React.Component {
             "type": "text",
             "name": "parent2email",
             "title": "Parent/Guardian Email Address:",
+            "defaultValue": "  ",
             "requiredErrorText": "Please enter a valid email address.",
             "validators": [
               {
@@ -283,6 +283,7 @@ class PreregistrationPage extends React.Component {
           {
             "type": "radiogroup",
             "name": "coaching",
+            "defaultValue": "  ",
             "title": "Are you interested in coaching?",
             "isRequired": true,
             "choices": [
@@ -305,30 +306,26 @@ class PreregistrationPage extends React.Component {
             "type": "radiogroup",
             "name": "session",
             "title": "Which tryout session will you be attending",
+            "defaultValue": "  ",
             "choices": [
+              {
+                "value": "July 30",
+                "text": "July 30"
+              },
               {
                 "value": "July 31",
                 "text": "July 31"
               },
               {
-                "value": "August 1st",
-                "text": "August 1st"
+                "value": "August 6th",
+                "text": "August 6th"
               },
               {
                 "value": "August 7th",
                 "text": "August 7th"
               },
               {
-                "value": "August 8th",
-                "text": "August 8th"
-              },
-              {
-                "value": "August 15th",
-                "text": "August 15th (12U only)"
-              },
-              {
                 "value": "TBD",
-                
                 "text": "Private, you will be contacted to schedule"
               }
             ]
@@ -344,6 +341,7 @@ class PreregistrationPage extends React.Component {
     let player = survey.data;
     player.onTeam = '';
     player.tryout = '';
+    // player.year = player.DOB.getFullYear();
     let division = player.division;
 
     // eslint-disable-next-line no-restricted-globals
@@ -354,7 +352,7 @@ class PreregistrationPage extends React.Component {
       ];
 
       const divisionId = this.props.registrationData[division].id;
-      firestore.collection("preregistration2021").doc(divisionId).update({
+      firestore.collection("preregistration2022").doc(divisionId).update({
         players: newplayers,
       })
         .then(response => {

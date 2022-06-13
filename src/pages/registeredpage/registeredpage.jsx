@@ -6,17 +6,17 @@ import './registeredPage.scss'
 const RegisteredPage = () => {
   return (
     <div>
-      <Registered index={0} />
+      <Registered index={2} />
+      <br />
+      <Registered index={1} />
       <br />
       <Registered index={4} />
       <br />
       <Registered index={3} />
       <br />
-      <Registered index={1} />
+      <Registered index={0} />
       <br />
-      <Registered index={5} />
-      <br />
-      <Registered index={2} />
+      {/* <Registered index={2} /> */}
     </div>
   );
 }

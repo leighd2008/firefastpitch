@@ -11,24 +11,16 @@ const TryOuts = () => {
             Are you ready to play with FIRE?
           </CardTitle>
           <h3>FIRE FASTPITCH team tryouts for all age groups will be </h3> 
-          <h1>July 31st, Aug. 1st, Aug. 7th & Aug. 8th</h1>
+          <h1>July 30st, July 31st, Aug. 6th & Aug. 7th</h1>
           <h3>REGISTRATION:</h3> 
           <a href="Preregistration" rel="noopener noreferrer">
             <h2>Pre-registration form can be filled out here!</h2>
           </a>
            <h3> or at Field #1 on the day of tryouts. </h3>
           <br />
-          <h2>8U(2013 & 2014) </h2><h3>9:00-10:30AM Field 2 - ARIVE @ 8:30AM</h3>
+          <h2>10U(2012 & 2013) 12U(2010 & 2011) 14U(2008 & 2009) </h2><h3>10:00AM-12:00PM  - ARIVE @ 10:30AM</h3>
           <br />
-          <h2>10U(2011 & 2012) </h2><h3>9:00-10:30AM Field 1 - ARIVE @ 8:30AM</h3>
-          <br />
-          <h2>12U(2009 & 2010) </h2><h3>11:00AM-1:00PM Field 2 - ARIVE @ 10:30AM</h3>
-          <br />
-          <h2>14U(2007 & 2008) </h2><h3>11:00AM-1:00PM Field 1 - ARIVE @ 10:30AM</h3>
-          <br />
-          <h2>16U(2005 & 2006) </h2><h3>1:30-3:30PM Field 2 - ARIVE @ 1:00PM</h3>
-          <br />
-          <h2>18U(2003 & 2004) </h2><h3>1:30-3:30PM Field 1 - ARIVE @ 1:00PM</h3>
+          <h2>16U(2006 & 2007) 18U(2004 & 2005) </h2><h3>1:00-3:00PM  - ARIVE @ 1:00PM</h3>
           <br />
           <h2>*PITCHERS & CATCHERS</h2> <h3> will need to stay an additional 30 min to be evaluated separately</h3>
           <br />

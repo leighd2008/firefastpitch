@@ -65,7 +65,7 @@ class Registered extends React.Component {
     const divisionId = this.props.registrationData[division].id;
     const teamdiv = `Fire${year || division}`
     const teamId = this.props.teamData[teamdiv].id
-    firestore.collection("preregistration2021").doc(divisionId).update({
+    firestore.collection("preregistration2022").doc(divisionId).update({
       players: players,
     })
     this.updateRoster(players, teamdiv, teamId);
@@ -75,6 +75,7 @@ class Registered extends React.Component {
     const { registrationData, index, currentUser } = this.props;
     const registrationDataArray = Object.entries(registrationData);
     registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
+    console.log(registrationDataArray)
 
     return (
       <Card
@@ -88,7 +89,7 @@ class Registered extends React.Component {
       >
         <CardTitle tag="h1">
           {`Registered Players: ${registrationDataArray[index][1].title} Division`}
-          <h3>Click on player's name to view parent contact information</h3>
+          <h2>Click on player's name to view parent contact information</h2>
         </CardTitle>
         <table className="f6 w-100 mw8 center pa4 ma2">
           <thead>
