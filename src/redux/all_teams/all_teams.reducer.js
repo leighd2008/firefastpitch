@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   teams: [
     {
       title: "Fire 18U",
-      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F18U-team.jpg?alt=media&token=61ddc847-8da8-4ee1-89b2-8c813ad3b928",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F18U_team.jpg?alt=media&token=ef057099-35b3-4e28-95d3-a75de0dd3187",
       id: 4,
       linkUrl: "Fire18U"
     },
