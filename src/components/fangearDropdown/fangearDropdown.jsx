@@ -10,13 +10,13 @@ const FangearDropdown = () => (
 "
         rel="noopener noreferrer"
         target="_blank"
-      ><h4>FANGEAR</h4>
+      ><h4>BSN Sports</h4>
       </a>
       <a
-        href="https://firefastpitchsoftball.itemorder.com/sale"
+        href="https://madfishsports.com/team-spirit-wear/fire-fast-pitch-softball/"
         rel="noopener noreferrer"
         target="_blank"
-      ><h4>MORE FANGEAR</h4>
+      ><h4>Mad Fish Sports</h4>
       </a>
     </div>
   </div>
