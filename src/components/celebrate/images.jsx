@@ -2,6 +2,8 @@
 // const images = require.context("https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/homeruns", true;
 
 const imgUrls = [
+  `https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/homeruns%2FAlly_18U_Summer_2022.jpg?alt=media&token=cf690ac1-a1fd-491f-91b7-d898b9a848ee`,
+  `https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/homeruns%2FEmily_18U_Summer_2022.jpg?alt=media&token=0cbdc5a3-294a-4d75-81ac-d625a2274e26`,
   `https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/homeruns%2FRylee_1st_14U_Summer_2022.jpg?alt=media&token=55d7dd39-ed53-4314-a9fe-83982144f3a7`,
   `https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/homeruns%2FMorgan_McKayla_Zoey_18U_Summer_2022.jpg?alt=media&token=8655e821-8f12-447a-bf59-f68e16cbea68`,
   `https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/homeruns%2FGianna_Mancini_2_dingers_16U_Summer_2022.jpg?alt=media&token=51eb772f-8ef8-476d-bd84-b857fab933e0`,
