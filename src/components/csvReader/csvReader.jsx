@@ -2,12 +2,13 @@ import React from "react";
 import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
 import { selectTeamData } from "../../redux/team/team.selectors";
+// import { selectRegisteredData } from "../../redux/registered/registered.selectors"
 import { useState } from 'react'
 import "./cvsReader.scss";
 import { firestore } from "../../firebase/firebase.utils";
 
 
-const CsvReader = ({ teamData }) => {
+const CsvReader = ({ teamData, /*registeredData*/ }) => {
   const [csvFile, setCsvFile] = useState();
   const [csvArray, setCsvArray] = useState([]);
 
@@ -24,6 +25,7 @@ const CsvReader = ({ teamData }) => {
       return eachObject;
     })
     setCsvArray(newArray)
+    
   }
   
   const updateTournaments = (csvArray) => {
@@ -38,13 +40,30 @@ const CsvReader = ({ teamData }) => {
           currentTourns.push(newTourn)
         }
       })
-      console.log(currentTourns)
       firestore.collection("teams").doc(team[1].id).update({
         tournaments: currentTourns
       })
     })
 
   }
+
+//   const updateRegistered = async (csvArray) => {
+//     const registeredDataArray = Object.entries(registeredData);
+//       let currentRegistered = []
+//       csvArray.map((player, j) => {
+//         let newPlayer = { Reg_year: player.regyear || "", DOB: player.DOB || "",address: player.address || "", bats: player.bats || "", birthCert: player.birthCert || "", city: player.city || "", coaching: player.coaching || "", division: player.division || "", team: player.team || "", email: player.email || "", experience: player.experience || "", jersey: player.jersey || "", last: player.last || "", name: player.name || "", onTeam: player.onTeam || "", parent1: player.parent1 || "", parent1email: player.parent1email || "", parent1phone: player.parent1phone || "", parent2: player.parent2 || "", parent2email: player.parent2email || "", parent2phone: player.parent2phone || "",phone: player.phone || "", positions: player.positions || "", previous: player.previous || "", session: player.session || "", state: player.state || "", throws: player.throws || "", year: player.year || "", zipcode: player.zipcode || "" };
+//         console.log(newPlayer)
+        
+//           currentRegistered.push(newPlayer)
+//         //   return currentRegistered
+//         console.log(currentRegistered)
+//         })
+//       await firestore.collection("registered").doc(registeredDataArray[0][1].id).update({
+//         players: currentRegistered
+//       })
+//     //   console.log("update2")
+      
+//   } 
 
   
   
@@ -55,12 +74,24 @@ const CsvReader = ({ teamData }) => {
     reader.onload = function (e) {
       const text = e.target.result;
       processCSV(text)
+    //   console.log(text);
       updateTournaments(csvArray)
-      // console.log(text);
     }
     reader.readAsText(file);
   }
   
+//   const submitRegistered = () => {
+//     const file = csvFile;
+//     const reader = new FileReader();
+    
+//     reader.onload = function (e) {
+//       const text = e.target.result;
+//       processCSV(text)
+//     //   console.log(text);
+//       updateRegistered(csvArray)
+//     }
+//     reader.readAsText(file);
+//   }
   
   
   return (
@@ -84,12 +115,22 @@ const CsvReader = ({ teamData }) => {
       </button>
       <br />
       <br />
+      {/* <button
+        onClick={(e) => {
+          e.preventDefault()
+          if(csvFile)submitRegistered()
+        }}>
+        Submit Registered
+      </button>
+      <br />
+      <br /> */}
     </form>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  teamData: selectTeamData
+  teamData: selectTeamData,
+//   registeredData: selectRegisteredData
 })
 
 export default connect(mapStateToProps)(CsvReader);

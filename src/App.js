@@ -5,8 +5,7 @@ import { createStructuredSelector } from "reselect";
 import { updateTeams } from "./redux/team/team.actions";
 import { updateFields } from "./redux/field/field.actions";
 import { updatePreregistration } from "./redux/registration/registration.actions";
-
-
+import { updateRegistered } from "./redux/registration/registration.actions";
 import WithSpinner from "./components/with-spinner/with-spinner";
 
 import "./App.scss";
@@ -41,6 +40,7 @@ import {
   convertCollectionsSnapshotToMap,
   convertCollectionsSnapshotToMap2,
   convertCollectionsSnapshotToMap3,
+  convertCollectionsSnapshotToMap4,
 } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
@@ -117,6 +117,18 @@ class App extends React.Component {
       async (snapshot) => {
         const preregistrationMap = convertCollectionsSnapshotToMap3(snapshot);
         updatePreregistration(preregistrationMap)
+        this.setState({ loading: false });
+      }
+    );
+    
+    const { updateRegistered } = this.props;
+    const collectionRef4 = firestore.collection("registered");
+
+
+    this.unsubscribeFromSnapshot = collectionRef4.onSnapshot(
+      async (snapshot) => {
+        const registeredMap = convertCollectionsSnapshotToMap4(snapshot);
+        updateRegistered(registeredMap)
         this.setState({ loading: false });
       }
     );
@@ -501,6 +513,7 @@ const mapDispatchToProps = (dispatch) => ({
   updateTeams: (teamsMap) => dispatch(updateTeams(teamsMap)),
   updateFields: (fieldsMap) => dispatch(updateFields(fieldsMap)),
   updatePreregistration: (preregistrationMap) => dispatch(updatePreregistration(preregistrationMap)),
+  updateRegistered: (registeredMap) => dispatch(updateRegistered(registeredMap)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

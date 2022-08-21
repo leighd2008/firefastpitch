@@ -2,7 +2,8 @@ import RegistrationActionTypes from "./registration.types"
 // import { addEventToSchedule } from "./field.utils";
 
 const INITIAL_STATE = {
-  preregistration: null
+  preregistration: null,
+  registered: null
 };
 
 const registrationReducer = (state = INITIAL_STATE, action) => {
@@ -12,7 +13,12 @@ const registrationReducer = (state = INITIAL_STATE, action) => {
         ...state,
         preregistration: action.payload
       };
-    
+    case RegistrationActionTypes.UPDATE_REGISTERED:
+      return {
+      ...state,
+      registered: action.payload
+    };
+      
     default:
       return state;
   }

@@ -150,6 +150,26 @@ export const convertCollectionsSnapshotToMap3 = preregistration2022 => {
   }, {});
 };
 
+export const convertCollectionsSnapshotToMap4 = registered => {
+  const transformedCollection = registered.docs.map(doc => {
+    const {
+      title,
+      players,
+    } = doc.data();
+
+    return {
+      routeName: encodeURI(title),
+      id: doc.id,
+      title,
+      players,
+    };
+  });
+  return transformedCollection.reduce((accumulator, registered) => {
+    accumulator[registered.title] = registered;
+    return accumulator;
+  }, {});
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();

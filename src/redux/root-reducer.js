@@ -16,6 +16,7 @@ import adminReducer from "./admin/admin.reducer";
 
 import fieldReducer from "./field/field.reducer";
 import registrationReducer from "./registration/registration.reducer";
+// import registeredReducer from "./registered/registered.reducer";
 
 
 const persistConfig = {
@@ -35,6 +36,8 @@ const rootReducer = combineReducers({
   recruiting: recruitingReducer,
   field: fieldReducer,
   registration: registrationReducer,
+//   registered: registeredReducer,
+  
   event: eventReducer,
   admin: adminReducer,
 });
