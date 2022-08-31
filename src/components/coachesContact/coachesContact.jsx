@@ -15,7 +15,7 @@ const CoachesContact = ({ teamData }) => {
 
   return (
     <div className='coachesContact'>
-      <h1 className='admin-title'>Coach Contact Information</h1>
+      <h1 className='admin-title'>Manager Contact Information</h1>
       <table className="f6 w-100 mw8 center pa4 ma2">
         <thead>
           <tr >
