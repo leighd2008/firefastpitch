@@ -73,7 +73,10 @@ export const convertCollectionsSnapshotToMap = teams => {
       headCoach,
       teamEmail,
       coachPhone,
-      teamNum
+      teamNum,
+      teamManager,
+      managerPhone,
+      coachEmail
     } = doc.data();
 
     return {
@@ -92,7 +95,10 @@ export const convertCollectionsSnapshotToMap = teams => {
       headCoach,
       teamEmail,
       coachPhone,
-      teamNum
+      teamNum,
+      teamManager,
+      managerPhone,
+      coachEmail
     };
   });
 

@@ -181,14 +181,16 @@ class Scheduler extends Component {
       if (event.type === 'Diane') return 'Diane_event';
       else if (event.type === 'Rich') return 'Rich_event';
       else if (event.type === 'Nikki') return 'Nikki_event';
-      else if (event.type === 'Lisa') return 'Lisa_event';
+      else if (event.type === 'Rich Greene') return 'Rich_Greene_event';
       else if (event.type === 'Stan') return 'Stan_event';
       else if (event.type === 'Jim') return 'Jim_event';
       else if (event.type === 'Heather') return 'Heather_event';
-      else if (event.type === 'Mike') return 'Mike_event';
       else if (event.type === 'Andy') return 'Andy_event';
       else if (event.type === 'Lance') return 'Lance_event';
-
+      else if (event.type === 'Traci DeMattia-Toth') return 'Traci_event';
+      else if (event.type === 'Matt') return 'Matt_event';
+      else if (event.type === 'Taylor Rowe') return 'Taylor_event';
+    
     }
 
     this.initSchedulerEvents();

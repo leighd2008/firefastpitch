@@ -20,7 +20,7 @@ const CoachesContact = ({ teamData }) => {
         <thead>
           <tr >
             <th>Team</th>
-            <th>Coach</th>
+            <th>Manager</th>
             <th>Phone</th>
             <th>Email</th>
           </tr>
@@ -30,8 +30,8 @@ const CoachesContact = ({ teamData }) => {
             return (
               <tr key={i}>
                 <td>{`${team[1].division}`}</td>
-                <td className="coach">{`${team[1].headCoach}`}</td>
-                <td>{`${team[1].coachPhone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}`}</td>
+                <td className="Manager">{`${team[1].teamManager}`}</td>
+                <td>{`${team[1].managerPhone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}`}</td>
                 <td className="email">{`${team[1].teamEmail}`}</td>
               </tr>
             )

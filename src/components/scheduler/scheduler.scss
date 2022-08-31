@@ -24,7 +24,7 @@
         // color: black !important;
     }
      
-     .dhx_cal_event.Lisa_event div{
+     .dhx_cal_event.Rich_Greene_event div{
         background-color: rgb(248, 109, 44) !important;
         // color: black !important;
     }
@@ -32,7 +32,7 @@
         background-color: rgb(128, 59, 50) !important;
         // color: black !important;
     }
-    .dhx_cal_event.Mike_event div{
+    .dhx_cal_event.Matt_event div{
         background-color: rgb(128, 59, 50) !important;
         // color: black !important;
     }
@@ -48,13 +48,31 @@
         background-color: #f83c02 !important;
         // color: black !important;
     }
-     .dhx_cal_event.Diane_event div{
+    .dhx_cal_event.Diane_event div{
+        background-color: #ed1e24 !important;
+        // color: black !important;
+    }
+    .dhx_cal_event.Traci_event div{
+        background-color: #ed1e24 !important;
+        // color: black !important;
+    }
+    .dhx_cal_event.Taylor_event div{
         background-color: #ed1e24 !important;
         // color: black !important;
     }
  
     /*multi-day event in month view*/
     .dhx_cal_event_line.Diane_event{
+        background-color: #ed1e24
+         !important;
+        // color: black !important;
+    }
+    .dhx_cal_event_line.Traci_event{
+        background-color: #ed1e24
+         !important;
+        // color: black !important;
+    }
+    .dhx_cal_event_line.Taylor_event{
         background-color: #ed1e24
          !important;
         // color: black !important;
@@ -69,7 +87,7 @@
         // color: black !important;
     }
 
-    .dhx_cal_event_line.Lisa_event{
+    .dhx_cal_event_line.Rich_Greene_event{
       background-color: rgb(248, 109, 44) !important;
         // color: black !important;
     }
@@ -77,10 +95,10 @@
       background-color: rgb(128, 59, 50) !important;
         // color: black !important;
     }
-    .dhx_cal_event_line.Mike_event{
-      background-color: rgb(128, 59, 50) !important;
-        // color: black !important;
-    }
+    .dhx_cal_event_line.Matt_event{
+        background-color: rgb(128, 59, 50) !important;
+          // color: black !important;
+      }
     .dhx_cal_event_line.Andy_event{
       background-color: #332d29 !important;
         // color: black !important;
@@ -105,16 +123,22 @@
         color: black !important;
     }
      
-     .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Lisa_event {
+     .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Rich_Greene_event {
         color: rgb(248, 109, 44) !important;
     }
     .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Heather_event {
         color: rgb(128, 59, 50) !important;
     }
-    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Mike_event {
+    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Matt_event {
         color: rgb(128, 59, 50) !important;
     }
-     .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Diane_event {
+    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Diane_event {
+        color: #ed1e24 !important;
+    }
+    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Traci_event {
+        color: #ed1e24 !important;
+    }
+    .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Taylor_event {
         color: #ed1e24 !important;
     }
     .dhx_cal_event_clear.dhx_cal_event_line_start.dhx_cal_event_line_end.Andy_event {
