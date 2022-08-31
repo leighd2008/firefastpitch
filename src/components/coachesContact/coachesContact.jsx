@@ -36,6 +36,12 @@ const CoachesContact = ({ teamData }) => {
               </tr>
             )
           })}
+          <tr>
+            <td>Treasurer</td>
+            <td className="coach">Zack Cutter</td>
+            <td>(330) 282-2210</td>
+            <td className="email">fire.fastpitch.treasurer@gmail.com</td>
+          </tr>
           {/* <tr>
             <td>DOC</td>
             <td className="coach">Demetra "Petey" Noble</td>
