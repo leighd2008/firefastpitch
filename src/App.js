@@ -393,6 +393,15 @@ class App extends React.Component {
             ))}
           />
           <Route
+            path="/Preregistered"
+            component={withRouter(() =>
+              (
+                <RegisteredPageWithSpinner
+                  isLoading={loading}
+                />
+              ))}
+          />
+          <Route
             path="/Registered"
             component={withRouter(() =>
               (

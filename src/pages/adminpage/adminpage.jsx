@@ -28,8 +28,11 @@ const AdminPage = ({ currentUser }) => {
                 <NavLink exact to="/Field3" activeClassName="selected" title="Field 3">
                   <h4>Field 3 Scheduling</h4>
                 </NavLink>
+                <NavLink exact to="/Preregistered" activeClassName="selected" title="Registered">
+                  <h4>2022 Preregistered Players</h4>
+                </NavLink>
                 <NavLink exact to="/Registered" activeClassName="selected" title="Registered">
-                  <h4>Preregistered Players</h4>
+                  <h4>Registered Players</h4>
                 </NavLink>
                 <NavLink exact to="/18URoster" activeClassName="selected" title="18URoster">
                   <h4>18U Team Roster</h4>
