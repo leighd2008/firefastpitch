@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { firestore } from "../../firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
 import CsvDownload from 'react-json-to-csv'
 
@@ -17,76 +16,13 @@ class Preregistered extends React.Component {
     this.state = {
       checked: true
     };
-
-    // this.checkboxHandler = this.checkboxHandler.bind(this);
-    // this.updateRoster = this.updateRoster.bind(this);
-
   }
 
-  // updateRoster = (players, players2, teamdiv, teamId) => {
-  //   let teamMembers = this.props.teamData[teamdiv].roster;
-  //   // let teamMembers2 = this.props.teamData[teamdiv].roster;
-    
-  //   let currentRoster = []
-    
-  //   this.props.teamData[teamdiv].roster.map((member, i) => {
-  //     return currentRoster.push(`${member.name} ${member.last}`)
-  //   })
-    
-  //   players.map((player, i) => {
-      
-  //     if (player.onTeam && teamdiv === `Fire${player.year || player.division}`) {
-  //       if (!currentRoster.includes(`${player.name} ${player.last}`)) {
-  //         player.jersey = '';
-  //         teamMembers.push(player)
-  //       }
-  //     } else {
-  //       if (currentRoster.includes(`${player.name} ${player.last}`)) {
-  //         teamMembers = teamMembers.filter(teamMembers => teamMembers.name!==player.name && teamMembers.last!==player.last)
-  //       }
-  //     }
-  //     return teamMembers;
-  //   }
-  //   )
-    
-    
-  //   firestore.collection("teams").doc(teamId).update({
-  //     roster: teamMembers,
-  //   })
-  // }
-
-  // checkboxHandler = (player, id) => (e) => {
-  //   let division = player.division
-  //   let year = player.year
-  //   let players = this.props.registrationData[division]['players']
-  //   // let players2 = this.props.registeredData['players']
-    
-  //   if (e.target.checked) {
-  //     players[id].onTeam = "yes";
-  //     // players2[id].onTeam = "yes";
-  //   } else {
-  //     players[id].onTeam = "";
-  //     // players2[id].onTeam = "";
-  //   }
-    
-  //   const divisionId = this.props.registrationData[division].id;
-  //   const teamdiv = `Fire${year || division}`
-  //   const teamId = this.props.teamData[teamdiv].id
-  //   firestore.collection("preregistration2022").doc(divisionId).update({
-  //     players: players,
-  //   })
-    // firestore.collection("registered").update({
-    //   players: players2,
-    // })
-  //   this.updateRoster(players, teamdiv, teamId);
-  // }
-
   render() {
-    const { registrationData, index, currentUser, division } = this.props;
+    const { registrationData, index } = this.props;
     const registrationDataArray = Object.entries(registrationData);
     
     registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
-    const divisionDataArray=[]
     
     return (
       <div>
