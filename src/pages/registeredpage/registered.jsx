@@ -52,11 +52,11 @@ class Registered extends React.Component {
     })
   }
 
-  checkboxHandler = (player, id) => (e) => {
+  checkboxHandler = (divisionDataArray, player, id) => (e) => {
     let division = player.division
     let year = player.year
-    let players = this.props.registeredData['players']
-    console.log(players)    
+    let players = this.props.registeredData.Registered.players
+    console.log(this.props.registeredData)    
     
     if (e.target.checked) {
       players[id].onTeam = "yes";
@@ -64,9 +64,10 @@ class Registered extends React.Component {
       players[id].onTeam = "";
     }
     
+    const ID = this.props.registeredData.Registered.id;
     const teamdiv = `Fire${year || division}`
     const teamId = this.props.teamData[teamdiv].id
-    firestore.collection("registered").update({
+    firestore.collection("registered").doc(ID).update({
       players: players,
     })
     this.updateRoster(players, teamdiv, teamId);
@@ -80,25 +81,30 @@ class Registered extends React.Component {
     registeredDataArray[0][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
     // registeredDataArray[0][1].players.sort((a, b) => b.Reg_year - a.Reg_year)
     
-    registeredDataArray[0][1].players.map((player) => {
+    registeredDataArray[0][1].players.map((player, i) => {
       if (division === "10U") {
         if (player.year >= 2012) {
+          player.id=i;
           divisionDataArray.push(player);
         }
       } else if (division === "12U") {
         if (player.year == 2010 || player.year == 2011 ) {
+          player.id=i;
           divisionDataArray.push(player);
         }
       } else if (division === "14U") {
         if (player.year == 2008 || player.year == 2009 ) {
+          player.id=i;
           divisionDataArray.push(player);
         }
       } else if (division === "16U") {
         if (player.year == 2006 || player.year == 2007 ) {
+          player.id=i;
           divisionDataArray.push(player);
         }
       } else if (division === "18U") {
         if (player.year == 2004 || player.year == 2005 ) {
+          player.id=i;
           divisionDataArray.push(player);
         }
       }
@@ -115,9 +121,9 @@ class Registered extends React.Component {
             minWidth: "60vw"
           }}
         >
-          <CardTitle tag="h1">
-            {`Registered Players: ${division} Division`}
-            <h2>Click on player's name to view parent contact information</h2>
+          <CardTitle>
+          <h1 className='tc'>{`Registered Players: ${division} Division`}</h1>
+          <h4 className='tc'>Click on player's name to view parent contact information</h4>
           </CardTitle>
           <table className="f6 w-100 mw8 center pa4 ma2">
             <thead>
@@ -157,7 +163,7 @@ class Registered extends React.Component {
                     <td>{player.coaching}</td>
                   {currentUser.role === "admin" ?
                     <td>
-                        <input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange={this.checkboxHandler(player, i)} /></td>
+                        <input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange={this.checkboxHandler(divisionDataArray, player, player.id)} /></td>
                       : <td>{player.onTeam}</td> }
                   </tr>
                 );
