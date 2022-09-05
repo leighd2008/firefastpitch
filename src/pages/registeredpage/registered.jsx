@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import { connect } from "react-redux";
 import { firestore } from "../../firebase/firebase.utils";
@@ -74,13 +75,14 @@ class Registered extends React.Component {
   }
 
   render() {
-    const { registeredData, index, currentUser, division } = this.props;
+    const { registeredData, currentUser, division } = this.props;
     const registeredDataArray = Object.entries(registeredData);
     
     const divisionDataArray=[]
     registeredDataArray[0][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
     // registeredDataArray[0][1].players.sort((a, b) => b.Reg_year - a.Reg_year)
     
+    // eslint-disable-next-line array-callback-return
     registeredDataArray[0][1].players.map((player, i) => {
       if (division === "10U") {
         if (player.year >= 2012) {
