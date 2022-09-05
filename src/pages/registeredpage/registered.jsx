@@ -5,7 +5,6 @@ import { createStructuredSelector } from "reselect";
 import CsvDownload from 'react-json-to-csv'
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { selectRegistrationData } from "../../redux/registration/registration.selectors";
 import { selectRegisteredData } from "../../redux/registration/registration.selectors";
 import { selectTeamData } from "../../redux/team/team.selectors";
 
@@ -24,10 +23,8 @@ class Registered extends React.Component {
 
   }
 
-  updateRoster = (players, players2, teamdiv, teamId) => {
+  updateRoster = (players, teamdiv, teamId) => {
     let teamMembers = this.props.teamData[teamdiv].roster;
-    // let teamMembers2 = this.props.teamData[teamdiv].roster;
-    
     let currentRoster = []
     
     this.props.teamData[teamdiv].roster.map((member, i) => {
@@ -50,30 +47,6 @@ class Registered extends React.Component {
     }
     )
     
-    // let currentRoster2 = []
-    
-    // this.props.teamData[teamdiv].roster.map((member, i) => {
-    //   return currentRoster2.push(`${member.name} ${member.last}`)
-    // })
-
-    // players.map((player, i) => {
-      
-    //   if (player.onTeam && teamdiv === `Fire${player.year || player.division}`) {
-    //     if (!currentRoster2.includes(`${player.name} ${player.last}`)) {
-    //       player.jersey = '';
-    //       teamMembers2.push(player)
-    //     }
-    //   } else {
-    //     if (currentRoster2.includes(`${player.name} ${player.last}`)) {
-    //       teamMembers2 = teamMembers2.filter(teamMembers2 => teamMembers2.name!==player.name && teamMembers2.last!==player.last)
-    //     }
-    //   }
-    //   return teamMembers2;
-    //   }
-    // )
-    console.log(teamMembers)
-    // console.log(teamMembers2)
-    
     firestore.collection("teams").doc(teamId).update({
       roster: teamMembers,
     })
@@ -82,35 +55,27 @@ class Registered extends React.Component {
   checkboxHandler = (player, id) => (e) => {
     let division = player.division
     let year = player.year
-    let players = this.props.registrationData[division]['players']
-    // let players2 = this.props.registeredData['players']
+    let players = this.props.registeredData['players']
+    console.log(players)    
     
     if (e.target.checked) {
       players[id].onTeam = "yes";
-      // players2[id].onTeam = "yes";
     } else {
       players[id].onTeam = "";
-      // players2[id].onTeam = "";
     }
     
-    const divisionId = this.props.registrationData[division].id;
     const teamdiv = `Fire${year || division}`
     const teamId = this.props.teamData[teamdiv].id
-    firestore.collection("preregistration2022").doc(divisionId).update({
+    firestore.collection("registered").update({
       players: players,
     })
-    // firestore.collection("registered").update({
-    //   players: players2,
-    // })
     this.updateRoster(players, teamdiv, teamId);
   }
 
   render() {
-    const { registrationData, registeredData, index, currentUser, division } = this.props;
-    const registrationDataArray = Object.entries(registrationData);
+    const { registeredData, index, currentUser, division } = this.props;
     const registeredDataArray = Object.entries(registeredData);
     
-    registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
     const divisionDataArray=[]
     registeredDataArray[0][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
     // registeredDataArray[0][1].players.sort((a, b) => b.Reg_year - a.Reg_year)
@@ -151,73 +116,15 @@ class Registered extends React.Component {
           }}
         >
           <CardTitle tag="h1">
-            {`Registered Players: ${registrationDataArray[index][1].title} Division`}
-            <h4>Click on player's name to view parent contact information</h4>
-          </CardTitle>
-          <table className="f6 w-100 mw8 center pa4 ma2">
-            <thead>
-              <tr >
-                <th>Tryout Number</th>
-                <th>Attended</th>
-                <th>Session</th>
-                <th>Name</th>
-                <th>Previous Experience</th>
-                <th>DOB</th>
-                <th>Positions</th>
-                <th>Bats</th>
-                <th>Throws</th>
-                <th>Coaching Interest</th>
-                <th>On Team</th>
-              </tr>
-            </thead>
-            <tbody>
-              {registrationDataArray[index][1].players.map((player, i) => {
-                player.positions ? player.positions = player.positions.toString() : player.positions = ''
-                return (
-                  <tr className="stripe-dark"  key={i}>
-                    <td>{`${player.tryout || ''}`}</td>
-                    <td>{`${player.attended || ''}`}</td>
-                    <td>{`${player.session || ''}`}</td>
-                    <td onClick={(e) => {
-                      alert(`${player.name} ${player.last} email: ${player.email || ''} \n ${player.parent1} \n phone: ${player.parent1phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")} \n email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n phone: ${player.parent2phone ? player.parent2phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3") : ""} \n email: ${player.parent2email || ""} `)
-                    }}>{`${player.name || ''} ${player.last || ''}`}</td>
-
-                    <td>{player.previous}</td>
-                    <td>{player.DOB}</td>
-                    <td>{player.positions}</td>
-                    <td>{player.bats}</td>
-                    <td>{player.throws}</td>
-                    <td>{player.coaching}</td>
-                  {currentUser.role === "admin" ?
-                    <td>
-                        <input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange={this.checkboxHandler(player, i)} /></td>
-                      : <td>{player.onTeam}</td> }
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          <CsvDownload data={registrationDataArray[index][1].players} />
-        </Card>
-        <Card
-          className="ma0 registered"
-          style={{
-            backgroundColor: "#rgb(194, 198, 202)",
-            borderColor: "red",
-            borderWidth: "4px",
-            minWidth: "60vw"
-          }}
-        >
-          <CardTitle tag="h1">
-            {`Registered Players: ${registrationDataArray[index][1].title} Division`}
+            {`Registered Players: ${division} Division`}
             <h2>Click on player's name to view parent contact information</h2>
           </CardTitle>
           <table className="f6 w-100 mw8 center pa4 ma2">
             <thead>
               <tr >
-                <th>Tryout Number</th>
+                {/* <th>Tryout Number</th>
                 <th>Attended</th>
-                <th>Session</th>
+                <th>Session</th> */}
                 <th>Registration year</th>
                 <th>Name</th>
                 <th>Previous Experience</th>
@@ -234,9 +141,9 @@ class Registered extends React.Component {
                 player.positions ? player.positions = player.positions.toString() : player.positions = ''
                 return (
                   <tr className="stripe-dark"  key={i}>
-                    <td>{`${player.tryout || ''}`}</td>
+                    {/* <td>{`${player.tryout || ''}`}</td>
                     <td>{`${player.attended || ''}`}</td>
-                    <td>{`${player.session || ''}`}</td>
+                    <td>{`${player.session || ''}`}</td> */}
                     <td>{`${player.Reg_year || ''}`}</td>
                     <td onClick={(e) => {
                       alert(`${player.name} ${player.last} email: ${player.email || ''} \n ${player.parent1} \n phone: ${player.parent1phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")} \n email: ${player.parent1email || ''} \n ${player.parent2 || ""}\n phone: ${player.parent2phone ? player.parent2phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3") : ""} \n email: ${player.parent2email || ""} `)
@@ -257,7 +164,7 @@ class Registered extends React.Component {
               })}
             </tbody>
           </table>
-          <CsvDownload data={registrationDataArray[index][1].players} />
+          <CsvDownload data={divisionDataArray} />
         </Card>
       </div>
     );
@@ -265,7 +172,6 @@ class Registered extends React.Component {
 };
 
 const mapStateToProps = createStructuredSelector({
-  registrationData: selectRegistrationData,
   registeredData: selectRegisteredData,
   teamData: selectTeamData,
   currentUser: selectCurrentUser

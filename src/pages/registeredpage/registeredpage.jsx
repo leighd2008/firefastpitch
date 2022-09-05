@@ -6,7 +6,7 @@ import './registeredPage.scss'
 const RegisteredPage = () => {
   return (
     <div>
-      <h4 class="tc">This page displays new registrations for 2022, click here to view all registered players</h4>
+      <h4 class="tc">This page displays all registered players, click here to view new registrations for 2022</h4>
       <Registered index={2} division={'10U'} />
       <br />
       <Registered index={1} division={'12U'} />

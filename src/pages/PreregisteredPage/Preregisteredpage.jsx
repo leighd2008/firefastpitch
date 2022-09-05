@@ -1,7 +1,7 @@
 import React from 'react';
-import Registered from "./registered";
+import Registered from "./Preregistered";
 
-import './registeredPage.scss'
+import './PreregisteredPage.scss'
 
 const RegisteredPage = () => {
   return (
