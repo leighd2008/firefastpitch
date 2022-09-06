@@ -6,6 +6,8 @@ import { firestore } from "../../firebase/firebase.utils";
 
 import { createStructuredSelector } from "reselect";
 import { selectRegistrationData } from "../../redux/registration/registration.selectors"
+import { selectRegisteredData } from "../../redux/registration/registration.selectors";
+
 
 import './preregistrationpage.scss'
 
@@ -341,7 +343,10 @@ class PreregistrationPage extends React.Component {
     let player = survey.data;
     player.onTeam = '';
     player.tryout = '';
-    // player.year = player.DOB.getFullYear();
+    player.Reg_year = '2022';
+    let birthdate = new Date(player.DOB);
+    player.year = birthdate.getYear() + 1900;
+    
     let division = player.division;
 
     // eslint-disable-next-line no-restricted-globals
@@ -350,10 +355,18 @@ class PreregistrationPage extends React.Component {
         player,
         ...this.props.registrationData[division].players
       ];
+      let newplayers2 = [
+        player,
+        ...this.props.registeredData.Registered.players
+      ];
 
       const divisionId = this.props.registrationData[division].id;
       firestore.collection("preregistration2022").doc(divisionId).update({
         players: newplayers,
+      });
+      const ID = this.props.registeredData.Registered.id;
+      firestore.collection("registered").doc(ID).update({
+        players: newplayers2,
       })
         .then(response => {
           alert(`Your registration has been submitted `)
@@ -376,6 +389,7 @@ class PreregistrationPage extends React.Component {
 };
 
 const mapStateToProps = createStructuredSelector({
+  registeredData: selectRegisteredData,
   registrationData: selectRegistrationData
 })
 

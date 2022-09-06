@@ -57,7 +57,6 @@ class Registered extends React.Component {
     let division = player.division
     let year = player.year
     let players = this.props.registeredData.Registered.players
-    console.log(this.props.registeredData)    
     
     if (e.target.checked) {
       players[id].onTeam = "yes";
