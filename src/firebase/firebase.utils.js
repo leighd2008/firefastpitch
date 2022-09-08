@@ -176,9 +176,41 @@ export const convertCollectionsSnapshotToMap4 = registered => {
   }, {});
 };
 
+export const storage = firebase.storage();
+const listItems = []
+storage.ref().child('tourneyWins/').listAll().then(res => {
+  if (res.items && res.items.length > 0) {
+    res.items.forEach(item => {
+      item.getDownloadURL().then(url => {
+        listItems.push(url)
+      })
+    })
+  }
+})
+.catch(err => {
+  alert(err.message);
+})
+
+export const tournyWinsList = listItems
+
+const listItems2 = []
+storage.ref().child('homeruns/').listAll().then(res => {
+  if (res.items && res.items.length > 0) {
+    res.items.forEach(item => {
+      item.getDownloadURL().then(url => {
+        listItems2.push(url)
+      })
+    })
+  }
+})
+.catch(err => {
+  alert(err.message);
+})
+
+export const homerunsList = listItems2
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
-export const storage = firebase.storage();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });

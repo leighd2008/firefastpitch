@@ -1,16 +1,14 @@
 import React from "react";
 import Carousel from '../carousel/carousel';
-
-import { imgUrls } from './images';
-
-
+import { tournyWinsList } from "../../firebase/firebase.utils";
 
 import "./tourneyWins.scss";
 
 const TourneyWins = () => {
+   
   return (
     <div className="tourneyWins">
-      <Carousel imgUrls={imgUrls} />
+      <Carousel imgUrls={tournyWinsList} />
       <div className="subtitle">
         <h1>
           When It All Comes Together!
