@@ -11,17 +11,28 @@ const RegisteredPage = (registeredData) => {
     const registeredDataArray = Object.entries(registeredData);
   return (
     <div>
-    {console.log(registeredDataArray[0][1].Registered.players)}
       <h4 className="tc">This page displays all registered players, click here to view new registrations for 2022</h4>
-      <Registered index={2} division={'10U'} />
+      <Registered index={2} year={2014} />
       <br />
-      <Registered index={1} division={'12U'} />
+      <Registered index={1} year={2013} />
       <br />
-      <Registered index={4} division={'14U'} />
+      <Registered index={4} year={2012} />
       <br />
-      <Registered index={3} division={'16U'}/>
+      <Registered index={3} year={2011}/>
       <br />
-      <Registered index={0} division={'18U'}/>
+      <Registered index={0} year={2010}/>
+      <br />
+      <Registered index={0} year={2009}/>
+      <br />
+      <Registered index={0} year={2008}/>
+      <br />
+      <Registered index={0} year={2007}/>
+      <br />
+      <Registered index={0} year={2006}/>
+      <br />
+      <Registered index={0} year={2005}/>
+      <br />
+      <Registered index={0} year={2004}/>
       <br />
       <h4>All registered players</h4>
       <CsvDownload data={registeredDataArray[0][1].Registered.players} />

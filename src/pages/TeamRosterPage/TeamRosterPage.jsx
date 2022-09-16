@@ -22,10 +22,10 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
     toggleBCModal()
   }
 
-  const handleRCClick = (e, playerIndex) => {
-    setplayerIndex(playerIndex)
-    toggleRCModal()
-  }
+  // const handleRCClick = (e, playerIndex) => {
+  //   setplayerIndex(playerIndex)
+  //   toggleRCModal()
+  // }
 
   const teamDataArray = Object.entries(teamData);
 
@@ -45,7 +45,7 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
           borderColor: "red",
           borderWidth: "4px",
           minWidth: "60vw",
-          maxHeight: "80vh"
+          maxHeight: "90vh"
         }}
       >
         <CardTitle tag="h1">
@@ -56,14 +56,14 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
             <Row >
               <Cell>Name</Cell>
               <Cell>Jersey Number</Cell>
-              <Cell>1st Qtr Report Card</Cell>
+              {/* <Cell>1st Qtr Report Card</Cell> */}
               {/* <Cell>2cnd Qtr Report Card</Cell> */}
               {/* <Cell>3rd Qtr Report Card</Cell> */}
               {/* <Cell>4th Qtr Report Card</Cell> */}
               <Cell>Birth Certificate</Cell>
-              <Cell>T_Shirt Size</Cell>
+              {/* <Cell>T_Shirt Size</Cell>
               <Cell>Helmet Size</Cell>
-              <Cell>Pant Size</Cell>
+              <Cell>Pant Size</Cell> */}
               <Cell>DOB</Cell>
               <Cell>Parent_1</Cell>
               <Cell>Parent 1 Email</Cell>
@@ -79,12 +79,12 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
                   <Row className="stripe-dark" key={i}>
                     <Cell >{`${player.name || ''} ${player.last || ''}`}</Cell>
                     <Cell>{`${player.jersey || ''}`}</Cell>
-                    {player.reportCard1 ?
+                    {/* {player.reportCard1 ?
                       (<Cell onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard1} alt="Report Card" />
                       </Cell>) :
                       <Cell>Not on File</Cell>
-                    }
+                    } */}
                     {/* {player.reportCard2 ?
                       (<Cell onClick={e => handleRCClick(e, playerIndex)}>
                         <img className='fileImage' src={player.reportCard2} alt="Report Card" />
@@ -113,9 +113,9 @@ const TeamRoster = ({ index, teamData, toggleBCModal, bcShowing, toggleRCModal, 
                        :
                       <Cell>Not On File</Cell>
                     }
-                    <Cell className='size'>{player.tshirt_size || ''}</Cell>
+                    {/* <Cell className='size'>{player.tshirt_size || ''}</Cell>
                     <Cell className='size'>{player.helmet_size || ''}</Cell>
-                    <Cell className='size'>{player.pant_size || ''}</Cell>
+                    <Cell className='size'>{player.pant_size || ''}</Cell> */}
                     <Cell>{player.DOB}</Cell>
                     <Cell>{player.parent1}</Cell>
                     <Cell>{player.parent1email}</Cell>

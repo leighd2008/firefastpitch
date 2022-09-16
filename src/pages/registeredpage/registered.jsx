@@ -53,11 +53,10 @@ class Registered extends React.Component {
     })
   }
 
-  checkboxHandler = (divisionDataArray, player, id) => (e) => {
+  checkboxHandler = (player, id) => (e) => {
     let division = player.division
     let year = player.year
     let players = this.props.registeredData.Registered.players
-    
     if (e.target.checked) {
       players[id].onTeam = "yes";
     } else {
@@ -74,41 +73,20 @@ class Registered extends React.Component {
   }
 
   render() {
-    const { registeredData, currentUser, division } = this.props;
+    const { registeredData, currentUser, year } = this.props;
     const registeredDataArray = Object.entries(registeredData);
     
     const divisionDataArray=[]
     registeredDataArray[0][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
-    // registeredDataArray[0][1].players.sort((a, b) => b.Reg_year - a.Reg_year)
     
     // eslint-disable-next-line array-callback-return
     registeredDataArray[0][1].players.map((player, i) => {
-      if (division === "10U") {
-        if (player.year >= 2012) {
+      let birthdate = new Date(player.DOB);
+      let birthyear = birthdate.getYear() + 1900;
+      if (year === birthyear ) {
           player.id=i;
           divisionDataArray.push(player);
         }
-      } else if (division === "12U") {
-        if (player.year == 2010 || player.year == 2011 ) {
-          player.id=i;
-          divisionDataArray.push(player);
-        }
-      } else if (division === "14U") {
-        if (player.year == 2008 || player.year == 2009 ) {
-          player.id=i;
-          divisionDataArray.push(player);
-        }
-      } else if (division === "16U") {
-        if (player.year == 2006 || player.year == 2007 ) {
-          player.id=i;
-          divisionDataArray.push(player);
-        }
-      } else if (division === "18U") {
-        if (player.year == 2004 || player.year == 2005 ) {
-          player.id=i;
-          divisionDataArray.push(player);
-        }
-      }
     }) 
 
     return (
@@ -123,7 +101,7 @@ class Registered extends React.Component {
           }}
         >
           <CardTitle>
-          <h1 className='tc'>{`Registered Players: ${division} Division`}</h1>
+          <h1 className='tc'>{`Registered Players: ${year}`}</h1>
           <h4 className='tc'>Click on player's name to view parent contact information</h4>
           </CardTitle>
           <table className="f6 w-100 mw8 center pa4 ma2">
@@ -164,7 +142,7 @@ class Registered extends React.Component {
                     <td>{player.coaching}</td>
                   {currentUser.role === "admin" ?
                     <td>
-                        <input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange={this.checkboxHandler(divisionDataArray, player, player.id)} /></td>
+                        <input type="checkbox" division={player.division} id={`${i}`} defaultChecked={player.onTeam} onChange={this.checkboxHandler(player, player.id)} /></td>
                       : <td>{player.onTeam}</td> }
                   </tr>
                 );

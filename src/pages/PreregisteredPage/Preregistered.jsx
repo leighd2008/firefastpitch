@@ -4,7 +4,9 @@ import { createStructuredSelector } from "reselect";
 import CsvDownload from 'react-json-to-csv'
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { selectRegistrationData } from "../../redux/registration/registration.selectors";
+// import { selectRegistrationData } from "../../redux/registration/registration.selectors";
+import { selectRegisteredData } from "../../redux/registration/registration.selectors";
+
 import { selectTeamData } from "../../redux/team/team.selectors";
 
 import { Card, CardTitle } from "reactstrap";
@@ -19,10 +21,24 @@ class Preregistered extends React.Component {
   }
 
   render() {
-    const { registrationData, index } = this.props;
-    const registrationDataArray = Object.entries(registrationData);
+    const { registeredData, /*registrationData, index,*/ year } = this.props;
+    // const registrationDataArray = Object.entries(registrationData);
+    const registeredDataArray = Object.entries(registeredData);
     
-    registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
+    // registrationDataArray[index][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
+    const divisionDataArray=[]
+    registeredDataArray[0][1].players.sort((a, b) => new Date(b.DOB) - new Date(a.DOB))
+    
+    registeredDataArray[0][1].players.map((player, i) => {
+      let birthdate = new Date(player.DOB);
+      let birthyear = birthdate.getYear() + 1900;
+      if (player.Reg_year === '2022') {
+        if (year === birthyear ) {
+            player.id=i;
+            divisionDataArray.push(player);
+          }
+        }
+    })
     
     return (
       <div>
@@ -36,7 +52,7 @@ class Preregistered extends React.Component {
           }}
         >
           <CardTitle tag="h1">
-            {`Preregistered Players: ${registrationDataArray[index][1].title} Division`}
+            {`Preregistered Players: ${year}`}
             <h4>Click on player's name to view parent contact information</h4>
           </CardTitle>
           <table className="f6 w-100 mw8 center pa4 ma2">
@@ -55,7 +71,7 @@ class Preregistered extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {registrationDataArray[index][1].players.map((player, i) => {
+              {divisionDataArray.map((player, i) => {
                 player.positions ? player.positions = player.positions.toString() : player.positions = ''
                 return (
                   <tr className="stripe-dark"  key={i}>
@@ -77,7 +93,7 @@ class Preregistered extends React.Component {
               })}
             </tbody>
           </table>
-          <CsvDownload data={registrationDataArray[index][1].players} />
+          <CsvDownload data={divisionDataArray} />
         </Card>
       </div>
     );
@@ -85,7 +101,8 @@ class Preregistered extends React.Component {
 };
 
 const mapStateToProps = createStructuredSelector({
-  registrationData: selectRegistrationData,
+  // registrationData: selectRegistrationData,
+  registeredData: selectRegisteredData,
   teamData: selectTeamData,
   currentUser: selectCurrentUser
 })
