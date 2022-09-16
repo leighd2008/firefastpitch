@@ -64,19 +64,19 @@ class MembersOnlyLogin extends React.Component {
 
     if (fffpassword === 'Fire12Famil') {
     this.setState({ email: '12@fire.com' })
-    } else if (fffpassword === 'Fire11Famil') {
+    } else if (fffpassword === 'Fire11Family') {
       this.setState({ email: '11@fire.com' })
-    } else if (fffpassword === 'Fire10Famil') {
+    } else if (fffpassword === 'Fire10Family') {
       this.setState({ email: '10@fire.com' })
-    } else if (fffpassword === 'Fire09Famil') {
+    } else if (fffpassword === 'Fire09Family') {
       this.setState({ email: '09@fire.com' })
-    } else if (fffpassword === 'Fire08Famil') {
+    } else if (fffpassword === 'Fire08Family') {
       this.setState({ email: '08@fire.com' })
-    } else if (fffpassword === 'Fire07Famil') {
+    } else if (fffpassword === 'Fire07Family') {
       this.setState({ email: '07@fire.com' })
-    } else if (fffpassword === 'Fire16UFamil') {
+    } else if (fffpassword === 'Fire16UFamily') {
       this.setState({ email: '16u@fire.com' })
-    } else if (fffpassword === 'Fire18UFamil') {
+    } else if (fffpassword === 'Fire18UFamily') {
       this.setState({ email: '18u@fire.com' })
     }
 
