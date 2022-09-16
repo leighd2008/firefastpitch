@@ -12,6 +12,7 @@ import "./teamPage.scss";
 
 const TeamPage = ({ eventurls, teamname, title, teamData }) => {
   const team = teamData[title];
+  console.log(teamData)
   const teamName = `${team.teamName}`;
   const location = `${team.location}`;
   const eventboard = team.eventUrls;
