@@ -40,7 +40,6 @@ const json = {
           "name": "zipcode",
           "title": "Zip Code",
           "isRequired": true,
-          "requiredErrorText": "Please enter a valid phone number.",
           "validators": [
             {
               "type": "numeric"
