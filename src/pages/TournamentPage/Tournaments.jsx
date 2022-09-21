@@ -16,7 +16,7 @@ const Tournaments = ({ index, teamData }) => {
   
   return (
     <Card
-      className="ma0 roster"
+      className="ma0 tournaments"
       style={{
         backgroundColor: "#rgb(194, 198, 202)",
         borderColor: "red",
