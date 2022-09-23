@@ -63,7 +63,8 @@ const AdminPage = ({ currentUser }) => {
             <CoachesContact />
           </div>
           {currentUser.role === "admin" ?
-            <ResetTournaments/> : null }
+            <ResetTournaments/> 
+            : null }
         </div>
       ) : (
         // alert('The account you entered is not an Admin Account')

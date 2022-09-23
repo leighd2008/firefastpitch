@@ -10,9 +10,9 @@ import "./homepage.scss";
 const HomePage = () => (
   <div className="homepage">
     <TourneyWins />
+    <Celebrate />
     <Recruiting />
     <Teams />
-    <Celebrate />
   </div>
 );
 
