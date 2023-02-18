@@ -4,5 +4,9 @@
   },
   "ACReactComponentGenerator.indexFile.create": false,
   "ACReactComponentGenerator.styleFile.type": "sass (.scss)",
-  "ACReactComponentGenerator.styleFile.suffix": ""
+  "ACReactComponentGenerator.styleFile.suffix": "",
+  "cSpell.words": [
+    "tourn",
+    "Tourns"
+  ]
 }
