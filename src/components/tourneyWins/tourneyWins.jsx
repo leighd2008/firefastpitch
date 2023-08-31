@@ -1,8 +1,11 @@
 import React from "react";
 import Carousel from '../carousel/carousel';
-import { tournyWinsList } from "../../firebase/firebase.utils";
+// import { tournyWinsList } from "../../firebase/firebase.utils";
 
 import "./tourneyWins.scss";
+
+const images = require.context('../../assets/Tourney wins/')
+const tournyWinsList = images.keys().map(image => images(image));
 
 const TourneyWins = () => {
    

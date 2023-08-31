@@ -4,7 +4,7 @@ import { createStructuredSelector } from "reselect";
 import TeamEvents from "../../components/teamEvents/teamEvents";
 import Banner from "../../components/banner/banner";
 import { selectTeamData } from "../../redux/team/team.selectors";
-import Recruiting from "../../components/recruiting/recruiting";
+// import Recruiting from "../../components/recruiting/recruiting";
 import MembersOnlyLogin from "../../components/membersOnlyLogin/membersOnlyLogin";
 
 
@@ -16,16 +16,16 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
   const teamName = `${team.teamName}`;
   const location = `${team.location}`;
   const eventboard = team.eventUrls;
-  // const images = require.context("../../assets", true);
-  // let imgsrc = images(`./${team.teamPic}`);
-  let imgsrc = `${team.teamPic}`;
+  const images = require.context("../../assets/Team pics/", true);
+  let imgsrc = images(`./09_team.jpg`);
+  // let imgsrc = `${team.teamPic}`;
 
   const calendarLink = `${team.calendarLink}`;
   console.log(eventboard, eventurls, team.eventUrls)
 
   return (
     <div className="teampage">
-      <Recruiting />
+      {/* <Recruiting /> */}
       <Banner
         backgroundImage={imgsrc}
         teamName={teamName}

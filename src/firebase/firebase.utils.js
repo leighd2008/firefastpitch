@@ -10,7 +10,7 @@ const config = {
   projectId: "fire-fastpitch",
   storageBucket: "fire-fastpitch.appspot.com",
   messagingSenderId: "841247987879",
-  appId: "1:841247987879:web:61151c16457a5037ff6382"
+  appId: "1:841247987879:web:fdb8ca1d6afc534eff6382"
 };
 
 firebase.initializeApp(config);

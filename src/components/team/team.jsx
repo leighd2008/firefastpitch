@@ -5,7 +5,10 @@ import "./team.scss";
 
 const Team = ({ title, imageUrl, history, linkUrl, match }) => {
   // const images = require.context("../../assets", true);
-  let imgsrc = `${imageUrl}`;
+  // let imgsrc = `${imageUrl}`;
+  const images = require.context("../../assets/Team pics/", true);
+  let imgsrc = images(imageUrl);
+  
   return (
     <div
       className="team"
@@ -14,7 +17,7 @@ const Team = ({ title, imageUrl, history, linkUrl, match }) => {
       <div
         className="background-image"
         style={{
-          backgroundImage: `url(${imgsrc})`
+          backgroundImage: `url("${imgsrc}")`
         }}
       />
       <div className="team-name">
