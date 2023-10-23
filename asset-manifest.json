@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/firefastpitch/static/css/main.d7dd8f73.css",
-    "main.js": "/firefastpitch/static/js/main.c6ced53c.js",
+    "main.js": "/firefastpitch/static/js/main.2a0d9906.js",
     "static/media/DigitalRulebook_Cover_USA.pdf": "/firefastpitch/static/media/DigitalRulebook_Cover_USA.afff57f0a152ffb36a66.pdf",
     "static/media/ash-background-beautiful-216640.png": "/firefastpitch/static/media/ash-background-beautiful-216640.05a7675fb9b023853974.png",
     "static/media/Fastpitch_Rules_USSA.pdf": "/firefastpitch/static/media/Fastpitch_Rules_USSA.ed58ee3d72d9160aeebe.pdf",
@@ -40,10 +40,10 @@
     "static/media/arrow_right_hov.svg": "/firefastpitch/static/media/arrow_right_hov.6d8b5294b7cb5bad6755.svg",
     "static/media/tree_arrow.svg": "/firefastpitch/static/media/tree_arrow.ece45f84d7e6c54cc99e.svg",
     "main.d7dd8f73.css.map": "/firefastpitch/static/css/main.d7dd8f73.css.map",
-    "main.c6ced53c.js.map": "/firefastpitch/static/js/main.c6ced53c.js.map"
+    "main.2a0d9906.js.map": "/firefastpitch/static/js/main.2a0d9906.js.map"
   },
   "entrypoints": [
     "static/css/main.d7dd8f73.css",
-    "static/js/main.c6ced53c.js"
+    "static/js/main.2a0d9906.js"
   ]
 }
