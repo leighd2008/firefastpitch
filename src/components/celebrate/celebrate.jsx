@@ -1,11 +1,8 @@
 import React from "react";
 import Carousel from '../../components/carousel/carousel';
-// import { homerunsList } from "../../firebase/firebase.utils";
+import { homerunsList } from "../../firebase/firebase.utils";
 
 import "./celebrate.scss";
-
-const images = require.context('../../assets/Homeruns/', true)
-const homerunsList = images.keys().map(image => images(image));
 
 const Celebrate = () => {
   return (

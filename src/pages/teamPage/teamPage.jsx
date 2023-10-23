@@ -16,9 +16,8 @@ const TeamPage = ({ eventurls, teamname, title, teamData }) => {
   const teamName = `${team.teamName}`;
   const location = `${team.location}`;
   const eventboard = team.eventUrls;
-  const images = require.context("../../assets/Team pics/", true);
-  let imgsrc = images(`./09_team.jpg`);
-  // let imgsrc = `${team.teamPic}`;
+  
+  let imgsrc = `${team.teamPic}`;
 
   const calendarLink = `${team.calendarLink}`;
   console.log(eventboard, eventurls, team.eventUrls)

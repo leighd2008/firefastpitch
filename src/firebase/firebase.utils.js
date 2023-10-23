@@ -178,7 +178,7 @@ export const convertCollectionsSnapshotToMap4 = registered => {
 
 export const storage = firebase.storage();
 const listItems = []
-storage.ref().child('tourneyWins/').listAll().then(res => {
+storage.ref().child('Tourney wins/').listAll().then(res => {
   if (res.items && res.items.length > 0) {
     res.items.forEach(item => {
       item.getDownloadURL().then(url => {
@@ -194,7 +194,7 @@ storage.ref().child('tourneyWins/').listAll().then(res => {
 export const tournyWinsList = listItems
 
 const listItems2 = []
-storage.ref().child('homeruns/').listAll().then(res => {
+storage.ref().child('Homeruns/').listAll().then(res => {
   if (res.items && res.items.length > 0) {
     res.items.forEach(item => {
       item.getDownloadURL().then(url => {

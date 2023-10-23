@@ -2,57 +2,49 @@ const INITIAL_STATE = {
   teams: [
     {
       title: "Fire 18U",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F18U_team.jpg?alt=media&token=ef057099-35b3-4e28-95d3-a75de0dd3187",
-      imageUrl: "./18U_team.jpg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F18U_team.jpg?alt=media&token=03814d63-ee1e-49ec-aa19-177b97fd81bc&_gl=1*nuhoft*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMS4xNjk4MDYyNTk0LjU2LjAuMA..",
       id: 4,
       linkUrl: "Fire18U"
     },
     {
       title: "Fire 16U",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F16_Team.jpeg?alt=media&token=b853b5a4-cdb5-49b4-a187-b64109e62653",
-      imageUrl: "./16_Team.jpeg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F16_Team.jpeg?alt=media&token=e667a906-f4a9-4455-ade3-77de49a2356c&_gl=1*1ms05xg*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMS4xNjk4MDYzMTk5LjUxLjAuMA..",
       id: 3,
       linkUrl: "Fire16U"
     },
     {
       title: "Fire 2007",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F07_team.jpg?alt=media&token=52721f9e-592b-41d3-9775-0c59efae56cb",
-      imageUrl: "./07_team.jpg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F07_team.jpg?alt=media&token=696961a9-1a13-4e46-b2c1-a9eb31ba6a9b&_gl=1*1au7hbq*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMC4w",
       id: 5,
       linkUrl: "Fire2007"
     },
     {
       title: "Fire 2008",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F08_Team.jpg?alt=media&token=788c6b61-1bb4-4824-9878-e44b975d6699",
-      imageUrl: "./08_Team.jpg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F08_Team.jpg?alt=media&token=b47ab199-f30b-4896-9e7f-473c7b4242bf&_gl=1*1en47zp*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMS4xNjk4MDYzMjc2LjYwLjAuMA..",
       id: 1,
       linkUrl: "Fire2008"
     },
     {
       title: "Fire 2009",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F09_team.jpg?alt=media&token=e5305f7e-2cec-403d-9bc9-8bce39a2d0c6",
-      imageUrl: "./09_team.jpg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F09_team.jpg?alt=media&token=36c51de6-9c31-4f3e-a0fb-d61430a4b671&_gl=1*y36kb0*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMS4xNjk4MDYzMzAyLjM0LjAuMA..",
       id: 2,
       linkUrl: "Fire2009"
     },
     {
       title: "Fire 2010",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F10_team.jpg?alt=media&token=4cd42aa8-72a3-4d44-ac9c-52b8be68fd1f",
-      imageUrl: "./10_team.jpg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F10_team.jpg?alt=media&token=7cd773b5-2706-4339-a2cf-4f7d07657d81&_gl=1*ov3f1*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMS4xNjk4MDYzMzM0LjIuMC4w",
       id: 6,
       linkUrl: "Fire2010"
     },
     {
       title: "Fire 2011",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F11_team.jpg?alt=media&token=16d63e87-0e53-4c4f-8504-ddd391221702",
-      imageUrl: "./11_team.jpg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F11_team.jpg?alt=media&token=4cf70919-96c2-41c3-aec4-67a8fe990205&_gl=1*tx014i*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMS4xNjk4MDYzMzU4LjYwLjAuMA..",
       id: 7,
       linkUrl: "Fire2011"
     },
     {
       title: "Fire 2012",
-      // imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F12_team.jpg?alt=media&token=baa7d286-6aa8-4b70-b0e2-a64cf76d899f",
-      imageUrl: "./12_team.jpg",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/fire-fastpitch.appspot.com/o/teamPics%2F12_team.jpg?alt=media&token=2b91bea5-037f-463a-9358-3aa1dcb2ce12&_gl=1*1k3eqhk*_ga*MTcxNDQyMjU5MS4xNjc2MjQzMzc4*_ga_CW55HF8NVT*MTY5ODA1OTg4NC4xNTUuMS4xNjk4MDYzMzg0LjM0LjAuMA..",
       id: 8,
       linkUrl: "Fire2012"
     }
