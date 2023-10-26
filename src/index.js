@@ -14,14 +14,15 @@ import "tachyons";
 
 import { store, persistor } from "./redux/store";
 import * as serviceWorker from "./serviceWorker";
+import { HashRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById("root")
 );

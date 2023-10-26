@@ -2,7 +2,7 @@
   "name": "firefastpitch",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://leighd2008.github.io/react-gh-pages",
+  "homepage": "https://leighd2008.github.io/firefastpitch",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
