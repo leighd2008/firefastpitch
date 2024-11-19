@@ -12,7 +12,7 @@
     "caniuse-lite": "^1.0.30001407",
     "dhtmlx-scheduler": "^5.3.9",
     "export-from-json": "^1.7.0",
-    "firebase": "^9.10.0",
+    "firebase": "^10.9.0",
     "font-awesome": "^4.7.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
